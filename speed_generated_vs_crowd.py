@@ -16,6 +16,7 @@ import os
 import polars as pl
 
 import common
+import readme_figures
 from utils.plotting.crossings import Crossings
 
 # Bars per city, in this order, with the reference palette's first three categorical colours.
@@ -44,6 +45,7 @@ def main() -> None:
     parser.add_argument("--generated", default=os.path.join(common.get_output_dir(), "generated_speed_by_city.csv"))
     parser.add_argument("--videos", default=os.path.join(common.root_dir, "data", "generated_videos.csv"))
     parser.add_argument("--pdf", help="also write the figure as PDF to this path (e.g. the paper's figures folder)")
+    parser.add_argument("--readme", action="store_true", help="also export the figure to readme/")
     args = parser.parse_args()
 
     speeds = [read_speeds(args.crowd, "crowd")]
@@ -57,6 +59,8 @@ def main() -> None:
     fig = Crossings().speed_sources_per_city(pl.concat(speeds), videos, SOURCES, "speed_generated_vs_crowd")
     if args.pdf:
         fig.write_image(args.pdf, width=1000, height=fig.layout.height)
+    if args.readme:
+        readme_figures.save(fig, "speed_generated_vs_crowd", width=1000, height=fig.layout.height)
 
 
 if __name__ == "__main__":

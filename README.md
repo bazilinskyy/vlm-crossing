@@ -78,6 +78,8 @@ Drive refuses anonymous downloads after a few hundred files. Then download the f
 
 `speed_generated_vs_crowd.py` draws the median crossing speed per city with one bar each for CROWD (crowd-city's `crowd_crossing_speed_by_city.csv`, `--crowd`), Veo 3 and MiniMax H3 (the same table per model with a `model` column, `--generated`; cities without a value get no bar), and `--pdf` writes a copy for the paper.
 
+`appearance_analysis.py --mapping <crowd>/mapping.csv` measures with CLIP how well each generated video keeps the look of its city (see [Generated videos and CROWD](#generated-videos-and-crowd)) and draws the map of the cities. It needs `open_clip_torch` besides this project's packages; embeddings are cached in `_output/appearance/`, so a rerun only embeds new videos. Both scripts take `--readme` to refresh their figures in `readme/`.
+
 ## Method
 
 All of this is crowd-city's code; see its README for the details.
@@ -158,6 +160,56 @@ Click a figure to open its interactive version. The interactive figures are disp
 [![Crossing time](readme/box_crossing_time_s.png)](https://htmlpreview.github.io/?https://github.com/Shaadalam9/vlm_crossing/blob/main/readme/box_crossing_time_s.html)
 
 The figures in `readme/` are refreshed from the latest results with `uv run python readme_figures.py`.
+
+## Generated videos and CROWD
+
+The paper asks whether video generators reproduce the crossing behaviour of a city or only its look. Frames of real crossings from CROWD were continued as 8-second clips by two image-to-video models with one prompt that does not name the place, and the same pipeline measures crossing speed in the generated clips and in CROWD. Numbers below are as of 2 November 2026; generation with MiniMax H3 continues towards 100 cities.
+
+| Model | Videos | Cities | Resolution | Frame rate | Not used |
+|---|---|---|---|---|---|
+| Veo 3.1 Fast (Tanvir) | 109 | 30 (10 with 5-11 videos, 20 with one) | 1920×1080 | 24 fps | 16 prompt tests |
+| MiniMax H3 (Zi, 6 steps on an RTX 4090) | 717 | 69 in 39 countries (9-15 each) | 864×480 | 24 fps | 56 clips Zi left out; 100 settings benchmark clips (MiniMax H3 and LTX 2.3) |
+
+All 30 Veo cities also have MiniMax videos. CROWD's reference values come from crowd-city's run over the 100 cities with the most footage (cars only, footage in a fixed random order until 100 crossings or 100 hours per city); Seattle has no crossing in it.
+
+**The cities**: grey ones have only CROWD values so far.
+
+[![Map of the cities](readme/map_cities.png)](https://htmlpreview.github.io/?https://github.com/bazilinskyy/vlm-crossing/blob/main/readme/map_cities.html)
+
+**Crossing speed per city** (placeholder): the CROWD bars are from crowd-city's run of 8 October 2026, made before the repair of the tracking files, and the generated videos have not been tracked yet, so their bars are empty. The numbers after each city are the videos per model (Veo 3.1 / MiniMax H3).
+
+[![Crossing speed per city](readme/speed_generated_vs_crowd.png)](https://htmlpreview.github.io/?https://github.com/bazilinskyy/vlm-crossing/blob/main/readme/speed_generated_vs_crowd.html)
+
+### Do the generated videos keep the look of their city?
+
+Each clip was sampled every second, and every frame was scored with CLIP (ViT-B/32, LAION-2B) against prompts naming each of the 100 cities ("a photo taken from a car driving through a street in {city}, {country}") and each of their 50 countries. The first frame is the CROWD reference frame as the model rendered it, so it shows how recognisable the real scene is; the later frames show whether the model keeps that look while it invents the rest of the clip.
+
+| Model | Videos | City in CLIP's top 5 of 100: first frame | last frame | Country ranked first: first frame | last frame | Similarity of last to first frame |
+|---|---|---|---|---|---|---|
+| Veo 3.1 Fast | 109 | 76% | 72% | 56% | 50% | 0.86 |
+| MiniMax H3 | 717 | 70% | 69% | 48% | 45% | 0.84 |
+| MiniMax H3, the 30 Veo cities | 312 | 74% | 68% | 52% | 47% | 0.85 |
+
+- **The look of the city survives the 8 seconds.** CLIP finds the city about as often in the last frame as in the reference frame, for both models. Whatever the models change, the street stays recognisably that city's.
+- **The models are close.** On the same 30 cities, Veo 3.1 Fast and MiniMax H3 lose 5 to 6 points of city recognition over the clip; the difference between them is within the 95% intervals (bands in the figure).
+- **MiniMax H3 drifts a little more** from its reference frame (CLIP similarity 0.84 against 0.86 at the end), and 5.7% of its clips end below 0.7, against 0.9% of Veo's. These clips (in `_output/appearance_frames.csv`) are the first to check for artefacts such as pedestrians changing into other road users.
+- **No clip is frozen**: every second differs from the one before (mean absolute pixel change 25-34 of 255). Veo 3.1 Fast changes more per second (29-34) than MiniMax H3 (25-26).
+
+[![City recognition over the clip](readme/line_city_recognition.png)](https://htmlpreview.github.io/?https://github.com/bazilinskyy/vlm-crossing/blob/main/readme/line_city_recognition.html)
+
+[![Drift from the reference frame](readme/line_appearance_drift.png)](https://htmlpreview.github.io/?https://github.com/bazilinskyy/vlm-crossing/blob/main/readme/line_appearance_drift.html)
+
+Per-city values are in `_output/appearance_cities.csv`. With one Veo video, a city's value is that single clip, so only the ten Veo cities with 5-11 videos say something per city.
+
+### Analyses still to run
+
+These need the generated videos tracked with YOLO on a GPU machine, and crowd-city's Waymo-calibrated speed model applied to the tracks:
+
+1. **Crossing speed and decision time per city and model**, filling the empty bars above, with the rank correlation across cities between generated and real values and the ratio of their spreads (does a model reproduce the differences between cities, or put every city at one generic speed?).
+2. **Paired real continuations.** Every MiniMax H3 clip records the CROWD video and second its frame came from (717 clips from 452 videos). The real 8 seconds after that frame can be cut from the CROWD videos and run through the same pipeline, giving a real and a generated continuation of the same crossing: the most direct test of RQ2, free of differences in footage between CROWD's city averages and the selected frames.
+3. **Usability of the generated crossings (RQ1)**: the share of clips with a counted crossing, and how many pedestrians appear, disappear or change class during a clip (from the tracks).
+4. **Side of the road**: the side on which oncoming vehicles pass in left-hand traffic cities (London, Sydney, Melbourne, Tokyo, Hong Kong ...) against right-hand ones, as a check of whether the models keep a basic local rule.
+5. **Spread within a city**: the ten Veo cities with 5-11 videos and the MiniMax cities with about ten each show whether clips of one city agree with each other more than with other cities.
 
 ## Configuration
 

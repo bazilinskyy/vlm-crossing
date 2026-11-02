@@ -23,6 +23,10 @@ README_FIGURES = (
     "box_hesitation_bbox_s",
     "scatter_speed_bbox-segmentation",
     "box_crossing_time_s",
+    "speed_generated_vs_crowd",
+    "map_cities",
+    "line_city_recognition",
+    "line_appearance_drift",
 )
 README_DIR = os.path.join(common.root_dir, "readme")
 HTML_TEMPLATE = """<!DOCTYPE html>
@@ -49,7 +53,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 def save(fig, name, **kwargs) -> None:
     if name not in README_FIGURES:
         return
-    fig.write_image(os.path.join(README_DIR, name + ".png"), width=1400, height=650, scale=1)
+    fig.write_image(os.path.join(README_DIR, name + ".png"), width=kwargs.get("width", 1400),
+                    height=kwargs.get("height", 650), scale=1)
     html = HTML_TEMPLATE.format(title=name, figure=fig.to_json(), version=plotly.offline.get_plotlyjs_version())
     with open(os.path.join(README_DIR, name + ".html"), "w") as f:
         f.write(html)
