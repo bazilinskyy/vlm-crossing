@@ -66,6 +66,18 @@ cp default.config config
 
 Per-video results are cached in `_output/analysis/<city>/<video>_<fps>.json` with a key built from their inputs (see `utils/cache.py`), and crowd-city's surface-label store is kept in `_output/segmentation/`.
 
+### Generated videos and the comparison with CROWD
+
+The generated videos are kept in the project's Google Drive folders (Veo 3 by Tanvir, MiniMax H3 by Zi). `fetch_generated_videos.py` mirrors them to `data/_drive/`, links each video into `data/<model>/<city>/` (so `"data": "data/veo3"` in `config` tracks one model) and lists every video in `data/generated_videos.csv` with its model, city, batch, source YouTube frame, resolution, fps and duration. Rerun it to pick up new videos; the videos are never committed.
+
+```bash
+uvx --with gdown python fetch_generated_videos.py
+```
+
+Drive refuses anonymous downloads after a few hundred files. Then download the folder in a signed-in browser and pass the zip(s) with `--zip <folder>=<path pattern>` (see the script's docstring).
+
+`speed_generated_vs_crowd.py` draws the median crossing speed per city with one bar each for CROWD (crowd-city's `crowd_crossing_speed_by_city.csv`, `--crowd`), Veo 3 and MiniMax H3 (the same table per model with a `model` column, `--generated`; cities without a value get no bar), and `--pdf` writes a copy for the paper.
+
 ## Method
 
 All of this is crowd-city's code; see its README for the details.

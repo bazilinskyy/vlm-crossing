@@ -99,6 +99,51 @@ class Crossings:
         fig.add_shape(type="line", x0=0, y0=0, x1=top, y1=top, line=dict(dash="dot", color="grey"))
         io.save_plotly_figure(self._layout(fig), name)
 
+    def speed_sources_per_city(self, speeds: pl.DataFrame, videos: pl.DataFrame, sources: dict,
+                               name: str) -> go.Figure:
+        """Tall bar chart of the median crossing speed per city, one bar per source (CROWD and each video model).
+
+        Args:
+            speeds: one row per source and city with columns source, city, median, q25, q75 and n (tracks).
+            videos: generated videos per model and city (columns source, city, videos), shown in the city labels.
+            sources: source -> (legend name, colour), in the order of the bars.
+            name: file name of the figure.
+        """
+        crowd = speeds.filter(pl.col("source") == "crowd").sort("median", descending=False, nulls_last=False)
+        cities = crowd["city"].to_list()
+        others = pl.concat([speeds["city"], videos["city"]]).unique().sort().to_list()
+        cities = [c for c in others if c not in cities] + cities
+        counts = {(r["source"], r["city"]): r["videos"] for r in videos.iter_rows(named=True)}
+        generated = [s for s in sources if s != "crowd"]
+        labels = [f"{c} ({'/'.join(str(counts.get((s, c), 0)) for s in generated)})" for c in cities]
+        fig = go.Figure()
+        # Horizontal groups stack their bars bottom-up: add the sources in reverse so CROWD is on top.
+        for source, (legend, colour) in reversed(list(sources.items())):
+            rows = {r["city"]: r for r in speeds.filter(pl.col("source") == source).iter_rows(named=True)}
+            median = [rows.get(c, {}).get("median") for c in cities]
+            fig.add_trace(go.Bar(
+                name=legend, y=labels, x=median, orientation="h", marker_color=colour,
+                error_x=dict(type="data", symmetric=False, thickness=1, width=0,
+                             array=[(rows[c]["q75"] - rows[c]["median"]) if rows.get(c, {}).get("q75") is not None
+                                    else None for c in cities],
+                             arrayminus=[(rows[c]["median"] - rows[c]["q25"]) if rows.get(c, {}).get("q25")
+                                         is not None else None for c in cities]),
+                customdata=[[rows.get(c, {}).get("n"), counts.get((source, c), "")] for c in cities],
+                hovertemplate=(f"{legend}<br>%{{y}}<br>median %{{x:.2f}} m/s<br>%{{customdata[0]}} tracks"
+                               + ("" if source == "crowd" else ", %{customdata[1]} videos") + "<extra></extra>"),
+            ))
+        fig.update_layout(
+            barmode="group", bargap=0.25, bargroupgap=0.05, height=150 + 24 * len(cities),
+            legend=dict(orientation="h", yanchor="bottom", y=1.0, xanchor="left", x=0, traceorder="reversed"),
+            xaxis_title="Median crossing speed (m/s; whiskers: 25th-75th percentile)",
+            yaxis_title="City (videos: " + " / ".join(sources[s][0] for s in generated) + ")",
+        )
+        fig.update_yaxes(tickfont=dict(size=11), automargin=True)
+        fig.update_xaxes(rangemode="tozero")
+        self._layout(fig).update_layout(margin=dict(l=20, r=20, t=40, b=60))
+        io.save_plotly_figure(fig, name, width=1000, height=150 + 24 * len(cities))
+        return fig
+
     def plot_all(self, crossings: pl.DataFrame, summary: pl.DataFrame) -> None:
         """Write every figure to <output>/figures."""
         self.crossings_per_city(summary, "crossings_city")
