@@ -63,6 +63,12 @@ def city_iso2(crowd: str = CROWD, cities: str = CITIES) -> dict:
     return {city: iso2.get(country, "") for city, (_, country) in places.items()}
 
 
+def city_flag_images(names, crowd: str = CROWD, cities: str = CITIES) -> dict:
+    """City name -> path of its country's flag image (flag_image) for the cities names, for figures without emoji."""
+    iso2 = city_iso2(crowd, cities)
+    return {city: flag_image(iso2.get(city, "")) for city in names}
+
+
 def city_labels(flags: bool = True, crowd: str = CROWD, cities: str = CITIES) -> dict:
     """City name -> label such as "🇺🇸 Portland, OR" (without the flag when flags is False)."""
     places, iso2 = _places(crowd, cities)

@@ -63,7 +63,8 @@ def main() -> None:
     fig = Crossings().speed_sources_per_city(pl.concat(speeds), videos, SOURCES, "speed_generated_vs_crowd", labels)
     if args.pdf:  # the paper's version: a dot plot of the 100 cities in two panels, sized to fill one page
         page = Crossings().speed_sources_page(pl.concat(speeds), SOURCES, "speed_generated_vs_crowd_page",
-                                              labels=labels)
+                                              labels=places.city_labels(flags=False),
+                                              flags=places.city_flag_images(pl.concat(speeds)["city"].unique()))  # Twemoji, as in the frame grid
         page.write_image(args.pdf, width=page.layout.width, height=page.layout.height)
     if args.readme:
         readme_figures.save(fig, "speed_generated_vs_crowd", width=1000, height=fig.layout.height)
