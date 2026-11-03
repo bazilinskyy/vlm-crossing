@@ -90,6 +90,11 @@ def usability(videos: pl.DataFrame, crossings: pl.DataFrame) -> pl.DataFrame:
     return pl.DataFrame(rows)
 
 
+def iqr(values: pl.Series) -> float:
+    """Interquartile range with linear interpolation (as scipy.stats.iqr in speed_statistics.py)."""
+    return values.quantile(0.75, "linear") - values.quantile(0.25, "linear")
+
+
 def correlations(cities: pl.DataFrame, crowd: pl.DataFrame) -> pl.DataFrame:
     """Rank correlation and relative spread of the city medians of each set against each reference."""
     usable = cities.filter(pl.col("reliable_metric_speed_tracks") >= MIN_TRACKS)
@@ -110,8 +115,8 @@ def correlations(cities: pl.DataFrame, crowd: pl.DataFrame) -> pl.DataFrame:
                          "spearman": pair.select(pl.corr("median_crossing_speed_mps", "ref", method="spearman"))
                          .item(),
                          "median_difference_mps": (y - x).median(),
-                         "spread_ratio": (y.quantile(0.75) - y.quantile(0.25)) / (x.quantile(0.75) - x.quantile(0.25))
-                         if x.quantile(0.75) > x.quantile(0.25) else None})
+                         "spread_ratio": iqr(y) / iqr(x)
+                         if iqr(x) > 0 else None})
     return pl.DataFrame(rows)
 
 

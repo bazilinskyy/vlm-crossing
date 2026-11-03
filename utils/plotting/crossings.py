@@ -2,6 +2,7 @@
 
 import plotly.express as px
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import polars as pl
 
 import common
@@ -142,6 +143,57 @@ class Crossings:
         fig.update_xaxes(rangemode="tozero")
         self._layout(fig).update_layout(margin=dict(l=20, r=20, t=40, b=60))
         io.save_plotly_figure(fig, name, width=1000, height=150 + 24 * len(cities))
+        return fig
+
+    def speed_sources_page(self, speeds: pl.DataFrame, sources: dict, name: str, width: int = 780,
+                           height: int = 1010, columns: int = 2) -> go.Figure:
+        """One-page dot plot of the median crossing speed per city: one dot (with 25th-75th percentile whisker) per
+        source, cities sorted by the CROWD value and split over side-by-side panels so that 100 cities fit a page.
+
+        Args:
+            speeds: one row per source and city with columns source, city, median, q25, q75.
+            sources: source -> (legend name, colour), in the order of the dots within a city.
+            name: file name of the figure.
+            width, height: size in pixels, chosen for the page's text area.
+            columns: number of panels.
+        """
+        crowd = speeds.filter(pl.col("source") == "crowd").sort("median", descending=True, nulls_last=True)
+        cities = crowd["city"].to_list()
+        cities += sorted(c for c in speeds["city"].unique().to_list() if c not in cities)
+        per_column = -(-len(cities) // columns)
+        fig = make_subplots(rows=1, cols=columns, horizontal_spacing=0.2 / columns, shared_xaxes=True)
+        offsets = {s: 0.27 * (i - (len(sources) - 1) / 2) for i, s in enumerate(sources)}
+        values = speeds.drop_nulls("median")
+        for column in range(columns):
+            chunk = cities[column * per_column:(column + 1) * per_column]
+            position = {c: i for i, c in enumerate(chunk)}
+            for source, (legend, colour) in sources.items():
+                rows = values.filter((pl.col("source") == source) & pl.col("city").is_in(chunk))
+                if rows.height == 0:
+                    continue
+                y = [position[c] + offsets[source] for c in rows["city"]]
+                fig.add_trace(go.Scatter(
+                    x=rows["median"], y=y, mode="markers", name=legend, legendgroup=source, showlegend=column == 0,
+                    marker=dict(color=colour, size=5, line=dict(color="white", width=0.5)),
+                    error_x=dict(type="data", symmetric=False, thickness=0.8, width=0, color=colour,
+                                 array=(rows["q75"] - rows["median"]).to_list(),
+                                 arrayminus=(rows["median"] - rows["q25"]).to_list()),
+                    customdata=rows["city"],
+                    hovertemplate=f"{legend}<br>%{{customdata}}: %{{x:.2f}} m/s<extra></extra>"),
+                    row=1, col=column + 1)
+            fig.update_yaxes(tickvals=list(range(len(chunk))), ticktext=chunk, range=[len(chunk) - 0.5, -0.5],
+                             tickfont=dict(size=10), showgrid=False, row=1, col=column + 1)
+            for i in range(0, len(chunk), 2):  # light bands on every other city, to follow a row across the panel
+                fig.add_hrect(y0=i - 0.5, y1=i + 0.5, fillcolor="#f2f1ed", line_width=0, layer="below",
+                              row=1, col=column + 1)
+        low = values["q25"].drop_nulls().min()
+        high = values["q75"].drop_nulls().max()
+        fig.update_xaxes(range=[max(0, low - 0.05), high + 0.05], tickfont=dict(size=10), title_font=dict(size=11),
+                         title_text="Median crossing speed (m/s)", gridcolor="#e4e3df")
+        self._layout(fig).update_layout(
+            width=width, height=height, margin=dict(l=10, r=10, t=30, b=40), font=dict(size=10),
+            legend=dict(orientation="h", yanchor="bottom", y=1.0, xanchor="left", x=0, font=dict(size=11)))
+        io.save_plotly_figure(fig, name, width=width, height=height)
         return fig
 
     def plot_all(self, crossings: pl.DataFrame, summary: pl.DataFrame) -> None:

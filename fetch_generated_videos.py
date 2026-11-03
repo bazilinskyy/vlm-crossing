@@ -28,6 +28,7 @@ import glob
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -163,6 +164,8 @@ def main() -> None:
                         help="zip(s) of a folder downloaded in the browser, e.g. veo3_tanvir=~/Downloads/x*.zip")
     parser.add_argument("--no-download", action="store_true", help="only sort the files already mirrored")
     args = parser.parse_args()
+    if shutil.which("ffprobe") is None:
+        sys.exit("ffprobe not found: put ffmpeg on PATH, or the table loses each video's size, fps and duration.")
     for spec in args.zip:
         folder, pattern = spec.split("=", 1)
         unzip(folder, pattern)

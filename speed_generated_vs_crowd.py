@@ -5,9 +5,11 @@ Reads
     --generated  the same table per video model, with a column model (veo3, minimax_h3); cities without
                  a value get no bar, so the figure can be drawn before the videos are analysed
     --videos     data/generated_videos.csv from fetch_generated_videos.py (videos per model and city)
-and writes <output>/figures/speed_generated_vs_crowd.html (and .png/.eps when save_images is true).
+and writes <output>/figures/speed_generated_vs_crowd.html (and .png/.eps when save_images is true); with --pdf also a
+one-page dot plot of the same values for the paper (speed_generated_vs_crowd_page).
 
-    uv run python speed_generated_vs_crowd.py --crowd <crowd-city>/_output/crossing_speed/crowd_crossing_speed_by_city.csv
+    uv run python speed_generated_vs_crowd.py \\
+        --crowd <crowd-city>/_output/crossing_speed/crowd_crossing_speed_by_city.csv
 """
 
 import argparse
@@ -22,7 +24,7 @@ from utils.plotting.crossings import Crossings
 # Bars per city, in this order, with the reference palette's first three categorical colours.
 SOURCES = {
     "crowd": ("CROWD", "#2a78d6"),
-    "veo3": ("Veo 3", "#eb6834"),
+    "veo3": ("Veo 3.1 Fast", "#eb6834"),
     "minimax_h3": ("MiniMax H3", "#1baf7a"),
 }
 SPEED_COLUMNS = {"locality": "city", "median_crossing_speed_mps": "median", "crossing_speed_mps_q25": "q25",
@@ -57,8 +59,9 @@ def main() -> None:
     if missing:
         common.logger.warning(f"Generated videos of cities without CROWD speed: {', '.join(missing)}")
     fig = Crossings().speed_sources_per_city(pl.concat(speeds), videos, SOURCES, "speed_generated_vs_crowd")
-    if args.pdf:
-        fig.write_image(args.pdf, width=1000, height=fig.layout.height)
+    if args.pdf:  # the paper's version: a dot plot of the 100 cities in two panels, sized to fill one page
+        page = Crossings().speed_sources_page(pl.concat(speeds), SOURCES, "speed_generated_vs_crowd_page")
+        page.write_image(args.pdf, width=page.layout.width, height=page.layout.height)
     if args.readme:
         readme_figures.save(fig, "speed_generated_vs_crowd", width=1000, height=fig.layout.height)
 

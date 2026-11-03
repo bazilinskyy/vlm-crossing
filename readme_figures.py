@@ -29,6 +29,8 @@ README_FIGURES = (
     "line_appearance_drift",
     "scatter_speed_city_vs_crowd",
     "scatter_speed_paired",
+    "ecdf_speed_sets",
+    "hist_speed_paired_difference",
 )
 README_DIR = os.path.join(common.root_dir, "readme")
 HTML_TEMPLATE = """<!DOCTYPE html>
