@@ -4,10 +4,13 @@ For every city of CROWD's per-city table (plus the generated cities it lacks, su
 crossing with the tallest pedestrian (from analysis.py's crossings and main.py's tracks), and crops the frame halfway
 through that crossing around the pedestrian, outlined, so that the crossing is visible at thumbnail size. Cities whose
 clips have no counted crossing get the middle frame of their first clip; cities without a generated clip yet get a
-grey tile, so the grid keeps its 100 places while generation continues. Tiles are in alphabetical order with the city
-name under each. Writes <output>/figures/frames_cities.jpg (and with --pdf-dir a copy there for the paper). With
---readme, also writes each tile to readme/frames/ and the table of cities in README.md (between its "city table"
-markers): country, clips per model, crossings, median speeds, and the tile.
+grey tile, so the grid keeps its 100 places while generation continues. The crossing chosen per city is kept in
+results/minimax_h3/city_frames.csv and used when the tracks are not there; the frames themselves need the videos.
+Tiles are in alphabetical order with the city name under each.
+
+Writes <output>/figures/frames_cities.jpg (and with --pdf-dir a copy there for the paper). With --readme, also writes
+each tile to readme/frames/ and the table of cities in README.md (between its "city table" markers): country, clips
+per model, crossings, median speeds, and the tile.
 
     uv run python city_frames.py --pdf-dir ../overleaf/vlm-crossing-paper/figures
 """
@@ -159,7 +162,17 @@ def main() -> None:
     files = dict(zip(clips["video"], clips["file"]))
     chosen = {c: f for c, f in clips.sort("city", "video").group_by("city", maintain_order=True)
               .agg(pl.col("file").first()).iter_rows()}
-    crossing = best_crossings(args.crossings, args.bbox) if os.path.isdir(args.bbox) else {}
+    # The crossing shown per city is kept in results/, so the grid is redrawn the same without main.py's tracks.
+    chosen_path = os.path.join(os.path.dirname(args.crossings), "city_frames.csv")
+    if os.path.isdir(args.bbox):
+        crossing = best_crossings(args.crossings, args.bbox)
+        pl.DataFrame([{"city": c, "video": v, "frame_count": f, "x": b[0], "y": b[1], "width": b[2], "height": b[3]}
+                      for c, (v, f, b) in sorted(crossing.items())]).write_csv(chosen_path)
+    elif os.path.isfile(chosen_path):
+        crossing = {r["city"]: (r["video"], r["frame_count"], (r["x"], r["y"], r["width"], r["height"]))
+                    for r in pl.read_csv(chosen_path, schema_overrides={"video": pl.Utf8}).iter_rows(named=True)}
+    else:
+        crossing = {}
     cities = sorted(set(pl.read_csv(args.crowd)["locality"]) | set(folder_cities(args.generated).values()))
 
     rows = -(-len(cities) // COLUMNS)

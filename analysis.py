@@ -19,8 +19,12 @@ Without a speed model crowd-city reports speed as its relative motion index:
 a pedestrian's speed divided by the median of the comparable pedestrians in
 the same video (1.0 = typical; at least three are needed). With speed_model
 set to crowd-city's frozen Waymo calibration (crowd_waymo_pipeline_model.json,
-with speed_validation/production_model.json next to it) the speed columns are
-in m/s instead, as in crowd-city's own run over CROWD; speed_unit says which.
+with speed_validation/production_model.json next to it) speed_bbox_index is in
+m/s and computed exactly as CROWD's per-city table (crowd-city's
+crossing_metrics.analyse_crowd_sources, which its analysis.py runs as the
+integrated speed report): from the whole track's bounding boxes, kept only when
+the model rates the track valid, with no further speed limits; speed_unit says
+which unit applies.
 Hesitation times are in seconds. segmentation_is_primary picks which of the
 two derivations is reported in speed_index / hesitation_s; both are always
 kept. Outputs:
@@ -42,6 +46,7 @@ import multiprocessing
 import os
 import warnings
 from concurrent.futures import ProcessPoolExecutor
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import polars as pl
@@ -165,6 +170,13 @@ def make_task(video: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+# Frame aspect ratio crowd-city's integrated speed report assumes (its analysis.py: CROWD_BBOX_ASPECT_RATIO, 16:9).
+try:
+    TABLE_ASPECT_RATIO = float(os.environ.get("CROWD_BBOX_ASPECT_RATIO", str(16.0 / 9.0)))
+except ValueError:
+    TABLE_ASPECT_RATIO = 16.0 / 9.0
+
+
 def nested_values(nested: Optional[dict], stem: str) -> Dict[str, float]:
     """Values of one stem from a {locality: {stem: {track: value}}} structure, keyed by normalised id."""
     values = ((nested or {}).get(ALL) or {}).get(stem) or {}
@@ -252,13 +264,32 @@ def run_crowd_city(tasks: List[Dict[str, Any]], crossing_parameters: Dict[str, A
             raise SystemExit("use_segmentation is enabled but crowd-city's segmentation pass could not run.")
         seg_speed, seg_time = output["seg_speed"], output["seg_time"]
 
-    # 4. One row per counted crossing. crowd-city stores the bounding-box
+    # 4. With the Waymo speed model, each crossing's m/s speed as CROWD's per-city table computes it: crowd-city's
+    # analysis.py passes its counted crossings to crossing_metrics.analyse_crowd_sources (the integrated speed
+    # report), which measures the whole track and keeps the speeds the model rates valid.
+    table_speed: Dict[str, Dict[str, float]] = {}
+    if crossing_metrics._SPEED_MODEL:
+        sources = [{"source_id": task["filename_no_ext"], "bbox_csv": os.path.abspath(task["file_path"]),
+                    "fps": task["fps"], "aspect_ratio": TABLE_ASPECT_RATIO,
+                    "locality": task["video_id"].split("__")[0], "state": "", "country": "",
+                    "crossing_track_ids": list((crossings.get(task["filename_no_ext"]) or {}).get("ids") or [])}
+                   for task in tasks]
+        report = crossing_metrics.analyse_crowd_sources(
+            sources, Path(common.get_output_dir()) / "crossing_speed", False, lambda message: logger.debug(message))
+        for row in report["track_rows"]:
+            speed = row.get("estimated_crossing_speed_mps")
+            if row.get("speed_status") == "valid" and speed is not None:
+                track = crossing_metrics.normalise_id(row["prediction_track_id"])
+                table_speed.setdefault(str(row["source_id"]), {})[track] = float(speed)
+
+    # 5. One row per counted crossing. crowd-city stores the bounding-box
     # initiation time in check_per_sec_time units and divides when averaging.
     checks = float(common.get_configs("check_per_sec_time"))
     rows_by_stem: Dict[str, List[dict]] = {}
     for stem, c in crossings.items():
         fps = float(stem.rsplit("_", 1)[1])
-        speed_bbox = nested_values(c.get("speed_value"), stem)
+        speed_bbox = (table_speed.get(stem, {}) if crossing_metrics._SPEED_MODEL
+                      else nested_values(c.get("speed_value"), stem))
         time_bbox = nested_values(c.get("time_value"), stem)
         speed_seg = nested_values(seg_speed, stem)
         time_seg = nested_values(seg_time, stem)
@@ -329,8 +360,11 @@ def result_key(video: Dict[str, Any], code: str) -> str:
     )
 
 
-def reported(crossings: pl.DataFrame) -> pl.DataFrame:
-    """Pick the reported derivation and apply crowd-city's speed and waiting-time limits."""
+def reported(crossings: pl.DataFrame, unit: str) -> pl.DataFrame:
+    """Pick the reported derivation and apply crowd-city's speed and waiting-time limits.
+
+    m/s bounding-box speeds are left as CROWD's per-city table has them: the speed model's own gates, no limits.
+    """
     lo_s, hi_s = float(common.get_configs("min_speed_limit")), float(common.get_configs("max_speed_limit"))
     lo_w, hi_w = float(common.get_configs("min_waiting_time")), float(common.get_configs("max_waiting_time"))
 
@@ -338,7 +372,8 @@ def reported(crossings: pl.DataFrame) -> pl.DataFrame:
         return pl.when(pl.col(column).is_between(lo, hi)).then(pl.col(column)).alias(column)
 
     crossings = crossings.with_columns(
-        within("speed_bbox_index", lo_s, hi_s), within("speed_seg_index", lo_s, hi_s),
+        pl.col("speed_bbox_index") if unit == "m/s" else within("speed_bbox_index", lo_s, hi_s),
+        within("speed_seg_index", lo_s, hi_s),
         within("hesitation_bbox_s", lo_w, hi_w), within("hesitation_seg_s", lo_w, hi_w),
     )
     primary = bool(common.get_configs("use_segmentation")) and bool(common.get_configs("segmentation_is_primary"))
@@ -400,7 +435,7 @@ if __name__ == "__main__":
                                                     if k not in ("speed_index", "hesitation_s", "speed_unit")}, strict=False) \
         if crossing_rows else pl.DataFrame(schema={k: v for k, v in CROSSINGS_SCHEMA.items()
                                                    if k not in ("speed_index", "hesitation_s", "speed_unit")})
-    crossings = reported(crossings).with_columns(pl.lit(unit).alias("speed_unit")).select(list(CROSSINGS_SCHEMA)).sort(["city", "video", "start_frame"])
+    crossings = reported(crossings, unit).with_columns(pl.lit(unit).alias("speed_unit")).select(list(CROSSINGS_SCHEMA)).sort(["city", "video", "start_frame"])
     crossings.write_parquet(os.path.join(output, "crossings.parquet"))
     crossings.write_csv(os.path.join(output, "crossings.csv"))
     logger.info(f"Counted {crossings.height} crossings; wrote {os.path.join(output, 'crossings.parquet')} and .csv.")

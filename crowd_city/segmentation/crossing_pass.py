@@ -9,6 +9,7 @@ segments that actually contain a crossing.
 
 from __future__ import annotations
 
+import os
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Any, Callable, Dict, Iterator, List, Mapping, Optional, Sequence, Tuple
@@ -20,6 +21,7 @@ import common
 from custom_logger import CustomLogger
 import crowd_city.analytics.csv_parallel as csv_parallel
 import crowd_city.crossing.metrics as crossing_metrics
+from crowd_city.crossing.track_joining import join_track_pieces
 from crowd_city.analytics.csv_parallel import (
     _limit_detection_duration,
     _read_confidence_filtered,
@@ -32,7 +34,7 @@ from crowd_city.crossing.road_metrics import (
     road_intervals_for_tracks,
     road_restricted_speed,
 )
-from crowd_city.segmentation.frames import RemoteCredentials
+from crowd_city.segmentation.frames import CROWD_FIRST_FRAME_NUMBER, RemoteCredentials
 from crowd_city.segmentation.pipeline import SegmentationPipeline, SegmentRequest
 from crowd_city.segmentation.segformer import (
     IsolatedSurfaceSegmenter,
@@ -55,6 +57,9 @@ logger = CustomLogger(__name__)
 # the road-crossing selection stops. Failed segments would simply lose their
 # crossings, biasing the cities they belong to, so beyond this the run stops.
 MAXIMUM_FAILED_SEGMENT_SHARE = 0.05
+# Camera-shift windows of one segment read at once, on top of the
+# segmentation_parallel_videos segments in flight.
+CAMERA_SHIFT_READS_PER_SEGMENT = 4
 grouping = Grouping()
 
 
@@ -392,6 +397,7 @@ def _prepared_detections(task: Mapping[str, Any]) -> Tuple[pl.DataFrame, float, 
         float(task["fps"]),
         csv_parallel._WORKER_PROCESSING_FPS,
     )
+    detections = join_track_pieces(detections, float(effective_fps))
     return detections, float(effective_fps), int(first_source_frame or 0)
 
 
@@ -410,6 +416,7 @@ def _segment_request(
         tracks=tracks,
         source_fps=float(task["fps"]),
         first_source_frame=int(first_source_frame),
+        first_frame_number=CROWD_FIRST_FRAME_NUMBER,
     )
 
 
@@ -444,7 +451,12 @@ def select_road_crossings(
     segmentation cannot run this raises rather than silently counting
     crossings another way.
     """
-    from crowd_city.crossing.road_crossing import road_crossing_flags
+    from crowd_city.crossing.road_crossing import (
+        PASS_TOLERANCE,
+        road_crossing_flags,
+        swept_by_turning_camera,
+        unverifiable_crossing,
+    )
 
     pipeline = _segmentation_pipeline(df_mapping, crossing_parameters)
     if pipeline is None:
@@ -458,6 +470,17 @@ def select_road_crossings(
         if (payload or {}).get("ids") and stem in tasks_by_stem
     )
     minimum_x_range = float(crossing_parameters["min_crossing_x_range"])
+    # The frame aspect ratio the speed model assumes (CROWD_BBOX_ASPECT_RATIO,
+    # else 16:9), used to turn image speed into a walking speed.
+    aspect_ratio = crossing_metrics.safe_float(os.environ.get("CROWD_BBOX_ASPECT_RATIO"))
+    if aspect_ratio is None or aspect_ratio <= 0.0:
+        aspect_ratio = crossing_metrics.DEFAULT_ASPECT_RATIO
+    # The same middle strip the candidates were found with (csv_parallel).
+    camera_strip = (
+        float(crossing_parameters.get("boundary_left", _config("boundary_left"))),
+        float(crossing_parameters.get("boundary_right", _config("boundary_right"))),
+        PASS_TOLERANCE,
+    )
     logger.info(
         f"Selecting road crossings: segmenting {sum(len(candidates[stem]['ids']) for stem in pending)} "
         f"candidate track(s) in {len(pending)} detection segment(s)."
@@ -482,14 +505,53 @@ def select_road_crossings(
             return "diagnostic", "no_surface_timeline"
         intervals = road_intervals_for_tracks(timelines)
         rates = {str(key): value for key, value in (payload.get("size_rates") or {}).items()}
-        return "selected", [
-            track_id
-            for track_id in payload["ids"]
-            if str(track_id) in tracks
-            and road_crossing_flags(
-                tracks[str(track_id)], intervals.get(str(track_id)), rates.get(str(track_id)), minimum_x_range,
-            )["road_crossing"]
-        ]
+        request = _segment_request(task, stem, effective_fps, first_source_frame, tracks)
+        passing = []
+        for track_id in payload["ids"]:
+            track = tracks.get(str(track_id))
+            if track is None:
+                continue
+            flags = road_crossing_flags(
+                track, intervals.get(str(track_id)), rates.get(str(track_id)), minimum_x_range,
+                surfaces=[sample.surface for sample in timelines.get(str(track_id)) or []],
+                fps=float(effective_fps),
+                aspect_ratio=aspect_ratio,
+                camera_strip=camera_strip,
+            )
+            if flags["road_crossing"]:
+                passing.append((track_id, track, track.sort("frame-count"), flags))
+
+        # Only tracks that pass every other check are measured, since this
+        # reads the video once more; their windows are read together. A
+        # window that cannot be read is not counted rather than counted
+        # unchecked.
+        def shift_of(ordered: pl.DataFrame) -> Optional[float]:
+            frames = ordered.get_column("frame-count")
+            try:
+                return pipeline.camera_shift(request, float(frames.min()), float(frames.max()))
+            except Exception as error:
+                _raise_if_gpu_failure(error)
+                return None
+
+        with ThreadPoolExecutor(max_workers=CAMERA_SHIFT_READS_PER_SEGMENT) as readers:
+            shifts = list(readers.map(shift_of, [ordered for _, _, ordered, _ in passing]))
+
+        selected_ids = []
+        for (track_id, track, ordered, flags), shift in zip(passing, shifts):
+            if shift is None:
+                pipeline._count("camera_shift_unreadable", 1)
+                continue
+            if swept_by_turning_camera(ordered.get_column("x-center").to_list(), shift):
+                pipeline._count("rejected_turning_camera", 1)
+                continue
+            frames = ordered.get_column("frame-count")
+            window = detections.filter(pl.col("frame-count").is_between(frames.min(), frames.max()))
+            speed = flags.get("walking_speed_mps")
+            if unverifiable_crossing(track, window, track_id, float(effective_fps), shift, speed):
+                pipeline._count("rejected_unverifiable", 1)
+                continue
+            selected_ids.append(track_id)
+        return "selected", selected_ids
 
     selected: Dict[str, List[Any]] = {}
     diagnostics: Counter = Counter()

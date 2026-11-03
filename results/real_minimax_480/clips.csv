@@ -1,0 +1,798 @@
+city,generated,real,youtube_id,start_s,length_s,status
+Amsterdam,videos/minimax_h3/Amsterdam/Amsterdam-1_Ve4DvQNnDDQ_t115.mp4,data/real_minimax/Amsterdam/Amsterdam-1_Ve4DvQNnDDQ_t115.mp4,Ve4DvQNnDDQ,115.0,8.0,ok
+Amsterdam,videos/minimax_h3/Amsterdam/Amsterdam-1_Ve4DvQNnDDQ_t841.mp4,data/real_minimax/Amsterdam/Amsterdam-1_Ve4DvQNnDDQ_t841.mp4,Ve4DvQNnDDQ,841.0,8.0,ok
+Amsterdam,videos/minimax_h3/Amsterdam/Amsterdam-3_ylUNgEYaf3E_t1149.mp4,data/real_minimax/Amsterdam/Amsterdam-3_ylUNgEYaf3E_t1149.mp4,ylUNgEYaf3E,1149.0,8.0,ok
+Amsterdam,videos/minimax_h3/Amsterdam/Amsterdam-3_ylUNgEYaf3E_t465.mp4,data/real_minimax/Amsterdam/Amsterdam-3_ylUNgEYaf3E_t465.mp4,ylUNgEYaf3E,465.0,8.0,ok
+Amsterdam,videos/minimax_h3/Amsterdam/Amsterdam-4_Xuo4uCZxNrE_t1182.mp4,data/real_minimax/Amsterdam/Amsterdam-4_Xuo4uCZxNrE_t1182.mp4,Xuo4uCZxNrE,1182.0,8.0,ok
+Amsterdam,videos/minimax_h3/Amsterdam/Amsterdam-5_n9kEQg0lcjI_t37.mp4,data/real_minimax/Amsterdam/Amsterdam-5_n9kEQg0lcjI_t37.mp4,n9kEQg0lcjI,37.0,8.0,ok
+Amsterdam,videos/minimax_h3/Amsterdam/Amsterdam-X01_5-Nn0xRqve8_t980.mp4,data/real_minimax/Amsterdam/Amsterdam-X01_5-Nn0xRqve8_t980.mp4,5-Nn0xRqve8,980.0,8.0,ok
+Amsterdam,videos/minimax_h3/Amsterdam/Amsterdam-X02_4zjvRaupYaA_t921.mp4,data/real_minimax/Amsterdam/Amsterdam-X02_4zjvRaupYaA_t921.mp4,4zjvRaupYaA,921.0,8.0,ok
+Amsterdam,videos/minimax_h3/Amsterdam/Amsterdam-X04_uSf6nHTruaM_t308.mp4,data/real_minimax/Amsterdam/Amsterdam-X04_uSf6nHTruaM_t308.mp4,uSf6nHTruaM,308.0,8.0,ok
+Amsterdam,videos/minimax_h3/Amsterdam/Amsterdam-X04_uSf6nHTruaM_t706.mp4,data/real_minimax/Amsterdam/Amsterdam-X04_uSf6nHTruaM_t706.mp4,uSf6nHTruaM,706.0,8.0,ok
+Atlanta,videos/minimax_h3/Atlanta/Atlanta-1_mnARGT8rnXU_t245.mp4,data/real_minimax/Atlanta/Atlanta-1_mnARGT8rnXU_t245.mp4,mnARGT8rnXU,245.0,8.0,ok
+Atlanta,videos/minimax_h3/Atlanta/Atlanta-2_KrK1oDuQobM_t768.mp4,data/real_minimax/Atlanta/Atlanta-2_KrK1oDuQobM_t768.mp4,KrK1oDuQobM,768.0,8.0,ok
+Atlanta,videos/minimax_h3/Atlanta/Atlanta-3_brHOrwiF-y4_t1042.mp4,data/real_minimax/Atlanta/Atlanta-3_brHOrwiF-y4_t1042.mp4,brHOrwiF-y4,1042.0,8.0,ok
+Atlanta,videos/minimax_h3/Atlanta/Atlanta-3_brHOrwiF-y4_t688.mp4,data/real_minimax/Atlanta/Atlanta-3_brHOrwiF-y4_t688.mp4,brHOrwiF-y4,688.0,8.0,ok
+Atlanta,videos/minimax_h3/Atlanta/Atlanta-4_G7--akWeIEw_t1153.mp4,data/real_minimax/Atlanta/Atlanta-4_G7--akWeIEw_t1153.mp4,G7--akWeIEw,1153.0,8.0,ok
+Atlanta,videos/minimax_h3/Atlanta/Atlanta-6_LenjZn0y1Rg_t304.mp4,data/real_minimax/Atlanta/Atlanta-6_LenjZn0y1Rg_t304.mp4,LenjZn0y1Rg,304.0,8.0,ok
+Atlanta,videos/minimax_h3/Atlanta/Atlanta-6_LenjZn0y1Rg_t432.mp4,data/real_minimax/Atlanta/Atlanta-6_LenjZn0y1Rg_t432.mp4,LenjZn0y1Rg,432.0,8.0,ok
+Atlanta,videos/minimax_h3/Atlanta/Atlanta-X01_eovhwRhdNw0_t1052.mp4,data/real_minimax/Atlanta/Atlanta-X01_eovhwRhdNw0_t1052.mp4,eovhwRhdNw0,1052.0,8.0,ok
+Atlanta,videos/minimax_h3/Atlanta/Atlanta-X01_eovhwRhdNw0_t1086.mp4,data/real_minimax/Atlanta/Atlanta-X01_eovhwRhdNw0_t1086.mp4,eovhwRhdNw0,1086.0,8.0,ok
+Atlanta,videos/minimax_h3/Atlanta/Atlanta-X02_Qqw5elI22AU_t284.mp4,data/real_minimax/Atlanta/Atlanta-X02_Qqw5elI22AU_t284.mp4,Qqw5elI22AU,284.0,8.0,ok
+Baltimore,videos/minimax_h3/Baltimore/Baltimore-1_4tj9t_g1pHo_t516.mp4,data/real_minimax/Baltimore/Baltimore-1_4tj9t_g1pHo_t516.mp4,4tj9t_g1pHo,516.0,8.0,ok
+Baltimore,videos/minimax_h3/Baltimore/Baltimore-2_Jjd-uLsHQ58_t322.mp4,data/real_minimax/Baltimore/Baltimore-2_Jjd-uLsHQ58_t322.mp4,Jjd-uLsHQ58,322.0,8.0,ok
+Baltimore,videos/minimax_h3/Baltimore/Baltimore-3_qfRlmwjD2Fs_t1031.mp4,data/real_minimax/Baltimore/Baltimore-3_qfRlmwjD2Fs_t1031.mp4,qfRlmwjD2Fs,1031.0,8.0,ok
+Baltimore,videos/minimax_h3/Baltimore/Baltimore-3_qfRlmwjD2Fs_t317.mp4,data/real_minimax/Baltimore/Baltimore-3_qfRlmwjD2Fs_t317.mp4,qfRlmwjD2Fs,317.0,8.0,ok
+Baltimore,videos/minimax_h3/Baltimore/Baltimore-4_FMc9J4u-gZ8_t114.mp4,data/real_minimax/Baltimore/Baltimore-4_FMc9J4u-gZ8_t114.mp4,FMc9J4u-gZ8,114.0,8.0,ok
+Baltimore,videos/minimax_h3/Baltimore/Baltimore-6_W-8fkJugWj0_t501.mp4,data/real_minimax/Baltimore/Baltimore-6_W-8fkJugWj0_t501.mp4,W-8fkJugWj0,501.0,8.0,ok
+Baltimore,videos/minimax_h3/Baltimore/Baltimore-6_W-8fkJugWj0_t761.mp4,data/real_minimax/Baltimore/Baltimore-6_W-8fkJugWj0_t761.mp4,W-8fkJugWj0,761.0,8.0,ok
+Baltimore,videos/minimax_h3/Baltimore/Baltimore-6_W-8fkJugWj0_t995.mp4,data/real_minimax/Baltimore/Baltimore-6_W-8fkJugWj0_t995.mp4,W-8fkJugWj0,995.0,8.0,ok
+Baltimore,videos/minimax_h3/Baltimore/Baltimore-X01_uAVYI6zqnR8_t465.mp4,data/real_minimax/Baltimore/Baltimore-X01_uAVYI6zqnR8_t465.mp4,uAVYI6zqnR8,465.0,8.0,ok
+Baltimore,videos/minimax_h3/Baltimore/Baltimore-X01_uAVYI6zqnR8_t537.mp4,data/real_minimax/Baltimore/Baltimore-X01_uAVYI6zqnR8_t537.mp4,uAVYI6zqnR8,537.0,8.0,ok
+Bangkok,videos/minimax_h3/Bangkok/Bangkok-1_GuyazY5xtuI_t1223.mp4,data/real_minimax/Bangkok/Bangkok-1_GuyazY5xtuI_t1223.mp4,GuyazY5xtuI,1223.0,8.0,ok
+Bangkok,videos/minimax_h3/Bangkok/Bangkok-4_82Jh37GLX54_t374.mp4,data/real_minimax/Bangkok/Bangkok-4_82Jh37GLX54_t374.mp4,82Jh37GLX54,374.0,8.0,ok
+Bangkok,videos/minimax_h3/Bangkok/Bangkok-4_82Jh37GLX54_t810.mp4,data/real_minimax/Bangkok/Bangkok-4_82Jh37GLX54_t810.mp4,82Jh37GLX54,810.0,8.0,ok
+Bangkok,videos/minimax_h3/Bangkok/Bangkok-5_3xTbO0NSuNo_t1008.mp4,data/real_minimax/Bangkok/Bangkok-5_3xTbO0NSuNo_t1008.mp4,3xTbO0NSuNo,1008.0,8.0,ok
+Bangkok,videos/minimax_h3/Bangkok/Bangkok-6_4BmxX6Ipxpo_t582.mp4,data/real_minimax/Bangkok/Bangkok-6_4BmxX6Ipxpo_t582.mp4,4BmxX6Ipxpo,582.0,8.0,ok
+Bangkok,videos/minimax_h3/Bangkok/Bangkok-6_4BmxX6Ipxpo_t902.mp4,data/real_minimax/Bangkok/Bangkok-6_4BmxX6Ipxpo_t902.mp4,4BmxX6Ipxpo,902.0,8.0,ok
+Bangkok,videos/minimax_h3/Bangkok/Bangkok-X02_Z6ORuwL5VGI_t1134.mp4,data/real_minimax/Bangkok/Bangkok-X02_Z6ORuwL5VGI_t1134.mp4,Z6ORuwL5VGI,1134.0,8.0,ok
+Bangkok,videos/minimax_h3/Bangkok/Bangkok-X04_u2rHvGUJ1Kw_t1148.mp4,data/real_minimax/Bangkok/Bangkok-X04_u2rHvGUJ1Kw_t1148.mp4,u2rHvGUJ1Kw,1148.0,8.0,ok
+Bangkok,videos/minimax_h3/Bangkok/Bangkok-X06_VdCN83jgbIY_t864.mp4,data/real_minimax/Bangkok/Bangkok-X06_VdCN83jgbIY_t864.mp4,VdCN83jgbIY,864.0,8.0,ok
+Bangkok,videos/minimax_h3/Bangkok/Bangkok-X11_0kp6MwKe1Nk_t236.mp4,data/real_minimax/Bangkok/Bangkok-X11_0kp6MwKe1Nk_t236.mp4,0kp6MwKe1Nk,236.0,8.0,ok
+Berlin,videos/minimax_h3/Berlin/Berlin-1_R_qfsPcnw-w_t1179.mp4,data/real_minimax/Berlin/Berlin-1_R_qfsPcnw-w_t1179.mp4,R_qfsPcnw-w,1179.0,8.0,ok
+Berlin,videos/minimax_h3/Berlin/Berlin-1_R_qfsPcnw-w_t474.mp4,data/real_minimax/Berlin/Berlin-1_R_qfsPcnw-w_t474.mp4,R_qfsPcnw-w,474.0,8.0,ok
+Berlin,videos/minimax_h3/Berlin/Berlin-2_Alg8peh6JyU_t638.mp4,data/real_minimax/Berlin/Berlin-2_Alg8peh6JyU_t638.mp4,Alg8peh6JyU,638.0,8.0,ok
+Berlin,videos/minimax_h3/Berlin/Berlin-2_Alg8peh6JyU_t677.mp4,data/real_minimax/Berlin/Berlin-2_Alg8peh6JyU_t677.mp4,Alg8peh6JyU,677.0,8.0,ok
+Berlin,videos/minimax_h3/Berlin/Berlin-3_9WXXaUI6urs_t472.mp4,data/real_minimax/Berlin/Berlin-3_9WXXaUI6urs_t472.mp4,9WXXaUI6urs,472.0,8.0,ok
+Berlin,videos/minimax_h3/Berlin/Berlin-3_9WXXaUI6urs_t737.mp4,data/real_minimax/Berlin/Berlin-3_9WXXaUI6urs_t737.mp4,9WXXaUI6urs,737.0,8.0,ok
+Berlin,videos/minimax_h3/Berlin/Berlin-4_wZ54yBDMdBs_t63.mp4,data/real_minimax/Berlin/Berlin-4_wZ54yBDMdBs_t63.mp4,wZ54yBDMdBs,63.0,8.0,ok
+Berlin,videos/minimax_h3/Berlin/Berlin-5_-DWO_yqJplE_t311.mp4,data/real_minimax/Berlin/Berlin-5_-DWO_yqJplE_t311.mp4,-DWO_yqJplE,311.0,8.0,ok
+Berlin,videos/minimax_h3/Berlin/Berlin-5_-DWO_yqJplE_t718.mp4,data/real_minimax/Berlin/Berlin-5_-DWO_yqJplE_t718.mp4,-DWO_yqJplE,718.0,8.0,ok
+Berlin,videos/minimax_h3/Berlin/Berlin-6_3iZULQIumAI_t506.mp4,data/real_minimax/Berlin/Berlin-6_3iZULQIumAI_t506.mp4,3iZULQIumAI,506.0,8.0,ok
+Brisbane,videos/minimax_h3/Brisbane/Brisbane-1_9pPBmcKvFOc_t949.mp4,data/real_minimax/Brisbane/Brisbane-1_9pPBmcKvFOc_t949.mp4,9pPBmcKvFOc,949.0,8.0,ok
+Brisbane,videos/minimax_h3/Brisbane/Brisbane-4_M_t5TeWUNvI_t281.mp4,data/real_minimax/Brisbane/Brisbane-4_M_t5TeWUNvI_t281.mp4,M_t5TeWUNvI,281.0,8.0,ok
+Brisbane,videos/minimax_h3/Brisbane/Brisbane-6_N2k1x0oEG0Y_t700.mp4,data/real_minimax/Brisbane/Brisbane-6_N2k1x0oEG0Y_t700.mp4,N2k1x0oEG0Y,700.0,8.0,ok
+Brisbane,videos/minimax_h3/Brisbane/Brisbane-X03_pc-QC2Md-Fw_t1174.mp4,data/real_minimax/Brisbane/Brisbane-X03_pc-QC2Md-Fw_t1174.mp4,pc-QC2Md-Fw,1174.0,8.0,ok
+Brisbane,videos/minimax_h3/Brisbane/Brisbane-X03_pc-QC2Md-Fw_t446.mp4,data/real_minimax/Brisbane/Brisbane-X03_pc-QC2Md-Fw_t446.mp4,pc-QC2Md-Fw,446.0,8.0,ok
+Brisbane,videos/minimax_h3/Brisbane/Brisbane-X04_HYlzllwFXEY_t1198.mp4,data/real_minimax/Brisbane/Brisbane-X04_HYlzllwFXEY_t1198.mp4,HYlzllwFXEY,1198.0,8.0,ok
+Brisbane,videos/minimax_h3/Brisbane/Brisbane-X06_28qB4pFej7Y_t239.mp4,data/real_minimax/Brisbane/Brisbane-X06_28qB4pFej7Y_t239.mp4,28qB4pFej7Y,239.0,8.0,ok
+Brisbane,videos/minimax_h3/Brisbane/Brisbane-X07__72YcH1aqF4_t854.mp4,data/real_minimax/Brisbane/Brisbane-X07__72YcH1aqF4_t854.mp4,_72YcH1aqF4,854.0,8.0,ok
+Brisbane,videos/minimax_h3/Brisbane/Brisbane-X08_p1kmDhLDzoo_t1071.mp4,data/real_minimax/Brisbane/Brisbane-X08_p1kmDhLDzoo_t1071.mp4,p1kmDhLDzoo,1071.0,8.0,ok
+Brisbane,videos/minimax_h3/Brisbane/Brisbane-X08_p1kmDhLDzoo_t1095.mp4,data/real_minimax/Brisbane/Brisbane-X08_p1kmDhLDzoo_t1095.mp4,p1kmDhLDzoo,1095.0,8.0,ok
+Bucharest,videos/minimax_h3/Bucharest/Bucharest-2_VYcgh6wDd8A_t774.mp4,data/real_minimax/Bucharest/Bucharest-2_VYcgh6wDd8A_t774.mp4,VYcgh6wDd8A,774.0,8.0,ok
+Bucharest,videos/minimax_h3/Bucharest/Bucharest-X02_mQ2YR7a3Bqc_t732.mp4,data/real_minimax/Bucharest/Bucharest-X02_mQ2YR7a3Bqc_t732.mp4,mQ2YR7a3Bqc,732.0,8.0,ok
+Bucharest,videos/minimax_h3/Bucharest/Bucharest-X03_V5Nawx_KnGE_t801.mp4,data/real_minimax/Bucharest/Bucharest-X03_V5Nawx_KnGE_t801.mp4,V5Nawx_KnGE,801.0,8.0,ok
+Bucharest,videos/minimax_h3/Bucharest/Bucharest-X04_kkjodnJb0MI_t1028.mp4,data/real_minimax/Bucharest/Bucharest-X04_kkjodnJb0MI_t1028.mp4,kkjodnJb0MI,1028.0,8.0,ok
+Bucharest,videos/minimax_h3/Bucharest/Bucharest-X04_kkjodnJb0MI_t577.mp4,data/real_minimax/Bucharest/Bucharest-X04_kkjodnJb0MI_t577.mp4,kkjodnJb0MI,577.0,8.0,ok
+Bucharest,videos/minimax_h3/Bucharest/Bucharest-X04_kkjodnJb0MI_t65.mp4,data/real_minimax/Bucharest/Bucharest-X04_kkjodnJb0MI_t65.mp4,kkjodnJb0MI,65.0,8.0,ok
+Bucharest,videos/minimax_h3/Bucharest/Bucharest-X05_5LOZUQI7kyk_t564.mp4,data/real_minimax/Bucharest/Bucharest-X05_5LOZUQI7kyk_t564.mp4,5LOZUQI7kyk,564.0,8.0,ok
+Bucharest,videos/minimax_h3/Bucharest/Bucharest-X06_nyjtt5B6jmE_t400.mp4,data/real_minimax/Bucharest/Bucharest-X06_nyjtt5B6jmE_t400.mp4,nyjtt5B6jmE,400.0,8.0,ok
+Bucharest,videos/minimax_h3/Bucharest/Bucharest-X06_nyjtt5B6jmE_t785.mp4,data/real_minimax/Bucharest/Bucharest-X06_nyjtt5B6jmE_t785.mp4,nyjtt5B6jmE,785.0,8.0,ok
+Bucharest,videos/minimax_h3/Bucharest/Bucharest-X07_l1IcZW1OILY_t274.mp4,data/real_minimax/Bucharest/Bucharest-X07_l1IcZW1OILY_t274.mp4,l1IcZW1OILY,274.0,8.0,ok
+Budapest,videos/minimax_h3/Budapest/Budapest-1_nhmYYU9sr54_t156.mp4,data/real_minimax/Budapest/Budapest-1_nhmYYU9sr54_t156.mp4,nhmYYU9sr54,156.0,8.0,ok
+Budapest,videos/minimax_h3/Budapest/Budapest-2_bnuSxnSXdRo_t149.mp4,data/real_minimax/Budapest/Budapest-2_bnuSxnSXdRo_t149.mp4,bnuSxnSXdRo,149.0,8.0,ok
+Budapest,videos/minimax_h3/Budapest/Budapest-2_bnuSxnSXdRo_t767.mp4,data/real_minimax/Budapest/Budapest-2_bnuSxnSXdRo_t767.mp4,bnuSxnSXdRo,767.0,8.0,ok
+Budapest,videos/minimax_h3/Budapest/Budapest-3_dYtmrI8Yjp4_t1089.mp4,data/real_minimax/Budapest/Budapest-3_dYtmrI8Yjp4_t1089.mp4,dYtmrI8Yjp4,1089.0,8.0,ok
+Budapest,videos/minimax_h3/Budapest/Budapest-4_ViGbe8pbSNM_t6872.mp4,data/real_minimax/Budapest/Budapest-4_ViGbe8pbSNM_t6872.mp4,ViGbe8pbSNM,6872.0,8.0,ok
+Budapest,videos/minimax_h3/Budapest/Budapest-5_e8CoToxc1yI_t835.mp4,data/real_minimax/Budapest/Budapest-5_e8CoToxc1yI_t835.mp4,e8CoToxc1yI,835.0,8.0,ok
+Budapest,videos/minimax_h3/Budapest/Budapest-X01_ApHiadIgrp8_t1184.mp4,data/real_minimax/Budapest/Budapest-X01_ApHiadIgrp8_t1184.mp4,ApHiadIgrp8,1184.0,8.0,ok
+Budapest,videos/minimax_h3/Budapest/Budapest-X01_ApHiadIgrp8_t230.mp4,data/real_minimax/Budapest/Budapest-X01_ApHiadIgrp8_t230.mp4,ApHiadIgrp8,230.0,8.0,ok
+Budapest,videos/minimax_h3/Budapest/Budapest-X03_deAqBnEa3qI_t1096.mp4,data/real_minimax/Budapest/Budapest-X03_deAqBnEa3qI_t1096.mp4,deAqBnEa3qI,1096.0,8.0,ok
+Budapest,videos/minimax_h3/Budapest/Budapest-X03_deAqBnEa3qI_t1117.mp4,data/real_minimax/Budapest/Budapest-X03_deAqBnEa3qI_t1117.mp4,deAqBnEa3qI,1117.0,8.0,ok
+Buenos Aires,videos/minimax_h3/Buenos_Aires/Buenos_Aires-1_-TPJot7-HTs_t1220.mp4,data/real_minimax/Buenos_Aires/Buenos_Aires-1_-TPJot7-HTs_t1220.mp4,-TPJot7-HTs,1220.0,8.0,ok
+Buenos Aires,videos/minimax_h3/Buenos_Aires/Buenos_Aires-1_-TPJot7-HTs_t293.mp4,data/real_minimax/Buenos_Aires/Buenos_Aires-1_-TPJot7-HTs_t293.mp4,-TPJot7-HTs,293.0,8.0,ok
+Buenos Aires,videos/minimax_h3/Buenos_Aires/Buenos_Aires-2_94bxMILuMGU_t225.mp4,data/real_minimax/Buenos_Aires/Buenos_Aires-2_94bxMILuMGU_t225.mp4,94bxMILuMGU,225.0,8.0,ok
+Buenos Aires,videos/minimax_h3/Buenos_Aires/Buenos_Aires-2_94bxMILuMGU_t370.mp4,data/real_minimax/Buenos_Aires/Buenos_Aires-2_94bxMILuMGU_t370.mp4,94bxMILuMGU,370.0,8.0,ok
+Buenos Aires,videos/minimax_h3/Buenos_Aires/Buenos_Aires-2_94bxMILuMGU_t878.mp4,data/real_minimax/Buenos_Aires/Buenos_Aires-2_94bxMILuMGU_t878.mp4,94bxMILuMGU,878.0,8.0,ok
+Buenos Aires,videos/minimax_h3/Buenos_Aires/Buenos_Aires-5_3MBraN2KrFg_t423.mp4,data/real_minimax/Buenos_Aires/Buenos_Aires-5_3MBraN2KrFg_t423.mp4,3MBraN2KrFg,423.0,8.0,ok
+Buenos Aires,videos/minimax_h3/Buenos_Aires/Buenos_Aires-5_3MBraN2KrFg_t743.mp4,data/real_minimax/Buenos_Aires/Buenos_Aires-5_3MBraN2KrFg_t743.mp4,3MBraN2KrFg,743.0,8.0,ok
+Buenos Aires,videos/minimax_h3/Buenos_Aires/Buenos_Aires-5_3MBraN2KrFg_t982.mp4,data/real_minimax/Buenos_Aires/Buenos_Aires-5_3MBraN2KrFg_t982.mp4,3MBraN2KrFg,982.0,8.0,ok
+Buenos Aires,videos/minimax_h3/Buenos_Aires/Buenos_Aires-6_KZOodKJkTIw_t242.mp4,data/real_minimax/Buenos_Aires/Buenos_Aires-6_KZOodKJkTIw_t242.mp4,KZOodKJkTIw,242.0,8.0,ok
+Buenos Aires,videos/minimax_h3/Buenos_Aires/Buenos_Aires-6_KZOodKJkTIw_t676.mp4,data/real_minimax/Buenos_Aires/Buenos_Aires-6_KZOodKJkTIw_t676.mp4,KZOodKJkTIw,676.0,8.0,ok
+Busan,videos/minimax_h3/Busan/Busan-1_Y-IPzsU0qEw_t243.mp4,data/real_minimax/Busan/Busan-1_Y-IPzsU0qEw_t243.mp4,Y-IPzsU0qEw,243.0,8.0,ok
+Busan,videos/minimax_h3/Busan/Busan-2_nOsl10CyxgM_t285.mp4,data/real_minimax/Busan/Busan-2_nOsl10CyxgM_t285.mp4,nOsl10CyxgM,285.0,8.0,ok
+Busan,videos/minimax_h3/Busan/Busan-4_w5PtDLlHrVA_t928.mp4,data/real_minimax/Busan/Busan-4_w5PtDLlHrVA_t928.mp4,w5PtDLlHrVA,928.0,8.0,ok
+Busan,videos/minimax_h3/Busan/Busan-5_84MXeRwxpAI_t1991.mp4,data/real_minimax/Busan/Busan-5_84MXeRwxpAI_t1991.mp4,84MXeRwxpAI,1991.0,8.0,ok
+Busan,videos/minimax_h3/Busan/Busan-5_84MXeRwxpAI_t2348.mp4,data/real_minimax/Busan/Busan-5_84MXeRwxpAI_t2348.mp4,84MXeRwxpAI,2348.0,8.0,ok
+Busan,videos/minimax_h3/Busan/Busan-6_9OtdzfkeQxE_t202.mp4,data/real_minimax/Busan/Busan-6_9OtdzfkeQxE_t202.mp4,9OtdzfkeQxE,202.0,8.0,ok
+Busan,videos/minimax_h3/Busan/Busan-6_9OtdzfkeQxE_t406.mp4,data/real_minimax/Busan/Busan-6_9OtdzfkeQxE_t406.mp4,9OtdzfkeQxE,406.0,8.0,ok
+Busan,videos/minimax_h3/Busan/Busan-X02_V4haouJM7S4_t59.mp4,data/real_minimax/Busan/Busan-X02_V4haouJM7S4_t59.mp4,V4haouJM7S4,59.0,8.0,ok
+Busan,videos/minimax_h3/Busan/Busan-X04_C5BcKPyOu1Q_t133.mp4,data/real_minimax/Busan/Busan-X04_C5BcKPyOu1Q_t133.mp4,C5BcKPyOu1Q,133.0,8.0,ok
+Busan,videos/minimax_h3/Busan/Busan-X06_m0EnhyZKfA8_t1344.mp4,data/real_minimax/Busan/Busan-X06_m0EnhyZKfA8_t1344.mp4,m0EnhyZKfA8,1344.0,8.0,ok
+Cape Town,videos/minimax_h3/Cape_Town/Cape_Town-1_5bdCk5AQ9Kw_t377.mp4,data/real_minimax/Cape_Town/Cape_Town-1_5bdCk5AQ9Kw_t377.mp4,5bdCk5AQ9Kw,377.0,8.0,ok
+Cape Town,videos/minimax_h3/Cape_Town/Cape_Town-1_5bdCk5AQ9Kw_t434.mp4,data/real_minimax/Cape_Town/Cape_Town-1_5bdCk5AQ9Kw_t434.mp4,5bdCk5AQ9Kw,434.0,8.0,ok
+Cape Town,videos/minimax_h3/Cape_Town/Cape_Town-3_C5bhAxfFuIc_t1441.mp4,data/real_minimax/Cape_Town/Cape_Town-3_C5bhAxfFuIc_t1441.mp4,C5bhAxfFuIc,1441.0,8.0,ok
+Cape Town,videos/minimax_h3/Cape_Town/Cape_Town-3_C5bhAxfFuIc_t1472.mp4,data/real_minimax/Cape_Town/Cape_Town-3_C5bhAxfFuIc_t1472.mp4,C5bhAxfFuIc,1472.0,8.0,ok
+Cape Town,videos/minimax_h3/Cape_Town/Cape_Town-5_0xP7JgDiBb8_t359.mp4,data/real_minimax/Cape_Town/Cape_Town-5_0xP7JgDiBb8_t359.mp4,0xP7JgDiBb8,359.0,8.0,ok
+Cape Town,videos/minimax_h3/Cape_Town/Cape_Town-5_0xP7JgDiBb8_t917.mp4,data/real_minimax/Cape_Town/Cape_Town-5_0xP7JgDiBb8_t917.mp4,0xP7JgDiBb8,917.0,8.0,ok
+Cape Town,videos/minimax_h3/Cape_Town/Cape_Town-X01_eevIJ9RqvaI_t835.mp4,data/real_minimax/Cape_Town/Cape_Town-X01_eevIJ9RqvaI_t835.mp4,eevIJ9RqvaI,835.0,8.0,ok
+Cape Town,videos/minimax_h3/Cape_Town/Cape_Town-X01_eevIJ9RqvaI_t952.mp4,data/real_minimax/Cape_Town/Cape_Town-X01_eevIJ9RqvaI_t952.mp4,eevIJ9RqvaI,952.0,8.0,ok
+Cape Town,videos/minimax_h3/Cape_Town/Cape_Town-X02_u5Prsfq8Ag8_t484.mp4,data/real_minimax/Cape_Town/Cape_Town-X02_u5Prsfq8Ag8_t484.mp4,u5Prsfq8Ag8,484.0,8.0,ok
+Cape Town,videos/minimax_h3/Cape_Town/Cape_Town-X11_12MdLxxpIgA_t472.mp4,data/real_minimax/Cape_Town/Cape_Town-X11_12MdLxxpIgA_t472.mp4,12MdLxxpIgA,472.0,8.0,ok
+Chicago,videos/minimax_h3/Chicago/Chicago-05_IWPb6eWMR_o_t588.mp4,data/real_minimax/Chicago/Chicago-05_IWPb6eWMR_o_t588.mp4,IWPb6eWMR_o,588.0,8.0,ok
+Chicago,videos/minimax_h3/Chicago/Chicago-05_IWPb6eWMR_o_t707.mp4,data/real_minimax/Chicago/Chicago-05_IWPb6eWMR_o_t707.mp4,IWPb6eWMR_o,707.0,8.0,ok
+Chicago,videos/minimax_h3/Chicago/Chicago-06_nFgX9DkEY4s_t795.mp4,data/real_minimax/Chicago/Chicago-06_nFgX9DkEY4s_t795.mp4,nFgX9DkEY4s,795.0,8.0,ok
+Chicago,videos/minimax_h3/Chicago/Chicago-07_P04G6dbzX_o_t501.mp4,data/real_minimax/Chicago/Chicago-07_P04G6dbzX_o_t501.mp4,P04G6dbzX_o,501.0,8.0,ok
+Chicago,videos/minimax_h3/Chicago/Chicago-08_KpwzLSnv0A8_t651.mp4,data/real_minimax/Chicago/Chicago-08_KpwzLSnv0A8_t651.mp4,KpwzLSnv0A8,651.0,8.0,ok
+Chicago,videos/minimax_h3/Chicago/Chicago-09_J4QgtGDTXAE_t703.mp4,data/real_minimax/Chicago/Chicago-09_J4QgtGDTXAE_t703.mp4,J4QgtGDTXAE,703.0,8.0,ok
+Chicago,videos/minimax_h3/Chicago/Chicago-10_e1ZeF0Gz6rc_t914.mp4,data/real_minimax/Chicago/Chicago-10_e1ZeF0Gz6rc_t914.mp4,e1ZeF0Gz6rc,914.0,8.0,ok
+Chicago,videos/minimax_h3/Chicago/Chicago-13_O-YPkapBT8g_t708.mp4,data/real_minimax/Chicago/Chicago-13_O-YPkapBT8g_t708.mp4,O-YPkapBT8g,708.0,8.0,ok
+Chicago,videos/minimax_h3/Chicago/Chicago-16_3ma3yXXc3V8_t394.mp4,data/real_minimax/Chicago/Chicago-16_3ma3yXXc3V8_t394.mp4,3ma3yXXc3V8,394.0,8.0,ok
+Chicago,videos/minimax_h3/Chicago/Chicago-17_wdIu8XdqtWM_t266.mp4,data/real_minimax/Chicago/Chicago-17_wdIu8XdqtWM_t266.mp4,wdIu8XdqtWM,266.0,8.0,ok
+Cotabato,videos/minimax_h3/Cotabato/Cotabato-1_WBLFOI5FpEQ_t1014.mp4,data/real_minimax/Cotabato/Cotabato-1_WBLFOI5FpEQ_t1014.mp4,WBLFOI5FpEQ,1014.0,8.0,ok
+Cotabato,videos/minimax_h3/Cotabato/Cotabato-1_WBLFOI5FpEQ_t692.mp4,data/real_minimax/Cotabato/Cotabato-1_WBLFOI5FpEQ_t692.mp4,WBLFOI5FpEQ,692.0,8.0,ok
+Cotabato,videos/minimax_h3/Cotabato/Cotabato-2_3dder_AcuiI_t1036.mp4,data/real_minimax/Cotabato/Cotabato-2_3dder_AcuiI_t1036.mp4,3dder_AcuiI,1036.0,8.0,ok
+Cotabato,videos/minimax_h3/Cotabato/Cotabato-2_3dder_AcuiI_t924.mp4,data/real_minimax/Cotabato/Cotabato-2_3dder_AcuiI_t924.mp4,3dder_AcuiI,924.0,8.0,ok
+Cotabato,videos/minimax_h3/Cotabato/Cotabato-4_cSlF4ZhpIW4_t692.mp4,data/real_minimax/Cotabato/Cotabato-4_cSlF4ZhpIW4_t692.mp4,cSlF4ZhpIW4,692.0,8.0,ok
+Cotabato,videos/minimax_h3/Cotabato/Cotabato-6_3ZNnfQXLhpI_t441.mp4,data/real_minimax/Cotabato/Cotabato-6_3ZNnfQXLhpI_t441.mp4,3ZNnfQXLhpI,441.0,8.0,ok
+Cotabato,videos/minimax_h3/Cotabato/Cotabato-X01_xcJ6gYPqqqE_t10.mp4,data/real_minimax/Cotabato/Cotabato-X01_xcJ6gYPqqqE_t10.mp4,xcJ6gYPqqqE,10.0,8.0,ok
+Cotabato,videos/minimax_h3/Cotabato/Cotabato-X01_xcJ6gYPqqqE_t516.mp4,data/real_minimax/Cotabato/Cotabato-X01_xcJ6gYPqqqE_t516.mp4,xcJ6gYPqqqE,516.0,8.0,ok
+Cotabato,videos/minimax_h3/Cotabato/Cotabato-X03_3M3OB0juTQ0_t293.mp4,data/real_minimax/Cotabato/Cotabato-X03_3M3OB0juTQ0_t293.mp4,3M3OB0juTQ0,293.0,8.0,ok
+Cotabato,videos/minimax_h3/Cotabato/Cotabato-X03_3M3OB0juTQ0_t323.mp4,data/real_minimax/Cotabato/Cotabato-X03_3M3OB0juTQ0_t323.mp4,3M3OB0juTQ0,323.0,8.0,ok
+Dallas,videos/minimax_h3/Dallas/Dallas-1_o7PEqqe9avE_t387.mp4,data/real_minimax/Dallas/Dallas-1_o7PEqqe9avE_t387.mp4,o7PEqqe9avE,387.0,8.0,ok
+Dallas,videos/minimax_h3/Dallas/Dallas-3_h9K5CYwujhM_t458.mp4,data/real_minimax/Dallas/Dallas-3_h9K5CYwujhM_t458.mp4,h9K5CYwujhM,458.0,8.0,ok
+Dallas,videos/minimax_h3/Dallas/Dallas-4_d6xXF0QY16E_t801.mp4,data/real_minimax/Dallas/Dallas-4_d6xXF0QY16E_t801.mp4,d6xXF0QY16E,801.0,8.0,ok
+Dallas,videos/minimax_h3/Dallas/Dallas-X02_7vnVMXskzwE_t997.mp4,data/real_minimax/Dallas/Dallas-X02_7vnVMXskzwE_t997.mp4,7vnVMXskzwE,997.0,8.0,ok
+Dallas,videos/minimax_h3/Dallas/Dallas-X05_1eNY7m1bQo8_t632.mp4,data/real_minimax/Dallas/Dallas-X05_1eNY7m1bQo8_t632.mp4,1eNY7m1bQo8,632.0,8.0,ok
+Dallas,videos/minimax_h3/Dallas/Dallas-X06_FrXHm4WW5mg_t560.mp4,data/real_minimax/Dallas/Dallas-X06_FrXHm4WW5mg_t560.mp4,FrXHm4WW5mg,560.0,8.0,ok
+Dallas,videos/minimax_h3/Dallas/Dallas-X07_-adodScBFoY_t503.mp4,data/real_minimax/Dallas/Dallas-X07_-adodScBFoY_t503.mp4,-adodScBFoY,503.0,8.0,ok
+Dallas,videos/minimax_h3/Dallas/Dallas-X07_-adodScBFoY_t532.mp4,data/real_minimax/Dallas/Dallas-X07_-adodScBFoY_t532.mp4,-adodScBFoY,532.0,8.0,ok
+Dallas,videos/minimax_h3/Dallas/Dallas-X11_Hk5WrGnq2p0_t2.mp4,data/real_minimax/Dallas/Dallas-X11_Hk5WrGnq2p0_t2.mp4,Hk5WrGnq2p0,2.0,8.0,ok
+Dallas,videos/minimax_h3/Dallas/Dallas-X11_Hk5WrGnq2p0_t860.mp4,data/real_minimax/Dallas/Dallas-X11_Hk5WrGnq2p0_t860.mp4,Hk5WrGnq2p0,860.0,8.0,ok
+Damascus,videos/minimax_h3/Damascus/Damascus-3_I0UeMmyvdQw_t822.mp4,data/real_minimax/Damascus/Damascus-3_I0UeMmyvdQw_t822.mp4,I0UeMmyvdQw,822.0,8.0,ok
+Damascus,videos/minimax_h3/Damascus/Damascus-3_I0UeMmyvdQw_t845.mp4,data/real_minimax/Damascus/Damascus-3_I0UeMmyvdQw_t845.mp4,I0UeMmyvdQw,845.0,8.0,ok
+Damascus,videos/minimax_h3/Damascus/Damascus-6_8ThJZ3hVxYw_t1166.mp4,data/real_minimax/Damascus/Damascus-6_8ThJZ3hVxYw_t1166.mp4,8ThJZ3hVxYw,1166.0,8.0,ok
+Damascus,videos/minimax_h3/Damascus/Damascus-X03_ORZLHfYIRWM_t721.mp4,data/real_minimax/Damascus/Damascus-X03_ORZLHfYIRWM_t721.mp4,ORZLHfYIRWM,721.0,8.0,ok
+Damascus,videos/minimax_h3/Damascus/Damascus-X03_ORZLHfYIRWM_t796.mp4,data/real_minimax/Damascus/Damascus-X03_ORZLHfYIRWM_t796.mp4,ORZLHfYIRWM,796.0,8.0,ok
+Damascus,videos/minimax_h3/Damascus/Damascus-X06_7hraxzurXZU_t573.mp4,data/real_minimax/Damascus/Damascus-X06_7hraxzurXZU_t573.mp4,7hraxzurXZU,573.0,8.0,ok
+Damascus,videos/minimax_h3/Damascus/Damascus-X06_7hraxzurXZU_t904.mp4,data/real_minimax/Damascus/Damascus-X06_7hraxzurXZU_t904.mp4,7hraxzurXZU,904.0,8.0,ok
+Damascus,videos/minimax_h3/Damascus/Damascus-X07_wx9nGSS9m10_t485.mp4,data/real_minimax/Damascus/Damascus-X07_wx9nGSS9m10_t485.mp4,wx9nGSS9m10,485.0,8.0,ok
+Damascus,videos/minimax_h3/Damascus/Damascus-X08_uCkxNst0aSg_t1104.mp4,data/real_minimax/Damascus/Damascus-X08_uCkxNst0aSg_t1104.mp4,uCkxNst0aSg,1104.0,8.0,ok
+Damascus,videos/minimax_h3/Damascus/Damascus-X08_uCkxNst0aSg_t548.mp4,data/real_minimax/Damascus/Damascus-X08_uCkxNst0aSg_t548.mp4,uCkxNst0aSg,548.0,8.0,ok
+Darwin,videos/minimax_h3/Darwin/Darwin-X01_HfrBdvxua-U_t1094.mp4,data/real_minimax/Darwin/Darwin-X01_HfrBdvxua-U_t1094.mp4,HfrBdvxua-U,1094.0,8.0,ok
+Darwin,videos/minimax_h3/Darwin/Darwin-X06_NeWJOekm1dM_t113.mp4,data/real_minimax/Darwin/Darwin-X06_NeWJOekm1dM_t113.mp4,NeWJOekm1dM,113.0,8.0,ok
+Darwin,videos/minimax_h3/Darwin/Darwin-X14_3aTU7NRE7yE_t163.mp4,data/real_minimax/Darwin/Darwin-X14_3aTU7NRE7yE_t163.mp4,3aTU7NRE7yE,163.0,8.0,ok
+Darwin,videos/minimax_h3/Darwin/Darwin-X14_3aTU7NRE7yE_t214.mp4,data/real_minimax/Darwin/Darwin-X14_3aTU7NRE7yE_t214.mp4,3aTU7NRE7yE,214.0,8.0,ok
+Darwin,videos/minimax_h3/Darwin/Darwin-X15_7t-Z0ptXALI_t955.mp4,data/real_minimax/Darwin/Darwin-X15_7t-Z0ptXALI_t955.mp4,7t-Z0ptXALI,955.0,8.0,ok
+Darwin,videos/minimax_h3/Darwin/Darwin-X18_d97oSq2tE3I_t214.mp4,data/real_minimax/Darwin/Darwin-X18_d97oSq2tE3I_t214.mp4,d97oSq2tE3I,214.0,8.0,ok
+Darwin,videos/minimax_h3/Darwin/Darwin-X20_TrA61EDItIc_t414.mp4,data/real_minimax/Darwin/Darwin-X20_TrA61EDItIc_t414.mp4,TrA61EDItIc,414.0,8.0,ok
+Darwin,videos/minimax_h3/Darwin/Darwin-X24_CPhZcdau0Jg_t122.mp4,data/real_minimax/Darwin/Darwin-X24_CPhZcdau0Jg_t122.mp4,CPhZcdau0Jg,122.0,8.0,ok
+Darwin,videos/minimax_h3/Darwin/Darwin-X26_QbUnDulhyoo_t657.mp4,data/real_minimax/Darwin/Darwin-X26_QbUnDulhyoo_t657.mp4,QbUnDulhyoo,657.0,8.0,ok
+Darwin,videos/minimax_h3/Darwin/Darwin-X26_QbUnDulhyoo_t727.mp4,data/real_minimax/Darwin/Darwin-X26_QbUnDulhyoo_t727.mp4,QbUnDulhyoo,727.0,8.0,ok
+Den Haag,videos/minimax_h3/Den_Haag/Den_Haag-3_0OK2DmPoLpM_t867.mp4,data/real_minimax/Den_Haag/Den_Haag-3_0OK2DmPoLpM_t867.mp4,0OK2DmPoLpM,867.0,8.0,ok
+Den Haag,videos/minimax_h3/Den_Haag/Den_Haag-4_NIOgxqYNVkY_t123.mp4,data/real_minimax/Den_Haag/Den_Haag-4_NIOgxqYNVkY_t123.mp4,NIOgxqYNVkY,123.0,8.0,ok
+Den Haag,videos/minimax_h3/Den_Haag/Den_Haag-6_bE1I6GiUW5U_t699.mp4,data/real_minimax/Den_Haag/Den_Haag-6_bE1I6GiUW5U_t699.mp4,bE1I6GiUW5U,699.0,8.0,ok
+Den Haag,videos/minimax_h3/Den_Haag/Den_Haag-X01_wx3AuW1h5_o_t1136.mp4,data/real_minimax/Den_Haag/Den_Haag-X01_wx3AuW1h5_o_t1136.mp4,wx3AuW1h5_o,1136.0,8.0,ok
+Den Haag,videos/minimax_h3/Den_Haag/Den_Haag-X02_G-qONrRh1bg_t317.mp4,data/real_minimax/Den_Haag/Den_Haag-X02_G-qONrRh1bg_t317.mp4,G-qONrRh1bg,317.0,8.0,ok
+Den Haag,videos/minimax_h3/Den_Haag/Den_Haag-X04_4YnczQOdsTQ_t1032.mp4,data/real_minimax/Den_Haag/Den_Haag-X04_4YnczQOdsTQ_t1032.mp4,4YnczQOdsTQ,1032.0,8.0,ok
+Den Haag,videos/minimax_h3/Den_Haag/Den_Haag-X05_X2NB6V00cds_t760.mp4,data/real_minimax/Den_Haag/Den_Haag-X05_X2NB6V00cds_t760.mp4,X2NB6V00cds,760.0,8.0,ok
+Den Haag,videos/minimax_h3/Den_Haag/Den_Haag-X06_w1u9zeBYdUc_t893.mp4,data/real_minimax/Den_Haag/Den_Haag-X06_w1u9zeBYdUc_t893.mp4,w1u9zeBYdUc,893.0,8.0,ok
+Den Haag,videos/minimax_h3/Den_Haag/Den_Haag-X07_sBCIdH2UUoY_t1064.mp4,data/real_minimax/Den_Haag/Den_Haag-X07_sBCIdH2UUoY_t1064.mp4,sBCIdH2UUoY,1064.0,8.0,ok
+Den Haag,videos/minimax_h3/Den_Haag/Den_Haag-X07_sBCIdH2UUoY_t854.mp4,data/real_minimax/Den_Haag/Den_Haag-X07_sBCIdH2UUoY_t854.mp4,sBCIdH2UUoY,854.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-1_sv8WNIh-_w8_t330.mp4,data/real_minimax/Detroit/Detroit-1_sv8WNIh-_w8_t330.mp4,sv8WNIh-_w8,330.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-1_sv8WNIh-_w8_t437.mp4,data/real_minimax/Detroit/Detroit-1_sv8WNIh-_w8_t437.mp4,sv8WNIh-_w8,437.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-3_PXqxzSgdyzU_t1159.mp4,data/real_minimax/Detroit/Detroit-3_PXqxzSgdyzU_t1159.mp4,PXqxzSgdyzU,1159.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-3_PXqxzSgdyzU_t1199.mp4,data/real_minimax/Detroit/Detroit-3_PXqxzSgdyzU_t1199.mp4,PXqxzSgdyzU,1199.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-3_PXqxzSgdyzU_t761.mp4,data/real_minimax/Detroit/Detroit-3_PXqxzSgdyzU_t761.mp4,PXqxzSgdyzU,761.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-4_GLZcBdEgfUk_t1200.mp4,data/real_minimax/Detroit/Detroit-4_GLZcBdEgfUk_t1200.mp4,GLZcBdEgfUk,1200.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-5_PMv1KWDkXE4_t379.mp4,data/real_minimax/Detroit/Detroit-5_PMv1KWDkXE4_t379.mp4,PMv1KWDkXE4,379.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-X05_1gbHivWjK2E_t158.mp4,data/real_minimax/Detroit/Detroit-X05_1gbHivWjK2E_t158.mp4,1gbHivWjK2E,158.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-X05_1gbHivWjK2E_t622.mp4,data/real_minimax/Detroit/Detroit-X05_1gbHivWjK2E_t622.mp4,1gbHivWjK2E,622.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-X08_UMqUz3dF-nE_t146.mp4,data/real_minimax/Detroit/Detroit-X08_UMqUz3dF-nE_t146.mp4,UMqUz3dF-nE,146.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-X08_UMqUz3dF-nE_t213.mp4,data/real_minimax/Detroit/Detroit-X08_UMqUz3dF-nE_t213.mp4,UMqUz3dF-nE,213.0,8.0,ok
+Detroit,videos/minimax_h3/Detroit/Detroit-X08_UMqUz3dF-nE_t275.mp4,data/real_minimax/Detroit/Detroit-X08_UMqUz3dF-nE_t275.mp4,UMqUz3dF-nE,275.0,8.0,ok
+Dubai,videos/minimax_h3/Dubai/Dubai-6_7N6hy_Z4iH0_t797.mp4,data/real_minimax/Dubai/Dubai-6_7N6hy_Z4iH0_t797.mp4,7N6hy_Z4iH0,797.0,8.0,ok
+Dubai,videos/minimax_h3/Dubai/Dubai-X06_yW4nUl8xCOw_t1142.mp4,data/real_minimax/Dubai/Dubai-X06_yW4nUl8xCOw_t1142.mp4,yW4nUl8xCOw,1142.0,8.0,ok
+Dubai,videos/minimax_h3/Dubai/Dubai-X06_yW4nUl8xCOw_t1163.mp4,data/real_minimax/Dubai/Dubai-X06_yW4nUl8xCOw_t1163.mp4,yW4nUl8xCOw,1163.0,8.0,ok
+Dubai,videos/minimax_h3/Dubai/Dubai-X06_yW4nUl8xCOw_t498.mp4,data/real_minimax/Dubai/Dubai-X06_yW4nUl8xCOw_t498.mp4,yW4nUl8xCOw,498.0,8.0,ok
+Dubai,videos/minimax_h3/Dubai/Dubai-X09_dG310rqcOhY_t114.mp4,data/real_minimax/Dubai/Dubai-X09_dG310rqcOhY_t114.mp4,dG310rqcOhY,114.0,8.0,ok
+Dubai,videos/minimax_h3/Dubai/Dubai-X10_bA9ujDskr7c_t164.mp4,data/real_minimax/Dubai/Dubai-X10_bA9ujDskr7c_t164.mp4,bA9ujDskr7c,164.0,8.0,ok
+Dubai,videos/minimax_h3/Dubai/Dubai-X13_UmBVgfmzF7M_t622.mp4,data/real_minimax/Dubai/Dubai-X13_UmBVgfmzF7M_t622.mp4,UmBVgfmzF7M,622.0,8.0,ok
+Dubai,videos/minimax_h3/Dubai/Dubai-X13_UmBVgfmzF7M_t895.mp4,data/real_minimax/Dubai/Dubai-X13_UmBVgfmzF7M_t895.mp4,UmBVgfmzF7M,895.0,8.0,ok
+Dubai,videos/minimax_h3/Dubai/Dubai-X13_UmBVgfmzF7M_t973.mp4,data/real_minimax/Dubai/Dubai-X13_UmBVgfmzF7M_t973.mp4,UmBVgfmzF7M,973.0,8.0,ok
+Dubai,videos/minimax_h3/Dubai/Dubai-X18_DpzEI0JHTYk_t118.mp4,data/real_minimax/Dubai/Dubai-X18_DpzEI0JHTYk_t118.mp4,DpzEI0JHTYk,118.0,8.0,ok
+Dubai,videos/minimax_h3/Dubai/Dubai-X19_jzQoGhYbOu4_t368.mp4,data/real_minimax/Dubai/Dubai-X19_jzQoGhYbOu4_t368.mp4,jzQoGhYbOu4,368.0,8.0,ok
+Dublin,videos/minimax_h3/Dublin/Dublin-2_zoqLX1Z5nm8_t581.mp4,data/real_minimax/Dublin/Dublin-2_zoqLX1Z5nm8_t581.mp4,zoqLX1Z5nm8,581.0,8.0,ok
+Dublin,videos/minimax_h3/Dublin/Dublin-2_zoqLX1Z5nm8_t703.mp4,data/real_minimax/Dublin/Dublin-2_zoqLX1Z5nm8_t703.mp4,zoqLX1Z5nm8,703.0,8.0,ok
+Dublin,videos/minimax_h3/Dublin/Dublin-2_zoqLX1Z5nm8_t754.mp4,data/real_minimax/Dublin/Dublin-2_zoqLX1Z5nm8_t754.mp4,zoqLX1Z5nm8,754.0,8.0,ok
+Dublin,videos/minimax_h3/Dublin/Dublin-3_i1HrCJFKD0c_t780.mp4,data/real_minimax/Dublin/Dublin-3_i1HrCJFKD0c_t780.mp4,i1HrCJFKD0c,780.0,8.0,ok
+Dublin,videos/minimax_h3/Dublin/Dublin-3_i1HrCJFKD0c_t807.mp4,data/real_minimax/Dublin/Dublin-3_i1HrCJFKD0c_t807.mp4,i1HrCJFKD0c,807.0,8.0,ok
+Dublin,videos/minimax_h3/Dublin/Dublin-4_jF72Co033eY_t1104.mp4,data/real_minimax/Dublin/Dublin-4_jF72Co033eY_t1104.mp4,jF72Co033eY,1104.0,8.0,ok
+Dublin,videos/minimax_h3/Dublin/Dublin-5_HdkvgR5tdQQ_t871.mp4,data/real_minimax/Dublin/Dublin-5_HdkvgR5tdQQ_t871.mp4,HdkvgR5tdQQ,871.0,8.0,ok
+Dublin,videos/minimax_h3/Dublin/Dublin-5_HdkvgR5tdQQ_t922.mp4,data/real_minimax/Dublin/Dublin-5_HdkvgR5tdQQ_t922.mp4,HdkvgR5tdQQ,922.0,8.0,ok
+Dublin,videos/minimax_h3/Dublin/Dublin-6_3EF1RAP5yJY_t550.mp4,data/real_minimax/Dublin/Dublin-6_3EF1RAP5yJY_t550.mp4,3EF1RAP5yJY,550.0,8.0,ok
+Dublin,videos/minimax_h3/Dublin/Dublin-6_3EF1RAP5yJY_t68.mp4,data/real_minimax/Dublin/Dublin-6_3EF1RAP5yJY_t68.mp4,3EF1RAP5yJY,68.0,8.0,ok
+Eindhoven,videos/minimax_h3/Eindhoven/Eindhoven-X02_7zic2NwH2NM_t118.mp4,data/real_minimax/Eindhoven/Eindhoven-X02_7zic2NwH2NM_t118.mp4,7zic2NwH2NM,118.0,8.0,ok
+Eindhoven,videos/minimax_h3/Eindhoven/Eindhoven-X03_K60Elpr4z5I_t855.mp4,data/real_minimax/Eindhoven/Eindhoven-X03_K60Elpr4z5I_t855.mp4,K60Elpr4z5I,855.0,8.0,ok
+Eindhoven,videos/minimax_h3/Eindhoven/Eindhoven-X05_s58exvnIILw_t1148.mp4,data/real_minimax/Eindhoven/Eindhoven-X05_s58exvnIILw_t1148.mp4,s58exvnIILw,1148.0,8.0,ok
+Eindhoven,videos/minimax_h3/Eindhoven/Eindhoven-X06_BEdTQmte6pk_t1904.mp4,data/real_minimax/Eindhoven/Eindhoven-X06_BEdTQmte6pk_t1904.mp4,BEdTQmte6pk,1904.0,8.0,ok
+Eindhoven,videos/minimax_h3/Eindhoven/Eindhoven-X06_BEdTQmte6pk_t1925.mp4,data/real_minimax/Eindhoven/Eindhoven-X06_BEdTQmte6pk_t1925.mp4,BEdTQmte6pk,1925.0,8.0,ok
+Eindhoven,videos/minimax_h3/Eindhoven/Eindhoven-X06_BEdTQmte6pk_t218.mp4,data/real_minimax/Eindhoven/Eindhoven-X06_BEdTQmte6pk_t218.mp4,BEdTQmte6pk,218.0,8.0,ok
+Eindhoven,videos/minimax_h3/Eindhoven/Eindhoven-X08_Rb41GNFZRZo_t13.mp4,data/real_minimax/Eindhoven/Eindhoven-X08_Rb41GNFZRZo_t13.mp4,Rb41GNFZRZo,13.0,8.0,ok
+Eindhoven,videos/minimax_h3/Eindhoven/Eindhoven-X08_Rb41GNFZRZo_t2616.mp4,data/real_minimax/Eindhoven/Eindhoven-X08_Rb41GNFZRZo_t2616.mp4,Rb41GNFZRZo,2616.0,8.0,ok
+Eindhoven,videos/minimax_h3/Eindhoven/Eindhoven-X20_9o30Fbr0ILI_t240.mp4,data/real_minimax/Eindhoven/Eindhoven-X20_9o30Fbr0ILI_t240.mp4,9o30Fbr0ILI,240.0,8.0,ok
+Eindhoven,videos/minimax_h3/Eindhoven/Eindhoven-X20_9o30Fbr0ILI_t375.mp4,data/real_minimax/Eindhoven/Eindhoven-X20_9o30Fbr0ILI_t375.mp4,9o30Fbr0ILI,375.0,8.0,ok
+Eindhoven,videos/minimax_h3/Eindhoven/Eindhoven-X20_9o30Fbr0ILI_t395.mp4,data/real_minimax/Eindhoven/Eindhoven-X20_9o30Fbr0ILI_t395.mp4,9o30Fbr0ILI,395.0,8.0,ok
+Gamagori,videos/minimax_h3/Gamagori/Gamagori-2_2rQbGSQqDEw_t14.mp4,data/real_minimax/Gamagori/Gamagori-2_2rQbGSQqDEw_t14.mp4,2rQbGSQqDEw,14.0,8.0,ok
+Gamagori,videos/minimax_h3/Gamagori/Gamagori-2_2rQbGSQqDEw_t680.mp4,data/real_minimax/Gamagori/Gamagori-2_2rQbGSQqDEw_t680.mp4,2rQbGSQqDEw,680.0,8.0,ok
+Gamagori,videos/minimax_h3/Gamagori/Gamagori-4_dSEtjhFUWKM_t567.mp4,data/real_minimax/Gamagori/Gamagori-4_dSEtjhFUWKM_t567.mp4,dSEtjhFUWKM,567.0,8.0,ok
+Gamagori,videos/minimax_h3/Gamagori/Gamagori-X03_p5rnOUgw53c_t536.mp4,data/real_minimax/Gamagori/Gamagori-X03_p5rnOUgw53c_t536.mp4,p5rnOUgw53c,536.0,8.0,ok
+Gamagori,videos/minimax_h3/Gamagori/Gamagori-X03_p5rnOUgw53c_t740.mp4,data/real_minimax/Gamagori/Gamagori-X03_p5rnOUgw53c_t740.mp4,p5rnOUgw53c,740.0,8.0,ok
+Gamagori,videos/minimax_h3/Gamagori/Gamagori-X05_39a5U-zxINU_t825.mp4,data/real_minimax/Gamagori/Gamagori-X05_39a5U-zxINU_t825.mp4,39a5U-zxINU,825.0,8.0,ok
+Gamagori,videos/minimax_h3/Gamagori/Gamagori-X07_XLL2AaAMv40_t774.mp4,data/real_minimax/Gamagori/Gamagori-X07_XLL2AaAMv40_t774.mp4,XLL2AaAMv40,774.0,8.0,ok
+Gamagori,videos/minimax_h3/Gamagori/Gamagori-X09_1szuiCVHy5E_t1000.mp4,data/real_minimax/Gamagori/Gamagori-X09_1szuiCVHy5E_t1000.mp4,1szuiCVHy5E,1000.0,8.0,ok
+Gamagori,videos/minimax_h3/Gamagori/Gamagori-X16_Ud_70dCsrhM_t636.mp4,data/real_minimax/Gamagori/Gamagori-X16_Ud_70dCsrhM_t636.mp4,Ud_70dCsrhM,636.0,8.0,ok
+Gamagori,videos/minimax_h3/Gamagori/Gamagori-X18_iWBa1PXglwc_t1072.mp4,data/real_minimax/Gamagori/Gamagori-X18_iWBa1PXglwc_t1072.mp4,iWBa1PXglwc,1072.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-3_1wv0gPavXeE_t929.mp4,data/real_minimax/Guangzhou/Guangzhou-3_1wv0gPavXeE_t929.mp4,1wv0gPavXeE,929.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-4_7T4qpDeTJx8_t434.mp4,data/real_minimax/Guangzhou/Guangzhou-4_7T4qpDeTJx8_t434.mp4,7T4qpDeTJx8,434.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-5_NOGC6PXDUe4_t663.mp4,data/real_minimax/Guangzhou/Guangzhou-5_NOGC6PXDUe4_t663.mp4,NOGC6PXDUe4,663.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-5_NOGC6PXDUe4_t888.mp4,data/real_minimax/Guangzhou/Guangzhou-5_NOGC6PXDUe4_t888.mp4,NOGC6PXDUe4,888.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-6_opFy3odlG-g_t1006.mp4,data/real_minimax/Guangzhou/Guangzhou-6_opFy3odlG-g_t1006.mp4,opFy3odlG-g,1006.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-6_opFy3odlG-g_t578.mp4,data/real_minimax/Guangzhou/Guangzhou-6_opFy3odlG-g_t578.mp4,opFy3odlG-g,578.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-X01_zwIX4cmmBAI_t225.mp4,data/real_minimax/Guangzhou/Guangzhou-X01_zwIX4cmmBAI_t225.mp4,zwIX4cmmBAI,225.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-X01_zwIX4cmmBAI_t257.mp4,data/real_minimax/Guangzhou/Guangzhou-X01_zwIX4cmmBAI_t257.mp4,zwIX4cmmBAI,257.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-X01_zwIX4cmmBAI_t54.mp4,data/real_minimax/Guangzhou/Guangzhou-X01_zwIX4cmmBAI_t54.mp4,zwIX4cmmBAI,54.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-X05_zA-I1qG7AXU_t442.mp4,data/real_minimax/Guangzhou/Guangzhou-X05_zA-I1qG7AXU_t442.mp4,zA-I1qG7AXU,442.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-X06_UUa51Mct9tQ_t203.mp4,data/real_minimax/Guangzhou/Guangzhou-X06_UUa51Mct9tQ_t203.mp4,UUa51Mct9tQ,203.0,8.0,ok
+Guangzhou,videos/minimax_h3/Guangzhou/Guangzhou-X06_UUa51Mct9tQ_t608.mp4,data/real_minimax/Guangzhou/Guangzhou-X06_UUa51Mct9tQ_t608.mp4,UUa51Mct9tQ,608.0,8.0,ok
+Hanoi,videos/minimax_h3/Hanoi/Hanoi-04_zdJ3z6DG58k_t1566.mp4,data/real_minimax/Hanoi/Hanoi-04_zdJ3z6DG58k_t1566.mp4,zdJ3z6DG58k,1566.0,8.0,ok
+Hanoi,videos/minimax_h3/Hanoi/Hanoi-07_UWx0hew9fy4_t741.mp4,data/real_minimax/Hanoi/Hanoi-07_UWx0hew9fy4_t741.mp4,UWx0hew9fy4,741.0,8.0,ok
+Hanoi,videos/minimax_h3/Hanoi/Hanoi-13_i-65fpZyrwg_t1382.mp4,data/real_minimax/Hanoi/Hanoi-13_i-65fpZyrwg_t1382.mp4,i-65fpZyrwg,1382.0,8.0,ok
+Hanoi,videos/minimax_h3/Hanoi/Hanoi-20_jzOqbHdr82U_t2876.mp4,data/real_minimax/Hanoi/Hanoi-20_jzOqbHdr82U_t2876.mp4,jzOqbHdr82U,2876.0,8.0,ok
+Hanoi,videos/minimax_h3/Hanoi/Hanoi-20_jzOqbHdr82U_t745.mp4,data/real_minimax/Hanoi/Hanoi-20_jzOqbHdr82U_t745.mp4,jzOqbHdr82U,745.0,8.0,ok
+Hanoi,videos/minimax_h3/Hanoi/Hanoi-X02_cwujwM6prTk_t3796.mp4,data/real_minimax/Hanoi/Hanoi-X02_cwujwM6prTk_t3796.mp4,cwujwM6prTk,3796.0,8.0,ok
+Hanoi,videos/minimax_h3/Hanoi/Hanoi-X02_cwujwM6prTk_t5106.mp4,data/real_minimax/Hanoi/Hanoi-X02_cwujwM6prTk_t5106.mp4,cwujwM6prTk,5106.0,8.0,ok
+Hanoi,videos/minimax_h3/Hanoi/Hanoi-X03_gRSP2D7X6x0_t0.mp4,data/real_minimax/Hanoi/Hanoi-X03_gRSP2D7X6x0_t0.mp4,gRSP2D7X6x0,0.0,8.0,ok
+Hanoi,videos/minimax_h3/Hanoi/Hanoi-X06_onssoQKLUwM_t2599.mp4,data/real_minimax/Hanoi/Hanoi-X06_onssoQKLUwM_t2599.mp4,onssoQKLUwM,2599.0,8.0,ok
+Hanoi,videos/minimax_h3/Hanoi/Hanoi-X06_onssoQKLUwM_t2626.mp4,data/real_minimax/Hanoi/Hanoi-X06_onssoQKLUwM_t2626.mp4,onssoQKLUwM,2626.0,8.0,ok
+Helsinki,videos/minimax_h3/Helsinki/Helsinki-1_X_Gdgh07k8E_t32.mp4,data/real_minimax/Helsinki/Helsinki-1_X_Gdgh07k8E_t32.mp4,X_Gdgh07k8E,32.0,8.0,ok
+Helsinki,videos/minimax_h3/Helsinki/Helsinki-1_X_Gdgh07k8E_t498.mp4,data/real_minimax/Helsinki/Helsinki-1_X_Gdgh07k8E_t498.mp4,X_Gdgh07k8E,498.0,8.0,ok
+Helsinki,videos/minimax_h3/Helsinki/Helsinki-1_X_Gdgh07k8E_t591.mp4,data/real_minimax/Helsinki/Helsinki-1_X_Gdgh07k8E_t591.mp4,X_Gdgh07k8E,591.0,8.0,ok
+Helsinki,videos/minimax_h3/Helsinki/Helsinki-2_LY1jpXPgOss_t818.mp4,data/real_minimax/Helsinki/Helsinki-2_LY1jpXPgOss_t818.mp4,LY1jpXPgOss,818.0,8.0,ok
+Helsinki,videos/minimax_h3/Helsinki/Helsinki-3_sx_gQjzYNlY_t628.mp4,data/real_minimax/Helsinki/Helsinki-3_sx_gQjzYNlY_t628.mp4,sx_gQjzYNlY,628.0,8.0,ok
+Helsinki,videos/minimax_h3/Helsinki/Helsinki-3_sx_gQjzYNlY_t752.mp4,data/real_minimax/Helsinki/Helsinki-3_sx_gQjzYNlY_t752.mp4,sx_gQjzYNlY,752.0,8.0,ok
+Helsinki,videos/minimax_h3/Helsinki/Helsinki-3_sx_gQjzYNlY_t775.mp4,data/real_minimax/Helsinki/Helsinki-3_sx_gQjzYNlY_t775.mp4,sx_gQjzYNlY,775.0,8.0,ok
+Helsinki,videos/minimax_h3/Helsinki/Helsinki-5_Wlp-TS99jz8_t2024.mp4,data/real_minimax/Helsinki/Helsinki-5_Wlp-TS99jz8_t2024.mp4,Wlp-TS99jz8,2024.0,8.0,ok
+Helsinki,videos/minimax_h3/Helsinki/Helsinki-5_Wlp-TS99jz8_t2242.mp4,data/real_minimax/Helsinki/Helsinki-5_Wlp-TS99jz8_t2242.mp4,Wlp-TS99jz8,2242.0,8.0,ok
+Helsinki,videos/minimax_h3/Helsinki/Helsinki-6_kaaOAyv8JKM_t1150.mp4,data/real_minimax/Helsinki/Helsinki-6_kaaOAyv8JKM_t1150.mp4,kaaOAyv8JKM,1150.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-1_cAj5RFt8aqo_t1076.mp4,data/real_minimax/Houston/Houston-1_cAj5RFt8aqo_t1076.mp4,cAj5RFt8aqo,1076.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-1_cAj5RFt8aqo_t1154.mp4,data/real_minimax/Houston/Houston-1_cAj5RFt8aqo_t1154.mp4,cAj5RFt8aqo,1154.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-1_cAj5RFt8aqo_t933.mp4,data/real_minimax/Houston/Houston-1_cAj5RFt8aqo_t933.mp4,cAj5RFt8aqo,933.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X01_v3XQnLDdhtY_t1092.mp4,data/real_minimax/Houston/Houston-X01_v3XQnLDdhtY_t1092.mp4,v3XQnLDdhtY,1092.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X06_0FqC_kJVTUI_t474.mp4,data/real_minimax/Houston/Houston-X06_0FqC_kJVTUI_t474.mp4,0FqC_kJVTUI,474.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X06_0FqC_kJVTUI_t755.mp4,data/real_minimax/Houston/Houston-X06_0FqC_kJVTUI_t755.mp4,0FqC_kJVTUI,755.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X08_t2xIB5Wrapg_t860.mp4,data/real_minimax/Houston/Houston-X08_t2xIB5Wrapg_t860.mp4,t2xIB5Wrapg,860.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X12_eyn9BRNblUA_t467.mp4,data/real_minimax/Houston/Houston-X12_eyn9BRNblUA_t467.mp4,eyn9BRNblUA,467.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X13_tOn6jBizbcc_t721.mp4,data/real_minimax/Houston/Houston-X13_tOn6jBizbcc_t721.mp4,tOn6jBizbcc,721.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X16_nvaSsrDzakk_t102.mp4,data/real_minimax/Houston/Houston-X16_nvaSsrDzakk_t102.mp4,nvaSsrDzakk,102.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X17_Vh6VxrMc0Bg_t10150.mp4,data/real_minimax/Houston/Houston-X17_Vh6VxrMc0Bg_t10150.mp4,Vh6VxrMc0Bg,10150.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X17_Vh6VxrMc0Bg_t9612.mp4,data/real_minimax/Houston/Houston-X17_Vh6VxrMc0Bg_t9612.mp4,Vh6VxrMc0Bg,9612.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X17_Vh6VxrMc0Bg_t9670.mp4,data/real_minimax/Houston/Houston-X17_Vh6VxrMc0Bg_t9670.mp4,Vh6VxrMc0Bg,9670.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X20_TG-YXojPV-8_t1169.mp4,data/real_minimax/Houston/Houston-X20_TG-YXojPV-8_t1169.mp4,TG-YXojPV-8,1169.0,8.0,ok
+Houston,videos/minimax_h3/Houston/Houston-X20_TG-YXojPV-8_t466.mp4,data/real_minimax/Houston/Houston-X20_TG-YXojPV-8_t466.mp4,TG-YXojPV-8,466.0,8.0,ok
+Istanbul,videos/minimax_h3/Istanbul/Istanbul-1_RKIPWCWldzE_t238.mp4,data/real_minimax/Istanbul/Istanbul-1_RKIPWCWldzE_t238.mp4,RKIPWCWldzE,238.0,8.0,ok
+Istanbul,videos/minimax_h3/Istanbul/Istanbul-1_RKIPWCWldzE_t26.mp4,data/real_minimax/Istanbul/Istanbul-1_RKIPWCWldzE_t26.mp4,RKIPWCWldzE,26.0,8.0,ok
+Istanbul,videos/minimax_h3/Istanbul/Istanbul-3_LBjC1JVy9-0_t879.mp4,data/real_minimax/Istanbul/Istanbul-3_LBjC1JVy9-0_t879.mp4,LBjC1JVy9-0,879.0,8.0,ok
+Istanbul,videos/minimax_h3/Istanbul/Istanbul-X01_nQZpUZoO9Vs_t68.mp4,data/real_minimax/Istanbul/Istanbul-X01_nQZpUZoO9Vs_t68.mp4,nQZpUZoO9Vs,68.0,8.0,ok
+Istanbul,videos/minimax_h3/Istanbul/Istanbul-X03_rOPRMi0bYiw_t39.mp4,data/real_minimax/Istanbul/Istanbul-X03_rOPRMi0bYiw_t39.mp4,rOPRMi0bYiw,39.0,8.0,ok
+Istanbul,videos/minimax_h3/Istanbul/Istanbul-X03_rOPRMi0bYiw_t489.mp4,data/real_minimax/Istanbul/Istanbul-X03_rOPRMi0bYiw_t489.mp4,rOPRMi0bYiw,489.0,8.0,ok
+Istanbul,videos/minimax_h3/Istanbul/Istanbul-X03_rOPRMi0bYiw_t548.mp4,data/real_minimax/Istanbul/Istanbul-X03_rOPRMi0bYiw_t548.mp4,rOPRMi0bYiw,548.0,8.0,ok
+Istanbul,videos/minimax_h3/Istanbul/Istanbul-X04_9EDCav-itr8_t634.mp4,data/real_minimax/Istanbul/Istanbul-X04_9EDCav-itr8_t634.mp4,9EDCav-itr8,634.0,8.0,ok
+Istanbul,videos/minimax_h3/Istanbul/Istanbul-X05_U66S9CNR0Zo_t107.mp4,data/real_minimax/Istanbul/Istanbul-X05_U66S9CNR0Zo_t107.mp4,U66S9CNR0Zo,107.0,8.0,ok
+Istanbul,videos/minimax_h3/Istanbul/Istanbul-X05_U66S9CNR0Zo_t173.mp4,data/real_minimax/Istanbul/Istanbul-X05_U66S9CNR0Zo_t173.mp4,U66S9CNR0Zo,173.0,8.0,ok
+Jakarta,videos/minimax_h3/Jakarta/Jakarta-01_gmDBzijaIAA_t2904.mp4,data/real_minimax/Jakarta/Jakarta-01_gmDBzijaIAA_t2904.mp4,gmDBzijaIAA,2904.0,8.0,ok
+Jakarta,videos/minimax_h3/Jakarta/Jakarta-03_AppxCYZbyLo_t140.mp4,data/real_minimax/Jakarta/Jakarta-03_AppxCYZbyLo_t140.mp4,AppxCYZbyLo,140.0,8.0,ok
+Jakarta,videos/minimax_h3/Jakarta/Jakarta-04_x6Dxv-rNbaw_t185.mp4,data/real_minimax/Jakarta/Jakarta-04_x6Dxv-rNbaw_t185.mp4,x6Dxv-rNbaw,185.0,8.0,ok
+Jakarta,videos/minimax_h3/Jakarta/Jakarta-11_TZCDNUspPOs_t2131.mp4,data/real_minimax/Jakarta/Jakarta-11_TZCDNUspPOs_t2131.mp4,TZCDNUspPOs,2131.0,8.0,ok
+Jakarta,videos/minimax_h3/Jakarta/Jakarta-11_TZCDNUspPOs_t2187.mp4,data/real_minimax/Jakarta/Jakarta-11_TZCDNUspPOs_t2187.mp4,TZCDNUspPOs,2187.0,8.0,ok
+Jakarta,videos/minimax_h3/Jakarta/Jakarta-X02_rSP5WL4-TrU_t631.mp4,data/real_minimax/Jakarta/Jakarta-X02_rSP5WL4-TrU_t631.mp4,rSP5WL4-TrU,631.0,8.0,ok
+Jakarta,videos/minimax_h3/Jakarta/Jakarta-X03_VYZfEVtBPU8_t1097.mp4,data/real_minimax/Jakarta/Jakarta-X03_VYZfEVtBPU8_t1097.mp4,VYZfEVtBPU8,1097.0,8.0,ok
+Jakarta,videos/minimax_h3/Jakarta/Jakarta-X06_3spD8OVUuYc_t2240.mp4,data/real_minimax/Jakarta/Jakarta-X06_3spD8OVUuYc_t2240.mp4,3spD8OVUuYc,2240.0,8.0,ok
+Jakarta,videos/minimax_h3/Jakarta/Jakarta-X07_W_GKZmsGZZY_t279.mp4,data/real_minimax/Jakarta/Jakarta-X07_W_GKZmsGZZY_t279.mp4,W_GKZmsGZZY,279.0,8.0,ok
+Jakarta,videos/minimax_h3/Jakarta/Jakarta-X10_E7gomi3evvQ_t1048.mp4,data/real_minimax/Jakarta/Jakarta-X10_E7gomi3evvQ_t1048.mp4,E7gomi3evvQ,1048.0,8.0,ok
+Kuala Lumpur,videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-1_AxQcSoA9vGQ_t540.mp4,data/real_minimax/Kuala_Lumpur/Kuala_Lumpur-1_AxQcSoA9vGQ_t540.mp4,AxQcSoA9vGQ,540.0,8.0,ok
+Kuala Lumpur,videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-1_AxQcSoA9vGQ_t805.mp4,data/real_minimax/Kuala_Lumpur/Kuala_Lumpur-1_AxQcSoA9vGQ_t805.mp4,AxQcSoA9vGQ,805.0,8.0,ok
+Kuala Lumpur,videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-2_ePVXT8qOhJY_t239.mp4,data/real_minimax/Kuala_Lumpur/Kuala_Lumpur-2_ePVXT8qOhJY_t239.mp4,ePVXT8qOhJY,239.0,8.0,ok
+Kuala Lumpur,videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-2_ePVXT8qOhJY_t393.mp4,data/real_minimax/Kuala_Lumpur/Kuala_Lumpur-2_ePVXT8qOhJY_t393.mp4,ePVXT8qOhJY,393.0,8.0,ok
+Kuala Lumpur,videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-2_ePVXT8qOhJY_t529.mp4,data/real_minimax/Kuala_Lumpur/Kuala_Lumpur-2_ePVXT8qOhJY_t529.mp4,ePVXT8qOhJY,529.0,8.0,ok
+Kuala Lumpur,videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-3_NBUMGTGFbM0_t1100.mp4,data/real_minimax/Kuala_Lumpur/Kuala_Lumpur-3_NBUMGTGFbM0_t1100.mp4,NBUMGTGFbM0,1100.0,8.0,ok
+Kuala Lumpur,videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-6_Hczhu3udhmI_t662.mp4,data/real_minimax/Kuala_Lumpur/Kuala_Lumpur-6_Hczhu3udhmI_t662.mp4,Hczhu3udhmI,662.0,8.0,ok
+Kuala Lumpur,videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-X06_ouw96tm_BxM_t17.mp4,data/real_minimax/Kuala_Lumpur/Kuala_Lumpur-X06_ouw96tm_BxM_t17.mp4,ouw96tm_BxM,17.0,8.0,ok
+Kuala Lumpur,videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-X06_ouw96tm_BxM_t48.mp4,data/real_minimax/Kuala_Lumpur/Kuala_Lumpur-X06_ouw96tm_BxM_t48.mp4,ouw96tm_BxM,48.0,8.0,ok
+Kuala Lumpur,videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-X07_lp4dPrtuImE_t408.mp4,data/real_minimax/Kuala_Lumpur/Kuala_Lumpur-X07_lp4dPrtuImE_t408.mp4,lp4dPrtuImE,408.0,8.0,ok
+Kuala Lumpur,videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-X08_qsinsOm5D6I_t52.mp4,data/real_minimax/Kuala_Lumpur/Kuala_Lumpur-X08_qsinsOm5D6I_t52.mp4,qsinsOm5D6I,52.0,8.0,ok
+Kyiv,videos/minimax_h3/Kyiv/Kyiv-1_KPns9K6wJPw_t419.mp4,data/real_minimax/Kyiv/Kyiv-1_KPns9K6wJPw_t419.mp4,KPns9K6wJPw,419.0,8.0,ok
+Kyiv,videos/minimax_h3/Kyiv/Kyiv-1_KPns9K6wJPw_t881.mp4,data/real_minimax/Kyiv/Kyiv-1_KPns9K6wJPw_t881.mp4,KPns9K6wJPw,881.0,8.0,ok
+Kyiv,videos/minimax_h3/Kyiv/Kyiv-2_y57TMOPydUM_t140.mp4,data/real_minimax/Kyiv/Kyiv-2_y57TMOPydUM_t140.mp4,y57TMOPydUM,140.0,8.0,ok
+Kyiv,videos/minimax_h3/Kyiv/Kyiv-2_y57TMOPydUM_t929.mp4,data/real_minimax/Kyiv/Kyiv-2_y57TMOPydUM_t929.mp4,y57TMOPydUM,929.0,8.0,ok
+Kyiv,videos/minimax_h3/Kyiv/Kyiv-5_5IdKyraX-KA_t398.mp4,data/real_minimax/Kyiv/Kyiv-5_5IdKyraX-KA_t398.mp4,5IdKyraX-KA,398.0,8.0,ok
+Kyiv,videos/minimax_h3/Kyiv/Kyiv-6_AYfeALGxbj8_t262.mp4,data/real_minimax/Kyiv/Kyiv-6_AYfeALGxbj8_t262.mp4,AYfeALGxbj8,262.0,8.0,ok
+Kyiv,videos/minimax_h3/Kyiv/Kyiv-6_AYfeALGxbj8_t778.mp4,data/real_minimax/Kyiv/Kyiv-6_AYfeALGxbj8_t778.mp4,AYfeALGxbj8,778.0,8.0,ok
+Kyiv,videos/minimax_h3/Kyiv/Kyiv-X01_k5z32dVZUOM_t501.mp4,data/real_minimax/Kyiv/Kyiv-X01_k5z32dVZUOM_t501.mp4,k5z32dVZUOM,501.0,8.0,ok
+Kyiv,videos/minimax_h3/Kyiv/Kyiv-X02_GbzYuNdKZCQ_t155.mp4,data/real_minimax/Kyiv/Kyiv-X02_GbzYuNdKZCQ_t155.mp4,GbzYuNdKZCQ,155.0,8.0,ok
+Kyiv,videos/minimax_h3/Kyiv/Kyiv-X02_GbzYuNdKZCQ_t557.mp4,data/real_minimax/Kyiv/Kyiv-X02_GbzYuNdKZCQ_t557.mp4,GbzYuNdKZCQ,557.0,8.0,ok
+København,videos/minimax_h3/Copenhagen/København-1__7xMQCCxTLY_t734.mp4,data/real_minimax/Copenhagen/København-1__7xMQCCxTLY_t734.mp4,_7xMQCCxTLY,734.0,8.0,ok
+København,videos/minimax_h3/Copenhagen/København-2_oDwunlUZxzc_t216.mp4,data/real_minimax/Copenhagen/København-2_oDwunlUZxzc_t216.mp4,oDwunlUZxzc,216.0,8.0,ok
+København,videos/minimax_h3/Copenhagen/København-2_oDwunlUZxzc_t302.mp4,data/real_minimax/Copenhagen/København-2_oDwunlUZxzc_t302.mp4,oDwunlUZxzc,302.0,8.0,ok
+København,videos/minimax_h3/Copenhagen/København-4_VtNwjob9lho_t251.mp4,data/real_minimax/Copenhagen/København-4_VtNwjob9lho_t251.mp4,VtNwjob9lho,251.0,8.0,ok
+København,videos/minimax_h3/Copenhagen/København-6_0EghdjfYQ-w_t492.mp4,data/real_minimax/Copenhagen/København-6_0EghdjfYQ-w_t492.mp4,0EghdjfYQ-w,492.0,8.0,ok
+København,videos/minimax_h3/Copenhagen/København-X01_yyvj-WoIQRc_t148.mp4,data/real_minimax/Copenhagen/København-X01_yyvj-WoIQRc_t148.mp4,yyvj-WoIQRc,148.0,8.0,ok
+København,videos/minimax_h3/Copenhagen/København-X01_yyvj-WoIQRc_t588.mp4,data/real_minimax/Copenhagen/København-X01_yyvj-WoIQRc_t588.mp4,yyvj-WoIQRc,588.0,8.0,ok
+København,videos/minimax_h3/Copenhagen/København-X02_5V_PonL9TIY_t524.mp4,data/real_minimax/Copenhagen/København-X02_5V_PonL9TIY_t524.mp4,5V_PonL9TIY,524.0,8.0,ok
+København,videos/minimax_h3/Copenhagen/København-X02_5V_PonL9TIY_t547.mp4,data/real_minimax/Copenhagen/København-X02_5V_PonL9TIY_t547.mp4,5V_PonL9TIY,547.0,8.0,ok
+København,videos/minimax_h3/Copenhagen/København-X02_5V_PonL9TIY_t585.mp4,data/real_minimax/Copenhagen/København-X02_5V_PonL9TIY_t585.mp4,5V_PonL9TIY,585.0,8.0,ok
+Las Vegas,videos/minimax_h3/Las_Vegas/Las_Vegas-2_87q4Fz8DeRk_t1213.mp4,data/real_minimax/Las_Vegas/Las_Vegas-2_87q4Fz8DeRk_t1213.mp4,87q4Fz8DeRk,1213.0,8.0,ok
+Las Vegas,videos/minimax_h3/Las_Vegas/Las_Vegas-2_87q4Fz8DeRk_t581.mp4,data/real_minimax/Las_Vegas/Las_Vegas-2_87q4Fz8DeRk_t581.mp4,87q4Fz8DeRk,581.0,8.0,ok
+Las Vegas,videos/minimax_h3/Las_Vegas/Las_Vegas-2_87q4Fz8DeRk_t612.mp4,data/real_minimax/Las_Vegas/Las_Vegas-2_87q4Fz8DeRk_t612.mp4,87q4Fz8DeRk,612.0,8.0,ok
+Las Vegas,videos/minimax_h3/Las_Vegas/Las_Vegas-3_AaDu9M2cfKE_t1172.mp4,data/real_minimax/Las_Vegas/Las_Vegas-3_AaDu9M2cfKE_t1172.mp4,AaDu9M2cfKE,1172.0,8.0,ok
+Las Vegas,videos/minimax_h3/Las_Vegas/Las_Vegas-4_XFi48Q4bvQQ_t1004.mp4,data/real_minimax/Las_Vegas/Las_Vegas-4_XFi48Q4bvQQ_t1004.mp4,XFi48Q4bvQQ,1004.0,8.0,ok
+Las Vegas,videos/minimax_h3/Las_Vegas/Las_Vegas-5_xlf0nYzk5vk_t173.mp4,data/real_minimax/Las_Vegas/Las_Vegas-5_xlf0nYzk5vk_t173.mp4,xlf0nYzk5vk,173.0,8.0,ok
+Las Vegas,videos/minimax_h3/Las_Vegas/Las_Vegas-5_xlf0nYzk5vk_t985.mp4,data/real_minimax/Las_Vegas/Las_Vegas-5_xlf0nYzk5vk_t985.mp4,xlf0nYzk5vk,985.0,8.0,ok
+Las Vegas,videos/minimax_h3/Las_Vegas/Las_Vegas-X01_-0fvEC1AZRU_t6706.mp4,data/real_minimax/Las_Vegas/Las_Vegas-X01_-0fvEC1AZRU_t6706.mp4,-0fvEC1AZRU,6706.0,8.0,ok
+Las Vegas,videos/minimax_h3/Las_Vegas/Las_Vegas-X01_-0fvEC1AZRU_t7081.mp4,data/real_minimax/Las_Vegas/Las_Vegas-X01_-0fvEC1AZRU_t7081.mp4,-0fvEC1AZRU,7081.0,8.0,ok
+Las Vegas,videos/minimax_h3/Las_Vegas/Las_Vegas-X04_APwy4KfYG1k_t318.mp4,data/real_minimax/Las_Vegas/Las_Vegas-X04_APwy4KfYG1k_t318.mp4,APwy4KfYG1k,318.0,8.0,ok
+London,videos/minimax_h3/London/London-01_QI4_dGvZ5yE_t468.mp4,data/real_minimax/London/London-01_QI4_dGvZ5yE_t468.mp4,QI4_dGvZ5yE,468.0,8.0,ok
+London,videos/minimax_h3/London/London-01_QI4_dGvZ5yE_t592.mp4,data/real_minimax/London/London-01_QI4_dGvZ5yE_t592.mp4,QI4_dGvZ5yE,592.0,8.0,ok
+London,videos/minimax_h3/London/London-15_7OsG1PKWJcQ_t1040.mp4,data/real_minimax/London/London-15_7OsG1PKWJcQ_t1040.mp4,7OsG1PKWJcQ,1040.0,8.0,ok
+London,videos/minimax_h3/London/London-15_7OsG1PKWJcQ_t343.mp4,data/real_minimax/London/London-15_7OsG1PKWJcQ_t343.mp4,7OsG1PKWJcQ,343.0,8.0,ok
+London,videos/minimax_h3/London/London-17_IWojm4W7wUY_t633.mp4,data/real_minimax/London/London-17_IWojm4W7wUY_t633.mp4,IWojm4W7wUY,633.0,8.0,ok
+London,videos/minimax_h3/London/London-17_IWojm4W7wUY_t942.mp4,data/real_minimax/London/London-17_IWojm4W7wUY_t942.mp4,IWojm4W7wUY,942.0,8.0,ok
+London,videos/minimax_h3/London/London-18_9gmsUF3wpGM_t1028.mp4,data/real_minimax/London/London-18_9gmsUF3wpGM_t1028.mp4,9gmsUF3wpGM,1028.0,8.0,ok
+London,videos/minimax_h3/London/London-18_9gmsUF3wpGM_t462.mp4,data/real_minimax/London/London-18_9gmsUF3wpGM_t462.mp4,9gmsUF3wpGM,462.0,8.0,ok
+London,videos/minimax_h3/London/London-19_H41mBDFrZL8_t503.mp4,data/real_minimax/London/London-19_H41mBDFrZL8_t503.mp4,H41mBDFrZL8,503.0,8.0,ok
+London,videos/minimax_h3/London/London-20_fV22kGkqxvc_t1070.mp4,data/real_minimax/London/London-20_fV22kGkqxvc_t1070.mp4,fV22kGkqxvc,1070.0,8.0,ok
+Los Angeles,videos/minimax_h3/Los_Angeles/Los_Angeles-01_4uhMg5na888_t526.mp4,data/real_minimax/Los_Angeles/Los_Angeles-01_4uhMg5na888_t526.mp4,4uhMg5na888,526.0,8.0,ok
+Los Angeles,videos/minimax_h3/Los_Angeles/Los_Angeles-02_hNN8TJtmfxs_t963.mp4,data/real_minimax/Los_Angeles/Los_Angeles-02_hNN8TJtmfxs_t963.mp4,hNN8TJtmfxs,963.0,8.0,ok
+Los Angeles,videos/minimax_h3/Los_Angeles/Los_Angeles-03_HSkpcuGMiaE_t122.mp4,data/real_minimax/Los_Angeles/Los_Angeles-03_HSkpcuGMiaE_t122.mp4,HSkpcuGMiaE,122.0,8.0,ok
+Los Angeles,videos/minimax_h3/Los_Angeles/Los_Angeles-04_qja2qXGMCUM_t112.mp4,data/real_minimax/Los_Angeles/Los_Angeles-04_qja2qXGMCUM_t112.mp4,qja2qXGMCUM,112.0,8.0,ok
+Los Angeles,videos/minimax_h3/Los_Angeles/Los_Angeles-07_f4w-xsione8_t1135.mp4,data/real_minimax/Los_Angeles/Los_Angeles-07_f4w-xsione8_t1135.mp4,f4w-xsione8,1135.0,8.0,ok
+Los Angeles,videos/minimax_h3/Los_Angeles/Los_Angeles-07_f4w-xsione8_t570.mp4,data/real_minimax/Los_Angeles/Los_Angeles-07_f4w-xsione8_t570.mp4,f4w-xsione8,570.0,8.0,ok
+Los Angeles,videos/minimax_h3/Los_Angeles/Los_Angeles-08_fgIiF6S6tTc_t754.mp4,data/real_minimax/Los_Angeles/Los_Angeles-08_fgIiF6S6tTc_t754.mp4,fgIiF6S6tTc,754.0,8.0,ok
+Los Angeles,videos/minimax_h3/Los_Angeles/Los_Angeles-10_ZhelsVW9yZ8_t634.mp4,data/real_minimax/Los_Angeles/Los_Angeles-10_ZhelsVW9yZ8_t634.mp4,ZhelsVW9yZ8,634.0,8.0,ok
+Los Angeles,videos/minimax_h3/Los_Angeles/Los_Angeles-11_nOtsUCWkXuo_t339.mp4,data/real_minimax/Los_Angeles/Los_Angeles-11_nOtsUCWkXuo_t339.mp4,nOtsUCWkXuo,339.0,8.0,ok
+Los Angeles,videos/minimax_h3/Los_Angeles/Los_Angeles-14_806z7W3kH94_t420.mp4,data/real_minimax/Los_Angeles/Los_Angeles-14_806z7W3kH94_t420.mp4,806z7W3kH94,420.0,8.0,ok
+Manila,videos/minimax_h3/Manila/Manila-01_JY-Xyiept88_t374.mp4,data/real_minimax/Manila/Manila-01_JY-Xyiept88_t374.mp4,JY-Xyiept88,374.0,8.0,ok
+Manila,videos/minimax_h3/Manila/Manila-01_JY-Xyiept88_t398.mp4,data/real_minimax/Manila/Manila-01_JY-Xyiept88_t398.mp4,JY-Xyiept88,398.0,8.0,ok
+Manila,videos/minimax_h3/Manila/Manila-02_z6EGkbnUxSQ_t152.mp4,data/real_minimax/Manila/Manila-02_z6EGkbnUxSQ_t152.mp4,z6EGkbnUxSQ,152.0,8.0,ok
+Manila,videos/minimax_h3/Manila/Manila-02_z6EGkbnUxSQ_t429.mp4,data/real_minimax/Manila/Manila-02_z6EGkbnUxSQ_t429.mp4,z6EGkbnUxSQ,429.0,8.0,ok
+Manila,videos/minimax_h3/Manila/Manila-05_IhmOCrdAdfA_t220.mp4,data/real_minimax/Manila/Manila-05_IhmOCrdAdfA_t220.mp4,IhmOCrdAdfA,220.0,8.0,ok
+Manila,videos/minimax_h3/Manila/Manila-05_IhmOCrdAdfA_t488.mp4,data/real_minimax/Manila/Manila-05_IhmOCrdAdfA_t488.mp4,IhmOCrdAdfA,488.0,8.0,ok
+Manila,videos/minimax_h3/Manila/Manila-06_ct0xmT226Kk_t343.mp4,data/real_minimax/Manila/Manila-06_ct0xmT226Kk_t343.mp4,ct0xmT226Kk,343.0,8.0,ok
+Manila,videos/minimax_h3/Manila/Manila-06_ct0xmT226Kk_t426.mp4,data/real_minimax/Manila/Manila-06_ct0xmT226Kk_t426.mp4,ct0xmT226Kk,426.0,8.0,ok
+Manila,videos/minimax_h3/Manila/Manila-09_0PGzvVw8R00_t612.mp4,data/real_minimax/Manila/Manila-09_0PGzvVw8R00_t612.mp4,0PGzvVw8R00,612.0,8.0,ok
+Manila,videos/minimax_h3/Manila/Manila-12_A6oTbgZ512o_t159.mp4,data/real_minimax/Manila/Manila-12_A6oTbgZ512o_t159.mp4,A6oTbgZ512o,159.0,8.0,ok
+Melbourne,videos/minimax_h3/Melbourne/Melbourne-2_gQ-9mmnfJjE_t118.mp4,data/real_minimax/Melbourne/Melbourne-2_gQ-9mmnfJjE_t118.mp4,gQ-9mmnfJjE,118.0,8.0,ok
+Melbourne,videos/minimax_h3/Melbourne/Melbourne-2_gQ-9mmnfJjE_t966.mp4,data/real_minimax/Melbourne/Melbourne-2_gQ-9mmnfJjE_t966.mp4,gQ-9mmnfJjE,966.0,8.0,ok
+Melbourne,videos/minimax_h3/Melbourne/Melbourne-3_u_9_W9H04Ds_t1115.mp4,data/real_minimax/Melbourne/Melbourne-3_u_9_W9H04Ds_t1115.mp4,u_9_W9H04Ds,1115.0,8.0,ok
+Melbourne,videos/minimax_h3/Melbourne/Melbourne-4_vhn1Y4BdRTM_t292.mp4,data/real_minimax/Melbourne/Melbourne-4_vhn1Y4BdRTM_t292.mp4,vhn1Y4BdRTM,292.0,8.0,ok
+Melbourne,videos/minimax_h3/Melbourne/Melbourne-4_vhn1Y4BdRTM_t512.mp4,data/real_minimax/Melbourne/Melbourne-4_vhn1Y4BdRTM_t512.mp4,vhn1Y4BdRTM,512.0,8.0,ok
+Melbourne,videos/minimax_h3/Melbourne/Melbourne-4_vhn1Y4BdRTM_t738.mp4,data/real_minimax/Melbourne/Melbourne-4_vhn1Y4BdRTM_t738.mp4,vhn1Y4BdRTM,738.0,8.0,ok
+Melbourne,videos/minimax_h3/Melbourne/Melbourne-5_lIziwOj5bjs_t686.mp4,data/real_minimax/Melbourne/Melbourne-5_lIziwOj5bjs_t686.mp4,lIziwOj5bjs,686.0,8.0,ok
+Melbourne,videos/minimax_h3/Melbourne/Melbourne-5_lIziwOj5bjs_t891.mp4,data/real_minimax/Melbourne/Melbourne-5_lIziwOj5bjs_t891.mp4,lIziwOj5bjs,891.0,8.0,ok
+Melbourne,videos/minimax_h3/Melbourne/Melbourne-X01_vtr2T2u9YUY_t113.mp4,data/real_minimax/Melbourne/Melbourne-X01_vtr2T2u9YUY_t113.mp4,vtr2T2u9YUY,113.0,8.0,ok
+Melbourne,videos/minimax_h3/Melbourne/Melbourne-X01_vtr2T2u9YUY_t196.mp4,data/real_minimax/Melbourne/Melbourne-X01_vtr2T2u9YUY_t196.mp4,vtr2T2u9YUY,196.0,8.0,ok
+Miami,videos/minimax_h3/Miami/Miami-1_drt8bDQ49b4_t1394.mp4,data/real_minimax/Miami/Miami-1_drt8bDQ49b4_t1394.mp4,drt8bDQ49b4,1394.0,8.0,ok
+Miami,videos/minimax_h3/Miami/Miami-1_drt8bDQ49b4_t707.mp4,data/real_minimax/Miami/Miami-1_drt8bDQ49b4_t707.mp4,drt8bDQ49b4,707.0,8.0,ok
+Miami,videos/minimax_h3/Miami/Miami-2_9FGFA7Ki4-4_t208.mp4,data/real_minimax/Miami/Miami-2_9FGFA7Ki4-4_t208.mp4,9FGFA7Ki4-4,208.0,8.0,ok
+Miami,videos/minimax_h3/Miami/Miami-2_9FGFA7Ki4-4_t551.mp4,data/real_minimax/Miami/Miami-2_9FGFA7Ki4-4_t551.mp4,9FGFA7Ki4-4,551.0,8.0,ok
+Miami,videos/minimax_h3/Miami/Miami-3_4AurpF9lMD8_t25.mp4,data/real_minimax/Miami/Miami-3_4AurpF9lMD8_t25.mp4,4AurpF9lMD8,25.0,8.0,ok
+Miami,videos/minimax_h3/Miami/Miami-3_4AurpF9lMD8_t447.mp4,data/real_minimax/Miami/Miami-3_4AurpF9lMD8_t447.mp4,4AurpF9lMD8,447.0,8.0,ok
+Miami,videos/minimax_h3/Miami/Miami-X01_al11RN-wAc0_t1064.mp4,data/real_minimax/Miami/Miami-X01_al11RN-wAc0_t1064.mp4,al11RN-wAc0,1064.0,8.0,ok
+Miami,videos/minimax_h3/Miami/Miami-X01_al11RN-wAc0_t62.mp4,data/real_minimax/Miami/Miami-X01_al11RN-wAc0_t62.mp4,al11RN-wAc0,62.0,8.0,ok
+Miami,videos/minimax_h3/Miami/Miami-X01_al11RN-wAc0_t799.mp4,data/real_minimax/Miami/Miami-X01_al11RN-wAc0_t799.mp4,al11RN-wAc0,799.0,8.0,ok
+Miami,videos/minimax_h3/Miami/Miami-X02_xj7abSp07w0_t231.mp4,data/real_minimax/Miami/Miami-X02_xj7abSp07w0_t231.mp4,xj7abSp07w0,231.0,8.0,ok
+Minsk,videos/minimax_h3/Minsk/Minsk-1_5py-m9Fg7ck_t185.mp4,data/real_minimax/Minsk/Minsk-1_5py-m9Fg7ck_t185.mp4,5py-m9Fg7ck,185.0,8.0,ok
+Minsk,videos/minimax_h3/Minsk/Minsk-1_5py-m9Fg7ck_t38.mp4,data/real_minimax/Minsk/Minsk-1_5py-m9Fg7ck_t38.mp4,5py-m9Fg7ck,38.0,8.0,ok
+Minsk,videos/minimax_h3/Minsk/Minsk-2_vl_35lXyKaI_t694.mp4,data/real_minimax/Minsk/Minsk-2_vl_35lXyKaI_t694.mp4,vl_35lXyKaI,694.0,8.0,ok
+Minsk,videos/minimax_h3/Minsk/Minsk-4_Ab8cyaVTt-s_t88.mp4,data/real_minimax/Minsk/Minsk-4_Ab8cyaVTt-s_t88.mp4,Ab8cyaVTt-s,88.0,8.0,ok
+Minsk,videos/minimax_h3/Minsk/Minsk-5_Rrq9ENpHJjA_t345.mp4,data/real_minimax/Minsk/Minsk-5_Rrq9ENpHJjA_t345.mp4,Rrq9ENpHJjA,345.0,8.0,ok
+Minsk,videos/minimax_h3/Minsk/Minsk-X01_V4jvydMJ4x8_t716.mp4,data/real_minimax/Minsk/Minsk-X01_V4jvydMJ4x8_t716.mp4,V4jvydMJ4x8,716.0,8.0,ok
+Minsk,videos/minimax_h3/Minsk/Minsk-X01_V4jvydMJ4x8_t740.mp4,data/real_minimax/Minsk/Minsk-X01_V4jvydMJ4x8_t740.mp4,V4jvydMJ4x8,740.0,8.0,ok
+Minsk,videos/minimax_h3/Minsk/Minsk-X05_ToA_eHXzIyA_t497.mp4,data/real_minimax/Minsk/Minsk-X05_ToA_eHXzIyA_t497.mp4,ToA_eHXzIyA,497.0,8.0,ok
+Minsk,videos/minimax_h3/Minsk/Minsk-X08_hWiAqpzxA2c_t1017.mp4,data/real_minimax/Minsk/Minsk-X08_hWiAqpzxA2c_t1017.mp4,hWiAqpzxA2c,1017.0,8.0,ok
+Minsk,videos/minimax_h3/Minsk/Minsk-X08_hWiAqpzxA2c_t952.mp4,data/real_minimax/Minsk/Minsk-X08_hWiAqpzxA2c_t952.mp4,hWiAqpzxA2c,952.0,8.0,ok
+Montreal,videos/minimax_h3/Montreal/Montreal-2_sjxuc88IJd8_t400.mp4,data/real_minimax/Montreal/Montreal-2_sjxuc88IJd8_t400.mp4,sjxuc88IJd8,400.0,8.0,ok
+Montreal,videos/minimax_h3/Montreal/Montreal-2_sjxuc88IJd8_t650.mp4,data/real_minimax/Montreal/Montreal-2_sjxuc88IJd8_t650.mp4,sjxuc88IJd8,650.0,8.0,ok
+Montreal,videos/minimax_h3/Montreal/Montreal-3_AxGSLbEQgeQ_t542.mp4,data/real_minimax/Montreal/Montreal-3_AxGSLbEQgeQ_t542.mp4,AxGSLbEQgeQ,542.0,8.0,ok
+Montreal,videos/minimax_h3/Montreal/Montreal-3_AxGSLbEQgeQ_t678.mp4,data/real_minimax/Montreal/Montreal-3_AxGSLbEQgeQ_t678.mp4,AxGSLbEQgeQ,678.0,8.0,ok
+Montreal,videos/minimax_h3/Montreal/Montreal-3_AxGSLbEQgeQ_t700.mp4,data/real_minimax/Montreal/Montreal-3_AxGSLbEQgeQ_t700.mp4,AxGSLbEQgeQ,700.0,8.0,ok
+Montreal,videos/minimax_h3/Montreal/Montreal-4_GqJyOTr3iE0_t607.mp4,data/real_minimax/Montreal/Montreal-4_GqJyOTr3iE0_t607.mp4,GqJyOTr3iE0,607.0,8.0,ok
+Montreal,videos/minimax_h3/Montreal/Montreal-5_8DIotaeYB_E_t1045.mp4,data/real_minimax/Montreal/Montreal-5_8DIotaeYB_E_t1045.mp4,8DIotaeYB_E,1045.0,8.0,ok
+Montreal,videos/minimax_h3/Montreal/Montreal-5_8DIotaeYB_E_t149.mp4,data/real_minimax/Montreal/Montreal-5_8DIotaeYB_E_t149.mp4,8DIotaeYB_E,149.0,8.0,ok
+Montreal,videos/minimax_h3/Montreal/Montreal-6_OMWYjKDXMqM_t43.mp4,data/real_minimax/Montreal/Montreal-6_OMWYjKDXMqM_t43.mp4,OMWYjKDXMqM,43.0,8.0,ok
+Montreal,videos/minimax_h3/Montreal/Montreal-6_OMWYjKDXMqM_t691.mp4,data/real_minimax/Montreal/Montreal-6_OMWYjKDXMqM_t691.mp4,OMWYjKDXMqM,691.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-4_DGoQzuuL5CA_t1002.mp4,data/real_minimax/Moscow/Moscow-4_DGoQzuuL5CA_t1002.mp4,DGoQzuuL5CA,1002.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-4_DGoQzuuL5CA_t111.mp4,data/real_minimax/Moscow/Moscow-4_DGoQzuuL5CA_t111.mp4,DGoQzuuL5CA,111.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-4_DGoQzuuL5CA_t597.mp4,data/real_minimax/Moscow/Moscow-4_DGoQzuuL5CA_t597.mp4,DGoQzuuL5CA,597.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-X04_TWibA9ktb_Q_t971.mp4,data/real_minimax/Moscow/Moscow-X04_TWibA9ktb_Q_t971.mp4,TWibA9ktb_Q,971.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-X06_ImUhtnUZp4g_t428.mp4,data/real_minimax/Moscow/Moscow-X06_ImUhtnUZp4g_t428.mp4,ImUhtnUZp4g,428.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-X06_ImUhtnUZp4g_t720.mp4,data/real_minimax/Moscow/Moscow-X06_ImUhtnUZp4g_t720.mp4,ImUhtnUZp4g,720.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-X06_ImUhtnUZp4g_t850.mp4,data/real_minimax/Moscow/Moscow-X06_ImUhtnUZp4g_t850.mp4,ImUhtnUZp4g,850.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-X07_wpuNeSDjte8_t283.mp4,data/real_minimax/Moscow/Moscow-X07_wpuNeSDjte8_t283.mp4,wpuNeSDjte8,283.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-X07_wpuNeSDjte8_t662.mp4,data/real_minimax/Moscow/Moscow-X07_wpuNeSDjte8_t662.mp4,wpuNeSDjte8,662.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-X08_J9T-Z58BBtw_t798.mp4,data/real_minimax/Moscow/Moscow-X08_J9T-Z58BBtw_t798.mp4,J9T-Z58BBtw,798.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-X08_J9T-Z58BBtw_t877.mp4,data/real_minimax/Moscow/Moscow-X08_J9T-Z58BBtw_t877.mp4,J9T-Z58BBtw,877.0,8.0,ok
+Moscow,videos/minimax_h3/Moscow/Moscow-X09_tey6grBrmV0_t1052.mp4,data/real_minimax/Moscow/Moscow-X09_tey6grBrmV0_t1052.mp4,tey6grBrmV0,1052.0,8.0,ok
+Mumbai,videos/minimax_h3/Mumbai/Mumbai-1_MAj6y23vNuU_t1036.mp4,data/real_minimax/Mumbai/Mumbai-1_MAj6y23vNuU_t1036.mp4,MAj6y23vNuU,1036.0,8.0,ok
+Mumbai,videos/minimax_h3/Mumbai/Mumbai-2_Y5fEXvJPuJs_t1182.mp4,data/real_minimax/Mumbai/Mumbai-2_Y5fEXvJPuJs_t1182.mp4,Y5fEXvJPuJs,1182.0,8.0,ok
+Mumbai,videos/minimax_h3/Mumbai/Mumbai-2_Y5fEXvJPuJs_t791.mp4,data/real_minimax/Mumbai/Mumbai-2_Y5fEXvJPuJs_t791.mp4,Y5fEXvJPuJs,791.0,8.0,ok
+Mumbai,videos/minimax_h3/Mumbai/Mumbai-4_3db2_0o6z4w_t140.mp4,data/real_minimax/Mumbai/Mumbai-4_3db2_0o6z4w_t140.mp4,3db2_0o6z4w,140.0,8.0,ok
+Mumbai,videos/minimax_h3/Mumbai/Mumbai-4_3db2_0o6z4w_t738.mp4,data/real_minimax/Mumbai/Mumbai-4_3db2_0o6z4w_t738.mp4,3db2_0o6z4w,738.0,8.0,ok
+Mumbai,videos/minimax_h3/Mumbai/Mumbai-5_YZ7eCa0mVx8_t1130.mp4,data/real_minimax/Mumbai/Mumbai-5_YZ7eCa0mVx8_t1130.mp4,YZ7eCa0mVx8,1130.0,8.0,ok
+Mumbai,videos/minimax_h3/Mumbai/Mumbai-X01__Wb1ASZ4rBA_t287.mp4,data/real_minimax/Mumbai/Mumbai-X01__Wb1ASZ4rBA_t287.mp4,_Wb1ASZ4rBA,287.0,8.0,ok
+Mumbai,videos/minimax_h3/Mumbai/Mumbai-X02_nv-L0EPmbfs_t1059.mp4,data/real_minimax/Mumbai/Mumbai-X02_nv-L0EPmbfs_t1059.mp4,nv-L0EPmbfs,1059.0,8.0,ok
+Mumbai,videos/minimax_h3/Mumbai/Mumbai-X02_nv-L0EPmbfs_t1105.mp4,data/real_minimax/Mumbai/Mumbai-X02_nv-L0EPmbfs_t1105.mp4,nv-L0EPmbfs,1105.0,8.0,ok
+Mumbai,videos/minimax_h3/Mumbai/Mumbai-X03_IYgNNmr8YKo_t353.mp4,data/real_minimax/Mumbai/Mumbai-X03_IYgNNmr8YKo_t353.mp4,IYgNNmr8YKo,353.0,8.0,ok
+München,videos/minimax_h3/München/München-1_SUKWq0S9fgU_t354.mp4,data/real_minimax/München/München-1_SUKWq0S9fgU_t354.mp4,SUKWq0S9fgU,354.0,8.0,ok
+München,videos/minimax_h3/München/München-1_SUKWq0S9fgU_t899.mp4,data/real_minimax/München/München-1_SUKWq0S9fgU_t899.mp4,SUKWq0S9fgU,899.0,8.0,ok
+München,videos/minimax_h3/München/München-2_OolZqtF1bhE_t278.mp4,data/real_minimax/München/München-2_OolZqtF1bhE_t278.mp4,OolZqtF1bhE,278.0,8.0,ok
+München,videos/minimax_h3/München/München-2_OolZqtF1bhE_t467.mp4,data/real_minimax/München/München-2_OolZqtF1bhE_t467.mp4,OolZqtF1bhE,467.0,8.0,ok
+München,videos/minimax_h3/München/München-2_OolZqtF1bhE_t494.mp4,data/real_minimax/München/München-2_OolZqtF1bhE_t494.mp4,OolZqtF1bhE,494.0,8.0,ok
+München,videos/minimax_h3/München/München-3_jnFH4bFfHsQ_t211.mp4,data/real_minimax/München/München-3_jnFH4bFfHsQ_t211.mp4,jnFH4bFfHsQ,211.0,8.0,ok
+München,videos/minimax_h3/München/München-3_jnFH4bFfHsQ_t382.mp4,data/real_minimax/München/München-3_jnFH4bFfHsQ_t382.mp4,jnFH4bFfHsQ,382.0,8.0,ok
+München,videos/minimax_h3/München/München-3_jnFH4bFfHsQ_t600.mp4,data/real_minimax/München/München-3_jnFH4bFfHsQ_t600.mp4,jnFH4bFfHsQ,600.0,8.0,ok
+München,videos/minimax_h3/München/München-4_Ps8ETd-J2yk_t1090.mp4,data/real_minimax/München/München-4_Ps8ETd-J2yk_t1090.mp4,Ps8ETd-J2yk,1090.0,8.0,ok
+München,videos/minimax_h3/München/München-4_Ps8ETd-J2yk_t863.mp4,data/real_minimax/München/München-4_Ps8ETd-J2yk_t863.mp4,Ps8ETd-J2yk,863.0,8.0,ok
+New York,videos/minimax_h3/New_York/New_York-04_LQLJu-EpkeE_t991.mp4,data/real_minimax/New_York/New_York-04_LQLJu-EpkeE_t991.mp4,LQLJu-EpkeE,991.0,8.0,ok
+New York,videos/minimax_h3/New_York/New_York-06__K23dlJAE4w_t2091.mp4,data/real_minimax/New_York/New_York-06__K23dlJAE4w_t2091.mp4,_K23dlJAE4w,2091.0,8.0,ok
+New York,videos/minimax_h3/New_York/New_York-07_sqsez_oQSQ8_t592.mp4,data/real_minimax/New_York/New_York-07_sqsez_oQSQ8_t592.mp4,sqsez_oQSQ8,592.0,8.0,ok
+New York,videos/minimax_h3/New_York/New_York-08_ySqhU27Eqz8_t426.mp4,data/real_minimax/New_York/New_York-08_ySqhU27Eqz8_t426.mp4,ySqhU27Eqz8,426.0,8.0,ok
+New York,videos/minimax_h3/New_York/New_York-10_Nft7amumvCo_t1055.mp4,data/real_minimax/New_York/New_York-10_Nft7amumvCo_t1055.mp4,Nft7amumvCo,1055.0,8.0,ok
+New York,videos/minimax_h3/New_York/New_York-11_7CXfFzU1tAs_t1163.mp4,data/real_minimax/New_York/New_York-11_7CXfFzU1tAs_t1163.mp4,7CXfFzU1tAs,1163.0,8.0,ok
+New York,videos/minimax_h3/New_York/New_York-12_cy0jPr0DVvw_t1237.mp4,data/real_minimax/New_York/New_York-12_cy0jPr0DVvw_t1237.mp4,cy0jPr0DVvw,1237.0,8.0,ok
+New York,videos/minimax_h3/New_York/New_York-13_dDr2Jr2SHOo_t373.mp4,data/real_minimax/New_York/New_York-13_dDr2Jr2SHOo_t373.mp4,dDr2Jr2SHOo,373.0,8.0,ok
+New York,videos/minimax_h3/New_York/New_York-14_5CAMIWjEIao_t970.mp4,data/real_minimax/New_York/New_York-14_5CAMIWjEIao_t970.mp4,5CAMIWjEIao,970.0,8.0,ok
+New York,videos/minimax_h3/New_York/New_York-16_EKTpcvpsoMg_t447.mp4,data/real_minimax/New_York/New_York-16_EKTpcvpsoMg_t447.mp4,EKTpcvpsoMg,447.0,8.0,ok
+Oldenburg,videos/minimax_h3/Oldenburg/Oldenburg-1_20x4cVgp0Ow_t1633.mp4,data/real_minimax/Oldenburg/Oldenburg-1_20x4cVgp0Ow_t1633.mp4,20x4cVgp0Ow,1633.0,8.0,ok
+Oldenburg,videos/minimax_h3/Oldenburg/Oldenburg-1_20x4cVgp0Ow_t217.mp4,data/real_minimax/Oldenburg/Oldenburg-1_20x4cVgp0Ow_t217.mp4,20x4cVgp0Ow,217.0,8.0,ok
+Oldenburg,videos/minimax_h3/Oldenburg/Oldenburg-1_20x4cVgp0Ow_t316.mp4,data/real_minimax/Oldenburg/Oldenburg-1_20x4cVgp0Ow_t316.mp4,20x4cVgp0Ow,316.0,8.0,ok
+Oldenburg,videos/minimax_h3/Oldenburg/Oldenburg-1_20x4cVgp0Ow_t669.mp4,data/real_minimax/Oldenburg/Oldenburg-1_20x4cVgp0Ow_t669.mp4,20x4cVgp0Ow,669.0,8.0,ok
+Oldenburg,videos/minimax_h3/Oldenburg/Oldenburg-2_zbUcEvejTWE_t1965.mp4,data/real_minimax/Oldenburg/Oldenburg-2_zbUcEvejTWE_t1965.mp4,zbUcEvejTWE,1965.0,8.0,ok
+Oldenburg,videos/minimax_h3/Oldenburg/Oldenburg-Y01_fgKqWDPdjA0_t374.mp4,data/real_minimax/Oldenburg/Oldenburg-Y01_fgKqWDPdjA0_t374.mp4,fgKqWDPdjA0,374.0,8.0,CROWD video not found
+Oldenburg,videos/minimax_h3/Oldenburg/Oldenburg-Y01_fgKqWDPdjA0_t439.mp4,data/real_minimax/Oldenburg/Oldenburg-Y01_fgKqWDPdjA0_t439.mp4,fgKqWDPdjA0,439.0,8.0,CROWD video not found
+Oldenburg,videos/minimax_h3/Oldenburg/Oldenburg-Y01_fgKqWDPdjA0_t613.mp4,data/real_minimax/Oldenburg/Oldenburg-Y01_fgKqWDPdjA0_t613.mp4,fgKqWDPdjA0,613.0,8.0,CROWD video not found
+Oldenburg,videos/minimax_h3/Oldenburg/Oldenburg-Y01_fgKqWDPdjA0_t752.mp4,data/real_minimax/Oldenburg/Oldenburg-Y01_fgKqWDPdjA0_t752.mp4,fgKqWDPdjA0,752.0,8.0,CROWD video not found
+Oslo,videos/minimax_h3/Oslo/Oslo-1_qxKol0SMEQs_t154.mp4,data/real_minimax/Oslo/Oslo-1_qxKol0SMEQs_t154.mp4,qxKol0SMEQs,154.0,8.0,ok
+Oslo,videos/minimax_h3/Oslo/Oslo-2_JCwMy4WvFiA_t587.mp4,data/real_minimax/Oslo/Oslo-2_JCwMy4WvFiA_t587.mp4,JCwMy4WvFiA,587.0,8.0,ok
+Oslo,videos/minimax_h3/Oslo/Oslo-X02_JRxDxlrXNiA_t43.mp4,data/real_minimax/Oslo/Oslo-X02_JRxDxlrXNiA_t43.mp4,JRxDxlrXNiA,43.0,8.0,ok
+Oslo,videos/minimax_h3/Oslo/Oslo-X02_JRxDxlrXNiA_t510.mp4,data/real_minimax/Oslo/Oslo-X02_JRxDxlrXNiA_t510.mp4,JRxDxlrXNiA,510.0,8.0,ok
+Oslo,videos/minimax_h3/Oslo/Oslo-X03_7zWGhOns-Xc_t1183.mp4,data/real_minimax/Oslo/Oslo-X03_7zWGhOns-Xc_t1183.mp4,7zWGhOns-Xc,1183.0,8.0,ok
+Oslo,videos/minimax_h3/Oslo/Oslo-X09_9pXG1C4j2lA_t1089.mp4,data/real_minimax/Oslo/Oslo-X09_9pXG1C4j2lA_t1089.mp4,9pXG1C4j2lA,1089.0,8.0,ok
+Oslo,videos/minimax_h3/Oslo/Oslo-X09_9pXG1C4j2lA_t990.mp4,data/real_minimax/Oslo/Oslo-X09_9pXG1C4j2lA_t990.mp4,9pXG1C4j2lA,990.0,8.0,ok
+Oslo,videos/minimax_h3/Oslo/Oslo-X10_5WnAzEcebGU_t398.mp4,data/real_minimax/Oslo/Oslo-X10_5WnAzEcebGU_t398.mp4,5WnAzEcebGU,398.0,8.0,ok
+Oslo,videos/minimax_h3/Oslo/Oslo-X10_5WnAzEcebGU_t675.mp4,data/real_minimax/Oslo/Oslo-X10_5WnAzEcebGU_t675.mp4,5WnAzEcebGU,675.0,8.0,ok
+Oslo,videos/minimax_h3/Oslo/Oslo-X10_5WnAzEcebGU_t854.mp4,data/real_minimax/Oslo/Oslo-X10_5WnAzEcebGU_t854.mp4,5WnAzEcebGU,854.0,8.0,ok
+Paris,videos/minimax_h3/Paris/Paris-1_AdqE7mFQ7Y4_t1160.mp4,data/real_minimax/Paris/Paris-1_AdqE7mFQ7Y4_t1160.mp4,AdqE7mFQ7Y4,1160.0,8.0,ok
+Paris,videos/minimax_h3/Paris/Paris-1_AdqE7mFQ7Y4_t932.mp4,data/real_minimax/Paris/Paris-1_AdqE7mFQ7Y4_t932.mp4,AdqE7mFQ7Y4,932.0,8.0,ok
+Paris,videos/minimax_h3/Paris/Paris-1_AdqE7mFQ7Y4_t959.mp4,data/real_minimax/Paris/Paris-1_AdqE7mFQ7Y4_t959.mp4,AdqE7mFQ7Y4,959.0,8.0,ok
+Paris,videos/minimax_h3/Paris/Paris-4_ZTmjk8mSCq8_t247.mp4,data/real_minimax/Paris/Paris-4_ZTmjk8mSCq8_t247.mp4,ZTmjk8mSCq8,247.0,8.0,ok
+Paris,videos/minimax_h3/Paris/Paris-4_ZTmjk8mSCq8_t42.mp4,data/real_minimax/Paris/Paris-4_ZTmjk8mSCq8_t42.mp4,ZTmjk8mSCq8,42.0,8.0,ok
+Paris,videos/minimax_h3/Paris/Paris-4_ZTmjk8mSCq8_t725.mp4,data/real_minimax/Paris/Paris-4_ZTmjk8mSCq8_t725.mp4,ZTmjk8mSCq8,725.0,8.0,ok
+Paris,videos/minimax_h3/Paris/Paris-5_rc8DwbN0O44_t502.mp4,data/real_minimax/Paris/Paris-5_rc8DwbN0O44_t502.mp4,rc8DwbN0O44,502.0,8.0,ok
+Paris,videos/minimax_h3/Paris/Paris-6_LoT7kXS7kYg_t1034.mp4,data/real_minimax/Paris/Paris-6_LoT7kXS7kYg_t1034.mp4,LoT7kXS7kYg,1034.0,8.0,ok
+Paris,videos/minimax_h3/Paris/Paris-6_LoT7kXS7kYg_t935.mp4,data/real_minimax/Paris/Paris-6_LoT7kXS7kYg_t935.mp4,LoT7kXS7kYg,935.0,8.0,ok
+Paris,videos/minimax_h3/Paris/Paris-6_LoT7kXS7kYg_t964.mp4,data/real_minimax/Paris/Paris-6_LoT7kXS7kYg_t964.mp4,LoT7kXS7kYg,964.0,8.0,ok
+Perth,videos/minimax_h3/Perth/Perth-2_lerm37K_3gI_t744.mp4,data/real_minimax/Perth/Perth-2_lerm37K_3gI_t744.mp4,lerm37K_3gI,744.0,8.0,ok
+Perth,videos/minimax_h3/Perth/Perth-3_xTDUhnnj3q4_t479.mp4,data/real_minimax/Perth/Perth-3_xTDUhnnj3q4_t479.mp4,xTDUhnnj3q4,479.0,8.0,ok
+Perth,videos/minimax_h3/Perth/Perth-3_xTDUhnnj3q4_t798.mp4,data/real_minimax/Perth/Perth-3_xTDUhnnj3q4_t798.mp4,xTDUhnnj3q4,798.0,8.0,ok
+Perth,videos/minimax_h3/Perth/Perth-4_J7f9olCKNoM_t113.mp4,data/real_minimax/Perth/Perth-4_J7f9olCKNoM_t113.mp4,J7f9olCKNoM,113.0,8.0,ok
+Perth,videos/minimax_h3/Perth/Perth-5__ovaWJYXepo_t24.mp4,data/real_minimax/Perth/Perth-5__ovaWJYXepo_t24.mp4,_ovaWJYXepo,24.0,8.0,ok
+Perth,videos/minimax_h3/Perth/Perth-5__ovaWJYXepo_t56.mp4,data/real_minimax/Perth/Perth-5__ovaWJYXepo_t56.mp4,_ovaWJYXepo,56.0,8.0,ok
+Perth,videos/minimax_h3/Perth/Perth-6_zVQdu8QmgrA_t42.mp4,data/real_minimax/Perth/Perth-6_zVQdu8QmgrA_t42.mp4,zVQdu8QmgrA,42.0,8.0,ok
+Perth,videos/minimax_h3/Perth/Perth-6_zVQdu8QmgrA_t563.mp4,data/real_minimax/Perth/Perth-6_zVQdu8QmgrA_t563.mp4,zVQdu8QmgrA,563.0,8.0,ok
+Perth,videos/minimax_h3/Perth/Perth-6_zVQdu8QmgrA_t648.mp4,data/real_minimax/Perth/Perth-6_zVQdu8QmgrA_t648.mp4,zVQdu8QmgrA,648.0,8.0,ok
+Perth,videos/minimax_h3/Perth/Perth-X02_wkGCTxRCjOs_t75.mp4,data/real_minimax/Perth/Perth-X02_wkGCTxRCjOs_t75.mp4,wkGCTxRCjOs,75.0,8.0,ok
+Philadelphia,videos/minimax_h3/Philadelphia/Philadelphia-1_wE5SyGMmA7I_t779.mp4,data/real_minimax/Philadelphia/Philadelphia-1_wE5SyGMmA7I_t779.mp4,wE5SyGMmA7I,779.0,8.0,ok
+Philadelphia,videos/minimax_h3/Philadelphia/Philadelphia-1_wE5SyGMmA7I_t810.mp4,data/real_minimax/Philadelphia/Philadelphia-1_wE5SyGMmA7I_t810.mp4,wE5SyGMmA7I,810.0,8.0,ok
+Philadelphia,videos/minimax_h3/Philadelphia/Philadelphia-1_wE5SyGMmA7I_t840.mp4,data/real_minimax/Philadelphia/Philadelphia-1_wE5SyGMmA7I_t840.mp4,wE5SyGMmA7I,840.0,8.0,ok
+Philadelphia,videos/minimax_h3/Philadelphia/Philadelphia-3__L8xq9nnC3E_t109.mp4,data/real_minimax/Philadelphia/Philadelphia-3__L8xq9nnC3E_t109.mp4,_L8xq9nnC3E,109.0,8.0,ok
+Philadelphia,videos/minimax_h3/Philadelphia/Philadelphia-3__L8xq9nnC3E_t1142.mp4,data/real_minimax/Philadelphia/Philadelphia-3__L8xq9nnC3E_t1142.mp4,_L8xq9nnC3E,1142.0,8.0,ok
+Philadelphia,videos/minimax_h3/Philadelphia/Philadelphia-4_RuxlvzNOSAY_t1035.mp4,data/real_minimax/Philadelphia/Philadelphia-4_RuxlvzNOSAY_t1035.mp4,RuxlvzNOSAY,1035.0,8.0,ok
+Philadelphia,videos/minimax_h3/Philadelphia/Philadelphia-5_sCkpHNJ7kuQ_t1054.mp4,data/real_minimax/Philadelphia/Philadelphia-5_sCkpHNJ7kuQ_t1054.mp4,sCkpHNJ7kuQ,1054.0,8.0,ok
+Philadelphia,videos/minimax_h3/Philadelphia/Philadelphia-5_sCkpHNJ7kuQ_t825.mp4,data/real_minimax/Philadelphia/Philadelphia-5_sCkpHNJ7kuQ_t825.mp4,sCkpHNJ7kuQ,825.0,8.0,ok
+Philadelphia,videos/minimax_h3/Philadelphia/Philadelphia-6_6lXWYkzVx7E_t1191.mp4,data/real_minimax/Philadelphia/Philadelphia-6_6lXWYkzVx7E_t1191.mp4,6lXWYkzVx7E,1191.0,8.0,ok
+Philadelphia,videos/minimax_h3/Philadelphia/Philadelphia-6_6lXWYkzVx7E_t747.mp4,data/real_minimax/Philadelphia/Philadelphia-6_6lXWYkzVx7E_t747.mp4,6lXWYkzVx7E,747.0,8.0,ok
+Phnom Penh,videos/minimax_h3/Phnom_Penh/Phnom_Penh-2_4aCdf7o_bFo_t247.mp4,data/real_minimax/Phnom_Penh/Phnom_Penh-2_4aCdf7o_bFo_t247.mp4,4aCdf7o_bFo,247.0,8.0,ok
+Phnom Penh,videos/minimax_h3/Phnom_Penh/Phnom_Penh-3_BJI5hyym0sw_t660.mp4,data/real_minimax/Phnom_Penh/Phnom_Penh-3_BJI5hyym0sw_t660.mp4,BJI5hyym0sw,660.0,8.0,ok
+Phnom Penh,videos/minimax_h3/Phnom_Penh/Phnom_Penh-3_BJI5hyym0sw_t763.mp4,data/real_minimax/Phnom_Penh/Phnom_Penh-3_BJI5hyym0sw_t763.mp4,BJI5hyym0sw,763.0,8.0,ok
+Phnom Penh,videos/minimax_h3/Phnom_Penh/Phnom_Penh-6_nBvUSpYpFU4_t808.mp4,data/real_minimax/Phnom_Penh/Phnom_Penh-6_nBvUSpYpFU4_t808.mp4,nBvUSpYpFU4,808.0,8.0,ok
+Phnom Penh,videos/minimax_h3/Phnom_Penh/Phnom_Penh-X02_Ea3fuLPKy_8_t402.mp4,data/real_minimax/Phnom_Penh/Phnom_Penh-X02_Ea3fuLPKy_8_t402.mp4,Ea3fuLPKy_8,402.0,8.0,ok
+Phnom Penh,videos/minimax_h3/Phnom_Penh/Phnom_Penh-X02_Ea3fuLPKy_8_t430.mp4,data/real_minimax/Phnom_Penh/Phnom_Penh-X02_Ea3fuLPKy_8_t430.mp4,Ea3fuLPKy_8,430.0,8.0,ok
+Phnom Penh,videos/minimax_h3/Phnom_Penh/Phnom_Penh-X03_2flWSA7hqGM_t1382.mp4,data/real_minimax/Phnom_Penh/Phnom_Penh-X03_2flWSA7hqGM_t1382.mp4,2flWSA7hqGM,1382.0,8.0,ok
+Phnom Penh,videos/minimax_h3/Phnom_Penh/Phnom_Penh-X06_sfFVXrpDcM0_t821.mp4,data/real_minimax/Phnom_Penh/Phnom_Penh-X06_sfFVXrpDcM0_t821.mp4,sfFVXrpDcM0,821.0,8.0,ok
+Phnom Penh,videos/minimax_h3/Phnom_Penh/Phnom_Penh-X22_O8SWyWBvETo_t26.mp4,data/real_minimax/Phnom_Penh/Phnom_Penh-X22_O8SWyWBvETo_t26.mp4,O8SWyWBvETo,26.0,8.0,ok
+Phnom Penh,videos/minimax_h3/Phnom_Penh/Phnom_Penh-X27_bl5uJQzNuQU_t253.mp4,data/real_minimax/Phnom_Penh/Phnom_Penh-X27_bl5uJQzNuQU_t253.mp4,bl5uJQzNuQU,253.0,8.0,ok
+Phoenix,videos/minimax_h3/Phoenix/Phoenix-X02_CpvmPhOYofI_t486.mp4,data/real_minimax/Phoenix/Phoenix-X02_CpvmPhOYofI_t486.mp4,CpvmPhOYofI,486.0,8.0,ok
+Phoenix,videos/minimax_h3/Phoenix/Phoenix-X05_Witxh1R9yNQ_t251.mp4,data/real_minimax/Phoenix/Phoenix-X05_Witxh1R9yNQ_t251.mp4,Witxh1R9yNQ,251.0,8.0,ok
+Phoenix,videos/minimax_h3/Phoenix/Phoenix-X05_Witxh1R9yNQ_t482.mp4,data/real_minimax/Phoenix/Phoenix-X05_Witxh1R9yNQ_t482.mp4,Witxh1R9yNQ,482.0,8.0,ok
+Phoenix,videos/minimax_h3/Phoenix/Phoenix-X07_AGvpbrmExWk_t223.mp4,data/real_minimax/Phoenix/Phoenix-X07_AGvpbrmExWk_t223.mp4,AGvpbrmExWk,223.0,8.0,ok
+Phoenix,videos/minimax_h3/Phoenix/Phoenix-X07_AGvpbrmExWk_t770.mp4,data/real_minimax/Phoenix/Phoenix-X07_AGvpbrmExWk_t770.mp4,AGvpbrmExWk,770.0,8.0,ok
+Phoenix,videos/minimax_h3/Phoenix/Phoenix-X12_cK0bIbXLxxQ_t1053.mp4,data/real_minimax/Phoenix/Phoenix-X12_cK0bIbXLxxQ_t1053.mp4,cK0bIbXLxxQ,1053.0,8.0,ok
+Phoenix,videos/minimax_h3/Phoenix/Phoenix-X12_cK0bIbXLxxQ_t484.mp4,data/real_minimax/Phoenix/Phoenix-X12_cK0bIbXLxxQ_t484.mp4,cK0bIbXLxxQ,484.0,8.0,ok
+Phoenix,videos/minimax_h3/Phoenix/Phoenix-X13_0nUPeddq5Yk_t171.mp4,data/real_minimax/Phoenix/Phoenix-X13_0nUPeddq5Yk_t171.mp4,0nUPeddq5Yk,171.0,8.0,ok
+Phoenix,videos/minimax_h3/Phoenix/Phoenix-X13_0nUPeddq5Yk_t451.mp4,data/real_minimax/Phoenix/Phoenix-X13_0nUPeddq5Yk_t451.mp4,0nUPeddq5Yk,451.0,8.0,ok
+Phoenix,videos/minimax_h3/Phoenix/Phoenix-X15_z1Eo4vhZBY8_t806.mp4,data/real_minimax/Phoenix/Phoenix-X15_z1Eo4vhZBY8_t806.mp4,z1Eo4vhZBY8,806.0,8.0,ok
+Portland,videos/minimax_h3/Portland/Portland-1_MYYqxdszIoM_t878.mp4,data/real_minimax/Portland/Portland-1_MYYqxdszIoM_t878.mp4,MYYqxdszIoM,878.0,8.0,ok
+Portland,videos/minimax_h3/Portland/Portland-1_MYYqxdszIoM_t946.mp4,data/real_minimax/Portland/Portland-1_MYYqxdszIoM_t946.mp4,MYYqxdszIoM,946.0,8.0,ok
+Portland,videos/minimax_h3/Portland/Portland-2_RFn7w3_qteA_t200.mp4,data/real_minimax/Portland/Portland-2_RFn7w3_qteA_t200.mp4,RFn7w3_qteA,200.0,8.0,ok
+Portland,videos/minimax_h3/Portland/Portland-2_RFn7w3_qteA_t971.mp4,data/real_minimax/Portland/Portland-2_RFn7w3_qteA_t971.mp4,RFn7w3_qteA,971.0,8.0,ok
+Portland,videos/minimax_h3/Portland/Portland-4_zH2HfHqlGHs_t1092.mp4,data/real_minimax/Portland/Portland-4_zH2HfHqlGHs_t1092.mp4,zH2HfHqlGHs,1092.0,8.0,ok
+Portland,videos/minimax_h3/Portland/Portland-4_zH2HfHqlGHs_t1159.mp4,data/real_minimax/Portland/Portland-4_zH2HfHqlGHs_t1159.mp4,zH2HfHqlGHs,1159.0,8.0,ok
+Portland,videos/minimax_h3/Portland/Portland-5_LVeQAkDJMno_t162.mp4,data/real_minimax/Portland/Portland-5_LVeQAkDJMno_t162.mp4,LVeQAkDJMno,162.0,8.0,ok
+Portland,videos/minimax_h3/Portland/Portland-X03_IOdKloTuA18_t766.mp4,data/real_minimax/Portland/Portland-X03_IOdKloTuA18_t766.mp4,IOdKloTuA18,766.0,8.0,ok
+Portland,videos/minimax_h3/Portland/Portland-X05__TLwLDdgqlc_t1184.mp4,data/real_minimax/Portland/Portland-X05__TLwLDdgqlc_t1184.mp4,_TLwLDdgqlc,1184.0,8.0,ok
+Portland,videos/minimax_h3/Portland/Portland-X05__TLwLDdgqlc_t857.mp4,data/real_minimax/Portland/Portland-X05__TLwLDdgqlc_t857.mp4,_TLwLDdgqlc,857.0,8.0,ok
+Prague,videos/minimax_h3/Prague/Prague-1_cmnzgeXDReU_t1044.mp4,data/real_minimax/Prague/Prague-1_cmnzgeXDReU_t1044.mp4,cmnzgeXDReU,1044.0,8.0,ok
+Prague,videos/minimax_h3/Prague/Prague-1_cmnzgeXDReU_t985.mp4,data/real_minimax/Prague/Prague-1_cmnzgeXDReU_t985.mp4,cmnzgeXDReU,985.0,8.0,ok
+Prague,videos/minimax_h3/Prague/Prague-2_jeS5VPBrXLo_t469.mp4,data/real_minimax/Prague/Prague-2_jeS5VPBrXLo_t469.mp4,jeS5VPBrXLo,469.0,8.0,ok
+Prague,videos/minimax_h3/Prague/Prague-2_jeS5VPBrXLo_t63.mp4,data/real_minimax/Prague/Prague-2_jeS5VPBrXLo_t63.mp4,jeS5VPBrXLo,63.0,8.0,ok
+Prague,videos/minimax_h3/Prague/Prague-3_UUVcQTMtKlo_t1205.mp4,data/real_minimax/Prague/Prague-3_UUVcQTMtKlo_t1205.mp4,UUVcQTMtKlo,1205.0,8.0,ok
+Prague,videos/minimax_h3/Prague/Prague-3_UUVcQTMtKlo_t1263.mp4,data/real_minimax/Prague/Prague-3_UUVcQTMtKlo_t1263.mp4,UUVcQTMtKlo,1263.0,8.0,ok
+Prague,videos/minimax_h3/Prague/Prague-4_gAH3yvalKx8_t139.mp4,data/real_minimax/Prague/Prague-4_gAH3yvalKx8_t139.mp4,gAH3yvalKx8,139.0,8.0,ok
+Prague,videos/minimax_h3/Prague/Prague-4_gAH3yvalKx8_t440.mp4,data/real_minimax/Prague/Prague-4_gAH3yvalKx8_t440.mp4,gAH3yvalKx8,440.0,8.0,ok
+Prague,videos/minimax_h3/Prague/Prague-5_OSpHJ4Ap7J8_t1184.mp4,data/real_minimax/Prague/Prague-5_OSpHJ4Ap7J8_t1184.mp4,OSpHJ4Ap7J8,1184.0,8.0,ok
+Prague,videos/minimax_h3/Prague/Prague-6_B0blYqFsY60_t962.mp4,data/real_minimax/Prague/Prague-6_B0blYqFsY60_t962.mp4,B0blYqFsY60,962.0,8.0,ok
+Rio de Janeiro,videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-1_q83bl_GcsCo_t1083.mp4,data/real_minimax/Rio_de_Janeiro/Rio_de_Janeiro-1_q83bl_GcsCo_t1083.mp4,q83bl_GcsCo,1083.0,8.0,ok
+Rio de Janeiro,videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-1_q83bl_GcsCo_t854.mp4,data/real_minimax/Rio_de_Janeiro/Rio_de_Janeiro-1_q83bl_GcsCo_t854.mp4,q83bl_GcsCo,854.0,8.0,ok
+Rio de Janeiro,videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-1_q83bl_GcsCo_t989.mp4,data/real_minimax/Rio_de_Janeiro/Rio_de_Janeiro-1_q83bl_GcsCo_t989.mp4,q83bl_GcsCo,989.0,8.0,ok
+Rio de Janeiro,videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-3_l8geG89VAMY_t24.mp4,data/real_minimax/Rio_de_Janeiro/Rio_de_Janeiro-3_l8geG89VAMY_t24.mp4,l8geG89VAMY,24.0,8.0,ok
+Rio de Janeiro,videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-3_l8geG89VAMY_t548.mp4,data/real_minimax/Rio_de_Janeiro/Rio_de_Janeiro-3_l8geG89VAMY_t548.mp4,l8geG89VAMY,548.0,8.0,ok
+Rio de Janeiro,videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-3_l8geG89VAMY_t939.mp4,data/real_minimax/Rio_de_Janeiro/Rio_de_Janeiro-3_l8geG89VAMY_t939.mp4,l8geG89VAMY,939.0,8.0,ok
+Rio de Janeiro,videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-4__hWCN1yV9TY_t782.mp4,data/real_minimax/Rio_de_Janeiro/Rio_de_Janeiro-4__hWCN1yV9TY_t782.mp4,_hWCN1yV9TY,782.0,8.0,ok
+Rio de Janeiro,videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-6_4OhkgZm_XiQ_t1644.mp4,data/real_minimax/Rio_de_Janeiro/Rio_de_Janeiro-6_4OhkgZm_XiQ_t1644.mp4,4OhkgZm_XiQ,1644.0,8.0,ok
+Rio de Janeiro,videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-6_4OhkgZm_XiQ_t2880.mp4,data/real_minimax/Rio_de_Janeiro/Rio_de_Janeiro-6_4OhkgZm_XiQ_t2880.mp4,4OhkgZm_XiQ,2880.0,8.0,ok
+Rio de Janeiro,videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-X08_tKjjfYS6TQE_t813.mp4,data/real_minimax/Rio_de_Janeiro/Rio_de_Janeiro-X08_tKjjfYS6TQE_t813.mp4,tKjjfYS6TQE,813.0,8.0,ok
+Rio de Janeiro,videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-X09_n23KFqhxnqo_t110.mp4,data/real_minimax/Rio_de_Janeiro/Rio_de_Janeiro-X09_n23KFqhxnqo_t110.mp4,n23KFqhxnqo,110.0,8.0,ok
+Sacramento,videos/minimax_h3/Sacramento/Sacramento-1_Y8PTVLU5Vyk_t712.mp4,data/real_minimax/Sacramento/Sacramento-1_Y8PTVLU5Vyk_t712.mp4,Y8PTVLU5Vyk,712.0,8.0,ok
+Sacramento,videos/minimax_h3/Sacramento/Sacramento-2_SuEwmWpl2Ag_t1067.mp4,data/real_minimax/Sacramento/Sacramento-2_SuEwmWpl2Ag_t1067.mp4,SuEwmWpl2Ag,1067.0,8.0,ok
+Sacramento,videos/minimax_h3/Sacramento/Sacramento-2_SuEwmWpl2Ag_t617.mp4,data/real_minimax/Sacramento/Sacramento-2_SuEwmWpl2Ag_t617.mp4,SuEwmWpl2Ag,617.0,8.0,ok
+Sacramento,videos/minimax_h3/Sacramento/Sacramento-2_SuEwmWpl2Ag_t864.mp4,data/real_minimax/Sacramento/Sacramento-2_SuEwmWpl2Ag_t864.mp4,SuEwmWpl2Ag,864.0,8.0,ok
+Sacramento,videos/minimax_h3/Sacramento/Sacramento-3_GAnb7WJ3zC4_t1006.mp4,data/real_minimax/Sacramento/Sacramento-3_GAnb7WJ3zC4_t1006.mp4,GAnb7WJ3zC4,1006.0,8.0,ok
+Sacramento,videos/minimax_h3/Sacramento/Sacramento-3_GAnb7WJ3zC4_t352.mp4,data/real_minimax/Sacramento/Sacramento-3_GAnb7WJ3zC4_t352.mp4,GAnb7WJ3zC4,352.0,8.0,ok
+Sacramento,videos/minimax_h3/Sacramento/Sacramento-3_GAnb7WJ3zC4_t875.mp4,data/real_minimax/Sacramento/Sacramento-3_GAnb7WJ3zC4_t875.mp4,GAnb7WJ3zC4,875.0,8.0,ok
+Sacramento,videos/minimax_h3/Sacramento/Sacramento-6_oPRrFTDuI8M_t602.mp4,data/real_minimax/Sacramento/Sacramento-6_oPRrFTDuI8M_t602.mp4,oPRrFTDuI8M,602.0,8.0,ok
+Sacramento,videos/minimax_h3/Sacramento/Sacramento-X02_zWCLe8pFe_Q_t163.mp4,data/real_minimax/Sacramento/Sacramento-X02_zWCLe8pFe_Q_t163.mp4,zWCLe8pFe_Q,163.0,8.0,ok
+Sacramento,videos/minimax_h3/Sacramento/Sacramento-X03_kfpGVIKV18E_t640.mp4,data/real_minimax/Sacramento/Sacramento-X03_kfpGVIKV18E_t640.mp4,kfpGVIKV18E,640.0,8.0,ok
+Sacramento,videos/minimax_h3/Sacramento/Sacramento-X03_kfpGVIKV18E_t890.mp4,data/real_minimax/Sacramento/Sacramento-X03_kfpGVIKV18E_t890.mp4,kfpGVIKV18E,890.0,8.0,ok
+Saint Petersburg,videos/minimax_h3/Saint_Petersburg/Saint_Petersburg-01_vKD8_m88tuk_t117.mp4,data/real_minimax/Saint_Petersburg/Saint_Petersburg-01_vKD8_m88tuk_t117.mp4,vKD8_m88tuk,117.0,8.0,ok
+Saint Petersburg,videos/minimax_h3/Saint_Petersburg/Saint_Petersburg-02_BmDjMCHublI_t269.mp4,data/real_minimax/Saint_Petersburg/Saint_Petersburg-02_BmDjMCHublI_t269.mp4,BmDjMCHublI,269.0,8.0,ok
+Saint Petersburg,videos/minimax_h3/Saint_Petersburg/Saint_Petersburg-02_BmDjMCHublI_t298.mp4,data/real_minimax/Saint_Petersburg/Saint_Petersburg-02_BmDjMCHublI_t298.mp4,BmDjMCHublI,298.0,8.0,ok
+Saint Petersburg,videos/minimax_h3/Saint_Petersburg/Saint_Petersburg-02_BmDjMCHublI_t898.mp4,data/real_minimax/Saint_Petersburg/Saint_Petersburg-02_BmDjMCHublI_t898.mp4,BmDjMCHublI,898.0,8.0,ok
+Saint Petersburg,videos/minimax_h3/Saint_Petersburg/Saint_Petersburg-03_b8dts7cY6dg_t287.mp4,data/real_minimax/Saint_Petersburg/Saint_Petersburg-03_b8dts7cY6dg_t287.mp4,b8dts7cY6dg,287.0,8.0,ok
+Saint Petersburg,videos/minimax_h3/Saint_Petersburg/Saint_Petersburg-03_b8dts7cY6dg_t60.mp4,data/real_minimax/Saint_Petersburg/Saint_Petersburg-03_b8dts7cY6dg_t60.mp4,b8dts7cY6dg,60.0,8.0,ok
+Saint Petersburg,videos/minimax_h3/Saint_Petersburg/Saint_Petersburg-04_vmC-W778WEk_t0.mp4,data/real_minimax/Saint_Petersburg/Saint_Petersburg-04_vmC-W778WEk_t0.mp4,vmC-W778WEk,0.0,8.0,ok
+Saint Petersburg,videos/minimax_h3/Saint_Petersburg/Saint_Petersburg-05_JDAeY_6QgLw_t963.mp4,data/real_minimax/Saint_Petersburg/Saint_Petersburg-05_JDAeY_6QgLw_t963.mp4,JDAeY_6QgLw,963.0,8.0,ok
+Saint Petersburg,videos/minimax_h3/Saint_Petersburg/Saint_Petersburg-06_Uf7SD9i3msI_t418.mp4,data/real_minimax/Saint_Petersburg/Saint_Petersburg-06_Uf7SD9i3msI_t418.mp4,Uf7SD9i3msI,418.0,8.0,ok
+Saint Petersburg,videos/minimax_h3/Saint_Petersburg/Saint_Petersburg-10_kcGjbIVvzDQ_t79.mp4,data/real_minimax/Saint_Petersburg/Saint_Petersburg-10_kcGjbIVvzDQ_t79.mp4,kcGjbIVvzDQ,79.0,8.0,ok
+San Francisco,videos/minimax_h3/San_Francisco/San_Francisco-1_QmAvjLceVIY_t1285.mp4,data/real_minimax/San_Francisco/San_Francisco-1_QmAvjLceVIY_t1285.mp4,QmAvjLceVIY,1285.0,8.0,ok
+San Francisco,videos/minimax_h3/San_Francisco/San_Francisco-2_6F6YWRjHD0Y_t58.mp4,data/real_minimax/San_Francisco/San_Francisco-2_6F6YWRjHD0Y_t58.mp4,6F6YWRjHD0Y,58.0,8.0,ok
+San Francisco,videos/minimax_h3/San_Francisco/San_Francisco-2_6F6YWRjHD0Y_t584.mp4,data/real_minimax/San_Francisco/San_Francisco-2_6F6YWRjHD0Y_t584.mp4,6F6YWRjHD0Y,584.0,8.0,ok
+San Francisco,videos/minimax_h3/San_Francisco/San_Francisco-3_fGXu8iFd-z8_t1027.mp4,data/real_minimax/San_Francisco/San_Francisco-3_fGXu8iFd-z8_t1027.mp4,fGXu8iFd-z8,1027.0,8.0,ok
+San Francisco,videos/minimax_h3/San_Francisco/San_Francisco-3_fGXu8iFd-z8_t598.mp4,data/real_minimax/San_Francisco/San_Francisco-3_fGXu8iFd-z8_t598.mp4,fGXu8iFd-z8,598.0,8.0,ok
+San Francisco,videos/minimax_h3/San_Francisco/San_Francisco-4_smY9YV8s-K0_t130.mp4,data/real_minimax/San_Francisco/San_Francisco-4_smY9YV8s-K0_t130.mp4,smY9YV8s-K0,130.0,8.0,ok
+San Francisco,videos/minimax_h3/San_Francisco/San_Francisco-4_smY9YV8s-K0_t158.mp4,data/real_minimax/San_Francisco/San_Francisco-4_smY9YV8s-K0_t158.mp4,smY9YV8s-K0,158.0,8.0,ok
+San Francisco,videos/minimax_h3/San_Francisco/San_Francisco-5_7__WPREFla4_t908.mp4,data/real_minimax/San_Francisco/San_Francisco-5_7__WPREFla4_t908.mp4,7__WPREFla4,908.0,8.0,ok
+San Francisco,videos/minimax_h3/San_Francisco/San_Francisco-6_hF_Rm05wbrw_t590.mp4,data/real_minimax/San_Francisco/San_Francisco-6_hF_Rm05wbrw_t590.mp4,hF_Rm05wbrw,590.0,8.0,ok
+San Francisco,videos/minimax_h3/San_Francisco/San_Francisco-6_hF_Rm05wbrw_t759.mp4,data/real_minimax/San_Francisco/San_Francisco-6_hF_Rm05wbrw_t759.mp4,hF_Rm05wbrw,759.0,8.0,ok
+San Jose,videos/minimax_h3/San_Jose/San_Jose-1_8zv45mY44FI_t326.mp4,data/real_minimax/San_Jose/San_Jose-1_8zv45mY44FI_t326.mp4,8zv45mY44FI,326.0,8.0,ok
+San Jose,videos/minimax_h3/San_Jose/San_Jose-1_8zv45mY44FI_t420.mp4,data/real_minimax/San_Jose/San_Jose-1_8zv45mY44FI_t420.mp4,8zv45mY44FI,420.0,8.0,ok
+San Jose,videos/minimax_h3/San_Jose/San_Jose-2_f0BfiiBlg34_t428.mp4,data/real_minimax/San_Jose/San_Jose-2_f0BfiiBlg34_t428.mp4,f0BfiiBlg34,428.0,8.0,ok
+San Jose,videos/minimax_h3/San_Jose/San_Jose-2_f0BfiiBlg34_t468.mp4,data/real_minimax/San_Jose/San_Jose-2_f0BfiiBlg34_t468.mp4,f0BfiiBlg34,468.0,8.0,ok
+San Jose,videos/minimax_h3/San_Jose/San_Jose-3_-GPNnHGl9zw_t703.mp4,data/real_minimax/San_Jose/San_Jose-3_-GPNnHGl9zw_t703.mp4,-GPNnHGl9zw,703.0,8.0,ok
+San Jose,videos/minimax_h3/San_Jose/San_Jose-5_CoxAR80Mf10_t1149.mp4,data/real_minimax/San_Jose/San_Jose-5_CoxAR80Mf10_t1149.mp4,CoxAR80Mf10,1149.0,8.0,ok
+San Jose,videos/minimax_h3/San_Jose/San_Jose-X04_ukVcaXa-WlM_t94.mp4,data/real_minimax/San_Jose/San_Jose-X04_ukVcaXa-WlM_t94.mp4,ukVcaXa-WlM,94.0,8.0,ok
+San Jose,videos/minimax_h3/San_Jose/San_Jose-X07_29JH3KlV-I8_t135.mp4,data/real_minimax/San_Jose/San_Jose-X07_29JH3KlV-I8_t135.mp4,29JH3KlV-I8,135.0,8.0,ok
+San Jose,videos/minimax_h3/San_Jose/San_Jose-X09_MrTMm30bK7U_t192.mp4,data/real_minimax/San_Jose/San_Jose-X09_MrTMm30bK7U_t192.mp4,MrTMm30bK7U,192.0,8.0,ok
+San Jose,videos/minimax_h3/San_Jose/San_Jose-X13_vzQ8skYiFGI_t1169.mp4,data/real_minimax/San_Jose/San_Jose-X13_vzQ8skYiFGI_t1169.mp4,vzQ8skYiFGI,1169.0,8.0,ok
+Sao Paulo,videos/minimax_h3/Sao_Paulo/Sao_Paulo-1_Ic2ERD7kt4o_t150.mp4,data/real_minimax/Sao_Paulo/Sao_Paulo-1_Ic2ERD7kt4o_t150.mp4,Ic2ERD7kt4o,150.0,8.0,ok
+Sao Paulo,videos/minimax_h3/Sao_Paulo/Sao_Paulo-1_Ic2ERD7kt4o_t233.mp4,data/real_minimax/Sao_Paulo/Sao_Paulo-1_Ic2ERD7kt4o_t233.mp4,Ic2ERD7kt4o,233.0,8.0,ok
+Sao Paulo,videos/minimax_h3/Sao_Paulo/Sao_Paulo-4_39eKuBwiOv0_t69.mp4,data/real_minimax/Sao_Paulo/Sao_Paulo-4_39eKuBwiOv0_t69.mp4,39eKuBwiOv0,69.0,8.0,ok
+Sao Paulo,videos/minimax_h3/Sao_Paulo/Sao_Paulo-5__hptbEVx5eM_t1029.mp4,data/real_minimax/Sao_Paulo/Sao_Paulo-5__hptbEVx5eM_t1029.mp4,_hptbEVx5eM,1029.0,8.0,ok
+Sao Paulo,videos/minimax_h3/Sao_Paulo/Sao_Paulo-X01_mjWbwVAURCc_t282.mp4,data/real_minimax/Sao_Paulo/Sao_Paulo-X01_mjWbwVAURCc_t282.mp4,mjWbwVAURCc,282.0,8.0,ok
+Sao Paulo,videos/minimax_h3/Sao_Paulo/Sao_Paulo-X01_mjWbwVAURCc_t772.mp4,data/real_minimax/Sao_Paulo/Sao_Paulo-X01_mjWbwVAURCc_t772.mp4,mjWbwVAURCc,772.0,8.0,ok
+Sao Paulo,videos/minimax_h3/Sao_Paulo/Sao_Paulo-X02_VSaWSDWo8Vk_t144.mp4,data/real_minimax/Sao_Paulo/Sao_Paulo-X02_VSaWSDWo8Vk_t144.mp4,VSaWSDWo8Vk,144.0,8.0,ok
+Sao Paulo,videos/minimax_h3/Sao_Paulo/Sao_Paulo-X02_VSaWSDWo8Vk_t99.mp4,data/real_minimax/Sao_Paulo/Sao_Paulo-X02_VSaWSDWo8Vk_t99.mp4,VSaWSDWo8Vk,99.0,8.0,ok
+Sao Paulo,videos/minimax_h3/Sao_Paulo/Sao_Paulo-X03_Bp1G_a1NxnE_t351.mp4,data/real_minimax/Sao_Paulo/Sao_Paulo-X03_Bp1G_a1NxnE_t351.mp4,Bp1G_a1NxnE,351.0,8.0,ok
+Sao Paulo,videos/minimax_h3/Sao_Paulo/Sao_Paulo-X05_Hrj2_IWHvaE_t539.mp4,data/real_minimax/Sao_Paulo/Sao_Paulo-X05_Hrj2_IWHvaE_t539.mp4,Hrj2_IWHvaE,539.0,8.0,ok
+Seattle,videos/minimax_h3/Seattle/Seattle-1_fkps18H3SXY_t1461.mp4,data/real_minimax/Seattle/Seattle-1_fkps18H3SXY_t1461.mp4,fkps18H3SXY,1461.0,8.0,ok
+Seattle,videos/minimax_h3/Seattle/Seattle-1_fkps18H3SXY_t1976.mp4,data/real_minimax/Seattle/Seattle-1_fkps18H3SXY_t1976.mp4,fkps18H3SXY,1976.0,8.0,ok
+Seattle,videos/minimax_h3/Seattle/Seattle-2_8DlZKmmnfs0_t345.mp4,data/real_minimax/Seattle/Seattle-2_8DlZKmmnfs0_t345.mp4,8DlZKmmnfs0,345.0,8.0,ok
+Seattle,videos/minimax_h3/Seattle/Seattle-2_8DlZKmmnfs0_t945.mp4,data/real_minimax/Seattle/Seattle-2_8DlZKmmnfs0_t945.mp4,8DlZKmmnfs0,945.0,8.0,ok
+Seattle,videos/minimax_h3/Seattle/Seattle-3_K35C2HRRTOk_t273.mp4,data/real_minimax/Seattle/Seattle-3_K35C2HRRTOk_t273.mp4,K35C2HRRTOk,273.0,8.0,ok
+Seattle,videos/minimax_h3/Seattle/Seattle-3_K35C2HRRTOk_t628.mp4,data/real_minimax/Seattle/Seattle-3_K35C2HRRTOk_t628.mp4,K35C2HRRTOk,628.0,8.0,ok
+Seattle,videos/minimax_h3/Seattle/Seattle-5_lGsbqOX3b4Q_t1104.mp4,data/real_minimax/Seattle/Seattle-5_lGsbqOX3b4Q_t1104.mp4,lGsbqOX3b4Q,1104.0,8.0,ok
+Seattle,videos/minimax_h3/Seattle/Seattle-X01_M3QWNKCB5vo_t1065.mp4,data/real_minimax/Seattle/Seattle-X01_M3QWNKCB5vo_t1065.mp4,M3QWNKCB5vo,1065.0,8.0,ok
+Seattle,videos/minimax_h3/Seattle/Seattle-X01_M3QWNKCB5vo_t716.mp4,data/real_minimax/Seattle/Seattle-X01_M3QWNKCB5vo_t716.mp4,M3QWNKCB5vo,716.0,8.0,ok
+Seattle,videos/minimax_h3/Seattle/Seattle-X02_cxxV3Bljvfw_t947.mp4,data/real_minimax/Seattle/Seattle-X02_cxxV3Bljvfw_t947.mp4,cxxV3Bljvfw,947.0,8.0,ok
+Seoul,videos/minimax_h3/Seoul/Seoul-01_qOx5CwCrN9k_t1125.mp4,data/real_minimax/Seoul/Seoul-01_qOx5CwCrN9k_t1125.mp4,qOx5CwCrN9k,1125.0,8.0,ok
+Seoul,videos/minimax_h3/Seoul/Seoul-01_qOx5CwCrN9k_t953.mp4,data/real_minimax/Seoul/Seoul-01_qOx5CwCrN9k_t953.mp4,qOx5CwCrN9k,953.0,8.0,ok
+Seoul,videos/minimax_h3/Seoul/Seoul-05_WRKXnQWfn_A_t940.mp4,data/real_minimax/Seoul/Seoul-05_WRKXnQWfn_A_t940.mp4,WRKXnQWfn_A,940.0,8.0,ok
+Seoul,videos/minimax_h3/Seoul/Seoul-06_DlLqFGoNFZ8_t1056.mp4,data/real_minimax/Seoul/Seoul-06_DlLqFGoNFZ8_t1056.mp4,DlLqFGoNFZ8,1056.0,8.0,ok
+Seoul,videos/minimax_h3/Seoul/Seoul-06_DlLqFGoNFZ8_t974.mp4,data/real_minimax/Seoul/Seoul-06_DlLqFGoNFZ8_t974.mp4,DlLqFGoNFZ8,974.0,8.0,ok
+Seoul,videos/minimax_h3/Seoul/Seoul-07_WzXi7amY4rc_t1103.mp4,data/real_minimax/Seoul/Seoul-07_WzXi7amY4rc_t1103.mp4,WzXi7amY4rc,1103.0,8.0,ok
+Seoul,videos/minimax_h3/Seoul/Seoul-10_ks91v105I1E_t865.mp4,data/real_minimax/Seoul/Seoul-10_ks91v105I1E_t865.mp4,ks91v105I1E,865.0,8.0,ok
+Seoul,videos/minimax_h3/Seoul/Seoul-12_qFQV2sCLntQ_t201.mp4,data/real_minimax/Seoul/Seoul-12_qFQV2sCLntQ_t201.mp4,qFQV2sCLntQ,201.0,8.0,ok
+Seoul,videos/minimax_h3/Seoul/Seoul-13_wcq3fi5BSI8_t389.mp4,data/real_minimax/Seoul/Seoul-13_wcq3fi5BSI8_t389.mp4,wcq3fi5BSI8,389.0,8.0,ok
+Seoul,videos/minimax_h3/Seoul/Seoul-13_wcq3fi5BSI8_t634.mp4,data/real_minimax/Seoul/Seoul-13_wcq3fi5BSI8_t634.mp4,wcq3fi5BSI8,634.0,8.0,ok
+Serrekunda,videos/minimax_h3/Serrekunda/Serrekunda-1_ESa6QOfl9xM_t1182.mp4,data/real_minimax/Serrekunda/Serrekunda-1_ESa6QOfl9xM_t1182.mp4,ESa6QOfl9xM,1182.0,8.0,ok
+Serrekunda,videos/minimax_h3/Serrekunda/Serrekunda-3_FXKwHPJzBZ8_t245.mp4,data/real_minimax/Serrekunda/Serrekunda-3_FXKwHPJzBZ8_t245.mp4,FXKwHPJzBZ8,245.0,8.0,ok
+Serrekunda,videos/minimax_h3/Serrekunda/Serrekunda-4_Enom5NBilf4_t557.mp4,data/real_minimax/Serrekunda/Serrekunda-4_Enom5NBilf4_t557.mp4,Enom5NBilf4,557.0,8.0,ok
+Serrekunda,videos/minimax_h3/Serrekunda/Serrekunda-5_E5rHoQQzl8A_t191.mp4,data/real_minimax/Serrekunda/Serrekunda-5_E5rHoQQzl8A_t191.mp4,E5rHoQQzl8A,191.0,8.0,ok
+Serrekunda,videos/minimax_h3/Serrekunda/Serrekunda-X01_FJKp5B9ebF0_t1096.mp4,data/real_minimax/Serrekunda/Serrekunda-X01_FJKp5B9ebF0_t1096.mp4,FJKp5B9ebF0,1096.0,8.0,ok
+Serrekunda,videos/minimax_h3/Serrekunda/Serrekunda-X01_FJKp5B9ebF0_t4013.mp4,data/real_minimax/Serrekunda/Serrekunda-X01_FJKp5B9ebF0_t4013.mp4,FJKp5B9ebF0,4013.0,8.0,ok
+Serrekunda,videos/minimax_h3/Serrekunda/Serrekunda-X02_g84DWubqVys_t1181.mp4,data/real_minimax/Serrekunda/Serrekunda-X02_g84DWubqVys_t1181.mp4,g84DWubqVys,1181.0,8.0,ok
+Serrekunda,videos/minimax_h3/Serrekunda/Serrekunda-X02_g84DWubqVys_t1247.mp4,data/real_minimax/Serrekunda/Serrekunda-X02_g84DWubqVys_t1247.mp4,g84DWubqVys,1247.0,8.0,ok
+Serrekunda,videos/minimax_h3/Serrekunda/Serrekunda-X03_p-AXaYMGMEQ_t1165.mp4,data/real_minimax/Serrekunda/Serrekunda-X03_p-AXaYMGMEQ_t1165.mp4,p-AXaYMGMEQ,1165.0,8.0,ok
+Serrekunda,videos/minimax_h3/Serrekunda/Serrekunda-X04_nQplu2l64Uo_t430.mp4,data/real_minimax/Serrekunda/Serrekunda-X04_nQplu2l64Uo_t430.mp4,nQplu2l64Uo,430.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-1_vBySF9eSKQs_t524.mp4,data/real_minimax/Singapore/Singapore-1_vBySF9eSKQs_t524.mp4,vBySF9eSKQs,524.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-1_vBySF9eSKQs_t637.mp4,data/real_minimax/Singapore/Singapore-1_vBySF9eSKQs_t637.mp4,vBySF9eSKQs,637.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-3_GDMDj2Help4_t100.mp4,data/real_minimax/Singapore/Singapore-3_GDMDj2Help4_t100.mp4,GDMDj2Help4,100.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-3_GDMDj2Help4_t1064.mp4,data/real_minimax/Singapore/Singapore-3_GDMDj2Help4_t1064.mp4,GDMDj2Help4,1064.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-5_AEgrx3Uxfts_t914.mp4,data/real_minimax/Singapore/Singapore-5_AEgrx3Uxfts_t914.mp4,AEgrx3Uxfts,914.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-X08_mxOCBLAX2as_t1163.mp4,data/real_minimax/Singapore/Singapore-X08_mxOCBLAX2as_t1163.mp4,mxOCBLAX2as,1163.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-X09_ALWd36RMpgU_t785.mp4,data/real_minimax/Singapore/Singapore-X09_ALWd36RMpgU_t785.mp4,ALWd36RMpgU,785.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-X09_ALWd36RMpgU_t861.mp4,data/real_minimax/Singapore/Singapore-X09_ALWd36RMpgU_t861.mp4,ALWd36RMpgU,861.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-X11_HTG-l06RauI_t1024.mp4,data/real_minimax/Singapore/Singapore-X11_HTG-l06RauI_t1024.mp4,HTG-l06RauI,1024.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-X11_HTG-l06RauI_t164.mp4,data/real_minimax/Singapore/Singapore-X11_HTG-l06RauI_t164.mp4,HTG-l06RauI,164.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-X11_HTG-l06RauI_t81.mp4,data/real_minimax/Singapore/Singapore-X11_HTG-l06RauI_t81.mp4,HTG-l06RauI,81.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-X13_m8Oyui5sGiI_t589.mp4,data/real_minimax/Singapore/Singapore-X13_m8Oyui5sGiI_t589.mp4,m8Oyui5sGiI,589.0,8.0,ok
+Singapore,videos/minimax_h3/Singapore/Singapore-X14_m--qUacNUDM_t458.mp4,data/real_minimax/Singapore/Singapore-X14_m--qUacNUDM_t458.mp4,m--qUacNUDM,458.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-1_SNQAfWsEVOQ_t358.mp4,data/real_minimax/Sofia/Sofia-1_SNQAfWsEVOQ_t358.mp4,SNQAfWsEVOQ,358.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-1_SNQAfWsEVOQ_t744.mp4,data/real_minimax/Sofia/Sofia-1_SNQAfWsEVOQ_t744.mp4,SNQAfWsEVOQ,744.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-4_zdvpOcPrFtQ_t1096.mp4,data/real_minimax/Sofia/Sofia-4_zdvpOcPrFtQ_t1096.mp4,zdvpOcPrFtQ,1096.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-4_zdvpOcPrFtQ_t1158.mp4,data/real_minimax/Sofia/Sofia-4_zdvpOcPrFtQ_t1158.mp4,zdvpOcPrFtQ,1158.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-4_zdvpOcPrFtQ_t565.mp4,data/real_minimax/Sofia/Sofia-4_zdvpOcPrFtQ_t565.mp4,zdvpOcPrFtQ,565.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-6_dyKicGFgHI8_t1001.mp4,data/real_minimax/Sofia/Sofia-6_dyKicGFgHI8_t1001.mp4,dyKicGFgHI8,1001.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-X02_dmYCFGPMN7w_t647.mp4,data/real_minimax/Sofia/Sofia-X02_dmYCFGPMN7w_t647.mp4,dmYCFGPMN7w,647.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-X02_dmYCFGPMN7w_t77.mp4,data/real_minimax/Sofia/Sofia-X02_dmYCFGPMN7w_t77.mp4,dmYCFGPMN7w,77.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-X02_dmYCFGPMN7w_t775.mp4,data/real_minimax/Sofia/Sofia-X02_dmYCFGPMN7w_t775.mp4,dmYCFGPMN7w,775.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-X03_EE7ZN-UKTko_t5.mp4,data/real_minimax/Sofia/Sofia-X03_EE7ZN-UKTko_t5.mp4,EE7ZN-UKTko,5.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-X04_qX-u9UpMsRg_t775.mp4,data/real_minimax/Sofia/Sofia-X04_qX-u9UpMsRg_t775.mp4,qX-u9UpMsRg,775.0,8.0,ok
+Sofia,videos/minimax_h3/Sofia/Sofia-X06_bxkFRX57oLs_t835.mp4,data/real_minimax/Sofia/Sofia-X06_bxkFRX57oLs_t835.mp4,bxkFRX57oLs,835.0,8.0,ok
+Stockholm,videos/minimax_h3/Stockholm/Stockholm-1_6nvZfXcV3uA_t421.mp4,data/real_minimax/Stockholm/Stockholm-1_6nvZfXcV3uA_t421.mp4,6nvZfXcV3uA,421.0,8.0,ok
+Stockholm,videos/minimax_h3/Stockholm/Stockholm-1_6nvZfXcV3uA_t651.mp4,data/real_minimax/Stockholm/Stockholm-1_6nvZfXcV3uA_t651.mp4,6nvZfXcV3uA,651.0,8.0,ok
+Stockholm,videos/minimax_h3/Stockholm/Stockholm-2_F6Y0miRc9xA_t494.mp4,data/real_minimax/Stockholm/Stockholm-2_F6Y0miRc9xA_t494.mp4,F6Y0miRc9xA,494.0,8.0,ok
+Stockholm,videos/minimax_h3/Stockholm/Stockholm-2_F6Y0miRc9xA_t849.mp4,data/real_minimax/Stockholm/Stockholm-2_F6Y0miRc9xA_t849.mp4,F6Y0miRc9xA,849.0,8.0,ok
+Stockholm,videos/minimax_h3/Stockholm/Stockholm-4_0GMt9cZ8g_E_t179.mp4,data/real_minimax/Stockholm/Stockholm-4_0GMt9cZ8g_E_t179.mp4,0GMt9cZ8g_E,179.0,8.0,ok
+Stockholm,videos/minimax_h3/Stockholm/Stockholm-4_0GMt9cZ8g_E_t942.mp4,data/real_minimax/Stockholm/Stockholm-4_0GMt9cZ8g_E_t942.mp4,0GMt9cZ8g_E,942.0,8.0,ok
+Stockholm,videos/minimax_h3/Stockholm/Stockholm-X02_KcqvoamLWY0_t298.mp4,data/real_minimax/Stockholm/Stockholm-X02_KcqvoamLWY0_t298.mp4,KcqvoamLWY0,298.0,8.0,ok
+Stockholm,videos/minimax_h3/Stockholm/Stockholm-X03_y8oW2VUyVB8_t124.mp4,data/real_minimax/Stockholm/Stockholm-X03_y8oW2VUyVB8_t124.mp4,y8oW2VUyVB8,124.0,8.0,ok
+Stockholm,videos/minimax_h3/Stockholm/Stockholm-X03_y8oW2VUyVB8_t253.mp4,data/real_minimax/Stockholm/Stockholm-X03_y8oW2VUyVB8_t253.mp4,y8oW2VUyVB8,253.0,8.0,ok
+Stockholm,videos/minimax_h3/Stockholm/Stockholm-X03_y8oW2VUyVB8_t459.mp4,data/real_minimax/Stockholm/Stockholm-X03_y8oW2VUyVB8_t459.mp4,y8oW2VUyVB8,459.0,8.0,ok
+Sydney,videos/minimax_h3/Sydney/Sydney-02_jTyfIV2wres_t1000.mp4,data/real_minimax/Sydney/Sydney-02_jTyfIV2wres_t1000.mp4,jTyfIV2wres,1000.0,8.0,ok
+Sydney,videos/minimax_h3/Sydney/Sydney-02_jTyfIV2wres_t1053.mp4,data/real_minimax/Sydney/Sydney-02_jTyfIV2wres_t1053.mp4,jTyfIV2wres,1053.0,8.0,ok
+Sydney,videos/minimax_h3/Sydney/Sydney-02_jTyfIV2wres_t1095.mp4,data/real_minimax/Sydney/Sydney-02_jTyfIV2wres_t1095.mp4,jTyfIV2wres,1095.0,8.0,ok
+Sydney,videos/minimax_h3/Sydney/Sydney-06_g_JpzvbivK4_t58.mp4,data/real_minimax/Sydney/Sydney-06_g_JpzvbivK4_t58.mp4,g_JpzvbivK4,58.0,8.0,ok
+Sydney,videos/minimax_h3/Sydney/Sydney-10_U1N_32C5HrU_t454.mp4,data/real_minimax/Sydney/Sydney-10_U1N_32C5HrU_t454.mp4,U1N_32C5HrU,454.0,8.0,ok
+Sydney,videos/minimax_h3/Sydney/Sydney-10_U1N_32C5HrU_t783.mp4,data/real_minimax/Sydney/Sydney-10_U1N_32C5HrU_t783.mp4,U1N_32C5HrU,783.0,8.0,ok
+Sydney,videos/minimax_h3/Sydney/Sydney-11_UAbJptYf7f8_t947.mp4,data/real_minimax/Sydney/Sydney-11_UAbJptYf7f8_t947.mp4,UAbJptYf7f8,947.0,8.0,ok
+Sydney,videos/minimax_h3/Sydney/Sydney-14_q21Kj-pxJW4_t1018.mp4,data/real_minimax/Sydney/Sydney-14_q21Kj-pxJW4_t1018.mp4,q21Kj-pxJW4,1018.0,8.0,ok
+Sydney,videos/minimax_h3/Sydney/Sydney-14_q21Kj-pxJW4_t1215.mp4,data/real_minimax/Sydney/Sydney-14_q21Kj-pxJW4_t1215.mp4,q21Kj-pxJW4,1215.0,8.0,ok
+Sydney,videos/minimax_h3/Sydney/Sydney-14_q21Kj-pxJW4_t816.mp4,data/real_minimax/Sydney/Sydney-14_q21Kj-pxJW4_t816.mp4,q21Kj-pxJW4,816.0,8.0,ok
+Sylhet,videos/minimax_h3/Sylhet/Sylhet-1_7uMfoOYEYv0_t33.mp4,data/real_minimax/Sylhet/Sylhet-1_7uMfoOYEYv0_t33.mp4,7uMfoOYEYv0,33.0,8.0,ok
+Sylhet,videos/minimax_h3/Sylhet/Sylhet-3_34Xy48hagwE_t148.mp4,data/real_minimax/Sylhet/Sylhet-3_34Xy48hagwE_t148.mp4,34Xy48hagwE,148.0,8.0,ok
+Sylhet,videos/minimax_h3/Sylhet/Sylhet-3_34Xy48hagwE_t913.mp4,data/real_minimax/Sylhet/Sylhet-3_34Xy48hagwE_t913.mp4,34Xy48hagwE,913.0,8.0,ok
+Sylhet,videos/minimax_h3/Sylhet/Sylhet-3_34Xy48hagwE_t952.mp4,data/real_minimax/Sylhet/Sylhet-3_34Xy48hagwE_t952.mp4,34Xy48hagwE,952.0,8.0,ok
+Sylhet,videos/minimax_h3/Sylhet/Sylhet-4_jytjyc_qXVw_t897.mp4,data/real_minimax/Sylhet/Sylhet-4_jytjyc_qXVw_t897.mp4,jytjyc_qXVw,897.0,8.0,ok
+Sylhet,videos/minimax_h3/Sylhet/Sylhet-4_jytjyc_qXVw_t933.mp4,data/real_minimax/Sylhet/Sylhet-4_jytjyc_qXVw_t933.mp4,jytjyc_qXVw,933.0,8.0,ok
+Sylhet,videos/minimax_h3/Sylhet/Sylhet-5_ro-TXrz6kn4_t686.mp4,data/real_minimax/Sylhet/Sylhet-5_ro-TXrz6kn4_t686.mp4,ro-TXrz6kn4,686.0,8.0,ok
+Sylhet,videos/minimax_h3/Sylhet/Sylhet-6_L_wxzT8RQvc_t56.mp4,data/real_minimax/Sylhet/Sylhet-6_L_wxzT8RQvc_t56.mp4,L_wxzT8RQvc,56.0,8.0,ok
+Sylhet,videos/minimax_h3/Sylhet/Sylhet-X02_fJJ1vF6nc6I_t356.mp4,data/real_minimax/Sylhet/Sylhet-X02_fJJ1vF6nc6I_t356.mp4,fJJ1vF6nc6I,356.0,8.0,ok
+Sylhet,videos/minimax_h3/Sylhet/Sylhet-X03_Ins7RNleaVg_t771.mp4,data/real_minimax/Sylhet/Sylhet-X03_Ins7RNleaVg_t771.mp4,Ins7RNleaVg,771.0,8.0,ok
+Tokyo,videos/minimax_h3/Tokyo/Tokyo-1_oDejyTLYUTE_t330.mp4,data/real_minimax/Tokyo/Tokyo-1_oDejyTLYUTE_t330.mp4,oDejyTLYUTE,330.0,8.0,ok
+Tokyo,videos/minimax_h3/Tokyo/Tokyo-1_oDejyTLYUTE_t644.mp4,data/real_minimax/Tokyo/Tokyo-1_oDejyTLYUTE_t644.mp4,oDejyTLYUTE,644.0,8.0,ok
+Tokyo,videos/minimax_h3/Tokyo/Tokyo-1_oDejyTLYUTE_t837.mp4,data/real_minimax/Tokyo/Tokyo-1_oDejyTLYUTE_t837.mp4,oDejyTLYUTE,837.0,8.0,ok
+Tokyo,videos/minimax_h3/Tokyo/Tokyo-3_hG-Jwim47Kc_t1069.mp4,data/real_minimax/Tokyo/Tokyo-3_hG-Jwim47Kc_t1069.mp4,hG-Jwim47Kc,1069.0,8.0,ok
+Tokyo,videos/minimax_h3/Tokyo/Tokyo-4_-YNLQlmPnqA_t1046.mp4,data/real_minimax/Tokyo/Tokyo-4_-YNLQlmPnqA_t1046.mp4,-YNLQlmPnqA,1046.0,8.0,ok
+Tokyo,videos/minimax_h3/Tokyo/Tokyo-4_-YNLQlmPnqA_t1137.mp4,data/real_minimax/Tokyo/Tokyo-4_-YNLQlmPnqA_t1137.mp4,-YNLQlmPnqA,1137.0,8.0,ok
+Tokyo,videos/minimax_h3/Tokyo/Tokyo-5_Y11w05u97Iw_t436.mp4,data/real_minimax/Tokyo/Tokyo-5_Y11w05u97Iw_t436.mp4,Y11w05u97Iw,436.0,8.0,ok
+Tokyo,videos/minimax_h3/Tokyo/Tokyo-5_Y11w05u97Iw_t849.mp4,data/real_minimax/Tokyo/Tokyo-5_Y11w05u97Iw_t849.mp4,Y11w05u97Iw,849.0,8.0,ok
+Tokyo,videos/minimax_h3/Tokyo/Tokyo-6_qPgWV8Rxemo_t494.mp4,data/real_minimax/Tokyo/Tokyo-6_qPgWV8Rxemo_t494.mp4,qPgWV8Rxemo,494.0,8.0,ok
+Tokyo,videos/minimax_h3/Tokyo/Tokyo-6_qPgWV8Rxemo_t89.mp4,data/real_minimax/Tokyo/Tokyo-6_qPgWV8Rxemo_t89.mp4,qPgWV8Rxemo,89.0,8.0,ok
+Toronto,videos/minimax_h3/Toronto/Toronto-1_3ai7SUaPoHM_t1215.mp4,data/real_minimax/Toronto/Toronto-1_3ai7SUaPoHM_t1215.mp4,3ai7SUaPoHM,1215.0,8.0,ok
+Toronto,videos/minimax_h3/Toronto/Toronto-1_3ai7SUaPoHM_t692.mp4,data/real_minimax/Toronto/Toronto-1_3ai7SUaPoHM_t692.mp4,3ai7SUaPoHM,692.0,8.0,ok
+Toronto,videos/minimax_h3/Toronto/Toronto-2_lmLWoDdQgtQ_t114.mp4,data/real_minimax/Toronto/Toronto-2_lmLWoDdQgtQ_t114.mp4,lmLWoDdQgtQ,114.0,8.0,ok
+Toronto,videos/minimax_h3/Toronto/Toronto-2_lmLWoDdQgtQ_t329.mp4,data/real_minimax/Toronto/Toronto-2_lmLWoDdQgtQ_t329.mp4,lmLWoDdQgtQ,329.0,8.0,ok
+Toronto,videos/minimax_h3/Toronto/Toronto-3_oAsf9lqI1E4_t1151.mp4,data/real_minimax/Toronto/Toronto-3_oAsf9lqI1E4_t1151.mp4,oAsf9lqI1E4,1151.0,8.0,ok
+Toronto,videos/minimax_h3/Toronto/Toronto-3_oAsf9lqI1E4_t666.mp4,data/real_minimax/Toronto/Toronto-3_oAsf9lqI1E4_t666.mp4,oAsf9lqI1E4,666.0,8.0,ok
+Toronto,videos/minimax_h3/Toronto/Toronto-4_iwD2qmNcm6k_t488.mp4,data/real_minimax/Toronto/Toronto-4_iwD2qmNcm6k_t488.mp4,iwD2qmNcm6k,488.0,8.0,ok
+Toronto,videos/minimax_h3/Toronto/Toronto-4_iwD2qmNcm6k_t510.mp4,data/real_minimax/Toronto/Toronto-4_iwD2qmNcm6k_t510.mp4,iwD2qmNcm6k,510.0,8.0,ok
+Toronto,videos/minimax_h3/Toronto/Toronto-5_qBH_yfaRqRw_t427.mp4,data/real_minimax/Toronto/Toronto-5_qBH_yfaRqRw_t427.mp4,qBH_yfaRqRw,427.0,8.0,ok
+Toronto,videos/minimax_h3/Toronto/Toronto-6_q2vQ9woF8EQ_t119.mp4,data/real_minimax/Toronto/Toronto-6_q2vQ9woF8EQ_t119.mp4,q2vQ9woF8EQ,119.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X01_w8602GN0418_t2146.mp4,data/real_minimax/Townsville/Townsville-X01_w8602GN0418_t2146.mp4,w8602GN0418,2146.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X02_hpHrU4A-h5E_t639.mp4,data/real_minimax/Townsville/Townsville-X02_hpHrU4A-h5E_t639.mp4,hpHrU4A-h5E,639.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X03_Ooz4gjNNfBs_t639.mp4,data/real_minimax/Townsville/Townsville-X03_Ooz4gjNNfBs_t639.mp4,Ooz4gjNNfBs,639.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X04_r_nVki4eH1A_t1629.mp4,data/real_minimax/Townsville/Townsville-X04_r_nVki4eH1A_t1629.mp4,r_nVki4eH1A,1629.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X07_ivSM2Wa27LI_t1000.mp4,data/real_minimax/Townsville/Townsville-X07_ivSM2Wa27LI_t1000.mp4,ivSM2Wa27LI,1000.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X07_ivSM2Wa27LI_t1978.mp4,data/real_minimax/Townsville/Townsville-X07_ivSM2Wa27LI_t1978.mp4,ivSM2Wa27LI,1978.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X10_IlmWoHrBSWo_t3468.mp4,data/real_minimax/Townsville/Townsville-X10_IlmWoHrBSWo_t3468.mp4,IlmWoHrBSWo,3468.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X12_6RTsyW994bk_t2493.mp4,data/real_minimax/Townsville/Townsville-X12_6RTsyW994bk_t2493.mp4,6RTsyW994bk,2493.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X12_6RTsyW994bk_t487.mp4,data/real_minimax/Townsville/Townsville-X12_6RTsyW994bk_t487.mp4,6RTsyW994bk,487.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X14_1cD-4-1J6As_t2018.mp4,data/real_minimax/Townsville/Townsville-X14_1cD-4-1J6As_t2018.mp4,1cD-4-1J6As,2018.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X14_1cD-4-1J6As_t2082.mp4,data/real_minimax/Townsville/Townsville-X14_1cD-4-1J6As_t2082.mp4,1cD-4-1J6As,2082.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X21_-hvVlB-7iF0_t56.mp4,data/real_minimax/Townsville/Townsville-X21_-hvVlB-7iF0_t56.mp4,-hvVlB-7iF0,56.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X23_rZlHRcMA3tc_t732.mp4,data/real_minimax/Townsville/Townsville-X23_rZlHRcMA3tc_t732.mp4,rZlHRcMA3tc,732.0,8.0,ok
+Townsville,videos/minimax_h3/Townsville/Townsville-X25_kvJDcKZreJ4_t842.mp4,data/real_minimax/Townsville/Townsville-X25_kvJDcKZreJ4_t842.mp4,kvJDcKZreJ4,842.0,8.0,ok
+Tyumen,videos/minimax_h3/Tyumen/Tyumen-X01_wNklXWXZT_U_t1296.mp4,data/real_minimax/Tyumen/Tyumen-X01_wNklXWXZT_U_t1296.mp4,wNklXWXZT_U,1296.0,8.0,ok
+Tyumen,videos/minimax_h3/Tyumen/Tyumen-X01_wNklXWXZT_U_t1325.mp4,data/real_minimax/Tyumen/Tyumen-X01_wNklXWXZT_U_t1325.mp4,wNklXWXZT_U,1325.0,8.0,ok
+Tyumen,videos/minimax_h3/Tyumen/Tyumen-X02_BfrsS-fV37M_t873.mp4,data/real_minimax/Tyumen/Tyumen-X02_BfrsS-fV37M_t873.mp4,BfrsS-fV37M,873.0,8.0,ok
+Tyumen,videos/minimax_h3/Tyumen/Tyumen-X04_jJJdOhZal90_t1091.mp4,data/real_minimax/Tyumen/Tyumen-X04_jJJdOhZal90_t1091.mp4,jJJdOhZal90,1091.0,8.0,ok
+Tyumen,videos/minimax_h3/Tyumen/Tyumen-X04_jJJdOhZal90_t1956.mp4,data/real_minimax/Tyumen/Tyumen-X04_jJJdOhZal90_t1956.mp4,jJJdOhZal90,1956.0,8.0,ok
+Tyumen,videos/minimax_h3/Tyumen/Tyumen-X05_rUD9toRCLik_t358.mp4,data/real_minimax/Tyumen/Tyumen-X05_rUD9toRCLik_t358.mp4,rUD9toRCLik,358.0,8.0,ok
+Tyumen,videos/minimax_h3/Tyumen/Tyumen-X06_L2DWcHUYI4M_t943.mp4,data/real_minimax/Tyumen/Tyumen-X06_L2DWcHUYI4M_t943.mp4,L2DWcHUYI4M,943.0,8.0,ok
+Tyumen,videos/minimax_h3/Tyumen/Tyumen-X08_oyZrY5YsHPM_t134.mp4,data/real_minimax/Tyumen/Tyumen-X08_oyZrY5YsHPM_t134.mp4,oyZrY5YsHPM,134.0,8.0,ok
+Tyumen,videos/minimax_h3/Tyumen/Tyumen-X08_oyZrY5YsHPM_t575.mp4,data/real_minimax/Tyumen/Tyumen-X08_oyZrY5YsHPM_t575.mp4,oyZrY5YsHPM,575.0,8.0,ok
+Tyumen,videos/minimax_h3/Tyumen/Tyumen-X08_oyZrY5YsHPM_t956.mp4,data/real_minimax/Tyumen/Tyumen-X08_oyZrY5YsHPM_t956.mp4,oyZrY5YsHPM,956.0,8.0,ok
+Ulaanbaatar,videos/minimax_h3/Ulaanbaatar/Ulaanbaatar-1_CF2TXaXmvkk_t308.mp4,data/real_minimax/Ulaanbaatar/Ulaanbaatar-1_CF2TXaXmvkk_t308.mp4,CF2TXaXmvkk,308.0,8.0,ok
+Ulaanbaatar,videos/minimax_h3/Ulaanbaatar/Ulaanbaatar-1_CF2TXaXmvkk_t411.mp4,data/real_minimax/Ulaanbaatar/Ulaanbaatar-1_CF2TXaXmvkk_t411.mp4,CF2TXaXmvkk,411.0,8.0,ok
+Ulaanbaatar,videos/minimax_h3/Ulaanbaatar/Ulaanbaatar-1_CF2TXaXmvkk_t632.mp4,data/real_minimax/Ulaanbaatar/Ulaanbaatar-1_CF2TXaXmvkk_t632.mp4,CF2TXaXmvkk,632.0,8.0,ok
+Ulaanbaatar,videos/minimax_h3/Ulaanbaatar/Ulaanbaatar-4_xTHN79YKGzQ_t767.mp4,data/real_minimax/Ulaanbaatar/Ulaanbaatar-4_xTHN79YKGzQ_t767.mp4,xTHN79YKGzQ,767.0,8.0,ok
+Ulaanbaatar,videos/minimax_h3/Ulaanbaatar/Ulaanbaatar-5_6atF2BnqtFA_t1203.mp4,data/real_minimax/Ulaanbaatar/Ulaanbaatar-5_6atF2BnqtFA_t1203.mp4,6atF2BnqtFA,1203.0,8.0,ok
+Ulaanbaatar,videos/minimax_h3/Ulaanbaatar/Ulaanbaatar-X02_maFvZa6JXZY_t640.mp4,data/real_minimax/Ulaanbaatar/Ulaanbaatar-X02_maFvZa6JXZY_t640.mp4,maFvZa6JXZY,640.0,8.0,ok
+Ulaanbaatar,videos/minimax_h3/Ulaanbaatar/Ulaanbaatar-X02_maFvZa6JXZY_t989.mp4,data/real_minimax/Ulaanbaatar/Ulaanbaatar-X02_maFvZa6JXZY_t989.mp4,maFvZa6JXZY,989.0,8.0,ok
+Ulaanbaatar,videos/minimax_h3/Ulaanbaatar/Ulaanbaatar-X05_YPEBOelPQK0_t90.mp4,data/real_minimax/Ulaanbaatar/Ulaanbaatar-X05_YPEBOelPQK0_t90.mp4,YPEBOelPQK0,90.0,8.0,ok
+Ulaanbaatar,videos/minimax_h3/Ulaanbaatar/Ulaanbaatar-X06_3t_g8WxkVWY_t223.mp4,data/real_minimax/Ulaanbaatar/Ulaanbaatar-X06_3t_g8WxkVWY_t223.mp4,3t_g8WxkVWY,223.0,8.0,ok
+Ulaanbaatar,videos/minimax_h3/Ulaanbaatar/Ulaanbaatar-X07_SUTOb3zW3oc_t818.mp4,data/real_minimax/Ulaanbaatar/Ulaanbaatar-X07_SUTOb3zW3oc_t818.mp4,SUTOb3zW3oc,818.0,8.0,ok
+Vancouver,videos/minimax_h3/Vancouver/Vancouver-1_DlttaYstTFY_t1112.mp4,data/real_minimax/Vancouver/Vancouver-1_DlttaYstTFY_t1112.mp4,DlttaYstTFY,1112.0,8.0,ok
+Vancouver,videos/minimax_h3/Vancouver/Vancouver-1_DlttaYstTFY_t308.mp4,data/real_minimax/Vancouver/Vancouver-1_DlttaYstTFY_t308.mp4,DlttaYstTFY,308.0,8.0,ok
+Vancouver,videos/minimax_h3/Vancouver/Vancouver-2_5RDmVv30LP4_t828.mp4,data/real_minimax/Vancouver/Vancouver-2_5RDmVv30LP4_t828.mp4,5RDmVv30LP4,828.0,8.0,ok
+Vancouver,videos/minimax_h3/Vancouver/Vancouver-2_5RDmVv30LP4_t947.mp4,data/real_minimax/Vancouver/Vancouver-2_5RDmVv30LP4_t947.mp4,5RDmVv30LP4,947.0,8.0,ok
+Vancouver,videos/minimax_h3/Vancouver/Vancouver-3_CYgA_axzMyI_t326.mp4,data/real_minimax/Vancouver/Vancouver-3_CYgA_axzMyI_t326.mp4,CYgA_axzMyI,326.0,8.0,ok
+Vancouver,videos/minimax_h3/Vancouver/Vancouver-3_CYgA_axzMyI_t395.mp4,data/real_minimax/Vancouver/Vancouver-3_CYgA_axzMyI_t395.mp4,CYgA_axzMyI,395.0,8.0,ok
+Vancouver,videos/minimax_h3/Vancouver/Vancouver-3_CYgA_axzMyI_t546.mp4,data/real_minimax/Vancouver/Vancouver-3_CYgA_axzMyI_t546.mp4,CYgA_axzMyI,546.0,8.0,ok
+Vancouver,videos/minimax_h3/Vancouver/Vancouver-5_6tyFAtgy4JA_t1070.mp4,data/real_minimax/Vancouver/Vancouver-5_6tyFAtgy4JA_t1070.mp4,6tyFAtgy4JA,1070.0,8.0,ok
+Vancouver,videos/minimax_h3/Vancouver/Vancouver-5_6tyFAtgy4JA_t284.mp4,data/real_minimax/Vancouver/Vancouver-5_6tyFAtgy4JA_t284.mp4,6tyFAtgy4JA,284.0,8.0,ok
+Vancouver,videos/minimax_h3/Vancouver/Vancouver-5_6tyFAtgy4JA_t499.mp4,data/real_minimax/Vancouver/Vancouver-5_6tyFAtgy4JA_t499.mp4,6tyFAtgy4JA,499.0,8.0,ok
+Vienna,videos/minimax_h3/Vienna/Vienna-1_TC64wRJt3JA_t26.mp4,data/real_minimax/Vienna/Vienna-1_TC64wRJt3JA_t26.mp4,TC64wRJt3JA,26.0,8.0,ok
+Vienna,videos/minimax_h3/Vienna/Vienna-1_TC64wRJt3JA_t989.mp4,data/real_minimax/Vienna/Vienna-1_TC64wRJt3JA_t989.mp4,TC64wRJt3JA,989.0,8.0,ok
+Vienna,videos/minimax_h3/Vienna/Vienna-2_tA3tZQ_IT4g_t639.mp4,data/real_minimax/Vienna/Vienna-2_tA3tZQ_IT4g_t639.mp4,tA3tZQ_IT4g,639.0,8.0,ok
+Vienna,videos/minimax_h3/Vienna/Vienna-3_DgOzuKepLwY_t619.mp4,data/real_minimax/Vienna/Vienna-3_DgOzuKepLwY_t619.mp4,DgOzuKepLwY,619.0,8.0,ok
+Vienna,videos/minimax_h3/Vienna/Vienna-3_DgOzuKepLwY_t989.mp4,data/real_minimax/Vienna/Vienna-3_DgOzuKepLwY_t989.mp4,DgOzuKepLwY,989.0,8.0,ok
+Vienna,videos/minimax_h3/Vienna/Vienna-5_l7nVaZ1mCCI_t18061.mp4,data/real_minimax/Vienna/Vienna-5_l7nVaZ1mCCI_t18061.mp4,l7nVaZ1mCCI,18061.0,8.0,ok
+Vienna,videos/minimax_h3/Vienna/Vienna-5_l7nVaZ1mCCI_t18152.mp4,data/real_minimax/Vienna/Vienna-5_l7nVaZ1mCCI_t18152.mp4,l7nVaZ1mCCI,18152.0,8.0,ok
+Vienna,videos/minimax_h3/Vienna/Vienna-X02_BwwMw7e3P0w_t186.mp4,data/real_minimax/Vienna/Vienna-X02_BwwMw7e3P0w_t186.mp4,BwwMw7e3P0w,186.0,8.0,ok
+Vienna,videos/minimax_h3/Vienna/Vienna-X02_BwwMw7e3P0w_t248.mp4,data/real_minimax/Vienna/Vienna-X02_BwwMw7e3P0w_t248.mp4,BwwMw7e3P0w,248.0,8.0,ok
+Vienna,videos/minimax_h3/Vienna/Vienna-X02_BwwMw7e3P0w_t476.mp4,data/real_minimax/Vienna/Vienna-X02_BwwMw7e3P0w_t476.mp4,BwwMw7e3P0w,476.0,8.0,ok
+Warsaw,videos/minimax_h3/Warsaw/Warsaw-1_unU8hTgfHNc_t887.mp4,data/real_minimax/Warsaw/Warsaw-1_unU8hTgfHNc_t887.mp4,unU8hTgfHNc,887.0,8.0,ok
+Warsaw,videos/minimax_h3/Warsaw/Warsaw-1_unU8hTgfHNc_t915.mp4,data/real_minimax/Warsaw/Warsaw-1_unU8hTgfHNc_t915.mp4,unU8hTgfHNc,915.0,8.0,ok
+Warsaw,videos/minimax_h3/Warsaw/Warsaw-3_9lQllvyxxbI_t1095.mp4,data/real_minimax/Warsaw/Warsaw-3_9lQllvyxxbI_t1095.mp4,9lQllvyxxbI,1095.0,8.0,ok
+Warsaw,videos/minimax_h3/Warsaw/Warsaw-4_B7YczVdsjt0_t1247.mp4,data/real_minimax/Warsaw/Warsaw-4_B7YczVdsjt0_t1247.mp4,B7YczVdsjt0,1247.0,8.0,ok
+Warsaw,videos/minimax_h3/Warsaw/Warsaw-4_B7YczVdsjt0_t945.mp4,data/real_minimax/Warsaw/Warsaw-4_B7YczVdsjt0_t945.mp4,B7YczVdsjt0,945.0,8.0,ok
+Warsaw,videos/minimax_h3/Warsaw/Warsaw-5_YQ2uf_qDsgc_t1238.mp4,data/real_minimax/Warsaw/Warsaw-5_YQ2uf_qDsgc_t1238.mp4,YQ2uf_qDsgc,1238.0,8.0,ok
+Warsaw,videos/minimax_h3/Warsaw/Warsaw-6__4DcVTalqk4_t932.mp4,data/real_minimax/Warsaw/Warsaw-6__4DcVTalqk4_t932.mp4,_4DcVTalqk4,932.0,8.0,ok
+Warsaw,videos/minimax_h3/Warsaw/Warsaw-X02_jko48lP7BxQ_t1099.mp4,data/real_minimax/Warsaw/Warsaw-X02_jko48lP7BxQ_t1099.mp4,jko48lP7BxQ,1099.0,8.0,ok
+Warsaw,videos/minimax_h3/Warsaw/Warsaw-X02_jko48lP7BxQ_t917.mp4,data/real_minimax/Warsaw/Warsaw-X02_jko48lP7BxQ_t917.mp4,jko48lP7BxQ,917.0,8.0,ok
+Warsaw,videos/minimax_h3/Warsaw/Warsaw-X02_jko48lP7BxQ_t942.mp4,data/real_minimax/Warsaw/Warsaw-X02_jko48lP7BxQ_t942.mp4,jko48lP7BxQ,942.0,8.0,ok
+Washington,videos/minimax_h3/Washington/Washington-2_dIHYeTVklu4_t466.mp4,data/real_minimax/Washington/Washington-2_dIHYeTVklu4_t466.mp4,dIHYeTVklu4,466.0,8.0,ok
+Washington,videos/minimax_h3/Washington/Washington-2_dIHYeTVklu4_t725.mp4,data/real_minimax/Washington/Washington-2_dIHYeTVklu4_t725.mp4,dIHYeTVklu4,725.0,8.0,ok
+Washington,videos/minimax_h3/Washington/Washington-2_dIHYeTVklu4_t982.mp4,data/real_minimax/Washington/Washington-2_dIHYeTVklu4_t982.mp4,dIHYeTVklu4,982.0,8.0,ok
+Washington,videos/minimax_h3/Washington/Washington-3_D00S7Tp3ljE_t788.mp4,data/real_minimax/Washington/Washington-3_D00S7Tp3ljE_t788.mp4,D00S7Tp3ljE,788.0,8.0,ok
+Washington,videos/minimax_h3/Washington/Washington-6_xRsUiPXFzX0_t263.mp4,data/real_minimax/Washington/Washington-6_xRsUiPXFzX0_t263.mp4,xRsUiPXFzX0,263.0,8.0,ok
+Washington,videos/minimax_h3/Washington/Washington-6_xRsUiPXFzX0_t811.mp4,data/real_minimax/Washington/Washington-6_xRsUiPXFzX0_t811.mp4,xRsUiPXFzX0,811.0,8.0,ok
+Washington,videos/minimax_h3/Washington/Washington-6_xRsUiPXFzX0_t977.mp4,data/real_minimax/Washington/Washington-6_xRsUiPXFzX0_t977.mp4,xRsUiPXFzX0,977.0,8.0,ok
+Washington,videos/minimax_h3/Washington/Washington-X02_evbx3Cl0PMM_t1417.mp4,data/real_minimax/Washington/Washington-X02_evbx3Cl0PMM_t1417.mp4,evbx3Cl0PMM,1417.0,8.0,ok
+Washington,videos/minimax_h3/Washington/Washington-X03__tAYrs04Ui4_t1148.mp4,data/real_minimax/Washington/Washington-X03__tAYrs04Ui4_t1148.mp4,_tAYrs04Ui4,1148.0,8.0,ok
+Washington,videos/minimax_h3/Washington/Washington-X03__tAYrs04Ui4_t917.mp4,data/real_minimax/Washington/Washington-X03__tAYrs04Ui4_t917.mp4,_tAYrs04Ui4,917.0,8.0,ok
+Yangon,videos/minimax_h3/Yangon/Yangon-1_Il-4y-IPnfg_t75.mp4,data/real_minimax/Yangon/Yangon-1_Il-4y-IPnfg_t75.mp4,Il-4y-IPnfg,75.0,8.0,ok
+Yangon,videos/minimax_h3/Yangon/Yangon-2_vtLmlHRCsto_t199.mp4,data/real_minimax/Yangon/Yangon-2_vtLmlHRCsto_t199.mp4,vtLmlHRCsto,199.0,8.0,ok
+Yangon,videos/minimax_h3/Yangon/Yangon-2_vtLmlHRCsto_t280.mp4,data/real_minimax/Yangon/Yangon-2_vtLmlHRCsto_t280.mp4,vtLmlHRCsto,280.0,8.0,ok
+Yangon,videos/minimax_h3/Yangon/Yangon-3_ZHd7GMfyNnY_t83.mp4,data/real_minimax/Yangon/Yangon-3_ZHd7GMfyNnY_t83.mp4,ZHd7GMfyNnY,83.0,8.0,ok
+Yangon,videos/minimax_h3/Yangon/Yangon-4_frc5_RfZt14_t725.mp4,data/real_minimax/Yangon/Yangon-4_frc5_RfZt14_t725.mp4,frc5_RfZt14,725.0,8.0,ok
+Yangon,videos/minimax_h3/Yangon/Yangon-5_QR-Y8P2BORY_t36.mp4,data/real_minimax/Yangon/Yangon-5_QR-Y8P2BORY_t36.mp4,QR-Y8P2BORY,36.0,8.0,ok
+Yangon,videos/minimax_h3/Yangon/Yangon-X03_i_wy76BdhQ4_t1141.mp4,data/real_minimax/Yangon/Yangon-X03_i_wy76BdhQ4_t1141.mp4,i_wy76BdhQ4,1141.0,8.0,ok
+Yangon,videos/minimax_h3/Yangon/Yangon-X03_i_wy76BdhQ4_t704.mp4,data/real_minimax/Yangon/Yangon-X03_i_wy76BdhQ4_t704.mp4,i_wy76BdhQ4,704.0,8.0,ok
+Yangon,videos/minimax_h3/Yangon/Yangon-X03_i_wy76BdhQ4_t888.mp4,data/real_minimax/Yangon/Yangon-X03_i_wy76BdhQ4_t888.mp4,i_wy76BdhQ4,888.0,8.0,ok
+Yangon,videos/minimax_h3/Yangon/Yangon-X06_IkVDXFkNz4s_t151.mp4,data/real_minimax/Yangon/Yangon-X06_IkVDXFkNz4s_t151.mp4,IkVDXFkNz4s,151.0,8.0,ok
+Yangon,videos/minimax_h3/Yangon/Yangon-X07_UvWsd6g_dE4_t351.mp4,data/real_minimax/Yangon/Yangon-X07_UvWsd6g_dE4_t351.mp4,UvWsd6g_dE4,351.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X02_8JEotc9E3v4_t2505.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X02_8JEotc9E3v4_t2505.mp4,8JEotc9E3v4,2505.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X04_ybrQAcCiJ0k_t1122.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X04_ybrQAcCiJ0k_t1122.mp4,ybrQAcCiJ0k,1122.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X06__eOz_N43JoY_t1542.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X06__eOz_N43JoY_t1542.mp4,_eOz_N43JoY,1542.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X08_OK2IuoRxxHI_t5182.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X08_OK2IuoRxxHI_t5182.mp4,OK2IuoRxxHI,5182.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X09_xP29bkbF3nM_t843.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X09_xP29bkbF3nM_t843.mp4,xP29bkbF3nM,843.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X10_cKQ_bVHs0ZA_t897.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X10_cKQ_bVHs0ZA_t897.mp4,cKQ_bVHs0ZA,897.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X15_rjDbdkvLUUg_t1259.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X15_rjDbdkvLUUg_t1259.mp4,rjDbdkvLUUg,1259.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X20_rofPkU009fY_t5662.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X20_rofPkU009fY_t5662.mp4,rofPkU009fY,5662.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X24_2xHy0Oc7Eh8_t208.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X24_2xHy0Oc7Eh8_t208.mp4,2xHy0Oc7Eh8,208.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X31_VAjgWqd3LbM_t1604.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X31_VAjgWqd3LbM_t1604.mp4,VAjgWqd3LbM,1604.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X31_VAjgWqd3LbM_t730.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X31_VAjgWqd3LbM_t730.mp4,VAjgWqd3LbM,730.0,8.0,ok
+Yogyakarta,videos/minimax_h3/Yogyakarta/Yogyakarta-X35_7_UmbkRcH5E_t4081.mp4,data/real_minimax/Yogyakarta/Yogyakarta-X35_7_UmbkRcH5E_t4081.mp4,7_UmbkRcH5E,4081.0,8.0,ok

@@ -12,11 +12,13 @@ model, so it stands for the real scene, and the later frames show how the model 
 
 Embeddings are cached per video in <output>/appearance/, so a rerun only embeds new videos. Writes
 <output>/appearance_frames.csv (one row per frame), <output>/appearance_summary.csv (one row per model) and
-<output>/appearance_cities.csv (one row per model and city), and figures to <output>/figures/.
+<output>/appearance_cities.csv (one row per model and city), and figures to <output>/figures/. The per-frame table is
+also kept in results/appearance/frames.csv, so that without the video files (or with --from-results) the summary and
+the figures are rebuilt from it.
 
     python appearance_analysis.py --readme
 
-Needs torch, open_clip_torch and opencv besides the packages of this repository.
+Embedding needs torch, open_clip_torch and opencv besides the packages of this repository.
 """
 
 import argparse
@@ -217,8 +219,12 @@ def main() -> None:
                         help="the cities of CROWD's mapping.csv (crowd/cities.csv holds the 100), for their coordinates")
     parser.add_argument("--pdf-dir", help="also write the paper figures as PDF to this folder")
     parser.add_argument("--readme", action="store_true", help="also export the figures to readme/")
+    parser.add_argument("--from-results", action="store_true",
+                        help="use results/appearance/frames.csv instead of embedding the videos (the default when the "
+                             "video files are not there)")
     args = parser.parse_args()
     output = common.get_output_dir()
+    kept = os.path.join(common.root_dir, "results", "appearance", "frames.csv")
 
     videos = (pl.read_csv(args.videos, infer_schema_length=None).filter(pl.col("status") == "used")
               .with_columns(pl.col("file").map_elements(lambda f: os.path.join(common.root_dir, f),
@@ -244,8 +250,17 @@ def main() -> None:
     counts = videos.group_by("city").agg(*[(pl.col("model") == m).sum().alias(m) for m in MODELS])
     fig_map = city_map(cities, counts, "map_cities")
 
-    embeddings = embed_videos(videos, os.path.join(output, "appearance"))
-    frames = analyse(videos, cities.select("city", "country"), embeddings)
+    have_videos = all(os.path.isfile(path) for path in videos["path"])
+    if args.from_results or not have_videos:
+        if not os.path.isfile(kept):
+            raise SystemExit(f"No video files and no {kept}: fetch the videos (see README) to embed them.")
+        common.logger.info(f"Reading the CLIP results of every frame from {kept} instead of embedding the videos.")
+        frames = pl.read_csv(kept)
+    else:
+        embeddings = embed_videos(videos, os.path.join(output, "appearance"))
+        frames = analyse(videos, cities.select("city", "country"), embeddings)
+        os.makedirs(os.path.dirname(kept), exist_ok=True)
+        frames.write_csv(kept)
     frames.write_csv(os.path.join(output, "appearance_frames.csv"))
     stats = per_second(frames)
     fig_recognition = line_figure(stats, [("city_top5", "City in CLIP's top 5 (of 100)", "Share of videos"),

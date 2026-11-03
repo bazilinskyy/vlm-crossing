@@ -19,6 +19,8 @@ FILES = [
     "crossing/metrics.py",
     "crossing/road_metrics.py",
     "crossing/road_crossing.py",
+    "crossing/track_joining.py",
+    "crossing/waymo_calibration.py",
     "segmentation/__init__.py",
     "segmentation/constants.py",
     "segmentation/surface.py",
@@ -27,7 +29,9 @@ FILES = [
     "segmentation/frames.py",
     "segmentation/store.py",
     "segmentation/crossing_pass.py",
+    "segmentation/camera_shift.py",
     "analytics/csv_parallel.py",
+    "analytics/remote_detections.py",
 ]
 REWRITES = [
     (re.compile(r"\butils\.(crossing|segmentation|analytics|core)\b"), r"crowd_city.\1"),

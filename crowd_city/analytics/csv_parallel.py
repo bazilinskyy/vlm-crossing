@@ -19,6 +19,7 @@ import common
 from crowd_city.crossing.detection import Detection
 from crowd_city.crossing.metrics import Metrics
 import crowd_city.crossing.metrics as crossing_metrics_module
+from crowd_city.crossing.track_joining import join_track_pieces
 
 
 _WORKER_MAPPING: Optional[pl.DataFrame] = None
@@ -566,7 +567,12 @@ def _road_crossing_candidates(
     duration, speed and waiting time are computed here with exactly the code
     and frozen speed model the detector's picks use.
     """
-    from crowd_city.crossing.road_crossing import box_only_candidates, longest_track_run
+    from crowd_city.crossing.road_crossing import (
+        PASS_TOLERANCE,
+        box_only_candidates,
+        independent_motion_rejection,
+        longest_track_run,
+    )
 
     rows, scene_profile = crossing_metrics_module.rows_and_scene_profile(df, float(fps))
     person_tracks = crossing_metrics_module.group_tracks(
@@ -587,17 +593,44 @@ def _road_crossing_candidates(
         float(aspect_ratio),
         scene_profile,
     )
+    # A crossing pedestrian passes in front of the camera: through the same
+    # middle strip the CROWD detector uses (the frozen parameters, else config),
+    # with rule D's own edge tolerance.
+    camera_strip = (
+        float(_WORKER_CROSSING_PARAMETERS.get("boundary_left", _WORKER_BOUNDARY_LEFT)),
+        float(_WORKER_CROSSING_PARAMETERS.get("boundary_right", _WORKER_BOUNDARY_RIGHT)),
+        PASS_TOLERANCE,
+    )
     ids, bounds, size_rates = box_only_candidates(
         track_index,
         features,
         fps,
         float(_WORKER_CROSSING_PARAMETERS["min_crossing_x_range"]),
+        camera_strip,
     )
+    # Riders and tracks that only move with the camera are not pedestrians
+    # crossing on foot; both checks look at every object in the candidate's
+    # own frames, so they run here, before any segmentation is spent on them.
+    rejected: Dict[str, int] = {}
+    kept = []
+    frames = df.get_column("frame-count")
+    for track_id in ids:
+        first, last = bounds[track_id]
+        window = df.filter(frames.is_between(first, last))
+        reason = independent_motion_rejection(window, track_id, fps)
+        if reason is None:
+            kept.append(track_id)
+        else:
+            rejected[reason] = rejected.get(reason, 0) + 1
+            bounds.pop(track_id, None)
+            size_rates.pop(track_id, None)
+    ids = kept
     temp_data = _time_to_cross_from_track_index(track_index, ids, fps, bounds)
     return {
         "ids": ids,
         "id_bounds": bounds,
         "size_rates": size_rates,
+        "rejected": rejected,
         "temp_data": temp_data,
         "speed_value": _METRICS.calculate_speed_of_crossing(
             mapping, df, {source_id: temp_data}, id_bounds=bounds,
@@ -649,6 +682,8 @@ def process_csv_task(task: Dict[str, Any]) -> Dict[str, Any]:
             source_fps,
             _WORKER_PROCESSING_FPS,
         )
+        # One id per pedestrian before anything counts or judges tracks.
+        confidence_filtered = join_track_pieces(confidence_filtered, fps)
 
         metric_counts = _metric_counts_from_confidence_filtered(
             confidence_filtered

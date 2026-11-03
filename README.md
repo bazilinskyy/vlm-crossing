@@ -9,9 +9,39 @@ measures, for every pedestrian who crosses the road in front of the car:
 
 Tracking follows [crowd-dataset/crowd](https://github.com/crowd-dataset/crowd). The analysis is
 the crowd-city code itself ([crowd-dataset/crowd-city](https://github.com/crowd-dataset/crowd-city)):
-`crowd_city/` holds an unchanged copy of its crossing detection, metrics and road-surface
-segmentation modules (commit in `crowd_city/SOURCE_COMMIT`), and `analysis.py` calls them in the
-same order as crowd-city's own `analysis.py`.
+`crowd_city/` holds an unchanged copy of its crossing detection (including track joining), metrics and road-surface
+segmentation modules, at the commit of the crowd-city run that produces CROWD's current per-city values (Shadab's
+incremental run on lin5080, `crowd_city/SOURCE_COMMIT`; refresh with `sync_crowd_city.py`), and `analysis.py` calls
+them in the same order as crowd-city's own `analysis.py`. With the Waymo speed model, a crossing's m/s speed is
+computed by the same function as CROWD's per-city table (`analyse_crowd_sources`: whole track, kept when the model
+rates it valid), as in the city paper (Alam, Ebel, Martens and Bazilinskyy, *Beyond National Averages*, under review).
+
+## Reproducing the paper
+
+Every number and figure of the paper can be rebuilt from this repository alone, without crowd-city, a GPU or the
+video files:
+
+```bash
+uv sync
+./reproduce.sh          # figures to paper_figures/, numbers to _output/
+```
+
+| In the paper | Script | Reads |
+|---|---|---|
+| Table 1: videos per city | (counts of `videos/generated_videos.csv`) | `videos/generated_videos.csv` |
+| Fig. 1: one frame per city | `city_frames.py` | the videos (4TU.ResearchData), `results/minimax_h3/city_frames.csv` |
+| Appearance (CLIP) results | `appearance_analysis.py --from-results` | `results/appearance/frames.csv` |
+| Table 2, usable crossings, crossing speed and decision time | `generated_speeds.py`, `speed_statistics.py` | `results/<set>/` |
+| Fig. 2: speed distributions and paired differences | `speed_statistics.py` | `results/` |
+| Fig. 3: speed per city | `speed_generated_vs_crowd.py` | `crowd/`, `_output/generated_speed_by_city.csv` |
+| Differences between cities, reliability, resolution check | `speed_statistics.py` (`--scaled`) | `results/`, `crowd/` |
+
+`results/<set>/` holds the crossings that `analysis.py` counted in each set of clips, with `crowd_city/` (crowd-city's
+crossing detection and speed code at the commit of CROWD's current run, `crowd_city/SOURCE_COMMIT`) and the Waymo
+speed model in `models/`. `crowd/` is refreshed nightly; the commit tagged for the paper holds the CROWD values its
+numbers come from. Redoing the tracking itself needs the videos and a GPU: fetch the clips (or download them from
+4TU.ResearchData into `videos/`), cut the real continuations from the CROWD videos with `paired_real_clips.py`, and run
+`run_sets.sh` (see [Generated videos and the comparison with CROWD](#generated-videos-and-the-comparison-with-crowd)).
 
 ## Data layout
 
@@ -210,108 +240,108 @@ All 30 Veo cities also have MiniMax videos. CROWD's reference values come from c
 <summary><b>The cities one by one</b>: clips and crossings, median crossing speeds (CROWD and the generated clips, cities with at least one m/s speed), and the frame above at full size</summary>
 
 <!-- city table -->
-| City | Country | Veo 3.1 Fast clips | MiniMax H3 clips | MiniMax H3 crossings | CROWD speed (m/s) | Veo 3.1 Fast speed | MiniMax H3 speed | Frame (links to the clip) |
+| City | Country | Veo 3.1 Fast clips | MiniMax H3 clips | MiniMax H3 crossings | CROWD speed (m/s) | Veo 3.1 Fast speed | MiniMax H3 speed | Frame |
 |---|---|--:|--:|--:|--:|--:|--:|---|
 | Aleppo | Syria |  |  |  | 1.25 |  |  |  |
 | Amman | Jordan |  |  |  | 1.40 |  |  |  |
-| Amsterdam | Netherlands |  | 10 | 27 | 1.30 |  | 1.20 | <a href="videos/minimax_h3/Amsterdam/Amsterdam-1_Ve4DvQNnDDQ_t841.mp4"><img src="readme/frames/Amsterdam.jpg" width="240" alt="Amsterdam"></a> |
+| Amsterdam | Netherlands |  | 10 | 11 | 1.30 |  | 1.30 | <img src="readme/frames/Amsterdam.jpg" width="240" alt="Amsterdam"> |
 | Anchorage | United States |  |  |  | 1.38 |  |  |  |
-| Atlanta | United States |  | 10 | 25 | 1.25 |  | 1.34 | <a href="videos/minimax_h3/Atlanta/Atlanta-6_LenjZn0y1Rg_t432.mp4"><img src="readme/frames/Atlanta.jpg" width="240" alt="Atlanta"></a> |
+| Atlanta | United States |  | 10 | 11 | 1.25 |  | 1.29 | <img src="readme/frames/Atlanta.jpg" width="240" alt="Atlanta"> |
 | Auckland | New Zealand |  |  |  | 1.29 |  |  |  |
-| Baltimore | United States |  | 10 | 16 | 1.35 |  | 1.21 | <a href="videos/minimax_h3/Baltimore/Baltimore-3_qfRlmwjD2Fs_t317.mp4"><img src="readme/frames/Baltimore.jpg" width="240" alt="Baltimore"></a> |
-| Bangkok | Thailand | 1 | 10 | 30 | 1.29 | 1.07 | 1.23 | <a href="videos/minimax_h3/Bangkok/Bangkok-1_GuyazY5xtuI_t1223.mp4"><img src="readme/frames/Bangkok.jpg" width="240" alt="Bangkok"></a> |
+| Baltimore | United States |  | 10 | 15 | 1.35 |  | 1.24 | <img src="readme/frames/Baltimore.jpg" width="240" alt="Baltimore"> |
+| Bangkok | Thailand | 1 | 10 | 19 | 1.29 |  | 1.19 | <img src="readme/frames/Bangkok.jpg" width="240" alt="Bangkok"> |
 | Beijing | China |  |  |  | 1.44 |  |  |  |
-| Berlin | Germany | 1 | 10 | 20 | 1.32 | 1.27 | 1.25 | <a href="videos/minimax_h3/Berlin/Berlin-4_wZ54yBDMdBs_t63.mp4"><img src="readme/frames/Berlin.jpg" width="240" alt="Berlin"></a> |
+| Berlin | Germany | 1 | 10 | 16 | 1.32 |  | 1.35 | <img src="readme/frames/Berlin.jpg" width="240" alt="Berlin"> |
 | Boston | United States |  |  |  | 1.36 |  |  |  |
-| Brisbane | Australia |  | 10 | 51 | 1.31 |  | 1.28 | <a href="videos/minimax_h3/Brisbane/Brisbane-4_M_t5TeWUNvI_t281.mp4"><img src="readme/frames/Brisbane.jpg" width="240" alt="Brisbane"></a> |
-| Bucharest | Romania |  | 10 | 17 | 1.24 |  | 1.21 | <a href="videos/minimax_h3/Bucharest/Bucharest-X06_nyjtt5B6jmE_t785.mp4"><img src="readme/frames/Bucharest.jpg" width="240" alt="Bucharest"></a> |
-| Budapest | Hungary |  | 10 | 18 | 1.31 |  | 1.28 | <a href="videos/minimax_h3/Budapest/Budapest-X03_deAqBnEa3qI_t1096.mp4"><img src="readme/frames/Budapest.jpg" width="240" alt="Budapest"></a> |
-| Buenos Aires | Argentina | 1 | 10 | 19 | 1.38 | 1.32 | 1.34 | <a href="videos/minimax_h3/Buenos_Aires/Buenos_Aires-1_-TPJot7-HTs_t1220.mp4"><img src="readme/frames/Buenos_Aires.jpg" width="240" alt="Buenos Aires"></a> |
-| Busan | South Korea |  | 10 | 24 | 1.39 |  | 1.26 | <a href="videos/minimax_h3/Busan/Busan-X04_C5BcKPyOu1Q_t133.mp4"><img src="readme/frames/Busan.jpg" width="240" alt="Busan"></a> |
+| Brisbane | Australia |  | 10 | 42 | 1.31 |  | 1.26 | <img src="readme/frames/Brisbane.jpg" width="240" alt="Brisbane"> |
+| Bucharest | Romania |  | 10 | 5 | 1.24 |  | 1.09 | <img src="readme/frames/Bucharest.jpg" width="240" alt="Bucharest"> |
+| Budapest | Hungary |  | 10 | 13 | 1.31 |  | 1.24 | <img src="readme/frames/Budapest.jpg" width="240" alt="Budapest"> |
+| Buenos Aires | Argentina | 1 | 10 | 9 | 1.38 | 1.28 | 1.48 | <img src="readme/frames/Buenos_Aires.jpg" width="240" alt="Buenos Aires"> |
+| Busan | South Korea |  | 10 | 13 | 1.39 |  | 1.19 | <img src="readme/frames/Busan.jpg" width="240" alt="Busan"> |
 | Calgary | Canada |  |  |  | 1.35 |  |  |  |
-| Cape Town | South Africa |  | 10 | 14 | 1.44 |  | 1.21 | <a href="videos/minimax_h3/Cape_Town/Cape_Town-1_5bdCk5AQ9Kw_t377.mp4"><img src="readme/frames/Cape_Town.jpg" width="240" alt="Cape Town"></a> |
+| Cape Town | South Africa |  | 10 | 10 | 1.44 |  | 1.27 | <img src="readme/frames/Cape_Town.jpg" width="240" alt="Cape Town"> |
 | Catania | Italy |  |  |  | 1.25 |  |  |  |
-| Chicago | United States | 11 | 10 | 35 | 1.34 | 1.34 | 1.25 | <a href="videos/minimax_h3/Chicago/Chicago-07_P04G6dbzX_o_t501.mp4"><img src="readme/frames/Chicago.jpg" width="240" alt="Chicago"></a> |
-| Cotabato | Philippines | 1 | 10 | 13 | 1.25 | 1.06 | 1.29 | <a href="videos/minimax_h3/Cotabato/Cotabato-1_WBLFOI5FpEQ_t692.mp4"><img src="readme/frames/Cotabato.jpg" width="240" alt="Cotabato"></a> |
-| Dallas | United States |  | 10 | 16 | 1.38 |  | 1.23 | <a href="videos/minimax_h3/Dallas/Dallas-X07_-adodScBFoY_t532.mp4"><img src="readme/frames/Dallas.jpg" width="240" alt="Dallas"></a> |
-| Damascus | Syria |  | 10 | 14 | 1.29 |  | 1.29 | <a href="videos/minimax_h3/Damascus/Damascus-3_I0UeMmyvdQw_t822.mp4"><img src="readme/frames/Damascus.jpg" width="240" alt="Damascus"></a> |
-| Darwin | Australia |  | 10 | 10 | 1.36 |  | 1.27 | <a href="videos/minimax_h3/Darwin/Darwin-X20_TrA61EDItIc_t414.mp4"><img src="readme/frames/Darwin.jpg" width="240" alt="Darwin"></a> |
-| Den Haag | Netherlands |  | 10 | 9 | 1.35 |  | 1.21 | <a href="videos/minimax_h3/Den_Haag/Den_Haag-3_0OK2DmPoLpM_t867.mp4"><img src="readme/frames/Den_Haag.jpg" width="240" alt="Den Haag"></a> |
+| Chicago | United States | 11 | 10 | 25 | 1.34 | 1.32 | 1.24 | <img src="readme/frames/Chicago.jpg" width="240" alt="Chicago"> |
+| Cotabato | Philippines | 1 | 10 | 8 | 1.25 | 1.06 | 1.28 | <img src="readme/frames/Cotabato.jpg" width="240" alt="Cotabato"> |
+| Dallas | United States |  | 10 | 10 | 1.38 |  | 1.24 | <img src="readme/frames/Dallas.jpg" width="240" alt="Dallas"> |
+| Damascus | Syria |  | 10 | 4 | 1.29 |  | 1.24 | <img src="readme/frames/Damascus.jpg" width="240" alt="Damascus"> |
+| Darwin | Australia |  | 10 | 4 | 1.36 |  | 1.16 | <img src="readme/frames/Darwin.jpg" width="240" alt="Darwin"> |
+| Den Haag | Netherlands |  | 10 | 7 | 1.35 |  | 1.21 | <img src="readme/frames/Den_Haag.jpg" width="240" alt="Den Haag"> |
 | Denpasar | Indonesia |  |  |  | 1.25 |  |  |  |
 | Denver | United States |  |  |  | 1.32 |  |  |  |
-| Detroit | United States | 1 | 12 | 28 | 1.35 | 1.39 | 1.28 | <a href="videos/minimax_h3/Detroit/Detroit-X05_1gbHivWjK2E_t158.mp4"><img src="readme/frames/Detroit.jpg" width="240" alt="Detroit"></a> |
-| Dubai | United Arab Emirates | 1 | 11 | 10 | 1.29 | 1.02 | 1.12 | <a href="videos/minimax_h3/Dubai/Dubai-X13_UmBVgfmzF7M_t895.mp4"><img src="readme/frames/Dubai.jpg" width="240" alt="Dubai"></a> |
-| Dublin | Ireland |  | 10 | 17 | 1.46 |  | 1.38 | <a href="videos/minimax_h3/Dublin/Dublin-2_zoqLX1Z5nm8_t754.mp4"><img src="readme/frames/Dublin.jpg" width="240" alt="Dublin"></a> |
-| Eindhoven | Netherlands |  | 11 | 15 | 1.35 |  | 1.14 | <a href="videos/minimax_h3/Eindhoven/Eindhoven-X08_Rb41GNFZRZo_t2616.mp4"><img src="readme/frames/Eindhoven.jpg" width="240" alt="Eindhoven"></a> |
-| Gamagori | Japan |  | 10 | 9 | 1.29 |  | 1.12 | <a href="videos/minimax_h3/Gamagori/Gamagori-2_2rQbGSQqDEw_t14.mp4"><img src="readme/frames/Gamagori.jpg" width="240" alt="Gamagori"></a> |
-| Guangzhou | China | 1 | 12 | 30 | 1.33 | 0.98 | 1.20 | <a href="videos/minimax_h3/Guangzhou/Guangzhou-X01_zwIX4cmmBAI_t225.mp4"><img src="readme/frames/Guangzhou.jpg" width="240" alt="Guangzhou"></a> |
-| Hanoi | Vietnam | 5 | 10 | 16 | 1.16 | 1.13 | 1.18 | <a href="videos/minimax_h3/Hanoi/Hanoi-20_jzOqbHdr82U_t745.mp4"><img src="readme/frames/Hanoi.jpg" width="240" alt="Hanoi"></a> |
-| Helsinki | Finland | 1 | 10 | 15 | 1.30 |  | 1.39 | <a href="videos/minimax_h3/Helsinki/Helsinki-5_Wlp-TS99jz8_t2024.mp4"><img src="readme/frames/Helsinki.jpg" width="240" alt="Helsinki"></a> |
+| Detroit | United States | 1 | 12 | 20 | 1.35 |  | 1.33 | <img src="readme/frames/Detroit.jpg" width="240" alt="Detroit"> |
+| Dubai | United Arab Emirates | 1 | 11 | 5 | 1.29 | 1.02 | 1.12 | <img src="readme/frames/Dubai.jpg" width="240" alt="Dubai"> |
+| Dublin | Ireland |  | 10 | 11 | 1.46 |  | 1.37 | <img src="readme/frames/Dublin.jpg" width="240" alt="Dublin"> |
+| Eindhoven | Netherlands |  | 11 | 8 | 1.35 |  | 1.14 | <img src="readme/frames/Eindhoven.jpg" width="240" alt="Eindhoven"> |
+| Gamagori | Japan |  | 10 | 7 | 1.29 |  | 1.14 | <img src="readme/frames/Gamagori.jpg" width="240" alt="Gamagori"> |
+| Guangzhou | China | 1 | 12 | 12 | 1.33 | 0.98 | 1.21 | <img src="readme/frames/Guangzhou.jpg" width="240" alt="Guangzhou"> |
+| Hanoi | Vietnam | 5 | 10 | 8 | 1.16 | 1.09 | 1.16 | <img src="readme/frames/Hanoi.jpg" width="240" alt="Hanoi"> |
+| Helsinki | Finland | 1 | 10 | 7 | 1.30 |  | 1.34 | <img src="readme/frames/Helsinki.jpg" width="240" alt="Helsinki"> |
 | Ho Chi Minh City | Vietnam |  |  |  | 1.19 |  |  |  |
 | Hong Kong | Hong Kong |  |  |  | 1.25 |  |  |  |
-| Houston | United States |  | 15 | 31 | 1.37 |  | 1.14 | <a href="videos/minimax_h3/Houston/Houston-X17_Vh6VxrMc0Bg_t10150.mp4"><img src="readme/frames/Houston.jpg" width="240" alt="Houston"></a> |
-| Istanbul | Türkiye |  | 10 | 25 | 1.26 |  | 1.17 | <a href="videos/minimax_h3/Istanbul/Istanbul-X04_9EDCav-itr8_t634.mp4"><img src="readme/frames/Istanbul.jpg" width="240" alt="Istanbul"></a> |
-| Jakarta | Indonesia | 5 | 10 | 22 | 1.29 | 1.09 | 1.14 | <a href="videos/minimax_h3/Jakarta/Jakarta-X10_E7gomi3evvQ_t1048.mp4"><img src="readme/frames/Jakarta.jpg" width="240" alt="Jakarta"></a> |
+| Houston | United States |  | 15 | 23 | 1.37 |  | 1.14 | <img src="readme/frames/Houston.jpg" width="240" alt="Houston"> |
+| Istanbul | Türkiye |  | 10 | 11 | 1.26 |  | 1.45 | <img src="readme/frames/Istanbul.jpg" width="240" alt="Istanbul"> |
+| Jakarta | Indonesia | 5 | 10 | 10 | 1.29 | 1.00 | 1.13 | <img src="readme/frames/Jakarta.jpg" width="240" alt="Jakarta"> |
 | Karachi | Pakistan |  |  |  | 1.24 |  |  |  |
 | Kermanshah | Iran |  |  |  | 1.36 |  |  |  |
-| Kuala Lumpur | Malaysia |  | 11 | 18 | 1.38 |  | 1.33 | <a href="videos/minimax_h3/Kuala_Lumpur/Kuala_Lumpur-1_AxQcSoA9vGQ_t540.mp4"><img src="readme/frames/Kuala_Lumpur.jpg" width="240" alt="Kuala Lumpur"></a> |
-| Kyiv | Ukraine | 1 | 10 | 39 | 1.45 | 1.16 | 1.14 | <a href="videos/minimax_h3/Kyiv/Kyiv-5_5IdKyraX-KA_t398.mp4"><img src="readme/frames/Kyiv.jpg" width="240" alt="Kyiv"></a> |
-| København | Denmark | 1 | 10 | 22 | 1.36 |  | 1.32 | <a href="videos/minimax_h3/Copenhagen/København-1__7xMQCCxTLY_t734.mp4"><img src="readme/frames/Copenhagen.jpg" width="240" alt="København"></a> |
-| Las Vegas | United States |  | 10 | 31 | 1.35 |  | 1.17 | <a href="videos/minimax_h3/Las_Vegas/Las_Vegas-2_87q4Fz8DeRk_t1213.mp4"><img src="readme/frames/Las_Vegas.jpg" width="240" alt="Las Vegas"></a> |
-| London | United Kingdom | 11 | 10 | 38 | 1.44 | 1.30 | 1.33 | <a href="videos/minimax_h3/London/London-01_QI4_dGvZ5yE_t468.mp4"><img src="readme/frames/London.jpg" width="240" alt="London"></a> |
-| Los Angeles | United States | 11 | 10 | 38 | 1.34 | 1.37 | 1.34 | <a href="videos/minimax_h3/Los_Angeles/Los_Angeles-01_4uhMg5na888_t526.mp4"><img src="readme/frames/Los_Angeles.jpg" width="240" alt="Los Angeles"></a> |
-| Manila | Philippines | 5 | 10 | 13 | 1.45 | 1.10 | 1.43 | <a href="videos/minimax_h3/Manila/Manila-01_JY-Xyiept88_t374.mp4"><img src="readme/frames/Manila.jpg" width="240" alt="Manila"></a> |
+| Kuala Lumpur | Malaysia |  | 11 | 11 | 1.38 |  | 1.37 | <img src="readme/frames/Kuala_Lumpur.jpg" width="240" alt="Kuala Lumpur"> |
+| Kyiv | Ukraine | 1 | 10 | 20 | 1.45 | 1.16 | 1.11 | <img src="readme/frames/Kyiv.jpg" width="240" alt="Kyiv"> |
+| København | Denmark | 1 | 10 | 13 | 1.36 |  | 1.29 | <img src="readme/frames/Copenhagen.jpg" width="240" alt="København"> |
+| Las Vegas | United States |  | 10 | 12 | 1.35 |  | 1.16 | <img src="readme/frames/Las_Vegas.jpg" width="240" alt="Las Vegas"> |
+| London | United Kingdom | 11 | 10 | 19 | 1.44 | 1.26 | 1.26 | <img src="readme/frames/London.jpg" width="240" alt="London"> |
+| Los Angeles | United States | 11 | 10 | 24 | 1.34 | 1.26 | 1.30 | <img src="readme/frames/Los_Angeles.jpg" width="240" alt="Los Angeles"> |
+| Manila | Philippines | 5 | 10 | 13 | 1.45 | 1.13 | 1.38 | <img src="readme/frames/Manila.jpg" width="240" alt="Manila"> |
 | Maracaibo | Venezuela |  |  |  | 1.23 |  |  |  |
-| Melbourne | Australia | 1 | 10 | 45 | 1.37 |  | 1.23 | <a href="videos/minimax_h3/Melbourne/Melbourne-5_lIziwOj5bjs_t891.mp4"><img src="readme/frames/Melbourne.jpg" width="240" alt="Melbourne"></a> |
-| Miami | United States |  | 10 | 22 | 1.35 |  | 1.35 | <a href="videos/minimax_h3/Miami/Miami-X02_xj7abSp07w0_t231.mp4"><img src="readme/frames/Miami.jpg" width="240" alt="Miami"></a> |
+| Melbourne | Australia | 1 | 10 | 27 | 1.37 | 1.02 | 1.24 | <img src="readme/frames/Melbourne.jpg" width="240" alt="Melbourne"> |
+| Miami | United States |  | 10 | 16 | 1.35 |  | 1.24 | <img src="readme/frames/Miami.jpg" width="240" alt="Miami"> |
 | Milan | Italy |  |  |  | 1.36 |  |  |  |
-| Minsk | Belarus |  | 10 | 21 | 1.39 |  | 1.19 | <a href="videos/minimax_h3/Minsk/Minsk-X08_hWiAqpzxA2c_t1017.mp4"><img src="readme/frames/Minsk.jpg" width="240" alt="Minsk"></a> |
-| Montreal | Canada | 1 | 10 | 23 | 1.34 | 1.41 | 1.38 | <a href="videos/minimax_h3/Montreal/Montreal-5_8DIotaeYB_E_t149.mp4"><img src="readme/frames/Montreal.jpg" width="240" alt="Montreal"></a> |
-| Moscow | Russia | 1 | 12 | 4 | 1.33 | 1.26 | 1.19 | <a href="videos/minimax_h3/Moscow/Moscow-4_DGoQzuuL5CA_t597.mp4"><img src="readme/frames/Moscow.jpg" width="240" alt="Moscow"></a> |
-| Mumbai | India |  | 10 | 9 | 1.37 |  | 1.29 | <a href="videos/minimax_h3/Mumbai/Mumbai-X02_nv-L0EPmbfs_t1105.mp4"><img src="readme/frames/Mumbai.jpg" width="240" alt="Mumbai"></a> |
-| München | Germany |  | 10 | 43 | 1.36 |  | 1.25 | <a href="videos/minimax_h3/München/München-3_jnFH4bFfHsQ_t382.mp4"><img src="readme/frames/München.jpg" width="240" alt="München"></a> |
+| Minsk | Belarus |  | 10 | 12 | 1.39 |  | 1.19 | <img src="readme/frames/Minsk.jpg" width="240" alt="Minsk"> |
+| Montreal | Canada | 1 | 10 | 13 | 1.34 |  | 1.40 | <img src="readme/frames/Montreal.jpg" width="240" alt="Montreal"> |
+| Moscow | Russia | 1 | 12 | 3 | 1.33 | 1.25 | 1.21 | <img src="readme/frames/Moscow.jpg" width="240" alt="Moscow"> |
+| Mumbai | India |  | 10 | 3 | 1.37 |  | 1.63 | <img src="readme/frames/Mumbai.jpg" width="240" alt="Mumbai"> |
+| München | Germany |  | 10 | 27 | 1.36 |  | 1.30 | <img src="readme/frames/München.jpg" width="240" alt="München"> |
 | New Delhi | India |  |  |  | 1.37 |  |  |  |
-| New York | United States | 11 | 10 | 55 | 1.29 | 1.24 | 1.32 | <a href="videos/minimax_h3/New_York/New_York-04_LQLJu-EpkeE_t991.mp4"><img src="readme/frames/New_York.jpg" width="240" alt="New York"></a> |
+| New York | United States | 11 | 10 | 29 | 1.29 | 1.25 | 1.34 | <img src="readme/frames/New_York.jpg" width="240" alt="New York"> |
 | Ninh Binh | Vietnam |  |  |  | 1.30 |  |  |  |
-| Oldenburg | Germany |  | 9 | 17 | 1.33 |  | 1.21 | <a href="videos/minimax_h3/Oldenburg/Oldenburg-1_20x4cVgp0Ow_t669.mp4"><img src="readme/frames/Oldenburg.jpg" width="240" alt="Oldenburg"></a> |
-| Oslo | Norway |  | 10 | 24 | 1.33 |  | 1.31 | <a href="videos/minimax_h3/Oslo/Oslo-X03_7zWGhOns-Xc_t1183.mp4"><img src="readme/frames/Oslo.jpg" width="240" alt="Oslo"></a> |
-| Paris | France | 1 | 10 | 53 | 1.32 |  | 1.22 | <a href="videos/minimax_h3/Paris/Paris-4_ZTmjk8mSCq8_t725.mp4"><img src="readme/frames/Paris.jpg" width="240" alt="Paris"></a> |
-| Perth | Australia |  | 10 | 20 | 1.34 |  | 1.29 | <a href="videos/minimax_h3/Perth/Perth-6_zVQdu8QmgrA_t42.mp4"><img src="readme/frames/Perth.jpg" width="240" alt="Perth"></a> |
-| Philadelphia | United States | 1 | 10 | 34 | 1.31 | 1.36 | 1.36 | <a href="videos/minimax_h3/Philadelphia/Philadelphia-1_wE5SyGMmA7I_t810.mp4"><img src="readme/frames/Philadelphia.jpg" width="240" alt="Philadelphia"></a> |
-| Phnom Penh | Cambodia |  | 10 | 16 | 1.30 |  | 1.22 | <a href="videos/minimax_h3/Phnom_Penh/Phnom_Penh-2_4aCdf7o_bFo_t247.mp4"><img src="readme/frames/Phnom_Penh.jpg" width="240" alt="Phnom Penh"></a> |
-| Phoenix | United States |  | 10 | 7 | 1.31 |  | 1.17 | <a href="videos/minimax_h3/Phoenix/Phoenix-X07_AGvpbrmExWk_t770.mp4"><img src="readme/frames/Phoenix.jpg" width="240" alt="Phoenix"></a> |
-| Portland | United States |  | 10 | 12 | 1.37 |  | 1.31 | <a href="videos/minimax_h3/Portland/Portland-4_zH2HfHqlGHs_t1159.mp4"><img src="readme/frames/Portland.jpg" width="240" alt="Portland"></a> |
-| Prague | Czechia |  | 10 | 41 | 1.27 |  | 1.55 | <a href="videos/minimax_h3/Prague/Prague-2_jeS5VPBrXLo_t469.mp4"><img src="readme/frames/Prague.jpg" width="240" alt="Prague"></a> |
-| Rio de Janeiro | Brazil |  | 11 | 23 | 1.29 |  | 1.31 | <a href="videos/minimax_h3/Rio_de_Janeiro/Rio_de_Janeiro-1_q83bl_GcsCo_t1083.mp4"><img src="readme/frames/Rio_de_Janeiro.jpg" width="240" alt="Rio de Janeiro"></a> |
-| Sacramento | United States |  | 11 | 22 | 1.44 |  | 1.19 | <a href="videos/minimax_h3/Sacramento/Sacramento-X02_zWCLe8pFe_Q_t163.mp4"><img src="readme/frames/Sacramento.jpg" width="240" alt="Sacramento"></a> |
-| Saint Petersburg | Russia | 10 | 10 | 40 | 1.34 | 1.07 | 1.24 | <a href="videos/minimax_h3/Saint_Petersburg/Saint_Petersburg-01_vKD8_m88tuk_t117.mp4"><img src="readme/frames/Saint_Petersburg.jpg" width="240" alt="Saint Petersburg"></a> |
+| Oldenburg | Germany |  | 9 | 7 | 1.33 |  | 1.15 | <img src="readme/frames/Oldenburg.jpg" width="240" alt="Oldenburg"> |
+| Oslo | Norway |  | 10 | 16 | 1.33 |  | 1.28 | <img src="readme/frames/Oslo.jpg" width="240" alt="Oslo"> |
+| Paris | France | 1 | 10 | 26 | 1.32 |  | 1.30 | <img src="readme/frames/Paris.jpg" width="240" alt="Paris"> |
+| Perth | Australia |  | 10 | 14 | 1.34 |  | 1.43 | <img src="readme/frames/Perth.jpg" width="240" alt="Perth"> |
+| Philadelphia | United States | 1 | 10 | 24 | 1.31 | 1.34 | 1.36 | <img src="readme/frames/Philadelphia.jpg" width="240" alt="Philadelphia"> |
+| Phnom Penh | Cambodia |  | 10 | 8 | 1.30 |  | 1.19 | <img src="readme/frames/Phnom_Penh.jpg" width="240" alt="Phnom Penh"> |
+| Phoenix | United States |  | 10 | 7 | 1.31 |  | 1.30 | <img src="readme/frames/Phoenix.jpg" width="240" alt="Phoenix"> |
+| Portland | United States |  | 10 | 10 | 1.37 |  | 1.32 | <img src="readme/frames/Portland.jpg" width="240" alt="Portland"> |
+| Prague | Czechia |  | 10 | 22 | 1.27 |  | 1.51 | <img src="readme/frames/Prague.jpg" width="240" alt="Prague"> |
+| Rio de Janeiro | Brazil |  | 11 | 19 | 1.29 |  | 1.29 | <img src="readme/frames/Rio_de_Janeiro.jpg" width="240" alt="Rio de Janeiro"> |
+| Sacramento | United States |  | 11 | 14 | 1.44 |  | 1.16 | <img src="readme/frames/Sacramento.jpg" width="240" alt="Sacramento"> |
+| Saint Petersburg | Russia | 10 | 10 | 32 | 1.34 | 1.10 | 1.40 | <img src="readme/frames/Saint_Petersburg.jpg" width="240" alt="Saint Petersburg"> |
 | San Diego | United States |  |  |  | 1.40 |  |  |  |
-| San Francisco | United States |  | 10 | 19 | 1.28 |  | 1.33 | <a href="videos/minimax_h3/San_Francisco/San_Francisco-1_QmAvjLceVIY_t1285.mp4"><img src="readme/frames/San_Francisco.jpg" width="240" alt="San Francisco"></a> |
-| San Jose | United States |  | 10 | 16 | 1.36 |  | 1.27 | <a href="videos/minimax_h3/San_Jose/San_Jose-1_8zv45mY44FI_t326.mp4"><img src="readme/frames/San_Jose.jpg" width="240" alt="San Jose"></a> |
-| Sao Paulo | Brazil | 1 | 10 | 22 | 1.42 |  | 1.31 | <a href="videos/minimax_h3/Sao_Paulo/Sao_Paulo-1_Ic2ERD7kt4o_t150.mp4"><img src="readme/frames/Sao_Paulo.jpg" width="240" alt="Sao Paulo"></a> |
-| Seattle | United States |  | 10 | 37 |  |  | 1.25 | <a href="videos/minimax_h3/Seattle/Seattle-X01_M3QWNKCB5vo_t716.mp4"><img src="readme/frames/Seattle.jpg" width="240" alt="Seattle"></a> |
+| San Francisco | United States |  | 10 | 14 | 1.28 |  | 1.35 | <img src="readme/frames/San_Francisco.jpg" width="240" alt="San Francisco"> |
+| San Jose | United States |  | 10 | 8 | 1.36 |  | 1.33 | <img src="readme/frames/San_Jose.jpg" width="240" alt="San Jose"> |
+| Sao Paulo | Brazil | 1 | 10 | 16 | 1.42 |  | 1.41 | <img src="readme/frames/Sao_Paulo.jpg" width="240" alt="Sao Paulo"> |
+| Seattle | United States |  | 10 | 24 |  |  | 1.27 | <img src="readme/frames/Seattle.jpg" width="240" alt="Seattle"> |
 | Semarang | Indonesia |  |  |  | 1.30 |  |  |  |
-| Seoul | South Korea | 10 | 10 | 41 | 1.39 | 1.08 | 1.32 | <a href="videos/minimax_h3/Seoul/Seoul-12_qFQV2sCLntQ_t201.mp4"><img src="readme/frames/Seoul.jpg" width="240" alt="Seoul"></a> |
-| Serrekunda | Gambia |  | 10 | 11 | 1.36 |  | 1.19 | <a href="videos/minimax_h3/Serrekunda/Serrekunda-5_E5rHoQQzl8A_t191.mp4"><img src="readme/frames/Serrekunda.jpg" width="240" alt="Serrekunda"></a> |
-| Singapore | Singapore |  | 13 | 38 | 1.41 |  | 1.23 | <a href="videos/minimax_h3/Singapore/Singapore-3_GDMDj2Help4_t100.mp4"><img src="readme/frames/Singapore.jpg" width="240" alt="Singapore"></a> |
-| Sofia | Bulgaria |  | 12 | 15 | 1.46 |  | 1.15 | <a href="videos/minimax_h3/Sofia/Sofia-X02_dmYCFGPMN7w_t77.mp4"><img src="readme/frames/Sofia.jpg" width="240" alt="Sofia"></a> |
-| Stockholm | Sweden |  | 10 | 37 | 1.38 |  | 1.36 | <a href="videos/minimax_h3/Stockholm/Stockholm-4_0GMt9cZ8g_E_t942.mp4"><img src="readme/frames/Stockholm.jpg" width="240" alt="Stockholm"></a> |
-| Sydney | Australia | 10 | 10 | 35 | 1.40 | 1.41 | 1.36 | <a href="videos/minimax_h3/Sydney/Sydney-14_q21Kj-pxJW4_t816.mp4"><img src="readme/frames/Sydney.jpg" width="240" alt="Sydney"></a> |
-| Sylhet | Bangladesh |  | 10 | 16 | 1.16 |  | 1.11 | <a href="videos/minimax_h3/Sylhet/Sylhet-4_jytjyc_qXVw_t897.mp4"><img src="readme/frames/Sylhet.jpg" width="240" alt="Sylhet"></a> |
+| Seoul | South Korea | 10 | 10 | 24 | 1.39 | 1.16 | 1.35 | <img src="readme/frames/Seoul.jpg" width="240" alt="Seoul"> |
+| Serrekunda | Gambia |  | 10 | 4 | 1.36 |  | 1.16 | <img src="readme/frames/Serrekunda.jpg" width="240" alt="Serrekunda"> |
+| Singapore | Singapore |  | 13 | 27 | 1.41 |  | 1.26 | <img src="readme/frames/Singapore.jpg" width="240" alt="Singapore"> |
+| Sofia | Bulgaria |  | 12 | 14 | 1.46 |  | 1.11 | <img src="readme/frames/Sofia.jpg" width="240" alt="Sofia"> |
+| Stockholm | Sweden |  | 10 | 27 | 1.38 |  | 1.33 | <img src="readme/frames/Stockholm.jpg" width="240" alt="Stockholm"> |
+| Sydney | Australia | 10 | 10 | 19 | 1.40 | 1.40 | 1.39 | <img src="readme/frames/Sydney.jpg" width="240" alt="Sydney"> |
+| Sylhet | Bangladesh |  | 10 | 10 | 1.16 |  | 1.15 | <img src="readme/frames/Sylhet.jpg" width="240" alt="Sylhet"> |
 | Tallinn | Estonia |  |  |  | 1.43 |  |  |  |
 | Tehran | Iran |  |  |  | 1.34 |  |  |  |
-| Tokyo | Japan |  | 10 | 54 | 1.30 |  | 1.39 | <a href="videos/minimax_h3/Tokyo/Tokyo-5_Y11w05u97Iw_t849.mp4"><img src="readme/frames/Tokyo.jpg" width="240" alt="Tokyo"></a> |
-| Toronto | Canada | 1 | 10 | 26 | 1.37 |  | 1.20 | <a href="videos/minimax_h3/Toronto/Toronto-5_qBH_yfaRqRw_t427.mp4"><img src="readme/frames/Toronto.jpg" width="240" alt="Toronto"></a> |
-| Townsville | Australia | 1 | 14 | 14 | 1.38 |  | 1.38 | <a href="videos/minimax_h3/Townsville/Townsville-X25_kvJDcKZreJ4_t842.mp4"><img src="readme/frames/Townsville.jpg" width="240" alt="Townsville"></a> |
-| Tyumen | Russia |  | 10 | 15 | 1.31 |  | 1.18 | <a href="videos/minimax_h3/Tyumen/Tyumen-X01_wNklXWXZT_U_t1296.mp4"><img src="readme/frames/Tyumen.jpg" width="240" alt="Tyumen"></a> |
-| Ulaanbaatar | Mongolia |  | 10 | 24 | 1.42 |  | 1.31 | <a href="videos/minimax_h3/Ulaanbaatar/Ulaanbaatar-1_CF2TXaXmvkk_t411.mp4"><img src="readme/frames/Ulaanbaatar.jpg" width="240" alt="Ulaanbaatar"></a> |
-| Vancouver | Canada |  | 10 | 27 | 1.31 |  | 1.33 | <a href="videos/minimax_h3/Vancouver/Vancouver-3_CYgA_axzMyI_t395.mp4"><img src="readme/frames/Vancouver.jpg" width="240" alt="Vancouver"></a> |
-| Vienna | Austria |  | 10 | 36 | 1.37 |  | 1.17 | <a href="videos/minimax_h3/Vienna/Vienna-3_DgOzuKepLwY_t989.mp4"><img src="readme/frames/Vienna.jpg" width="240" alt="Vienna"></a> |
-| Warsaw | Poland | 1 | 10 | 38 | 1.34 | 1.12 | 1.24 | <a href="videos/minimax_h3/Warsaw/Warsaw-X02_jko48lP7BxQ_t917.mp4"><img src="readme/frames/Warsaw.jpg" width="240" alt="Warsaw"></a> |
-| Washington | United States |  | 10 | 34 | 1.23 |  | 1.30 | <a href="videos/minimax_h3/Washington/Washington-2_dIHYeTVklu4_t982.mp4"><img src="readme/frames/Washington.jpg" width="240" alt="Washington"></a> |
+| Tokyo | Japan |  | 10 | 25 | 1.30 |  | 1.38 | <img src="readme/frames/Tokyo.jpg" width="240" alt="Tokyo"> |
+| Toronto | Canada | 1 | 10 | 16 | 1.37 |  | 1.20 | <img src="readme/frames/Toronto.jpg" width="240" alt="Toronto"> |
+| Townsville | Australia | 1 | 14 | 8 | 1.38 |  | 1.39 | <img src="readme/frames/Townsville.jpg" width="240" alt="Townsville"> |
+| Tyumen | Russia |  | 10 | 11 | 1.31 |  | 1.18 | <img src="readme/frames/Tyumen.jpg" width="240" alt="Tyumen"> |
+| Ulaanbaatar | Mongolia |  | 10 | 16 | 1.42 |  | 1.25 | <img src="readme/frames/Ulaanbaatar.jpg" width="240" alt="Ulaanbaatar"> |
+| Vancouver | Canada |  | 10 | 17 | 1.31 |  | 1.36 | <img src="readme/frames/Vancouver.jpg" width="240" alt="Vancouver"> |
+| Vienna | Austria |  | 10 | 32 | 1.37 |  | 1.20 | <img src="readme/frames/Vienna.jpg" width="240" alt="Vienna"> |
+| Warsaw | Poland | 1 | 10 | 35 | 1.34 | 1.13 | 1.24 | <img src="readme/frames/Warsaw.jpg" width="240" alt="Warsaw"> |
+| Washington | United States |  | 10 | 19 | 1.23 |  | 1.30 | <img src="readme/frames/Washington.jpg" width="240" alt="Washington"> |
 | Winnipeg | Canada |  |  |  | 1.31 |  |  |  |
-| Yangon | Myanmar | 1 | 11 | 13 | 1.38 |  | 1.23 | <a href="videos/minimax_h3/Yangon/Yangon-X07_UvWsd6g_dE4_t351.mp4"><img src="readme/frames/Yangon.jpg" width="240" alt="Yangon"></a> |
-| Yogyakarta | Indonesia |  | 12 | 10 | 1.29 |  | 1.12 | <a href="videos/minimax_h3/Yogyakarta/Yogyakarta-X08_OK2IuoRxxHI_t5182.mp4"><img src="readme/frames/Yogyakarta.jpg" width="240" alt="Yogyakarta"></a> |
+| Yangon | Myanmar | 1 | 11 | 8 | 1.38 |  | 1.30 | <img src="readme/frames/Yangon.jpg" width="240" alt="Yangon"> |
+| Yogyakarta | Indonesia |  | 12 | 8 | 1.29 |  | 1.17 | <img src="readme/frames/Yogyakarta.jpg" width="240" alt="Yogyakarta"> |
 <!-- /city table -->
 
 </details>
@@ -326,22 +356,24 @@ Each set was tracked with YOLO11x and BoT-SORT and run through the same crossing
 
 | Set | Clips | Clips with a counted crossing (95% CI) | Crossings | Crossings with an m/s speed | Median speed (95% CI) | Decision times |
 |---|---|---|---|---|---|---|
-| Veo 3.1 Fast | 109 | 85% (77-91%) | 314 | 203 | 1.24 m/s (1.16-1.29) | 5 |
-| MiniMax H3 | 797 | 72% (68-75%) | 1,884 | 1,207 | 1.27 m/s (1.25-1.29) | 59 |
-| Real continuation | 793 | 81% (78-84%) | 2,250 | 1,345 | 1.37 m/s (1.36-1.39) | 29 |
+| Veo 3.1 Fast | 109 | 72% (62-79%) | 192 | 142 | 1.23 m/s (1.18-1.28) | 2 |
+| MiniMax H3 | 797 | 58% (55-62%) | 1,167 | 830 | 1.27 m/s (1.25-1.29) | 29 |
+| Real continuation | 793 | 69% (66-72%) | 1,514 | 956 | 1.39 m/s (1.37-1.40) | 13 |
 
 City medians (cities with at least 3 m/s speeds) against CROWD and against the real continuations:
 
 | Set | Reference | Cities | Spearman ρ (95% CI) | Median difference | Spread of city medians / reference's (IQR ratio) |
 |---|---|---|---|---|---|
-| Veo 3.1 Fast | CROWD | 14 | 0.38 (−0.14 to 0.79) | −0.10 m/s (p = .007) | 2.7 |
-| MiniMax H3 | CROWD | 74 | 0.12 (−0.14 to 0.37) | −0.09 m/s (p < .001) | 1.6 (1.3-2.2) |
-| Real continuation | CROWD | 72 | 0.10 (−0.16 to 0.35) | +0.02 m/s (p = .15) | 1.5 (1.1-2.0) |
-| MiniMax H3 | Real continuation | 72 | −0.03 (−0.28 to 0.22) | −0.11 m/s (p < .001) | 1.1 (0.8-1.5) |
+| Veo 3.1 Fast | CROWD | 11 | 0.52 (−0.21 to 0.88) | −0.09 m/s (p = .002) | 1.7 |
+| MiniMax H3 | CROWD | 72 | 0.08 (−0.18 to 0.33) | −0.07 m/s (p < .001) | 1.8 (1.3-2.5) |
+| Real continuation | CROWD | 71 | −0.13 (−0.36 to 0.12) | +0.04 m/s (p = .001) | 1.4 (1.1-2.1) |
+| MiniMax H3 | Real continuation | 68 | −0.13 (−0.41 to 0.16) | −0.12 m/s (p < .001) | 1.4 (0.9-1.8) |
 
-- **Generated pedestrians cross about 0.1 m/s slower than real ones.** On the 327 clip pairs with an m/s speed in both, MiniMax H3 is 0.10 m/s (0.07-0.13) slower than the real continuation of the same scene (Wilcoxon signed-rank, p < .001); per pair the speeds agree only weakly (Spearman 0.18). The real continuations match CROWD's level (+0.02 m/s), both models are 0.09-0.10 m/s below it.
-- **MiniMax H3 loses crossings and adds waits.** Of the 643 real continuations with a crossing, 131 (20%) have none in the generated clip, against 57 generated clips with a crossing the real one lacks (exact McNemar, p < .001). MiniMax shows a pedestrian waiting before stepping onto the road in 49 clips against 26 real continuations (p = .008; median wait 1.67 s against 1.33 s). On the 30 shared cities, Veo 3.1 Fast keeps a crossing more often than MiniMax H3 (85% against 71%, Fisher p = .005).
-- **Eight-second clips cannot rank cities, even real ones.** In the real continuations the city explains almost none of the variance in clip speed (Kruskal-Wallis η²_H = 0.04, 72 cities, p = .10), and the split-half reliability of a city median from about seven clips with a speed is 0.07 (−0.30 to 0.35): no reference could correlate with such city medians by more than about 0.27, and several hundred clips per city would be needed for a reliability of 0.8. So the weak correlations of the models with CROWD say little about the models; the per-clip pairing is the fair test. MiniMax H3 behaves the same (η²_H ≈ 0, reliability ≈ 0). Veo's clips of one city are more alike (η²_H = 0.16, p = .04 in its ten cities with 5-11 clips; reliability 0.82 over nine cities), perhaps because their hand-picked frames resemble each other, but still do not follow CROWD.
+Crossings are counted with the crowd-city code of CROWD's current run (commit 9a35c28: track joining, corrected segmentation clock), and speeds are computed by the same function as CROWD's per-city table. CROWD's values are still those of 8 October 2026, from an earlier version of the code; the nightly job replaces them when the current run ends.
+
+- **Generated pedestrians cross about 0.1 m/s slower than real ones.** On the 289 clip pairs with an m/s speed in both, MiniMax H3 is 0.11 m/s (0.08-0.13) slower than the real continuation of the same scene (Wilcoxon signed-rank, p < .001); per pair the speeds agree only weakly (Spearman 0.26). **Not a matter of resolution:** the real continuations scaled to MiniMax's 864×480 give the same speeds as at 1280×720 (median difference 0.000 m/s, −0.003 to 0.004, Spearman 0.93, 382 clips; `results/real_minimax_480`), and MiniMax H3 is 0.11 m/s slower than those too.
+- **MiniMax H3 loses crossings and adds waits.** Of the 549 real continuations with a crossing, 150 (27%) have none in the generated clip, against 64 generated clips with a crossing the real one lacks (exact McNemar, p < .001). MiniMax shows a pedestrian waiting before stepping onto the road in 26 clips against 13 real continuations (p = .035; median wait 1.33 s in both). On the 30 shared cities, Veo 3.1 Fast keeps a crossing more often than MiniMax H3 (72% against 61%, Fisher p = .049).
+- **Eight-second clips cannot rank cities, even real ones.** In the real continuations the city explains none of the variance in clip speed (Kruskal-Wallis η²_H = −0.02, 69 cities, p = .67), and the split-half reliability of a city median from about six clips with a speed is −0.24 (−0.65 to 0.12): no reference could correlate with such city medians. So the weak correlations of the models with CROWD say little about the models; the per-clip pairing is the fair test. MiniMax H3 is similar (η²_H = 0.03, p = .21; reliability 0.26, −0.07 to 0.52). Veo's clips of one city are more alike (η²_H = 0.19, p = .03 in nine cities), perhaps because their hand-picked frames resemble each other.
 
 **Speed of every crossing per set** (left; the dashed line is the median of CROWD's city medians) and **MiniMax H3 minus its real continuation, per clip** (right):
 
@@ -385,9 +417,8 @@ Per-city values are in `_output/appearance_cities.csv`. With one Veo video, a ci
 1. **Current CROWD values**: replace crowd-city's run of 8 October 2026 (made before the tracking files were repaired) with its current per-city table, and rerun `generated_speeds.py` and `speed_generated_vs_crowd.py`.
 2. **More videos**: MiniMax H3 generation continues towards 100 cities, and Veo 3.1 Fast has one clip in 20 of its 30 cities; rerun the tracking for new clips (each set in its own output folder, see [Generated videos and the comparison with CROWD](#generated-videos-and-the-comparison-with-crowd)).
 3. **Real continuations for Veo 3.1 Fast**: its clips do not record the source video and second of their reference frame; with them, `paired_real_clips.py` could cut Veo's real continuations too.
-4. **Resolution check**: the real continuations scaled to MiniMax H3's 864×480 (`_output/real_minimax_480`, tracked on lin4080), to confirm that the 0.1 m/s difference is not a matter of resolution (`speed_statistics.py --scaled`).
-5. **Track stability and artefacts (RQ1)**: how many pedestrians appear, disappear or change class during a clip, generated against real continuation, and a manual check of the clips.
-6. **Side of the road**: the side on which oncoming vehicles pass in left-hand traffic cities (London, Sydney, Melbourne, Tokyo, Hong Kong ...) against right-hand ones, as a check of whether the models keep a basic local rule.
+4. **Track stability and artefacts (RQ1)**: how many pedestrians appear, disappear or change class during a clip, generated against real continuation, and a manual check of the clips.
+5. **Side of the road**: the side on which oncoming vehicles pass in left-hand traffic cities (London, Sydney, Melbourne, Tokyo, Hong Kong ...) against right-hand ones, as a check of whether the models keep a basic local rule.
 
 ## Configuration
 
