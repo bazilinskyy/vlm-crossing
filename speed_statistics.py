@@ -8,7 +8,10 @@ reference frames) and CROWD's per-city table, and writes to <output>:
                             864x480 against the original ones and against MiniMax H3)
                             and, with crowd/city_footage.csv (city_footage.py), whether cities with more YouTube
                             footage, people, economic output or an English-speaking country were generated closer to
-                            CROWD's speed, also against guessing one speed for every city
+                            CROWD's speed, also against guessing one speed for every city; the shape of each set's
+                            speed distribution (spread, share of fast crossings), how MiniMax H3's clip speed follows
+                            that of its real continuation, and, with results/appearance/frames.csv, whether clips that
+                            kept the look of their city also kept the speed and the crossing
 - generated_reliability.csv per set: split-half reliability of the city medians, and the clips per city that a
                             reliability of 0.8 would need
 
@@ -38,6 +41,7 @@ from utils.plotting.crossings import Crossings, io
 REPS = 5000
 SEED = 2026
 TARGET_RELIABILITY = 0.8
+FAST = 1.6  # m/s: a brisk walk or faster, the upper tail of crossing speed
 ENGLISH = ("United States", "Canada", "United Kingdom", "Australia", "New Zealand", "Ireland")
 INITIATION = "hesitation_s"  # crossing initiation time, only for pedestrians seen standing before they cross
 
@@ -245,6 +249,73 @@ def initiation_tests(clips: pl.DataFrame) -> list:
     return rows
 
 
+def shape_tests(clips: pl.DataFrame) -> list:
+    """Spread and fast tail of each set's crossing speeds, and how MiniMax H3's speed follows its real continuation."""
+    rows = []
+    with_speed = clips.filter(pl.col("speeds").list.len() > 0).sort("set", "city", "video")
+    for s in SETS:
+        groups = [np.array(v) for v in with_speed.filter(pl.col("set") == s)["speeds"].to_list()]
+        if not groups:
+            continue
+        n = sum(map(len, groups))
+        for name, statistic in (
+                ("interquartile range of crossing speed (m/s)", lambda g: float(stats.iqr(np.concatenate(g)))),
+                (f"share of crossings faster than {FAST} m/s", lambda g: float(np.mean(np.concatenate(g) > FAST))),
+                ("share of crossings slower than 1.0 m/s", lambda g: float(np.mean(np.concatenate(g) < 1.0)))):
+            rows.append(row(f"{name}, clip bootstrap", s, "", n, statistic(groups), bootstrap(groups, statistic)))
+    pairs = (with_speed.filter(pl.col("set") == "minimax_h3").select("video", pl.col("median_speed").alias("generated"))
+             .join(with_speed.filter(pl.col("set") == "real_minimax").select("video", pl.col("median_speed")
+                                                                              .alias("real")), on="video"))
+    if pairs.height >= 10:
+        points = [np.array([[r, g]]) for r, g in zip(pairs["real"], pairs["generated"])]
+        fit = stats.linregress(pairs["real"], pairs["generated"])
+        rows.append(row("clip median speed: MiniMax H3 against its real continuation, slope (least squares, pair "
+                        "bootstrap; 1 = follows the real speed, 0 = ignores it)", "minimax_h3", "real_minimax",
+                        pairs.height, fit.slope, bootstrap(points, lambda g: stats.linregress(*np.concatenate(g).T).slope),
+                        "slope", fit.slope, fit.pvalue))
+        third = pairs.with_columns(pl.col("real").rank("ordinal").alias("rank"))
+        for k, name in enumerate(("slowest", "middle", "fastest")):
+            part = third.filter((pl.col("rank") > k * pairs.height / 3) & (pl.col("rank") <= (k + 1) * pairs.height / 3))
+            difference = (part["generated"] - part["real"]).to_numpy()
+            rows.append(row(f"clip median speed: MiniMax H3 minus real continuation, {name} third of real speeds "
+                            f"(real median {part['real'].median():.2f}, MiniMax H3 median {part['generated'].median():.2f})",
+                            "minimax_h3", "real_minimax", part.height, float(np.median(difference)),
+                            bootstrap([np.array([d]) for d in difference], pooled_median)))
+    return rows
+
+
+def appearance_tests(clips: pl.DataFrame, frames: pl.DataFrame) -> list:
+    """Did MiniMax H3 clips that kept the look of their city (CLIP, last frame) also keep the speed and the crossing?"""
+    last = (frames.filter(pl.col("model") == "minimax_h3")
+            .with_columns(pl.col("file").str.split("/").list.last().str.replace(r"\.[^.]+$", "").alias("video"))
+            .sort("second").group_by("video")
+            .agg(pl.col("city_rank").last().alias("rank"), pl.col("similarity_to_first").last().alias("similarity")))
+    mine = clips.filter(pl.col("set") == "minimax_h3").select("video", "crossings", "median_speed")
+    real = clips.filter(pl.col("set") == "real_minimax").select("video", pl.col("crossings").alias("real_crossings"),
+                                                                pl.col("median_speed").alias("real_speed"))
+    both = mine.join(real, on="video").join(last, on="video")
+    rows = []
+    paired = both.drop_nulls(["median_speed", "real_speed"]).with_columns(
+        (pl.col("median_speed") - pl.col("real_speed")).abs().alias("error"))
+    kept, lost = (paired.filter(pl.col("rank") <= 5)["error"], paired.filter(pl.col("rank") > 5)["error"])
+    if kept.len() >= 5 and lost.len() >= 5:
+        test = stats.mannwhitneyu(kept, lost)
+        rows.append(row(f"clip |MiniMax H3 - real continuation| speed: city in CLIP's top five in the last frame "
+                        f"({kept.len()}, median {kept.median():.3f}) minus not ({lost.len()}, median "
+                        f"{lost.median():.3f}) (Mann-Whitney)", "minimax_h3", "real_minimax", paired.height,
+                        float(kept.median() - lost.median()), statistic="U", value=test.statistic, p=test.pvalue))
+    scenes = both.filter(pl.col("real_crossings") > 0)
+    kept, lost = (scenes.filter(pl.col("crossings") > 0)["similarity"], scenes.filter(pl.col("crossings") == 0)["similarity"])
+    if kept.len() >= 5 and lost.len() >= 5:
+        test = stats.mannwhitneyu(kept, lost)
+        rows.append(row(f"CLIP similarity of the last frame to the first: MiniMax H3 clips that kept the crossing of "
+                        f"their real continuation ({kept.len()}, median {kept.median():.3f}) minus those that lost it "
+                        f"({lost.len()}, median {lost.median():.3f}) (Mann-Whitney)", "minimax_h3", "real_minimax",
+                        scenes.height, float(kept.median() - lost.median()), statistic="U", value=test.statistic,
+                        p=test.pvalue))
+    return rows
+
+
 def reliability(clips: pl.DataFrame, reps: int = 2000) -> pl.DataFrame:
     """Split-half reliability of the city medians: split each city's clips at random into halves, take the median
     speed of each half, correlate the halves across cities and step the correlation up to the full number of clips
@@ -328,6 +399,8 @@ def main() -> None:
     parser.add_argument("--generated", default=os.path.join(common.root_dir, "videos", "generated_videos.csv"))
     parser.add_argument("--footage", default=os.path.join(common.root_dir, "crowd", "city_footage.csv"),
                         help="CROWD's footage per city (city_footage.py)")
+    parser.add_argument("--appearance", default=os.path.join(common.root_dir, "results", "appearance", "frames.csv"),
+                        help="CLIP scores per frame (appearance_analysis.py)")
     parser.add_argument("--scaled", help="output folder of the real continuations scaled to 864x480 (robustness check: "
                                          "is the speed difference a matter of resolution?)")
     parser.add_argument("--pdf-dir", help="also write the figures as PDF to this folder (e.g. the paper's figures)")
@@ -345,6 +418,9 @@ def main() -> None:
     rows = usability_tests(clips) + speed_tests(clips, crowd) + initiation_tests(clips)
     if os.path.isfile(args.footage):
         rows += footage_tests(clips, crowd, pl.read_csv(args.footage))
+    rows += shape_tests(clips)
+    if os.path.isfile(args.appearance):
+        rows += appearance_tests(clips, pl.read_csv(args.appearance))
     if args.scaled:
         scaled = read_run("real_minimax_480", args.scaled, cities)
         both = pl.concat([clip_table(*scaled), clips], how="diagonal_relaxed").filter(pl.col("speeds").list.len() > 0)
