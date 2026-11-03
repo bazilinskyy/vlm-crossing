@@ -42,7 +42,7 @@ MIN_TRACKS = 3  # cities with fewer m/s speeds are left out of the correlations 
 
 def folder_cities(generated: str) -> dict:
     """Folder name under data/<model>/ -> CROWD city name, from fetch_generated_videos.py's table."""
-    table = pl.read_csv(generated, infer_schema_length=None)
+    table = pl.read_csv(generated, infer_schema_length=None).filter(pl.col("file").is_not_null())
     return {os.path.basename(os.path.dirname(f)): c for f, c in zip(table["file"], table["city"])}
 
 
