@@ -25,6 +25,7 @@ import polars as pl
 from PIL import Image, ImageDraw, ImageFont
 
 import common
+import places
 from generated_speeds import folder_cities
 
 MODEL = "minimax_h3"
@@ -126,6 +127,8 @@ def readme_table(cities: list, clips: pl.DataFrame, files: dict, tiles: dict, ar
             "model", "locality", "crossings", "median_crossing_speed_mps").iter_rows()}
     counts = {(m, c): n for m, c, n in clips.group_by("model", "city").len().iter_rows()}
 
+    label = places.city_labels(crowd=args.crowd)
+
     def mps(value):
         return f"{value:.2f}" if value is not None else ""
     lines = ["| City | Country | Veo 3.1 Fast clips | MiniMax H3 clips | MiniMax H3 crossings | CROWD speed (m/s) "
@@ -137,7 +140,7 @@ def readme_table(cities: list, clips: pl.DataFrame, files: dict, tiles: dict, ar
             image = os.path.relpath(tiles[city][0], common.root_dir)
             frame = f'<img src="{image}" width="240" alt="{city}">'
         lines.append(" | ".join([
-            f"| {city}", country.get(city, ""), str(counts.get(("veo3", city), "")),
+            f"| {label.get(city, city)}", country.get(city, ""), str(counts.get(("veo3", city), "")),
             str(counts.get(("minimax_h3", city), "")), str(speed.get(("minimax_h3", city), ("", None))[0]),
             mps(crowd_speed.get(city)), mps(speed.get(("veo3", city), (0, None))[1]),
             mps(speed.get(("minimax_h3", city), (0, None))[1]), frame]) + " |")
@@ -186,6 +189,7 @@ def main() -> None:
         if size not in fonts:  # loaded once per size: opening the font file for every label runs out of handles
             fonts[size] = ImageFont.truetype(path, size) if path else ImageFont.load_default(size=size)
         return fonts[size]
+    names = places.city_labels(flags=False, crowd=args.crowd)  # the grid's font has no emoji: state, no flag
     tiles = {}
     tile_dir = os.path.join(common.root_dir, "readme", "frames")
     for i, city in enumerate(cities):
@@ -211,10 +215,11 @@ def main() -> None:
                       anchor="mm")
         else:
             grid.paste(tile.crop((2, 2, TILE[0] - 2, TILE[1] - 2)), (x + 2, y + 2))
+        name = names.get(city, city)
         size = FONT_SIZE
-        while size > 12 and draw.textlength(city, font=font(size)) > TILE[0] - 8:
+        while size > 12 and draw.textlength(name, font=font(size)) > TILE[0] - 8:
             size -= 1
-        draw.text((x + TILE[0] / 2, y + TILE[1] + LABEL / 2), city, fill="black", font=font(size), anchor="mm")
+        draw.text((x + TILE[0] / 2, y + TILE[1] + LABEL / 2), name, fill="black", font=font(size), anchor="mm")
 
     target = os.path.join(common.get_output_dir(), "figures", "frames_cities.jpg")
     os.makedirs(os.path.dirname(target), exist_ok=True)

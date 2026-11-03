@@ -101,7 +101,7 @@ class Crossings:
         io.save_plotly_figure(self._layout(fig), name)
 
     def speed_sources_per_city(self, speeds: pl.DataFrame, videos: pl.DataFrame, sources: dict,
-                               name: str) -> go.Figure:
+                               name: str, labels: dict = None) -> go.Figure:
         """Tall bar chart of the median crossing speed per city, one bar per source (CROWD and each video model).
 
         Args:
@@ -109,21 +109,23 @@ class Crossings:
             videos: generated videos per model and city (columns source, city, videos), shown in the city labels.
             sources: source -> (legend name, colour), in the order of the bars.
             name: file name of the figure.
+            labels: city -> label to show (e.g. with flag and state; places.city_labels), the city name otherwise.
         """
+        labels = labels or {}
         crowd = speeds.filter(pl.col("source") == "crowd").sort("median", descending=False, nulls_last=False)
         cities = crowd["city"].to_list()
         others = pl.concat([speeds["city"], videos["city"]]).unique().sort().to_list()
         cities = [c for c in others if c not in cities] + cities
         counts = {(r["source"], r["city"]): r["videos"] for r in videos.iter_rows(named=True)}
         generated = [s for s in sources if s != "crowd"]
-        labels = [f"{c} ({'/'.join(str(counts.get((s, c), 0)) for s in generated)})" for c in cities]
+        names = [f"{labels.get(c, c)} ({'/'.join(str(counts.get((s, c), 0)) for s in generated)})" for c in cities]
         fig = go.Figure()
         # Horizontal groups stack their bars bottom-up: add the sources in reverse so CROWD is on top.
         for source, (legend, colour) in reversed(list(sources.items())):
             rows = {r["city"]: r for r in speeds.filter(pl.col("source") == source).iter_rows(named=True)}
             median = [rows.get(c, {}).get("median") for c in cities]
             fig.add_trace(go.Bar(
-                name=legend, y=labels, x=median, orientation="h", marker_color=colour,
+                name=legend, y=names, x=median, orientation="h", marker_color=colour,
                 error_x=dict(type="data", symmetric=False, thickness=1, width=0,
                              array=[(rows[c]["q75"] - rows[c]["median"]) if rows.get(c, {}).get("q75") is not None
                                     else None for c in cities],
@@ -146,7 +148,7 @@ class Crossings:
         return fig
 
     def speed_sources_page(self, speeds: pl.DataFrame, sources: dict, name: str, width: int = 780,
-                           height: int = 1010, columns: int = 2) -> go.Figure:
+                           height: int = 1010, columns: int = 2, labels: dict = None) -> go.Figure:
         """One-page dot plot of the median crossing speed per city: one dot (with 25th-75th percentile whisker) per
         source, cities sorted by the CROWD value and split over side-by-side panels so that 100 cities fit a page.
 
@@ -156,12 +158,16 @@ class Crossings:
             name: file name of the figure.
             width, height: size in pixels, chosen for the page's text area.
             columns: number of panels.
+            labels: city -> label to show (e.g. with flag and state; places.city_labels), the city name otherwise.
         """
+        labels = labels or {}
         crowd = speeds.filter(pl.col("source") == "crowd").sort("median", descending=True, nulls_last=True)
         cities = crowd["city"].to_list()
         cities += sorted(c for c in speeds["city"].unique().to_list() if c not in cities)
         per_column = -(-len(cities) // columns)
-        fig = make_subplots(rows=1, cols=columns, horizontal_spacing=0.2 / columns, shared_xaxes=True)
+        # The gap between panels holds the next panel's city labels: about 6 px per character at size 10.
+        longest = max((len(labels.get(c, c)) for c in cities), default=10)
+        fig = make_subplots(rows=1, cols=columns, horizontal_spacing=(6.2 * longest + 24) / width, shared_xaxes=True)
         offsets = {s: 0.27 * (i - (len(sources) - 1) / 2) for i, s in enumerate(sources)}
         values = speeds.drop_nulls("median")
         for column in range(columns):
@@ -181,7 +187,8 @@ class Crossings:
                     customdata=rows["city"],
                     hovertemplate=f"{legend}<br>%{{customdata}}: %{{x:.2f}} m/s<extra></extra>"),
                     row=1, col=column + 1)
-            fig.update_yaxes(tickvals=list(range(len(chunk))), ticktext=chunk, range=[len(chunk) - 0.5, -0.5],
+            fig.update_yaxes(tickvals=list(range(len(chunk))), ticktext=[labels.get(c, c) for c in chunk],
+                             range=[len(chunk) - 0.5, -0.5],
                              tickfont=dict(size=10), showgrid=False, row=1, col=column + 1)
             for i in range(0, len(chunk), 2):  # light bands on every other city, to follow a row across the panel
                 fig.add_hrect(y0=i - 0.5, y1=i + 0.5, fillcolor="#f2f1ed", line_width=0, layer="below",

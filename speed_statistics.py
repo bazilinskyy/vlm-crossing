@@ -61,7 +61,8 @@ def clip_table(videos: pl.DataFrame, crossings: pl.DataFrame) -> pl.DataFrame:
         pl.len().alias("crossings"), pl.col(SPEED).drop_nulls().alias("speeds"),
         pl.col(DECISION).drop_nulls().alias("decisions")), on=["set", "video"], how="left")
         .with_columns(pl.col("crossings").fill_null(0), pl.col("speeds", "decisions").fill_null([]))
-        .with_columns(pl.col("speeds").list.median().alias("median_speed")))
+        .with_columns(pl.col("speeds").list.median().alias("median_speed"))
+        .sort("set", "city", "video"))  # a fixed order, so the seeded bootstraps give the same intervals every run
 
 
 def usability_tests(clips: pl.DataFrame) -> list:
@@ -139,7 +140,7 @@ def speed_tests(clips: pl.DataFrame, crowd: pl.DataFrame) -> list:
         for reference, ref in references.items():
             if s == reference:
                 continue
-            pair = cities.filter(pl.col("set") == s).select("city", "median").join(ref, on="city")
+            pair = cities.filter(pl.col("set") == s).select("city", "median").join(ref, on="city").sort("city")
             if pair.height < 5:
                 continue
             x, y = pair["ref"].to_numpy(), pair["median"].to_numpy()
@@ -164,7 +165,8 @@ def speed_tests(clips: pl.DataFrame, crowd: pl.DataFrame) -> list:
     for s in SETS:
         mine = with_speed.filter(pl.col("set") == s)
         keep = mine.group_by("city").len().filter(pl.col("len") >= 3)["city"].implode()
-        groups = [g["median_speed"].to_numpy() for _, g in mine.filter(pl.col("city").is_in(keep)).group_by("city")]
+        groups = [g["median_speed"].to_numpy()
+                  for _, g in mine.filter(pl.col("city").is_in(keep)).group_by("city", maintain_order=True)]
         if len(groups) < 3:
             continue
         test = stats.kruskal(*groups)
@@ -207,7 +209,8 @@ def reliability(clips: pl.DataFrame, reps: int = 2000) -> pl.DataFrame:
     rows = []
     for s in SETS:
         cities = [[np.array(v) for v in g["speeds"].to_list()]
-                  for _, g in clips.filter((pl.col("set") == s) & (pl.col("speeds").list.len() > 0)).group_by("city")]
+                  for _, g in clips.filter((pl.col("set") == s) & (pl.col("speeds").list.len() > 0))
+                  .group_by("city", maintain_order=True)]
         cities = [c for c in cities if len(c) >= 4]
         if len(cities) < 5:
             continue

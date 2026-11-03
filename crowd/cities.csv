@@ -1,135 +1,135 @@
-locality,locality_aka,state,country,iso3,continent,lat,lon
-Aleppo,[],,Syria,SYR,Asia,36.19924,37.1637253
-Amman,[],,Jordan,JOR,Asia,31.9515694,35.9239625
-Amsterdam,[],,Netherlands,NLD,Europe,52.37276,4.893604
-Anchorage,[],AK,United States,USA,North America,61.2163129,-149.894852
-Atlanta,[Fulton],GA,United States,USA,North America,33.7489924,-84.3902644
-Atlanta,[],TX,United States,USA,North America,33.1162131,-94.1663493
-Auckland,[],,New Zealand,NZL,Oceania,-36.853153,174.6372284
-Baltimore,[],MD,United States,USA,North America,39.2908816,-76.610759
-Bangkok,[],,Thailand,THA,Asia,13.752494,100.493509
-Beijing,[],Beijing,China,CHN,Asia,39.8936695,116.3151027
-Berlin,[],,Germany,DEU,Europe,52.510885,13.3989367
-Berlin,[],NH,United States,USA,North America,44.4696602,-71.1810703
-Boston,[],,United Kingdom,GBR,Europe,52.9776561,-0.0237985
-Boston,[],MA,United States,USA,North America,42.3554334,-71.060511
-Brisbane,[],QLD,Australia,AUS,Oceania,-27.468968,153.023499
-Brisbane,[],CA,United States,USA,North America,37.687165,-122.402794
-Bucharest,"[București,Bucuresti]",,Romania,ROU,Europe,44.4361414,26.1027202
-Budapest,[],,Hungary,HUN,Europe,47.496792,19.039905
-Buenos Aires,[],CABA,Argentina,ARG,South America,-34.6083696,-58.4440583
-Busan,[],,South Korea,KOR,Asia,35.179413,129.0721003
-Calgary,[],AB,Canada,CAN,North America,51.0456064,-114.057541
-Cape Town,[],,South Africa,ZAF,Africa,-33.9288301,18.4172197
-Catania,[],,Italy,ITA,Europe,37.5023612,15.0873718
-Chicago,[],IL,United States,USA,North America,41.8755616,-87.6244212
-Cotabato,[Cotabato City],Maguindanao del Norte,Philippines,PHL,Asia,7.2237628,124.2467062
-Dallas,[],OR,United States,USA,North America,44.9189206,-123.315869
-Dallas,[],GA,United States,USA,North America,33.9237141,-84.8407732
-Dallas,[],TX,United States,USA,North America,32.7762719,-96.7968559
-Damascus,[],,Syria,SYR,Asia,33.5130695,36.3095814
-Darwin,[],NT,Australia,AUS,Oceania,-12.46044,130.8410469
-Delhi,[New Delhi],DL,India,IND,Asia,28.627393,77.171695
-Den Haag,"[s-Gravenhage,The Hague]",,Netherlands,NLD,Europe,52.0749456,4.2696802
-Denpasar,[],,Indonesia,IDN,Asia,-8.652497,115.219117
-Denver,[],CO,United States,USA,North America,39.715638,-104.996347
-Detroit,[],OR,United States,USA,North America,44.7349139,-122.1511929
-Detroit,[],MI,United States,USA,North America,42.3315509,-83.0466403
-Dubai,[],,United Arab Emirates,ARE,Asia,25.228547,55.28878
-Dublin,[],,Ireland,IRL,Europe,53.3493795,-6.2605593
-Dublin,[],CA,United States,USA,North America,37.7021521,-121.9357918
-Dublin,[],OH,United States,USA,North America,40.0996009,-83.1135563
-Dublin,[],GA,United States,USA,North America,32.5404447,-82.903754
-Dublin,[],TX,United States,USA,North America,32.086135,-98.3422331
-Eindhoven,[],,Netherlands,NLD,Europe,51.4392648,5.478633
-Gamagori,[],Aichi,Japan,JPN,Asia,34.833929,137.225163
-Guangzhou,"[Guang Zhou,Canton City,Canton]",Guangdong,China,CHN,Asia,23.1301964,113.2592945
-Hanoi,"[Hà Nội,Ha Noi]",,Vietnam,VNM,Asia,21.0283334,105.854041
-Helsinki,[],,Finland,FIN,Europe,60.169856,24.938379
-Ho Chi Minh City,"[Saigon,HCMC,Sài Gòn,HCM,Sai Gon]",,Vietnam,VNM,Asia,10.7763897,106.7011391
-Hong Kong,[Kowloon],,Hong Kong,HKG,Asia,22.306726,114.175941
-Houston,[],TX,United States,USA,North America,29.7589382,-95.3676974
-Istanbul,[İstanbul],,Türkiye,TUR,Asia,41.006381,28.9758715
-Jakarta,[Special Capital Region of Jakarta],,Indonesia,IDN,Asia,-6.175394,106.827183
-Karachi,[],SD,Pakistan,PAK,Asia,24.8546842,67.0207055
-Kermanshah,"[Kerman,Sadra]",,Iran,IRN,Asia,34.32274,47.074352
-Kuala Lumpur,"[KL,KLCC]",KUL,Malaysia,MYS,Asia,3.151696,101.694237
-Kyiv,[Kiev],Kyiv,Ukraine,UKR,Europe,50.4500336,30.5241361
-København,"[Copenhagen,Kobenhavn]",,Denmark,DNK,Europe,55.677584,12.551887
-Las Vegas,[LV],NV,United States,USA,North America,36.1672559,-115.148516
-London,[],ON,Canada,CAN,North America,42.9832406,-81.243372
-London,[],,United Kingdom,GBR,Europe,51.5074456,-0.1277653
-Los Angeles,[Los Ángeles],,Chile,CHL,South America,-37.4707455,-72.351686
-Los Angeles,"[LA,Burbank,Glendale,Paramount,Pico Rivera]",CA,United States,USA,North America,34.0536909,-118.242766
-Manila,[],Metro Manila,Philippines,PHL,Asia,14.590622,120.97997
-Maracaibo,[],ZU,Venezuela,VEN,South America,10.6429496,-71.6062354
-Melbourne,[],VIC,Australia,AUS,Oceania,-37.814218,144.963161
-Melbourne,[],FL,United States,USA,North America,28.0785034,-80.6077908
-Miami,[],FL,United States,USA,North America,25.7741728,-80.19362
-Milan,[Milano],,Italy,ITA,Europe,45.4641943,9.1896346
-Minsk,[],,Belarus,BLR,Europe,53.9024716,27.5618225
-Montreal,[],QC,Canada,CAN,North America,45.5031824,-73.5698065
-Moscow,[],Moscow,Russia,RUS,Europe,55.750446,37.617494
-Moscow,[],PA,United States,USA,North America,41.3367497,-75.5185191
-Moscow,[],ID,United States,USA,North America,46.7323875,-117.000165
-Mumbai,[Bombay],MH,India,IND,Asia,18.938771,72.835335
-München,"[Munchen,Munich]",,Germany,DEU,Europe,48.1371079,11.5753822
-New York,"[NYC,NY,New York City]",NY,United States,USA,North America,40.712134,-74.00631
-Ninh Binh,[Ninh Bình],,Vietnam,VNM,Asia,20.2421142,105.9746207
-Oldenburg,[],,Germany,DEU,Europe,53.1389753,8.2146017
-Oslo,[],,Norway,NOR,Europe,59.9133301,10.7389701
-Paris,[],,France,FRA,Europe,48.8588897,2.320041
-Paris,[],TX,United States,USA,North America,33.6617962,-95.555513
-Perth,[],WA,Australia,AUS,Oceania,-31.9558967,115.8605784
-Perth,[],,United Kingdom,GBR,Europe,56.3958757,-3.4303103
-Philadelphia,[],TN,United States,USA,North America,35.6795198,-84.4038148
-Philadelphia,"[Philly,Audubon]",PA,United States,USA,North America,39.9527237,-75.1635262
-Philadelphia,[],MS,United States,USA,North America,32.7703841,-89.1153488
-Phnom Penh,[],,Cambodia,KHM,Asia,11.5730391,104.857807
-Phoenix,[],AZ,United States,USA,North America,33.4484367,-112.074141
-Phoenix,[],OR,United States,USA,North America,42.2740364,-122.8153283
-Portland,[],ME,United States,USA,North America,43.6573605,-70.2586618
-Portland,[],OR,United States,USA,North America,45.5202471,-122.674194
-Prague,"[Praha,Praga,Prag]",,Czechia,CZE,Europe,50.085344,14.422313
-Rio de Janeiro,[Rio],RJ,Brazil,BRA,South America,-22.9110137,-43.2093727
-Sacramento,[Sacto],CA,United States,USA,North America,38.5810606,-121.493895
-Saint Petersburg,"[St Petersburg,St. Petersburg]",Saint Petersburg,Russia,RUS,Europe,59.938732,30.316229
-San Diego,[SD],CA,United States,USA,North America,32.7174202,-117.162772
-San Francisco,[],Quezon,Philippines,PHL,Asia,13.3469108,122.5200663
-San Francisco,[SF],CA,United States,USA,North America,37.7792588,-122.4193286
-San Jose,[],Nueva Ecija,Philippines,PHL,Asia,15.7917408,120.989145
-San Jose,[],Tarlac,Philippines,PHL,Asia,15.4775949,120.4639721
-San Jose,[SJ],CA,United States,USA,North America,37.3361663,-121.890591
-San José,[San Jose],,Costa Rica,CRI,North America,9.9325427,-84.0795782
-Sao Paulo,[São Paulo],SP,Brazil,BRA,South America,-23.5506507,-46.6333824
-Seattle,[],WA,United States,USA,North America,47.6038321,-122.330062
-Semarang,[],,Indonesia,IDN,Asia,-6.9903988,110.4229104
-Seoul,[],,South Korea,KOR,Asia,37.5545547,126.9707793
-Serrekunda,[],,Gambia,GMB,Africa,13.438762,-16.674807
-Singapore,[],,Singapore,SGP,Asia,1.2962018,103.7768977
-Sofia,[],,Bulgaria,BGR,Europe,42.6977028,23.3217359
-St. Petersburg,"[St Petersburg,Saint Petersburg]",FL,United States,USA,North America,27.7700475,-82.6359078
-Stockholm,[],,Sweden,SWE,Europe,59.325117,18.071093
-Sydney,[],NSW,Australia,AUS,Oceania,-33.8698439,151.2082848
-Sydney,[],NS,Canada,CAN,North America,46.1382112,-60.1941912
-Sylhet,[],,Bangladesh,BGD,Asia,24.89922,91.8685271
-Tallinn,[],,Estonia,EST,Europe,59.4372155,24.7453688
-Tehran,[],,Iran,IRN,Asia,35.692995,51.383059
-Tokyo,[Tōkyō],Tokyo,Japan,JPN,Asia,35.682839,139.759455
-Toronto,[],ON,Canada,CAN,North America,43.6534817,-79.3839347
-Toronto,[],OH,United States,USA,North America,40.4654148,-80.6009388
-Townsville,[],QLD,Australia,AUS,Oceania,-19.2569391,146.8239537
-Tyumen,[Tiumen],Tyumen oblast,Russia,RUS,Asia,57.153534,65.542274
-Ulaanbaatar,[UB],,Mongolia,MNG,Asia,47.9184676,106.9177016
-Vancouver,[],BC,Canada,CAN,North America,49.2608724,-123.113952
-Vancouver,[],WA,United States,USA,North America,45.6306954,-122.6744557
-Vienna,[Wien],,Austria,AUT,Europe,48.2083537,16.3725042
-Vienna,[],VA,United States,USA,North America,38.9013729,-77.2651762
-Warsaw,[Warszawa],,Poland,POL,Europe,52.2337172,21.0714322
-Warsaw,[],NY,United States,USA,North America,42.7401871,-78.1325548
-Washington,"[Washington DC,DC]",DC,United States,USA,North America,38.8950368,-77.0365427
-Washington,[],GA,United States,USA,North America,33.735689,-82.73941
-Washington,[],PA,United States,USA,North America,40.16838,-80.245513
-Winnipeg,[],MB,Canada,CAN,North America,49.8844,-97.14704
-Yangon,[],,Myanmar,MMR,Asia,16.795338,96.161982
-Yogyakarta,"[Jogjakarta,Jogja,Yogya]",,Indonesia,IDN,Asia,-7.806922,110.36247
+locality,locality_aka,state,country,iso3,continent,lat,lon,iso2
+Aleppo,[],,Syria,SYR,Asia,36.19924,37.1637253,SY
+Amman,[],,Jordan,JOR,Asia,31.9515694,35.9239625,JO
+Amsterdam,[],,Netherlands,NLD,Europe,52.37276,4.893604,NL
+Anchorage,[],AK,United States,USA,North America,61.2163129,-149.894852,US
+Atlanta,[Fulton],GA,United States,USA,North America,33.7489924,-84.3902644,US
+Atlanta,[],TX,United States,USA,North America,33.1162131,-94.1663493,US
+Auckland,[],,New Zealand,NZL,Oceania,-36.853153,174.6372284,NZ
+Baltimore,[],MD,United States,USA,North America,39.2908816,-76.610759,US
+Bangkok,[],,Thailand,THA,Asia,13.752494,100.493509,TH
+Beijing,[],Beijing,China,CHN,Asia,39.8936695,116.3151027,CN
+Berlin,[],,Germany,DEU,Europe,52.510885,13.3989367,DE
+Berlin,[],NH,United States,USA,North America,44.4696602,-71.1810703,US
+Boston,[],,United Kingdom,GBR,Europe,52.9776561,-0.0237985,GB
+Boston,[],MA,United States,USA,North America,42.3554334,-71.060511,US
+Brisbane,[],QLD,Australia,AUS,Oceania,-27.468968,153.023499,AU
+Brisbane,[],CA,United States,USA,North America,37.687165,-122.402794,US
+Bucharest,"[București,Bucuresti]",,Romania,ROU,Europe,44.4361414,26.1027202,RO
+Budapest,[],,Hungary,HUN,Europe,47.496792,19.039905,HU
+Buenos Aires,[],CABA,Argentina,ARG,South America,-34.6083696,-58.4440583,AR
+Busan,[],,South Korea,KOR,Asia,35.179413,129.0721003,KR
+Calgary,[],AB,Canada,CAN,North America,51.0456064,-114.057541,CA
+Cape Town,[],,South Africa,ZAF,Africa,-33.9288301,18.4172197,ZA
+Catania,[],,Italy,ITA,Europe,37.5023612,15.0873718,IT
+Chicago,[],IL,United States,USA,North America,41.8755616,-87.6244212,US
+Cotabato,[Cotabato City],Maguindanao del Norte,Philippines,PHL,Asia,7.2237628,124.2467062,PH
+Dallas,[],OR,United States,USA,North America,44.9189206,-123.315869,US
+Dallas,[],GA,United States,USA,North America,33.9237141,-84.8407732,US
+Dallas,[],TX,United States,USA,North America,32.7762719,-96.7968559,US
+Damascus,[],,Syria,SYR,Asia,33.5130695,36.3095814,SY
+Darwin,[],NT,Australia,AUS,Oceania,-12.46044,130.8410469,AU
+Delhi,[New Delhi],DL,India,IND,Asia,28.627393,77.171695,IN
+Den Haag,"[s-Gravenhage,The Hague]",,Netherlands,NLD,Europe,52.0749456,4.2696802,NL
+Denpasar,[],,Indonesia,IDN,Asia,-8.652497,115.219117,ID
+Denver,[],CO,United States,USA,North America,39.715638,-104.996347,US
+Detroit,[],OR,United States,USA,North America,44.7349139,-122.1511929,US
+Detroit,[],MI,United States,USA,North America,42.3315509,-83.0466403,US
+Dubai,[],,United Arab Emirates,ARE,Asia,25.228547,55.28878,AE
+Dublin,[],,Ireland,IRL,Europe,53.3493795,-6.2605593,IE
+Dublin,[],CA,United States,USA,North America,37.7021521,-121.9357918,US
+Dublin,[],OH,United States,USA,North America,40.0996009,-83.1135563,US
+Dublin,[],GA,United States,USA,North America,32.5404447,-82.903754,US
+Dublin,[],TX,United States,USA,North America,32.086135,-98.3422331,US
+Eindhoven,[],,Netherlands,NLD,Europe,51.4392648,5.478633,NL
+Gamagori,[],Aichi,Japan,JPN,Asia,34.833929,137.225163,JP
+Guangzhou,"[Guang Zhou,Canton City,Canton]",Guangdong,China,CHN,Asia,23.1301964,113.2592945,CN
+Hanoi,"[Hà Nội,Ha Noi]",,Vietnam,VNM,Asia,21.0283334,105.854041,VN
+Helsinki,[],,Finland,FIN,Europe,60.169856,24.938379,FI
+Ho Chi Minh City,"[Saigon,HCMC,Sài Gòn,HCM,Sai Gon]",,Vietnam,VNM,Asia,10.7763897,106.7011391,VN
+Hong Kong,[Kowloon],,Hong Kong,HKG,Asia,22.306726,114.175941,HK
+Houston,[],TX,United States,USA,North America,29.7589382,-95.3676974,US
+Istanbul,[İstanbul],,Türkiye,TUR,Asia,41.006381,28.9758715,TR
+Jakarta,[Special Capital Region of Jakarta],,Indonesia,IDN,Asia,-6.175394,106.827183,ID
+Karachi,[],SD,Pakistan,PAK,Asia,24.8546842,67.0207055,PK
+Kermanshah,"[Kerman,Sadra]",,Iran,IRN,Asia,34.32274,47.074352,IR
+Kuala Lumpur,"[KL,KLCC]",KUL,Malaysia,MYS,Asia,3.151696,101.694237,MY
+Kyiv,[Kiev],Kyiv,Ukraine,UKR,Europe,50.4500336,30.5241361,UA
+København,"[Copenhagen,Kobenhavn]",,Denmark,DNK,Europe,55.677584,12.551887,DK
+Las Vegas,[LV],NV,United States,USA,North America,36.1672559,-115.148516,US
+London,[],ON,Canada,CAN,North America,42.9832406,-81.243372,CA
+London,[],,United Kingdom,GBR,Europe,51.5074456,-0.1277653,GB
+Los Angeles,[Los Ángeles],,Chile,CHL,South America,-37.4707455,-72.351686,CL
+Los Angeles,"[LA,Burbank,Glendale,Paramount,Pico Rivera]",CA,United States,USA,North America,34.0536909,-118.242766,US
+Manila,[],Metro Manila,Philippines,PHL,Asia,14.590622,120.97997,PH
+Maracaibo,[],ZU,Venezuela,VEN,South America,10.6429496,-71.6062354,VE
+Melbourne,[],VIC,Australia,AUS,Oceania,-37.814218,144.963161,AU
+Melbourne,[],FL,United States,USA,North America,28.0785034,-80.6077908,US
+Miami,[],FL,United States,USA,North America,25.7741728,-80.19362,US
+Milan,[Milano],,Italy,ITA,Europe,45.4641943,9.1896346,IT
+Minsk,[],,Belarus,BLR,Europe,53.9024716,27.5618225,BY
+Montreal,[],QC,Canada,CAN,North America,45.5031824,-73.5698065,CA
+Moscow,[],Moscow,Russia,RUS,Europe,55.750446,37.617494,RU
+Moscow,[],PA,United States,USA,North America,41.3367497,-75.5185191,US
+Moscow,[],ID,United States,USA,North America,46.7323875,-117.000165,US
+Mumbai,[Bombay],MH,India,IND,Asia,18.938771,72.835335,IN
+München,"[Munchen,Munich]",,Germany,DEU,Europe,48.1371079,11.5753822,DE
+New York,"[NYC,NY,New York City]",NY,United States,USA,North America,40.712134,-74.00631,US
+Ninh Binh,[Ninh Bình],,Vietnam,VNM,Asia,20.2421142,105.9746207,VN
+Oldenburg,[],,Germany,DEU,Europe,53.1389753,8.2146017,DE
+Oslo,[],,Norway,NOR,Europe,59.9133301,10.7389701,NO
+Paris,[],,France,FRA,Europe,48.8588897,2.320041,FR
+Paris,[],TX,United States,USA,North America,33.6617962,-95.555513,US
+Perth,[],WA,Australia,AUS,Oceania,-31.9558967,115.8605784,AU
+Perth,[],,United Kingdom,GBR,Europe,56.3958757,-3.4303103,GB
+Philadelphia,[],TN,United States,USA,North America,35.6795198,-84.4038148,US
+Philadelphia,"[Philly,Audubon]",PA,United States,USA,North America,39.9527237,-75.1635262,US
+Philadelphia,[],MS,United States,USA,North America,32.7703841,-89.1153488,US
+Phnom Penh,[],,Cambodia,KHM,Asia,11.5730391,104.857807,KH
+Phoenix,[],AZ,United States,USA,North America,33.4484367,-112.074141,US
+Phoenix,[],OR,United States,USA,North America,42.2740364,-122.8153283,US
+Portland,[],ME,United States,USA,North America,43.6573605,-70.2586618,US
+Portland,[],OR,United States,USA,North America,45.5202471,-122.674194,US
+Prague,"[Praha,Praga,Prag]",,Czechia,CZE,Europe,50.085344,14.422313,CZ
+Rio de Janeiro,[Rio],RJ,Brazil,BRA,South America,-22.9110137,-43.2093727,BR
+Sacramento,[Sacto],CA,United States,USA,North America,38.5810606,-121.493895,US
+Saint Petersburg,"[St Petersburg,St. Petersburg]",Saint Petersburg,Russia,RUS,Europe,59.938732,30.316229,RU
+San Diego,[SD],CA,United States,USA,North America,32.7174202,-117.162772,US
+San Francisco,[],Quezon,Philippines,PHL,Asia,13.3469108,122.5200663,PH
+San Francisco,[SF],CA,United States,USA,North America,37.7792588,-122.4193286,US
+San Jose,[],Nueva Ecija,Philippines,PHL,Asia,15.7917408,120.989145,PH
+San Jose,[],Tarlac,Philippines,PHL,Asia,15.4775949,120.4639721,PH
+San Jose,[SJ],CA,United States,USA,North America,37.3361663,-121.890591,US
+San José,[San Jose],,Costa Rica,CRI,North America,9.9325427,-84.0795782,CR
+Sao Paulo,[São Paulo],SP,Brazil,BRA,South America,-23.5506507,-46.6333824,BR
+Seattle,[],WA,United States,USA,North America,47.6038321,-122.330062,US
+Semarang,[],,Indonesia,IDN,Asia,-6.9903988,110.4229104,ID
+Seoul,[],,South Korea,KOR,Asia,37.5545547,126.9707793,KR
+Serrekunda,[],,Gambia,GMB,Africa,13.438762,-16.674807,GM
+Singapore,[],,Singapore,SGP,Asia,1.2962018,103.7768977,SG
+Sofia,[],,Bulgaria,BGR,Europe,42.6977028,23.3217359,BG
+St. Petersburg,"[St Petersburg,Saint Petersburg]",FL,United States,USA,North America,27.7700475,-82.6359078,US
+Stockholm,[],,Sweden,SWE,Europe,59.325117,18.071093,SE
+Sydney,[],NSW,Australia,AUS,Oceania,-33.8698439,151.2082848,AU
+Sydney,[],NS,Canada,CAN,North America,46.1382112,-60.1941912,CA
+Sylhet,[],,Bangladesh,BGD,Asia,24.89922,91.8685271,BD
+Tallinn,[],,Estonia,EST,Europe,59.4372155,24.7453688,EE
+Tehran,[],,Iran,IRN,Asia,35.692995,51.383059,IR
+Tokyo,[Tōkyō],Tokyo,Japan,JPN,Asia,35.682839,139.759455,JP
+Toronto,[],ON,Canada,CAN,North America,43.6534817,-79.3839347,CA
+Toronto,[],OH,United States,USA,North America,40.4654148,-80.6009388,US
+Townsville,[],QLD,Australia,AUS,Oceania,-19.2569391,146.8239537,AU
+Tyumen,[Tiumen],Tyumen oblast,Russia,RUS,Asia,57.153534,65.542274,RU
+Ulaanbaatar,[UB],,Mongolia,MNG,Asia,47.9184676,106.9177016,MN
+Vancouver,[],BC,Canada,CAN,North America,49.2608724,-123.113952,CA
+Vancouver,[],WA,United States,USA,North America,45.6306954,-122.6744557,US
+Vienna,[Wien],,Austria,AUT,Europe,48.2083537,16.3725042,AT
+Vienna,[],VA,United States,USA,North America,38.9013729,-77.2651762,US
+Warsaw,[Warszawa],,Poland,POL,Europe,52.2337172,21.0714322,PL
+Warsaw,[],NY,United States,USA,North America,42.7401871,-78.1325548,US
+Washington,"[Washington DC,DC]",DC,United States,USA,North America,38.8950368,-77.0365427,US
+Washington,[],GA,United States,USA,North America,33.735689,-82.73941,US
+Washington,[],PA,United States,USA,North America,40.16838,-80.245513,US
+Winnipeg,[],MB,Canada,CAN,North America,49.8844,-97.14704,CA
+Yangon,[],,Myanmar,MMR,Asia,16.795338,96.161982,MM
+Yogyakarta,"[Jogjakarta,Jogja,Yogya]",,Indonesia,IDN,Asia,-7.806922,110.36247,ID

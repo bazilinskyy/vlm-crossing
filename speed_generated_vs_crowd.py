@@ -18,6 +18,7 @@ import os
 import polars as pl
 
 import common
+import places
 import readme_figures
 from utils.plotting.crossings import Crossings
 
@@ -58,9 +59,11 @@ def main() -> None:
     missing = videos.join(speeds[0], on="city", how="anti")["city"].unique().sort().to_list()
     if missing:
         common.logger.warning(f"Generated videos of cities without CROWD speed: {', '.join(missing)}")
-    fig = Crossings().speed_sources_per_city(pl.concat(speeds), videos, SOURCES, "speed_generated_vs_crowd")
+    labels = places.city_labels()
+    fig = Crossings().speed_sources_per_city(pl.concat(speeds), videos, SOURCES, "speed_generated_vs_crowd", labels)
     if args.pdf:  # the paper's version: a dot plot of the 100 cities in two panels, sized to fill one page
-        page = Crossings().speed_sources_page(pl.concat(speeds), SOURCES, "speed_generated_vs_crowd_page")
+        page = Crossings().speed_sources_page(pl.concat(speeds), SOURCES, "speed_generated_vs_crowd_page",
+                                              labels=labels)
         page.write_image(args.pdf, width=page.layout.width, height=page.layout.height)
     if args.readme:
         readme_figures.save(fig, "speed_generated_vs_crowd", width=1000, height=fig.layout.height)
