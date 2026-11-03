@@ -78,6 +78,8 @@ Drive refuses anonymous downloads after a few hundred files. Then download the f
 
 `speed_generated_vs_crowd.py` draws the median crossing speed per city with one bar each for CROWD (crowd-city's `crowd_crossing_speed_by_city.csv`, `--crowd`), Veo 3 and MiniMax H3 (the same table per model with a `model` column, `--generated`; cities without a value get no bar), and `--pdf` writes a copy for the paper.
 
+To measure crossing speed in m/s as crowd-city does for CROWD, set `speed_model` to crowd-city's frozen Waymo calibration (`waymo_processed/calibration_v32/crowd_waymo_pipeline_model.json`, with its `speed_validation/` folder next to it) and track each set into its own output folder (`"data": "data/veo3", "output": "_output/veo3"`, and so on). `paired_real_clips.py --videos '<CROWD video folders>'` cuts the real 8 seconds that follow each MiniMax H3 reference frame from the CROWD video it came from into `data/real_minimax/<city>/`, under the generated clip's file name, so that set can be tracked the same way. `generated_speeds.py` then reads the three `_output/<set>/` folders and writes the per-city speeds (`_output/generated_speed_by_city.csv`, the `--generated` input above), the share of clips with a counted crossing, the rank correlations of the city medians with CROWD and with the real continuations, a per-clip table of the MiniMax/real pairs, and two scatter plots.
+
 `appearance_analysis.py --mapping <crowd>/mapping.csv` measures with CLIP how well each generated video keeps the look of its city (see [Generated videos and CROWD](#generated-videos-and-crowd)) and draws the map of the cities. It needs `open_clip_torch` besides this project's packages; embeddings are cached in `_output/appearance/`, so a rerun only embeds new videos. Both scripts take `--readme` to refresh their figures in `readme/`.
 
 ## Method
@@ -231,6 +233,7 @@ These need the generated videos tracked with YOLO on a GPU machine, and crowd-ci
 | `seg_data` | Folder of crowd-city's surface-label store |
 | `processing_fps`, `ftp_base_url` | crowd-city settings for its YouTube footage; `null` and empty here |
 | `min/max_speed_limit`, `min/max_waiting_time` | Values outside these ranges are dropped (crowd-city's 0.3–3.5 for speed) |
+| `speed_model` | crowd-city's `crowd_waymo_pipeline_model.json`: speeds in m/s (only tracks that pass its reliability gates get one); empty: the relative index |
 | `cpu_worker` | Processes used for crossing detection |
 | `save_images` | Also export PNG/EPS figures (needs kaleido) |
 | `open_figures` | Open every HTML figure in the default browser when it is written |

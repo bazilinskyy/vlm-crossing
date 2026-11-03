@@ -27,6 +27,8 @@ README_FIGURES = (
     "map_cities",
     "line_city_recognition",
     "line_appearance_drift",
+    "scatter_speed_city_vs_crowd",
+    "scatter_speed_paired",
 )
 README_DIR = os.path.join(common.root_dir, "readme")
 HTML_TEMPLATE = """<!DOCTYPE html>
