@@ -108,7 +108,11 @@ videos/
 └── not_analysed/                 left-out clips, Veo prompt tests, LTX benchmark ┘ fetch_generated_videos.py
 crowd/
 ├── crowd_crossing_speed_by_city.csv   CROWD's per-city values from crowd-city (refreshed nightly, see below)
-└── cities.csv                    the 100 cities of CROWD's mapping.csv, with country and coordinates
+├── cities.csv                    the 100 cities of CROWD's mapping.csv, with country and coordinates
+└── city_footage.csv              YouTube videos and hours CROWD found per city, population, economic output
+                                  (city_footage.py, from CROWD's mapping.csv)
+assets/flags/                     Twemoji flag images (CC-BY 4.0, github.com/jdecked/twemoji) for the city labels of
+                                  the figures; places.py fetches a missing one
 models/waymo_calibration_v32/     crowd-city's frozen Waymo speed model (the default speed_model: speeds in m/s)
 results/<set>/                    crossings.csv and videos.csv of each tracked set; real_minimax/clips.csv lists the
                                   real continuations with their CROWD video and times
@@ -136,9 +140,9 @@ uv run python city_frames.py --readme               # one frame per city and the
 uv run python appearance_analysis.py --readme       # CLIP: does a clip keep the look of its city? and the map
 ```
 
-`generated_speeds.py` writes the per-city speeds (`_output/generated_speed_by_city.csv`, the `--generated` input of `speed_generated_vs_crowd.py`), the share of clips with a counted crossing, the rank correlations of the city medians with CROWD and with the real continuations, a per-clip table of the MiniMax/real pairs, and two scatter plots. `speed_statistics.py` runs the paper's tests (bootstrap intervals, McNemar, Wilcoxon, Kruskal-Wallis, split-half reliability of the city medians; `--scaled results/real_minimax_480` adds the real continuations scaled to 864×480, a check that the speed difference is not a matter of resolution). `city_frames.py` crops each city's frame around the crossing pedestrian when main.py's tracks are in `_output/minimax_h3/bbox/`, and takes the middle frame of a clip otherwise. `appearance_analysis.py` needs `open_clip_torch` besides this project's packages; its embeddings are cached in `_output/appearance/`. Each script takes `--pdf-dir` (or `--pdf`) to write the paper's figures.
+`generated_speeds.py` writes the per-city speeds (`_output/generated_speed_by_city.csv`, the `--generated` input of `speed_generated_vs_crowd.py`), the share of clips with a counted crossing, the rank correlations of the city medians with CROWD and with the real continuations, a per-clip table of the MiniMax/real pairs, and two scatter plots. `speed_statistics.py` runs the paper's tests (bootstrap intervals, McNemar, Wilcoxon, Kruskal-Wallis, split-half reliability of the city medians; whether cities with more YouTube footage, people or economic output, or in English-speaking countries, were generated closer to CROWD's speed, a proxy for their share of the training data; `--scaled results/real_minimax_480` adds the real continuations scaled to 864×480, a check that the speed difference is not a matter of resolution). `city_frames.py` crops each city's frame around the crossing pedestrian when main.py's tracks are in `_output/minimax_h3/bbox/`, and takes the middle frame of a clip otherwise. `appearance_analysis.py` needs `open_clip_torch` besides this project's packages; its embeddings are cached in `_output/appearance/`. Each script takes `--pdf-dir` (or `--pdf`) to write the paper's figures.
 
-**Nightly** (mini, 05:30): `nightly.sh` copies crowd-city's current `crowd_crossing_speed_by_city.csv` (the newest on lin5080: each finished step of Shadab's crowd-city run leaves one in `~/crowd_city_runs/<step>/_output/crossing_speed/`) to `crowd/` when it changed, reruns the comparison and pushes `crowd/`, `results/`, `readme/` and README.md. The README's prose numbers are not rewritten; the figures and the table of cities are.
+**Nightly** (mini, 05:30): `nightly.sh` copies crowd-city's current `crowd_crossing_speed_by_city.csv` (the newest on lin5080: each finished step of Shadab's crowd-city run leaves one in `~/crowd_city_runs/<step>/_output/crossing_speed/`) to `crowd/` when it changed, reruns the comparison and pushes `crowd/`, `results/`, `readme/`, `assets/` and README.md. The README's prose numbers are not rewritten; the figures and the table of cities are.
 
 ## Method
 

@@ -33,6 +33,6 @@ run speed_statistics.py --readme "${scaled[@]}"
 run speed_generated_vs_crowd.py --readme
 run city_frames.py --readme
 run appearance_analysis.py --readme
-git add crowd results readme README.md
+git add crowd results readme README.md assets
 if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
 git commit -q -m "Nightly: comparison with CROWD's per-city values of $(date +%F)" && git push -q && echo "pushed"

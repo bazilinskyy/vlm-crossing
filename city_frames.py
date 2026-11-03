@@ -37,6 +37,7 @@ SECOND = 4.0  # middle of the 8-second clip, for clips without a counted crossin
 ZOOM = 4.5  # crop height in pedestrian heights...
 MIN_CROP = 0.45  # ...but at least this share of the frame height
 OUTLINE = "#ffd400"
+FLAG_SCALE = 1.1  # side of the square flag image in font sizes
 README = os.path.join(common.root_dir, "README.md")
 MARKERS = ("<!-- city table -->", "<!-- /city table -->")
 # TrueType fonts with the letters of all city names (PIL's built-in font lacks e.g. ø and ü); the first found is used.
@@ -181,15 +182,16 @@ def main() -> None:
     rows = -(-len(cities) // COLUMNS)
     grid = Image.new("RGB", (COLUMNS * TILE[0], rows * (TILE[1] + LABEL)), "white")
     draw = ImageDraw.Draw(grid)
-    path = next((f for f in FONTS if os.path.isfile(f)), None)
+    font_path = next((f for f in FONTS if os.path.isfile(f)), None)
 
     fonts = {}
 
     def font(size: int):
         if size not in fonts:  # loaded once per size: opening the font file for every label runs out of handles
-            fonts[size] = ImageFont.truetype(path, size) if path else ImageFont.load_default(size=size)
+            fonts[size] = ImageFont.truetype(font_path, size) if font_path else ImageFont.load_default(size=size)
         return fonts[size]
-    names = places.city_labels(flags=False, crowd=args.crowd)  # the grid's font has no emoji: state, no flag
+    names = places.city_labels(flags=False, crowd=args.crowd)  # the font has no emoji: flags are pasted as images
+    iso2 = places.city_iso2(crowd=args.crowd)
     tiles = {}
     tile_dir = os.path.join(common.root_dir, "readme", "frames")
     for i, city in enumerate(cities):
@@ -216,10 +218,21 @@ def main() -> None:
         else:
             grid.paste(tile.crop((2, 2, TILE[0] - 2, TILE[1] - 2)), (x + 2, y + 2))
         name = names.get(city, city)
+        flag_path = places.flag_image(iso2.get(city, ""))
+        flag = Image.open(flag_path).convert("RGBA") if flag_path else None
         size = FONT_SIZE
-        while size > 12 and draw.textlength(name, font=font(size)) > TILE[0] - 8:
+        while True:  # the flag, a gap and the name, together no wider than the tile
+            flag_side = round(size * FLAG_SCALE) if flag else 0
+            gap = round(size * 0.3) if flag else 0
+            width = flag_side + gap + draw.textlength(name, font=font(size))
+            if size <= 12 or width <= TILE[0] - 8:
+                break
             size -= 1
-        draw.text((x + TILE[0] / 2, y + TILE[1] + LABEL / 2), name, fill="black", font=font(size), anchor="mm")
+        left, middle = x + (TILE[0] - width) / 2, y + TILE[1] + LABEL / 2
+        if flag:
+            flag = flag.resize((flag_side, flag_side), Image.LANCZOS)
+            grid.paste(flag, (round(left), round(middle - flag_side / 2)), flag)
+        draw.text((left + flag_side + gap, middle), name, fill="black", font=font(size), anchor="lm")
 
     target = os.path.join(common.get_output_dir(), "figures", "frames_cities.jpg")
     os.makedirs(os.path.dirname(target), exist_ok=True)

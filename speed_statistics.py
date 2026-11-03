@@ -6,6 +6,9 @@ reference frames) and CROWD's per-city table, and writes to <output>:
 - generated_statistics.csv  one row per test: what was compared, the estimate with its 95% interval, the test
                             statistic and p-value (with --scaled also the real continuations scaled to MiniMax H3's
                             864x480 against the original ones and against MiniMax H3)
+                            and, with crowd/city_footage.csv (city_footage.py), whether cities with more YouTube
+                            footage, people, economic output or an English-speaking country were generated closer to
+                            CROWD's speed, also against guessing one speed for every city
 - generated_reliability.csv per set: split-half reliability of the city medians, and the clips per city that a
                             reliability of 0.8 would need
 
@@ -35,6 +38,7 @@ from utils.plotting.crossings import Crossings, io
 REPS = 5000
 SEED = 2026
 TARGET_RELIABILITY = 0.8
+ENGLISH = ("United States", "Canada", "United Kingdom", "Australia", "New Zealand", "Ireland")
 INITIATION = "hesitation_s"  # crossing initiation time, only for pedestrians seen standing before they cross
 
 
@@ -177,6 +181,46 @@ def speed_tests(clips: pl.DataFrame, crowd: pl.DataFrame) -> list:
     return rows
 
 
+def footage_tests(clips: pl.DataFrame, crowd: pl.DataFrame, footage: pl.DataFrame) -> list:
+    """Are cities better represented online (a proxy for training data) generated closer to CROWD's speed?"""
+    rows = []
+    ref = (crowd.filter(pl.col("n") >= MIN_TRACKS).join(footage, on=["locality", "country"], how="left")
+           .rename({"locality": "city", "median": "crowd"}))
+    cities = (clips.filter(pl.col("speeds").list.len() > 0).group_by("set", "city").agg(pl.col("speeds").explode())
+              .filter(pl.col("speeds").list.len() >= MIN_TRACKS)
+              .with_columns(pl.col("speeds").list.median().alias("median")))
+    for s in ("minimax_h3", "veo3"):
+        mine = cities.filter(pl.col("set") == s).join(ref, on="city").sort("city")
+        if mine.height < 5:
+            continue
+        error = (mine["median"] - mine["crowd"]).abs().to_numpy()
+        # the same error if the model had generated one speed, its median over cities, for every city
+        guess = (mine["crowd"] - mine["median"].median()).abs().to_numpy()
+        for proxy in ("footage_h", "videos", "population", "gmp_billion_usd"):
+            x = mine[proxy].cast(pl.Float64).to_numpy()
+            ok = ~np.isnan(x)
+            rho = stats.spearmanr(x[ok], error[ok])
+            rows.append(row(f"city |median - CROWD| against {proxy} (Spearman)", s, "crowd", int(ok.sum()),
+                            rho.statistic, statistic="rho", value=rho.statistic, p=rho.pvalue))
+            if proxy == "footage_h":
+                rho = stats.spearmanr(x[ok], (error - guess)[ok])
+                rows.append(row("city |median - CROWD| minus that of one speed for all cities, against footage_h "
+                                "(Spearman)", s, "crowd", int(ok.sum()), rho.statistic, statistic="rho",
+                                value=rho.statistic, p=rho.pvalue))
+        english = mine["country"].is_in(ENGLISH).to_numpy()
+        if english.sum() >= 3 and (~english).sum() >= 3:
+            test = stats.mannwhitneyu(error[english], error[~english])
+            rows.append(row(f"city |median - CROWD|: English-speaking ({english.sum()}) minus other cities "
+                            "(Mann-Whitney)", s, "crowd", len(error),
+                            float(np.median(error[english]) - np.median(error[~english])), statistic="U",
+                            value=test.statistic, p=test.pvalue))
+        test = stats.wilcoxon(error - guess)
+        rows.append(row(f"city |median - CROWD| (median {np.median(error):.3f}) minus that of one speed for all "
+                        f"cities (median {np.median(guess):.3f}) (Wilcoxon signed-rank)", s, "crowd", len(error),
+                        float(np.median(error - guess)), statistic="W", value=test.statistic, p=test.pvalue))
+    return rows
+
+
 def initiation_tests(clips: pl.DataFrame) -> list:
     """Crossing initiation time: how often it can be measured, and its median, per set and per MiniMax/real pair."""
     rows = []
@@ -282,6 +326,8 @@ def main() -> None:
                         help="SET=OUTPUT_FOLDER of analysis.py, SET one of " + ", ".join(SETS))
     parser.add_argument("--crowd", default=os.path.join(common.root_dir, "crowd", "crowd_crossing_speed_by_city.csv"))
     parser.add_argument("--generated", default=os.path.join(common.root_dir, "videos", "generated_videos.csv"))
+    parser.add_argument("--footage", default=os.path.join(common.root_dir, "crowd", "city_footage.csv"),
+                        help="CROWD's footage per city (city_footage.py)")
     parser.add_argument("--scaled", help="output folder of the real continuations scaled to 864x480 (robustness check: "
                                          "is the speed difference a matter of resolution?)")
     parser.add_argument("--pdf-dir", help="also write the figures as PDF to this folder (e.g. the paper's figures)")
@@ -292,11 +338,13 @@ def main() -> None:
     runs = [read_run(*run.split("=", 1), cities) for run in args.runs]
     clips = clip_table(pl.concat([v for v, _ in runs]), pl.concat([c for _, c in runs], how="diagonal_relaxed"))
     crowd = (pl.read_csv(args.crowd, infer_schema_length=None)
-             .select("locality", pl.col("median_crossing_speed_mps").cast(pl.Float64).alias("median"),
+             .select("locality", "country", pl.col("median_crossing_speed_mps").cast(pl.Float64).alias("median"),
                      pl.col("reliable_metric_speed_tracks").cast(pl.Int64).alias("n")))
 
     output = common.get_output_dir()
     rows = usability_tests(clips) + speed_tests(clips, crowd) + initiation_tests(clips)
+    if os.path.isfile(args.footage):
+        rows += footage_tests(clips, crowd, pl.read_csv(args.footage))
     if args.scaled:
         scaled = read_run("real_minimax_480", args.scaled, cities)
         both = pl.concat([clip_table(*scaled), clips], how="diagonal_relaxed").filter(pl.col("speeds").list.len() > 0)
