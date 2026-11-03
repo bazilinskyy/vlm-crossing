@@ -15,9 +15,12 @@ crowd_city/__init__.py) in the same order as crowd-city's analysis.py:
 3. With use_segmentation: crossing_pass.run_segmentation_pass measures the
    road-restricted speed and the hesitation time ending at road entry.
 
-No Waymo speed model is used, so crowd-city reports speed as its relative
-motion index: a pedestrian's speed divided by the median of the comparable
-pedestrians in the same video (1.0 = typical; at least three are needed).
+Without a speed model crowd-city reports speed as its relative motion index:
+a pedestrian's speed divided by the median of the comparable pedestrians in
+the same video (1.0 = typical; at least three are needed). With speed_model
+set to crowd-city's frozen Waymo calibration (crowd_waymo_pipeline_model.json,
+with speed_validation/production_model.json next to it) the speed columns are
+in m/s instead, as in crowd-city's own run over CROWD; speed_unit says which.
 Hesitation times are in seconds. segmentation_is_primary picks which of the
 two derivations is reported in speed_index / hesitation_s; both are always
 kept. Outputs:
@@ -87,6 +90,7 @@ CROSSINGS_SCHEMA = {
     "hesitation_seg_s": pl.Float64,
     "speed_index": pl.Float64,
     "hesitation_s": pl.Float64,
+    "speed_unit": pl.Utf8,
 }
 
 
@@ -288,9 +292,36 @@ def cache_path(video: Dict[str, Any]) -> str:
     return os.path.join(common.get_output_dir(), "analysis", video["city"], name + ".json")
 
 
+def speed_model_path() -> str:
+    """Absolute path of the configured Waymo pipeline model, or "" for the relative index."""
+    path = str(common.get_configs("speed_model") or "").strip()
+    return os.path.abspath(os.path.expanduser(path)) if path else ""
+
+
+def load_speed_model() -> str:
+    """Load the configured speed model into crowd-city; return the speed unit ("m/s" or "relative")."""
+    path = speed_model_path()
+    if path:
+        if not os.path.isfile(path):
+            raise SystemExit(f"speed_model {path} not found.")
+        crossing_metrics.load_tuned_pipeline_model(path)
+        if not crossing_metrics.metric_speed_is_qualified():
+            raise SystemExit(f"{path} has no qualified speed model next to it (speed_validation/production_model.json).")
+    return "m/s" if crossing_metrics.metric_speed_is_qualified() else "relative"
+
+
+def speed_model_fingerprint() -> str:
+    path = speed_model_path()
+    if not path:
+        return ""
+    speed = os.path.join(os.path.dirname(path), "speed_validation", "production_model.json")
+    return cache.make_key(pipeline=cache.file_fingerprint(path), speed=cache.file_fingerprint(speed))
+
+
 def result_key(video: Dict[str, Any], code: str) -> str:
     return cache.make_key(
         code=code,
+        speed_model=speed_model_fingerprint(),
         csv=cache.input_fingerprint(video["csv"]),
         video=cache.input_fingerprint(video["video_path"]),
         fps=float(video["fps"]),
@@ -332,6 +363,8 @@ if __name__ == "__main__":
     logger.info(f"Analysing {videos.height} videos from {videos['city'].n_unique()} cities "
                 f"with crowd-city {open(os.path.join(common.root_dir, 'crowd_city', 'SOURCE_COMMIT')).read().strip()}.")
 
+    unit = load_speed_model()
+    logger.info(f"Speed unit: {unit}.")
     parameters = crossing_parameters()
     code_fp = crowd_city_fingerprint()
 
@@ -364,10 +397,10 @@ if __name__ == "__main__":
                      for v in video_rows for row in cached_rows.get(v["csv"], [])]
     output = common.get_output_dir()
     crossings = pl.DataFrame(crossing_rows, schema={k: v for k, v in CROSSINGS_SCHEMA.items()
-                                                    if k not in ("speed_index", "hesitation_s")}, strict=False) \
+                                                    if k not in ("speed_index", "hesitation_s", "speed_unit")}, strict=False) \
         if crossing_rows else pl.DataFrame(schema={k: v for k, v in CROSSINGS_SCHEMA.items()
-                                                   if k not in ("speed_index", "hesitation_s")})
-    crossings = reported(crossings).select(list(CROSSINGS_SCHEMA)).sort(["city", "video", "start_frame"])
+                                                   if k not in ("speed_index", "hesitation_s", "speed_unit")})
+    crossings = reported(crossings).with_columns(pl.lit(unit).alias("speed_unit")).select(list(CROSSINGS_SCHEMA)).sort(["city", "video", "start_frame"])
     crossings.write_parquet(os.path.join(output, "crossings.parquet"))
     crossings.write_csv(os.path.join(output, "crossings.csv"))
     logger.info(f"Counted {crossings.height} crossings; wrote {os.path.join(output, 'crossings.parquet')} and .csv.")
