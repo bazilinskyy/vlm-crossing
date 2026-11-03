@@ -174,7 +174,7 @@ The paper asks whether video generators reproduce the crossing behaviour of a ci
 
 All 30 Veo cities also have MiniMax videos. CROWD's reference values come from crowd-city's run over the 100 cities with the most footage (cars only, footage in a fixed random order until 100 crossings or 100 hours per city); Seattle has no crossing in it.
 
-**One frame per city** (`city_frames.py`: the middle of one MiniMax H3 clip; grey tiles are cities without generated clips yet):
+**One frame per city** (`city_frames.py`: in one MiniMax H3 clip, the frame halfway through the crossing with the largest pedestrian, cropped around the pedestrian; grey tiles are cities without generated clips yet):
 
 [![One frame per city](readme/frames_cities.jpg)](readme/frames_cities.jpg)
 
