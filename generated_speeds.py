@@ -1,6 +1,6 @@
 """Crossing speed per city and model from the tracked clips, and how it compares with CROWD.
 
-Reads <run>/crossings.csv and <run>/videos.csv of each tracked set (analysis.py with speed_model set, so speeds are
+Reads results/<set>/crossings.csv and videos.csv of each tracked set (analysis.py with speed_model set, so speeds are
 crowd-city's Waymo-calibrated m/s): Veo 3.1 Fast, MiniMax H3, and the real 8 seconds that follow each MiniMax
 reference frame in its CROWD video (paired_real_clips.py). As in crowd-city's table of CROWD, a crossing's speed is the
 bounding-box speed of a track that passes the speed model's reliability gates. Writes to <output>:
@@ -15,8 +15,7 @@ bounding-box speed of a track that passes the speed model's reliability gates. W
 and the figures scatter_speed_city_vs_crowd and scatter_speed_paired (with --readme also to readme/, with --pdf-dir
 also as PDF for the paper).
 
-    uv run python generated_speeds.py --runs veo3=_output/veo3 minimax_h3=_output/minimax_h3 \\
-        real_minimax=_output/real_minimax --readme
+    uv run python generated_speeds.py --readme   # reads results/<set>/ (run_sets.sh writes them)
 """
 
 import argparse
@@ -42,7 +41,7 @@ MIN_TRACKS = 3  # cities with fewer m/s speeds are left out of the correlations 
 
 def folder_cities(generated: str) -> dict:
     """Folder name under data/<model>/ -> CROWD city name, from fetch_generated_videos.py's table."""
-    table = pl.read_csv(generated, infer_schema_length=None).filter(pl.col("file").is_not_null())
+    table = pl.read_csv(generated, infer_schema_length=None).filter(pl.col("status") == "used")
     return {os.path.basename(os.path.dirname(f)): c for f, c in zip(table["file"], table["city"])}
 
 
@@ -157,10 +156,10 @@ def scatter(points: dict, x_title: str, y_title: str, name: str) -> go.Figure:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--runs", nargs="+", default=[f"{s}=_output/{s}" for s in SETS],
+    parser.add_argument("--runs", nargs="+", default=[f"{s}=results/{s}" for s in SETS],
                         help="SET=OUTPUT_FOLDER of analysis.py, SET one of " + ", ".join(SETS))
-    parser.add_argument("--crowd", default=os.path.join(common.root_dir, "data", "crowd_crossing_speed_by_city.csv"))
-    parser.add_argument("--generated", default=os.path.join(common.root_dir, "data", "generated_videos.csv"))
+    parser.add_argument("--crowd", default=os.path.join(common.root_dir, "crowd", "crowd_crossing_speed_by_city.csv"))
+    parser.add_argument("--generated", default=os.path.join(common.root_dir, "videos", "generated_videos.csv"))
     parser.add_argument("--pdf-dir", help="also write the figures as PDF to this folder (e.g. the paper's figures)")
     parser.add_argument("--readme", action="store_true", help="also export the figures to readme/")
     args = parser.parse_args()

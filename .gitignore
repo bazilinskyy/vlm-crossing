@@ -36,3 +36,6 @@ secret
 # log files
 *.log
 *.out
+
+# Generated videos: kept locally in videos/ (fetch_generated_videos.py), published on 4TU.ResearchData, not in git
+videos/**/*.mp4

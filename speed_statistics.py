@@ -275,10 +275,10 @@ def paired_figure(clips: pl.DataFrame) -> go.Figure:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--runs", nargs="+", default=[f"{s}=_output/{s}" for s in SETS],
+    parser.add_argument("--runs", nargs="+", default=[f"{s}=results/{s}" for s in SETS],
                         help="SET=OUTPUT_FOLDER of analysis.py, SET one of " + ", ".join(SETS))
-    parser.add_argument("--crowd", default=os.path.join(common.root_dir, "data", "crowd_crossing_speed_by_city.csv"))
-    parser.add_argument("--generated", default=os.path.join(common.root_dir, "data", "generated_videos.csv"))
+    parser.add_argument("--crowd", default=os.path.join(common.root_dir, "crowd", "crowd_crossing_speed_by_city.csv"))
+    parser.add_argument("--generated", default=os.path.join(common.root_dir, "videos", "generated_videos.csv"))
     parser.add_argument("--scaled", help="output folder of the real continuations scaled to 864x480 (robustness check: "
                                          "is the speed difference a matter of resolution?)")
     parser.add_argument("--pdf-dir", help="also write the figures as PDF to this folder (e.g. the paper's figures)")

@@ -5,7 +5,9 @@ crossing with the tallest pedestrian (from analysis.py's crossings and main.py's
 through that crossing around the pedestrian, outlined, so that the crossing is visible at thumbnail size. Cities whose
 clips have no counted crossing get the middle frame of their first clip; cities without a generated clip yet get a
 grey tile, so the grid keeps its 100 places while generation continues. Tiles are in alphabetical order with the city
-name under each. Writes <output>/figures/frames_cities.jpg (and with --pdf-dir a copy there for the paper).
+name under each. Writes <output>/figures/frames_cities.jpg (and with --pdf-dir a copy there for the paper). With
+--readme, also writes each tile to readme/frames/ and the table of cities in README.md (between its "city table"
+markers): country, clips per model, crossings, median speeds, and the tile.
 
     uv run python city_frames.py --pdf-dir ../overleaf/vlm-crossing-paper/figures
 """
@@ -31,6 +33,8 @@ SECOND = 4.0  # middle of the 8-second clip, for clips without a counted crossin
 ZOOM = 4.5  # crop height in pedestrian heights...
 MIN_CROP = 0.45  # ...but at least this share of the frame height
 OUTLINE = "#ffd400"
+README = os.path.join(common.root_dir, "README.md")
+MARKERS = ("<!-- city table -->", "<!-- /city table -->")
 # TrueType fonts with the letters of all city names (PIL's built-in font lacks e.g. ø and ü); the first found is used.
 FONTS = ("/System/Library/Fonts/Supplemental/Arial.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
          "C:/Windows/Fonts/arial.ttf")
@@ -105,23 +109,57 @@ def fit(frame: np.ndarray) -> Image.Image:
     return image.resize(TILE, Image.LANCZOS)
 
 
+def readme_table(cities: list, clips: pl.DataFrame, files: dict, tiles: dict, args) -> str:
+    """Markdown table of the cities: country, clips per model, MiniMax H3 crossings, median speeds, frame."""
+    crowd = pl.read_csv(args.crowd, infer_schema_length=None)
+    country = dict(pl.read_csv(os.path.join(common.root_dir, "crowd", "cities.csv"), infer_schema_length=0)
+                   .select("locality", "country").iter_rows())
+    country.update(zip(crowd["locality"], crowd["country"]))
+    crowd_speed = dict(zip(crowd["locality"], crowd["median_crossing_speed_mps"]))
+    by_city = os.path.join(common.get_output_dir(), "generated_speed_by_city.csv")
+    speed = {}
+    if os.path.isfile(by_city):
+        speed = {(m, c): (n, s) for m, c, n, s in pl.read_csv(by_city).select(
+            "model", "locality", "crossings", "median_crossing_speed_mps").iter_rows()}
+    counts = {(m, c): n for m, c, n in clips.group_by("model", "city").len().iter_rows()}
+
+    def mps(value):
+        return f"{value:.2f}" if value is not None else ""
+    lines = ["| City | Country | Veo 3.1 Fast clips | MiniMax H3 clips | MiniMax H3 crossings | CROWD speed (m/s) "
+             "| Veo 3.1 Fast speed | MiniMax H3 speed | Frame |",
+             "|---|---|--:|--:|--:|--:|--:|--:|---|"]
+    for city in cities:
+        frame = ""
+        if city in tiles:
+            image = os.path.relpath(tiles[city][0], common.root_dir)
+            frame = f'<img src="{image}" width="240" alt="{city}">'
+        lines.append(" | ".join([
+            f"| {city}", country.get(city, ""), str(counts.get(("veo3", city), "")),
+            str(counts.get(("minimax_h3", city), "")), str(speed.get(("minimax_h3", city), ("", None))[0]),
+            mps(crowd_speed.get(city)), mps(speed.get(("veo3", city), (0, None))[1]),
+            mps(speed.get(("minimax_h3", city), (0, None))[1]), frame]) + " |")
+    return "\n".join(lines)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--crowd", default=os.path.join(common.root_dir, "data", "crowd_crossing_speed_by_city.csv"))
-    parser.add_argument("--generated", default=os.path.join(common.root_dir, "data", "generated_videos.csv"))
-    parser.add_argument("--crossings", default=os.path.join(common.root_dir, "_output", MODEL, "crossings.csv"))
+    parser.add_argument("--crowd", default=os.path.join(common.root_dir, "crowd", "crowd_crossing_speed_by_city.csv"))
+    parser.add_argument("--generated", default=os.path.join(common.root_dir, "videos", "generated_videos.csv"))
+    parser.add_argument("--crossings", default=os.path.join(common.root_dir, "results", MODEL, "crossings.csv"))
+    parser.add_argument("--bbox", default=os.path.join(common.root_dir, "_output", MODEL, "bbox"),
+                        help="main.py's tracks of the MiniMax H3 clips (without them, tiles show the middle frame)")
     parser.add_argument("--pdf-dir", help="also copy the grid to this folder (e.g. the paper's figures)")
+    parser.add_argument("--readme", action="store_true", help="also write the tiles and the table of cities to README")
     args = parser.parse_args()
 
-    clips = (pl.read_csv(args.generated, infer_schema_length=None)
-             .filter((pl.col("model") == MODEL) & (pl.col("status") == "used") & pl.col("file").is_not_null())
+    used = pl.read_csv(args.generated, infer_schema_length=None).filter(pl.col("status") == "used")
+    clips = (used.filter((pl.col("model") == MODEL) & pl.col("file").is_not_null())
              .with_columns(pl.col("file").map_elements(lambda f: os.path.splitext(os.path.basename(f))[0],
                                                        return_dtype=pl.Utf8).alias("video")))
     files = dict(zip(clips["video"], clips["file"]))
     chosen = {c: f for c, f in clips.sort("city", "video").group_by("city", maintain_order=True)
               .agg(pl.col("file").first()).iter_rows()}
-    bbox_dir = os.path.join(os.path.dirname(args.crossings), "bbox")
-    crossing = best_crossings(args.crossings, bbox_dir) if os.path.isdir(bbox_dir) else {}
+    crossing = best_crossings(args.crossings, args.bbox) if os.path.isdir(args.bbox) else {}
     cities = sorted(set(pl.read_csv(args.crowd)["locality"]) | set(folder_cities(args.generated).values()))
 
     rows = -(-len(cities) // COLUMNS)
@@ -129,18 +167,31 @@ def main() -> None:
     draw = ImageDraw.Draw(grid)
     path = next((f for f in FONTS if os.path.isfile(f)), None)
 
+    fonts = {}
+
     def font(size: int):
-        return ImageFont.truetype(path, size) if path else ImageFont.load_default(size=size)
+        if size not in fonts:  # loaded once per size: opening the font file for every label runs out of handles
+            fonts[size] = ImageFont.truetype(path, size) if path else ImageFont.load_default(size=size)
+        return fonts[size]
+    tiles = {}
+    tile_dir = os.path.join(common.root_dir, "readme", "frames")
     for i, city in enumerate(cities):
         x, y = (i % COLUMNS) * TILE[0], (i // COLUMNS) * (TILE[1] + LABEL)
-        tile = None
+        tile, source = None, None
         if city in crossing:
             video, frame_count, box = crossing[city]
-            frame = frame_at(os.path.join(common.root_dir, files[video]), index=frame_count - 1)
+            source = files[video]
+            frame = frame_at(os.path.join(common.root_dir, source), index=frame_count - 1)
             tile = around(frame, box) if frame is not None else None
         if tile is None and city in chosen:
-            frame = frame_at(os.path.join(common.root_dir, chosen[city]), SECOND)
+            source = chosen[city]
+            frame = frame_at(os.path.join(common.root_dir, source), SECOND)
             tile = fit(frame) if frame is not None else None
+        if tile is not None and args.readme:
+            os.makedirs(tile_dir, exist_ok=True)
+            path = os.path.join(tile_dir, os.path.basename(os.path.dirname(source)) + ".jpg")
+            tile.save(path, quality=85)
+            tiles[city] = (path, source)
         if tile is None:
             draw.rectangle((x + 2, y + 2, x + TILE[0] - 3, y + TILE[1] - 3), fill="#e4e3df")
             draw.text((x + TILE[0] / 2, y + TILE[1] / 2), "not generated yet", fill="#6f6e69", font=font(26),
@@ -159,6 +210,15 @@ def main() -> None:
                        f"centred on a crossing; wrote {target}.")
     if args.pdf_dir:
         shutil.copy(target, os.path.join(args.pdf_dir, "frames_cities.jpg"))
+    if args.readme:
+        shutil.copy(target, os.path.join(common.root_dir, "readme", "frames_cities.jpg"))
+        text = open(README).read()
+        if MARKERS[0] in text and MARKERS[1] in text:
+            start, end = text.index(MARKERS[0]) + len(MARKERS[0]), text.index(MARKERS[1])
+            text = text[:start] + "\n" + readme_table(cities, used, files, tiles, args) + "\n" + text[end:]
+            open(README, "w").write(text)
+        else:
+            common.logger.warning(f"No {MARKERS[0]} in README.md; the table of cities was not written.")
 
 
 if __name__ == "__main__":

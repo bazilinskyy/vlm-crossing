@@ -1,6 +1,6 @@
 """Cut the real 8 seconds that follow each MiniMax H3 reference frame from the CROWD video it was taken from.
 
-Every MiniMax H3 clip in data/generated_videos.csv starts from a frame of a CROWD video (youtube_id, frame_time_s).
+Every MiniMax H3 clip in videos/generated_videos.csv starts from a frame of a CROWD video (youtube_id, frame_time_s).
 This cuts [frame_time_s, frame_time_s + 8 s] of that video to data/real_minimax/<city>/<same file name>, so the
 tracking and analysis can compare the generated continuation of a crossing scene with the real one. The cut is
 re-encoded (a stream copy would start at the previous keyframe). Run it where the CROWD videos are, e.g. lin4080:
@@ -44,7 +44,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--videos", action="append", required=True,
                         help="folder (glob) of CROWD videos named <youtube_id>.mp4; repeatable")
-    parser.add_argument("--generated", default=os.path.join(common.root_dir, "data", "generated_videos.csv"))
+    parser.add_argument("--generated", default=os.path.join(common.root_dir, "videos", "generated_videos.csv"))
     parser.add_argument("--workers", type=int, default=4)
     args = parser.parse_args()
 

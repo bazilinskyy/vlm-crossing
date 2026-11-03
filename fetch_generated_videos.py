@@ -1,9 +1,16 @@
 """Fetch the generated videos from the project's Google Drive folders and sort them by model and city.
 
-Every file of the shared folders is mirrored to data/_drive/<folder>/ (skipped when already there),
-then each generated crossing video is hard-linked to data/<model>/<city>/ so that main.py can track
-one model at a time ("data": "data/veo3" in config). data/generated_videos.csv lists every video of
-the folders with its model, city, batch and source. Run again to pick up new videos:
+Every file of the shared folders is mirrored to data/_drive/<folder>/ (not in the repository; skipped when already
+there), then each video is hard-linked into videos/ (the clips are not in git; they are published on
+4TU.ResearchData):
+
+    videos/<model>/<city>/            the clips analysed (main.py tracks one model at a time: "data": "videos/veo3")
+    videos/not_analysed/minimax_h3_left_out/<city>/   MiniMax H3 clips Zi left out
+    videos/not_analysed/veo3_prompt_tests/            Tanvir's first Veo prompt tests
+    videos/not_analysed/settings_benchmark/           Zi's MiniMax H3 and LTX 2.3 settings comparison
+
+videos/generated_videos.csv lists every video with its model, city, status, batch, place in Drive and, for MiniMax H3,
+the CROWD video and second of its reference frame; this table is in git. Run again to pick up new videos:
 
     uvx --with gdown python fetch_generated_videos.py
 
@@ -39,7 +46,10 @@ import gdown
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data")
 MIRROR = os.path.join(DATA, "_drive")
-MAPPING = os.path.join(DATA, "generated_videos.csv")
+VIDEOS = os.path.join(ROOT, "videos")
+MAPPING = os.path.join(VIDEOS, "generated_videos.csv")
+# Folder under videos/ of the clips that were not analysed, by status.
+NOT_ANALYSED = {"unused": "minimax_h3_left_out", "prompt test": "veo3_prompt_tests", "benchmark": "settings_benchmark"}
 DOWNLOAD_THREADS = 8
 FOLDERS = {
     "veo3_tanvir": "1gL40N0urK86SC8I9C765FdWdNJEk8z8O",
@@ -59,7 +69,7 @@ CITY_NAMES = {
 }
 # ASCII folder names for cities whose CROWD name has letters outside it.
 FOLDER_NAMES = {"København": "Copenhagen"}
-COLUMNS = ["model", "city", "status", "batch", "file", "source_path", "drive_id", "reference_image",
+COLUMNS = ["model", "city", "status", "batch", "file", "drive_path", "drive_id", "reference_image",
            "youtube_id", "frame_time_s", "width", "height", "fps", "duration_s", "size_mb"]
 
 
@@ -183,17 +193,22 @@ def main() -> None:
     for (folder, drive_id, path, local), done in zip(files, ok):
         if done and path.lower().endswith(".mp4"):
             row = describe(folder, path)
-            row.update(source_path=os.path.relpath(local, ROOT), drive_id=drive_id,
+            row.update(drive_path=f"{folder}/{path}", drive_id=drive_id,
                        size_mb=round(os.path.getsize(local) / 1e6, 2), **probe(local))
             if row["reference_image"]:
-                row["reference_image"] = os.path.join("data", "_drive", folder, row["reference_image"])
+                row["reference_image"] = f"{folder}/{row['reference_image']}"
+            city_folder = FOLDER_NAMES.get(row["city"], row["city"]).replace(" ", "_")
             if row["status"] == "used":
-                city_folder = FOLDER_NAMES.get(row["city"], row["city"]).replace(" ", "_")
-                target = os.path.join(DATA, row["model"], city_folder, os.path.basename(path))
-                link(local, target)
-                row["file"] = os.path.relpath(target, ROOT)
+                target = os.path.join(VIDEOS, row["model"], city_folder, os.path.basename(path))
+            elif row["status"] == "unused":
+                target = os.path.join(VIDEOS, "not_analysed", NOT_ANALYSED["unused"], city_folder,
+                                      os.path.basename(path))
+            else:
+                target = os.path.join(VIDEOS, "not_analysed", NOT_ANALYSED[row["status"]], path)
+            link(local, target)
+            row["file"] = os.path.relpath(target, ROOT)
             rows.append(row)
-    rows.sort(key=lambda r: (r["status"] != "used", r["model"], r["city"], r["batch"], r["source_path"]))
+    rows.sort(key=lambda r: (r["status"] != "used", r["model"], r["city"], r["batch"], r["drive_path"]))
     with open(MAPPING, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=COLUMNS)
         writer.writeheader()

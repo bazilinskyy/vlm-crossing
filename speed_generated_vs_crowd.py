@@ -4,7 +4,7 @@ Reads
     --crowd      crowd-city's crowd_crossing_speed_by_city.csv (Waymo-calibrated m/s from YOLO tracks of CROWD)
     --generated  the same table per video model, with a column model (veo3, minimax_h3); cities without
                  a value get no bar, so the figure can be drawn before the videos are analysed
-    --videos     data/generated_videos.csv from fetch_generated_videos.py (videos per model and city)
+    --videos     videos/generated_videos.csv from fetch_generated_videos.py (videos per model and city)
 and writes <output>/figures/speed_generated_vs_crowd.html (and .png/.eps when save_images is true); with --pdf also a
 one-page dot plot of the same values for the paper (speed_generated_vs_crowd_page).
 
@@ -43,9 +43,9 @@ def read_speeds(path: str, source: str = None) -> pl.DataFrame:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--crowd", default=os.path.join(common.root_dir, "data", "crowd_crossing_speed_by_city.csv"))
+    parser.add_argument("--crowd", default=os.path.join(common.root_dir, "crowd", "crowd_crossing_speed_by_city.csv"))
     parser.add_argument("--generated", default=os.path.join(common.get_output_dir(), "generated_speed_by_city.csv"))
-    parser.add_argument("--videos", default=os.path.join(common.root_dir, "data", "generated_videos.csv"))
+    parser.add_argument("--videos", default=os.path.join(common.root_dir, "videos", "generated_videos.csv"))
     parser.add_argument("--pdf", help="also write the figure as PDF to this path (e.g. the paper's figures folder)")
     parser.add_argument("--readme", action="store_true", help="also export the figure to readme/")
     args = parser.parse_args()

@@ -1,0 +1,110 @@
+{
+  "calibration_build_id": "crowd_detector_selected_waymo_speed_road_rules_v35_20260927",
+  "crossing_counting_rule": {
+    "maximum_box_size_change_rate": 0.25,
+    "minimum_on_road_x_range": 0.14,
+    "name": "road_crossing"
+  },
+  "crossing_parameters": {
+    "boundary_left": 0.45,
+    "boundary_right": 0.55,
+    "long_weak_road_frames": 90,
+    "low_x_min_road_frames": 20,
+    "low_x_range": 0.3,
+    "max_track_gap_frames": 30,
+    "min_crossing_x_range": 0.14,
+    "min_road_frames": 3,
+    "min_track_frames": 10,
+    "tol": 0.0,
+    "weak_crossing_x_range": 0.64,
+    "weak_y_jitter_motion": 0.3
+  },
+  "crossing_parameters_source": "fixed_original_CROWD_algorithm",
+  "crossing_rules": {
+    "training": {
+      "detector": {
+        "correct_waymo_crosswalk_crossings": 139,
+        "picks": 215,
+        "precision_lower_bound": 0.6465116279069767,
+        "recall": 0.1514161220043573,
+        "waymo_crosswalk_crossers": 918,
+        "waymo_crosswalk_crossers_found": 139
+      },
+      "detector_on_road": {
+        "correct_waymo_crosswalk_crossings": 139,
+        "picks": 198,
+        "precision_lower_bound": 0.702020202020202,
+        "recall": 0.1514161220043573,
+        "waymo_crosswalk_crossers": 918,
+        "waymo_crosswalk_crossers_found": 139
+      },
+      "road_crossing": {
+        "correct_waymo_crosswalk_crossings": 232,
+        "picks": 469,
+        "precision_lower_bound": 0.4946695095948827,
+        "recall": 0.25272331154684097,
+        "waymo_crosswalk_crossers": 918,
+        "waymo_crosswalk_crossers_found": 232
+      }
+    },
+    "validation": {
+      "detector": {
+        "correct_waymo_crosswalk_crossings": 19,
+        "picks": 33,
+        "precision_lower_bound": 0.5757575757575758,
+        "recall": 0.10382513661202186,
+        "waymo_crosswalk_crossers": 183,
+        "waymo_crosswalk_crossers_found": 19
+      },
+      "detector_on_road": {
+        "correct_waymo_crosswalk_crossings": 19,
+        "picks": 32,
+        "precision_lower_bound": 0.59375,
+        "recall": 0.10382513661202186,
+        "waymo_crosswalk_crossers": 183,
+        "waymo_crosswalk_crossers_found": 19
+      },
+      "road_crossing": {
+        "correct_waymo_crosswalk_crossings": 51,
+        "picks": 105,
+        "precision_lower_bound": 0.4857142857142857,
+        "recall": 0.2786885245901639,
+        "waymo_crosswalk_crossers": 183,
+        "waymo_crosswalk_crossers_found": 51
+      }
+    }
+  },
+  "metric_speed_qualified_for_crowd": true,
+  "schema": "crowd_waymo_pipeline_model_v32",
+  "speed_candidate_model_path": "/media/tue20234844/crowd-tue-3/waymo_dataset/waymo_processed/calibration_v32/crowd_bbox_speed_candidate_v32.json",
+  "speed_production_model_path": "speed_validation/production_model.json",
+  "speed_training_selection": "detector",
+  "training_speed_selection": {
+    "algorithm_selected_crossing_tracks": 215,
+    "feature_or_speed_rejected_tracks": 30,
+    "selection_authority": "original_CROWD_crossing_algorithm",
+    "sequences": 798,
+    "speed_eligible_rate": 0.7767441860465116,
+    "speed_eligible_tracks": 167,
+    "strict_match_rate": 0.9162790697674419,
+    "strictly_matched_waymo_tracks": 197,
+    "unmatched_algorithm_crossing_tracks": 18,
+    "waymo_camera_pedestrian_tracks": 6813,
+    "waymo_crossing_label_used_for_selection": false
+  },
+  "validation_speed_selection": {
+    "algorithm_selected_crossing_tracks": 33,
+    "feature_or_speed_rejected_tracks": 4,
+    "selection_authority": "original_CROWD_crossing_algorithm",
+    "sequences": 202,
+    "speed_eligible_rate": 0.8181818181818182,
+    "speed_eligible_tracks": 27,
+    "strict_match_rate": 0.9393939393939394,
+    "strictly_matched_waymo_tracks": 31,
+    "unmatched_algorithm_crossing_tracks": 2,
+    "waymo_camera_pedestrian_tracks": 1521,
+    "waymo_crossing_label_used_for_selection": false
+  },
+  "validation_was_not_used_for_speed_model_selection": true,
+  "waymo_crossing_label_used_for_speed_selection": false
+}

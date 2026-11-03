@@ -1,6 +1,6 @@
 """How well the generated videos keep the look of their city, measured with CLIP, and a map of the cities.
 
-Every generated video of data/generated_videos.csv is sampled at 0, 1, ..., 7 s and at its last frame, and each
+Every generated video of videos/generated_videos.csv is sampled at 0, 1, ..., 7 s and at its last frame, and each
 frame is embedded with CLIP ViT-B/32 (LAION-2B). The first frame is the CROWD reference frame as rendered by the
 model, so it stands for the real scene, and the later frames show how the model continued it. For each frame:
 
@@ -14,7 +14,7 @@ Embeddings are cached per video in <output>/appearance/, so a rerun only embeds 
 <output>/appearance_frames.csv (one row per frame), <output>/appearance_summary.csv (one row per model) and
 <output>/appearance_cities.csv (one row per model and city), and figures to <output>/figures/.
 
-    python appearance_analysis.py --mapping <crowd>/mapping.csv
+    python appearance_analysis.py --readme
 
 Needs torch, open_clip_torch and opencv besides the packages of this repository.
 """
@@ -211,9 +211,10 @@ def city_map(cities: pl.DataFrame, counts: pl.DataFrame, name: str) -> go.Figure
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("--videos", default=os.path.join(common.root_dir, "data", "generated_videos.csv"))
-    parser.add_argument("--crowd", default=os.path.join(common.root_dir, "data", "crowd_crossing_speed_by_city.csv"))
-    parser.add_argument("--mapping", required=True, help="CROWD's mapping.csv, for the city coordinates")
+    parser.add_argument("--videos", default=os.path.join(common.root_dir, "videos", "generated_videos.csv"))
+    parser.add_argument("--crowd", default=os.path.join(common.root_dir, "crowd", "crowd_crossing_speed_by_city.csv"))
+    parser.add_argument("--mapping", default=os.path.join(common.root_dir, "crowd", "cities.csv"),
+                        help="the cities of CROWD's mapping.csv (crowd/cities.csv holds the 100), for their coordinates")
     parser.add_argument("--pdf-dir", help="also write the paper figures as PDF to this folder")
     parser.add_argument("--readme", action="store_true", help="also export the figures to readme/")
     args = parser.parse_args()
