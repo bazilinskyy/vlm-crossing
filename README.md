@@ -31,7 +31,7 @@ uv sync
 | Table 1: videos per city | (counts of `videos/generated_videos.csv`) | `videos/generated_videos.csv` |
 | Fig. 1: one frame per city | `city_frames.py` | the videos (4TU.ResearchData), `results/minimax_h3/city_frames.csv` |
 | Appearance (CLIP) results | `appearance_analysis.py --from-results` | `results/appearance/frames.csv` |
-| Table 2, usable crossings, crossing speed and decision time | `generated_speeds.py`, `speed_statistics.py` | `results/<set>/` |
+| Table 2, usable crossings, crossing speed and initiation time | `generated_speeds.py`, `speed_statistics.py` | `results/<set>/` |
 | Fig. 2: speed distributions and paired differences | `speed_statistics.py` | `results/` |
 | Fig. 3: speed per city | `speed_generated_vs_crowd.py` | `crowd/`, `_output/generated_speed_by_city.csv` |
 | Differences between cities, reliability, resolution check | `speed_statistics.py` (`--scaled`) | `results/`, `crowd/` |
@@ -354,7 +354,7 @@ All 30 Veo cities also have MiniMax videos. CROWD's reference values come from c
 
 Each set was tracked with YOLO11x and BoT-SORT and run through the same crossing rule as CROWD (`analysis.py`), with crowd-city's Waymo-calibrated speed model, so a crossing's speed is in m/s only where the model qualifies the track, exactly as in crowd-city's table of CROWD. "Real continuation" is the real 8 seconds that follow each MiniMax H3 reference frame in its CROWD video (`paired_real_clips.py`), tracked the same way: the same scenes as MiniMax H3, but real (793 pairs; the CROWD video of 4 Oldenburg frames is not on lin4080). Numbers are as of 3 November 2026; `speed_statistics.py` writes the tests (`_output/generated_statistics.csv`) and the reliability of the city medians (`generated_reliability.csv`). Tests run on clip or city medians, with 95% intervals from bootstraps over clips, clip pairs or cities.
 
-| Set | Clips | Clips with a counted crossing (95% CI) | Crossings | Crossings with an m/s speed | Median speed (95% CI) | Decision times |
+| Set | Clips | Clips with a counted crossing (95% CI) | Crossings | Crossings with an m/s speed | Median speed (95% CI) | Initiation times |
 |---|---|---|---|---|---|---|
 | Veo 3.1 Fast | 109 | 72% (62-79%) | 192 | 142 | 1.23 m/s (1.18-1.28) | 2 |
 | MiniMax H3 | 797 | 58% (55-62%) | 1,167 | 830 | 1.27 m/s (1.25-1.29) | 29 |

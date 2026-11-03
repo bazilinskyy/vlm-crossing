@@ -35,7 +35,7 @@ from utils.plotting.crossings import Crossings, io
 REPS = 5000
 SEED = 2026
 TARGET_RELIABILITY = 0.8
-DECISION = "hesitation_s"  # crossing decision time, only for pedestrians seen standing before they step onto the road
+INITIATION = "hesitation_s"  # crossing initiation time, only for pedestrians seen standing before they cross
 
 
 def bootstrap(groups: list, statistic, reps: int = REPS) -> tuple:
@@ -56,11 +56,11 @@ def row(analysis: str, set_: str, reference: str, n: int, estimate: float, ci: t
 
 
 def clip_table(videos: pl.DataFrame, crossings: pl.DataFrame) -> pl.DataFrame:
-    """Per set and clip: crossings, m/s speeds and their median, and decision times."""
+    """Per set and clip: crossings, m/s speeds and their median, and initiation times."""
     return (videos.join(crossings.group_by("set", "video").agg(
         pl.len().alias("crossings"), pl.col(SPEED).drop_nulls().alias("speeds"),
-        pl.col(DECISION).drop_nulls().alias("decisions")), on=["set", "video"], how="left")
-        .with_columns(pl.col("crossings").fill_null(0), pl.col("speeds", "decisions").fill_null([]))
+        pl.col(INITIATION).drop_nulls().alias("initiations")), on=["set", "video"], how="left")
+        .with_columns(pl.col("crossings").fill_null(0), pl.col("speeds", "initiations").fill_null([]))
         .with_columns(pl.col("speeds").list.median().alias("median_speed"))
         .sort("set", "city", "video"))  # a fixed order, so the seeded bootstraps give the same intervals every run
 
@@ -177,23 +177,23 @@ def speed_tests(clips: pl.DataFrame, crowd: pl.DataFrame) -> list:
     return rows
 
 
-def decision_tests(clips: pl.DataFrame) -> list:
-    """Crossing decision time: how often it can be measured, and its median, per set and per MiniMax/real pair."""
+def initiation_tests(clips: pl.DataFrame) -> list:
+    """Crossing initiation time: how often it can be measured, and its median, per set and per MiniMax/real pair."""
     rows = []
     for s in SETS:
         mine = clips.filter(pl.col("set") == s)
-        groups = [np.array(v) for v in mine["decisions"].to_list() if len(v)]
+        groups = [np.array(v) for v in mine["initiations"].to_list() if len(v)]
         if groups:
-            rows.append(row("crossing decision time (s), clip bootstrap", s, "", sum(map(len, groups)),
+            rows.append(row("crossing initiation time (s), clip bootstrap", s, "", sum(map(len, groups)),
                             pooled_median(groups), bootstrap(groups, pooled_median),
-                            "clips with a decision time", len(groups)))
-    pairs = (clips.filter(pl.col("set") == "minimax_h3").select("video", pl.col("decisions").list.len().alias("g"))
+                            "clips with an initiation time", len(groups)))
+    pairs = (clips.filter(pl.col("set") == "minimax_h3").select("video", pl.col("initiations").list.len().alias("g"))
              .join(clips.filter(pl.col("set") == "real_minimax")
-                   .select("video", pl.col("decisions").list.len().alias("r")), on="video"))
+                   .select("video", pl.col("initiations").list.len().alias("r")), on="video"))
     generated_only = pairs.filter((pl.col("g") > 0) & (pl.col("r") == 0)).height
     real_only = pairs.filter((pl.col("g") == 0) & (pl.col("r") > 0)).height
     if generated_only + real_only:
-        rows.append(row("clips with a decision time: MiniMax H3 minus real continuation (exact McNemar)",
+        rows.append(row("clips with an initiation time: MiniMax H3 minus real continuation (exact McNemar)",
                         "minimax_h3", "real_minimax", pairs.height, (generated_only - real_only) / pairs.height,
                         statistic="discordant pairs generated-only/real-only",
                         value=generated_only / max(real_only, 1),
@@ -296,7 +296,7 @@ def main() -> None:
                      pl.col("reliable_metric_speed_tracks").cast(pl.Int64).alias("n")))
 
     output = common.get_output_dir()
-    rows = usability_tests(clips) + speed_tests(clips, crowd) + decision_tests(clips)
+    rows = usability_tests(clips) + speed_tests(clips, crowd) + initiation_tests(clips)
     if args.scaled:
         scaled = read_run("real_minimax_480", args.scaled, cities)
         both = pl.concat([clip_table(*scaled), clips], how="diagonal_relaxed").filter(pl.col("speeds").list.len() > 0)
