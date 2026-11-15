@@ -246,106 +246,106 @@ All 30 Veo cities also have MiniMax videos. CROWD's reference values come from c
 <!-- city table -->
 | City | Country | Veo 3.1 Fast clips | MiniMax H3 clips | MiniMax H3 crossings | CROWD speed (m/s) | Veo 3.1 Fast speed | MiniMax H3 speed | Frame |
 |---|---|--:|--:|--:|--:|--:|--:|---|
-| 🇸🇾 Aleppo | Syria |  |  |  | 1.25 |  |  |  |
-| 🇯🇴 Amman | Jordan |  |  |  | 1.40 |  |  |  |
+| 🇪🇹 Addis Ababa | Ethiopia |  | 10 | 20 |  |  | 1.36 | <img src="readme/frames/Addis_Ababa.jpg" width="240" alt="Addis Ababa"> |
+| 🇸🇾 Aleppo | Syria |  | 10 | 4 | 1.25 |  | 1.30 | <img src="readme/frames/Aleppo.jpg" width="240" alt="Aleppo"> |
+| 🇯🇴 Amman | Jordan |  | 10 | 6 | 1.40 |  | 1.11 | <img src="readme/frames/Amman.jpg" width="240" alt="Amman"> |
 | 🇳🇱 Amsterdam | Netherlands |  | 10 | 11 | 1.30 |  | 1.30 | <img src="readme/frames/Amsterdam.jpg" width="240" alt="Amsterdam"> |
-| 🇺🇸 Anchorage, AK | United States |  |  |  | 1.38 |  |  |  |
 | 🇺🇸 Atlanta, GA | United States |  | 10 | 11 | 1.25 |  | 1.29 | <img src="readme/frames/Atlanta.jpg" width="240" alt="Atlanta"> |
-| 🇳🇿 Auckland | New Zealand |  |  |  | 1.29 |  |  |  |
+| 🇳🇿 Auckland | New Zealand |  | 10 | 25 | 1.29 |  | 1.39 | <img src="readme/frames/Auckland.jpg" width="240" alt="Auckland"> |
 | 🇺🇸 Baltimore, MD | United States |  | 10 | 15 | 1.35 |  | 1.24 | <img src="readme/frames/Baltimore.jpg" width="240" alt="Baltimore"> |
 | 🇹🇭 Bangkok | Thailand | 1 | 10 | 19 | 1.29 |  | 1.19 | <img src="readme/frames/Bangkok.jpg" width="240" alt="Bangkok"> |
-| 🇨🇳 Beijing | China |  |  |  | 1.44 |  |  |  |
+| 🇪🇸 Barcelona | Spain |  | 10 | 36 |  |  | 1.24 | <img src="readme/frames/Barcelona.jpg" width="240" alt="Barcelona"> |
+| 🇨🇳 Beijing | China |  | 10 | 19 | 1.44 |  | 1.20 | <img src="readme/frames/Beijing.jpg" width="240" alt="Beijing"> |
 | 🇩🇪 Berlin | Germany | 1 | 10 | 16 | 1.32 |  | 1.35 | <img src="readme/frames/Berlin.jpg" width="240" alt="Berlin"> |
-| 🇺🇸 Boston, MA | United States |  |  |  | 1.36 |  |  |  |
+| 🇺🇸 Boston, MA | United States |  | 10 | 22 | 1.36 |  | 1.27 | <img src="readme/frames/Boston.jpg" width="240" alt="Boston"> |
 | 🇦🇺 Brisbane, QLD | Australia |  | 10 | 42 | 1.31 |  | 1.26 | <img src="readme/frames/Brisbane.jpg" width="240" alt="Brisbane"> |
 | 🇷🇴 Bucharest | Romania |  | 10 | 5 | 1.24 |  | 1.09 | <img src="readme/frames/Bucharest.jpg" width="240" alt="Bucharest"> |
 | 🇭🇺 Budapest | Hungary |  | 10 | 13 | 1.31 |  | 1.24 | <img src="readme/frames/Budapest.jpg" width="240" alt="Budapest"> |
 | 🇦🇷 Buenos Aires | Argentina | 1 | 10 | 9 | 1.38 | 1.28 | 1.48 | <img src="readme/frames/Buenos_Aires.jpg" width="240" alt="Buenos Aires"> |
 | 🇰🇷 Busan | South Korea |  | 10 | 13 | 1.39 |  | 1.19 | <img src="readme/frames/Busan.jpg" width="240" alt="Busan"> |
-| 🇨🇦 Calgary, AB | Canada |  |  |  | 1.35 |  |  |  |
+| 🇪🇬 Cairo | Egypt |  | 10 | 10 |  |  | 1.23 | <img src="readme/frames/Cairo.jpg" width="240" alt="Cairo"> |
+| 🇨🇦 Calgary, AB | Canada |  | 10 | 13 | 1.35 |  | 1.31 | <img src="readme/frames/Calgary.jpg" width="240" alt="Calgary"> |
 | 🇿🇦 Cape Town | South Africa |  | 10 | 10 | 1.44 |  | 1.27 | <img src="readme/frames/Cape_Town.jpg" width="240" alt="Cape Town"> |
-| 🇮🇹 Catania | Italy |  |  |  | 1.25 |  |  |  |
+| 🇮🇹 Catania | Italy |  | 10 | 4 | 1.25 |  | 1.54 | <img src="readme/frames/Catania.jpg" width="240" alt="Catania"> |
 | 🇺🇸 Chicago, IL | United States | 11 | 10 | 25 | 1.34 | 1.32 | 1.24 | <img src="readme/frames/Chicago.jpg" width="240" alt="Chicago"> |
+| 🇱🇰 Colombo | Sri Lanka |  | 10 | 9 |  |  | 1.18 | <img src="readme/frames/Colombo.jpg" width="240" alt="Colombo"> |
 | 🇵🇭 Cotabato | Philippines | 1 | 10 | 8 | 1.25 | 1.06 | 1.28 | <img src="readme/frames/Cotabato.jpg" width="240" alt="Cotabato"> |
 | 🇺🇸 Dallas, TX | United States |  | 10 | 10 | 1.38 |  | 1.24 | <img src="readme/frames/Dallas.jpg" width="240" alt="Dallas"> |
 | 🇸🇾 Damascus | Syria |  | 10 | 4 | 1.29 |  | 1.24 | <img src="readme/frames/Damascus.jpg" width="240" alt="Damascus"> |
 | 🇦🇺 Darwin, NT | Australia |  | 10 | 4 | 1.36 |  | 1.16 | <img src="readme/frames/Darwin.jpg" width="240" alt="Darwin"> |
 | 🇳🇱 Den Haag | Netherlands |  | 10 | 7 | 1.35 |  | 1.21 | <img src="readme/frames/Den_Haag.jpg" width="240" alt="Den Haag"> |
-| 🇮🇩 Denpasar | Indonesia |  |  |  | 1.25 |  |  |  |
-| 🇺🇸 Denver, CO | United States |  |  |  | 1.32 |  |  |  |
-| 🇺🇸 Detroit, MI | United States | 1 | 12 | 20 | 1.35 |  | 1.33 | <img src="readme/frames/Detroit.jpg" width="240" alt="Detroit"> |
-| 🇦🇪 Dubai | United Arab Emirates | 1 | 11 | 5 | 1.29 | 1.02 | 1.12 | <img src="readme/frames/Dubai.jpg" width="240" alt="Dubai"> |
+| 🇺🇸 Denver, CO | United States |  | 10 | 9 | 1.32 |  | 1.19 | <img src="readme/frames/Denver.jpg" width="240" alt="Denver"> |
+| 🇺🇸 Detroit, MI | United States | 10 | 10 | 18 | 1.35 | 1.36 | 1.33 | <img src="readme/frames/Detroit.jpg" width="240" alt="Detroit"> |
+| 🇶🇦 Doha | Qatar |  | 10 | 10 |  |  | 1.15 | <img src="readme/frames/Doha.jpg" width="240" alt="Doha"> |
+| 🇦🇪 Dubai | United Arab Emirates | 1 | 10 | 5 | 1.29 | 1.02 | 1.12 | <img src="readme/frames/Dubai.jpg" width="240" alt="Dubai"> |
 | 🇮🇪 Dublin | Ireland |  | 10 | 11 | 1.46 |  | 1.37 | <img src="readme/frames/Dublin.jpg" width="240" alt="Dublin"> |
-| 🇳🇱 Eindhoven | Netherlands |  | 11 | 8 | 1.35 |  | 1.14 | <img src="readme/frames/Eindhoven.jpg" width="240" alt="Eindhoven"> |
+| 🇳🇱 Eindhoven | Netherlands |  | 10 | 8 | 1.35 |  | 1.14 | <img src="readme/frames/Eindhoven.jpg" width="240" alt="Eindhoven"> |
 | 🇯🇵 Gamagori | Japan |  | 10 | 7 | 1.29 |  | 1.14 | <img src="readme/frames/Gamagori.jpg" width="240" alt="Gamagori"> |
-| 🇨🇳 Guangzhou | China | 1 | 12 | 12 | 1.33 | 0.98 | 1.21 | <img src="readme/frames/Guangzhou.jpg" width="240" alt="Guangzhou"> |
+| 🇨🇳 Guangzhou | China | 1 | 10 | 12 | 1.33 | 0.98 | 1.21 | <img src="readme/frames/Guangzhou.jpg" width="240" alt="Guangzhou"> |
 | 🇻🇳 Hanoi | Vietnam | 5 | 10 | 8 | 1.16 | 1.09 | 1.16 | <img src="readme/frames/Hanoi.jpg" width="240" alt="Hanoi"> |
 | 🇫🇮 Helsinki | Finland | 1 | 10 | 7 | 1.30 |  | 1.34 | <img src="readme/frames/Helsinki.jpg" width="240" alt="Helsinki"> |
-| 🇻🇳 Ho Chi Minh City | Vietnam |  |  |  | 1.19 |  |  |  |
-| 🇭🇰 Hong Kong | Hong Kong |  |  |  | 1.25 |  |  |  |
-| 🇺🇸 Houston, TX | United States |  | 15 | 23 | 1.37 |  | 1.14 | <img src="readme/frames/Houston.jpg" width="240" alt="Houston"> |
+| 🇭🇰 Hong Kong | Hong Kong |  | 10 | 20 | 1.25 |  | 1.28 | <img src="readme/frames/Hong_Kong.jpg" width="240" alt="Hong Kong"> |
+| 🇺🇸 Houston, TX | United States |  | 10 | 14 | 1.37 |  | 1.14 | <img src="readme/frames/Houston.jpg" width="240" alt="Houston"> |
 | 🇹🇷 Istanbul | Türkiye |  | 10 | 11 | 1.26 |  | 1.45 | <img src="readme/frames/Istanbul.jpg" width="240" alt="Istanbul"> |
 | 🇮🇩 Jakarta | Indonesia | 5 | 10 | 10 | 1.29 | 1.00 | 1.13 | <img src="readme/frames/Jakarta.jpg" width="240" alt="Jakarta"> |
-| 🇵🇰 Karachi | Pakistan |  |  |  | 1.24 |  |  |  |
-| 🇮🇷 Kermanshah | Iran |  |  |  | 1.36 |  |  |  |
-| 🇲🇾 Kuala Lumpur | Malaysia |  | 11 | 11 | 1.38 |  | 1.37 | <img src="readme/frames/Kuala_Lumpur.jpg" width="240" alt="Kuala Lumpur"> |
+| 🇵🇰 Karachi | Pakistan |  | 10 | 4 | 1.24 |  | 1.03 | <img src="readme/frames/Karachi.jpg" width="240" alt="Karachi"> |
+| 🇮🇳 Kolkata | India |  | 10 | 11 |  |  | 1.16 | <img src="readme/frames/Kolkata.jpg" width="240" alt="Kolkata"> |
+| 🇲🇾 Kuala Lumpur | Malaysia |  | 10 | 11 | 1.38 |  | 1.37 | <img src="readme/frames/Kuala_Lumpur.jpg" width="240" alt="Kuala Lumpur"> |
 | 🇺🇦 Kyiv | Ukraine | 1 | 10 | 20 | 1.45 | 1.16 | 1.11 | <img src="readme/frames/Kyiv.jpg" width="240" alt="Kyiv"> |
 | 🇩🇰 København | Denmark | 1 | 10 | 13 | 1.36 |  | 1.29 | <img src="readme/frames/Copenhagen.jpg" width="240" alt="København"> |
 | 🇺🇸 Las Vegas, NV | United States |  | 10 | 12 | 1.35 |  | 1.16 | <img src="readme/frames/Las_Vegas.jpg" width="240" alt="Las Vegas"> |
 | 🇬🇧 London | United Kingdom | 11 | 10 | 19 | 1.44 | 1.26 | 1.26 | <img src="readme/frames/London.jpg" width="240" alt="London"> |
 | 🇺🇸 Los Angeles, CA | United States | 11 | 10 | 24 | 1.34 | 1.26 | 1.30 | <img src="readme/frames/Los_Angeles.jpg" width="240" alt="Los Angeles"> |
+| 🇺🇦 Lviv | Ukraine |  | 10 | 5 |  |  | 1.18 | <img src="readme/frames/Lviv.jpg" width="240" alt="Lviv"> |
 | 🇵🇭 Manila | Philippines | 5 | 10 | 13 | 1.45 | 1.13 | 1.38 | <img src="readme/frames/Manila.jpg" width="240" alt="Manila"> |
-| 🇻🇪 Maracaibo | Venezuela |  |  |  | 1.23 |  |  |  |
 | 🇦🇺 Melbourne, VIC | Australia | 1 | 10 | 27 | 1.37 | 1.02 | 1.24 | <img src="readme/frames/Melbourne.jpg" width="240" alt="Melbourne"> |
+| 🇲🇽 Mexico City | Mexico |  | 10 | 12 |  |  | 1.49 | <img src="readme/frames/Mexico_City.jpg" width="240" alt="Mexico City"> |
 | 🇺🇸 Miami, FL | United States |  | 10 | 16 | 1.35 |  | 1.24 | <img src="readme/frames/Miami.jpg" width="240" alt="Miami"> |
-| 🇮🇹 Milan | Italy |  |  |  | 1.36 |  |  |  |
+| 🇮🇹 Milan | Italy |  | 10 | 15 | 1.36 |  | 1.28 | <img src="readme/frames/Milan.jpg" width="240" alt="Milan"> |
 | 🇧🇾 Minsk | Belarus |  | 10 | 12 | 1.39 |  | 1.19 | <img src="readme/frames/Minsk.jpg" width="240" alt="Minsk"> |
 | 🇨🇦 Montreal, QC | Canada | 1 | 10 | 13 | 1.34 |  | 1.40 | <img src="readme/frames/Montreal.jpg" width="240" alt="Montreal"> |
-| 🇷🇺 Moscow | Russia | 1 | 12 | 3 | 1.33 | 1.25 | 1.21 | <img src="readme/frames/Moscow.jpg" width="240" alt="Moscow"> |
+| 🇷🇺 Moscow | Russia | 1 | 10 | 1 | 1.33 | 1.25 | 1.00 | <img src="readme/frames/Moscow.jpg" width="240" alt="Moscow"> |
 | 🇮🇳 Mumbai | India |  | 10 | 3 | 1.37 |  | 1.63 | <img src="readme/frames/Mumbai.jpg" width="240" alt="Mumbai"> |
 | 🇩🇪 München | Germany |  | 10 | 27 | 1.36 |  | 1.30 | <img src="readme/frames/München.jpg" width="240" alt="München"> |
-| 🇮🇳 New Delhi | India |  |  |  | 1.37 |  |  |  |
 | 🇺🇸 New York, NY | United States | 11 | 10 | 29 | 1.29 | 1.25 | 1.34 | <img src="readme/frames/New_York.jpg" width="240" alt="New York"> |
-| 🇻🇳 Ninh Binh | Vietnam |  |  |  | 1.30 |  |  |  |
-| 🇩🇪 Oldenburg | Germany |  | 9 | 7 | 1.33 |  | 1.15 | <img src="readme/frames/Oldenburg.jpg" width="240" alt="Oldenburg"> |
 | 🇳🇴 Oslo | Norway |  | 10 | 16 | 1.33 |  | 1.28 | <img src="readme/frames/Oslo.jpg" width="240" alt="Oslo"> |
 | 🇫🇷 Paris | France | 1 | 10 | 26 | 1.32 |  | 1.30 | <img src="readme/frames/Paris.jpg" width="240" alt="Paris"> |
 | 🇦🇺 Perth, WA | Australia |  | 10 | 14 | 1.34 |  | 1.43 | <img src="readme/frames/Perth.jpg" width="240" alt="Perth"> |
-| 🇺🇸 Philadelphia, PA | United States | 1 | 10 | 24 | 1.31 | 1.34 | 1.36 | <img src="readme/frames/Philadelphia.jpg" width="240" alt="Philadelphia"> |
+| 🇺🇸 Philadelphia, PA | United States | 10 | 10 | 24 | 1.31 | 1.23 | 1.36 | <img src="readme/frames/Philadelphia.jpg" width="240" alt="Philadelphia"> |
 | 🇰🇭 Phnom Penh | Cambodia |  | 10 | 8 | 1.30 |  | 1.19 | <img src="readme/frames/Phnom_Penh.jpg" width="240" alt="Phnom Penh"> |
 | 🇺🇸 Phoenix, AZ | United States |  | 10 | 7 | 1.31 |  | 1.30 | <img src="readme/frames/Phoenix.jpg" width="240" alt="Phoenix"> |
 | 🇺🇸 Portland, OR | United States |  | 10 | 10 | 1.37 |  | 1.32 | <img src="readme/frames/Portland.jpg" width="240" alt="Portland"> |
 | 🇨🇿 Prague | Czechia |  | 10 | 22 | 1.27 |  | 1.51 | <img src="readme/frames/Prague.jpg" width="240" alt="Prague"> |
-| 🇧🇷 Rio de Janeiro | Brazil |  | 11 | 19 | 1.29 |  | 1.29 | <img src="readme/frames/Rio_de_Janeiro.jpg" width="240" alt="Rio de Janeiro"> |
-| 🇺🇸 Sacramento, CA | United States |  | 11 | 14 | 1.44 |  | 1.16 | <img src="readme/frames/Sacramento.jpg" width="240" alt="Sacramento"> |
+| 🇧🇷 Rio de Janeiro | Brazil |  | 10 | 19 | 1.29 |  | 1.29 | <img src="readme/frames/Rio_de_Janeiro.jpg" width="240" alt="Rio de Janeiro"> |
+| 🇺🇸 Sacramento, CA | United States |  | 10 | 13 | 1.44 |  | 1.16 | <img src="readme/frames/Sacramento.jpg" width="240" alt="Sacramento"> |
 | 🇷🇺 Saint Petersburg | Russia | 10 | 10 | 32 | 1.34 | 1.10 | 1.40 | <img src="readme/frames/Saint_Petersburg.jpg" width="240" alt="Saint Petersburg"> |
-| 🇺🇸 San Diego, CA | United States |  |  |  | 1.40 |  |  |  |
+| 🇺🇸 San Diego, CA | United States |  | 10 | 10 | 1.40 |  | 1.40 | <img src="readme/frames/San_Diego.jpg" width="240" alt="San Diego"> |
 | 🇺🇸 San Francisco, CA | United States |  | 10 | 14 | 1.28 |  | 1.35 | <img src="readme/frames/San_Francisco.jpg" width="240" alt="San Francisco"> |
 | 🇺🇸 San Jose, CA | United States |  | 10 | 8 | 1.36 |  | 1.33 | <img src="readme/frames/San_Jose.jpg" width="240" alt="San Jose"> |
 | 🇧🇷 Sao Paulo | Brazil | 1 | 10 | 16 | 1.42 |  | 1.41 | <img src="readme/frames/Sao_Paulo.jpg" width="240" alt="Sao Paulo"> |
+| 🇧🇦 Sarajevo | Bosnia and Herzegovina |  | 10 | 17 |  |  | 1.38 | <img src="readme/frames/Sarajevo.jpg" width="240" alt="Sarajevo"> |
 | 🇺🇸 Seattle, WA | United States |  | 10 | 24 |  |  | 1.27 | <img src="readme/frames/Seattle.jpg" width="240" alt="Seattle"> |
-| 🇮🇩 Semarang | Indonesia |  |  |  | 1.30 |  |  |  |
 | 🇰🇷 Seoul | South Korea | 10 | 10 | 24 | 1.39 | 1.16 | 1.35 | <img src="readme/frames/Seoul.jpg" width="240" alt="Seoul"> |
 | 🇬🇲 Serrekunda | Gambia |  | 10 | 4 | 1.36 |  | 1.16 | <img src="readme/frames/Serrekunda.jpg" width="240" alt="Serrekunda"> |
-| 🇸🇬 Singapore | Singapore |  | 13 | 27 | 1.41 |  | 1.26 | <img src="readme/frames/Singapore.jpg" width="240" alt="Singapore"> |
-| 🇧🇬 Sofia | Bulgaria |  | 12 | 14 | 1.46 |  | 1.11 | <img src="readme/frames/Sofia.jpg" width="240" alt="Sofia"> |
+| 🇨🇳 Shanghai | China |  | 10 | 22 |  |  | 1.30 | <img src="readme/frames/Shanghai.jpg" width="240" alt="Shanghai"> |
+| 🇨🇳 Shenzhen | China |  | 10 | 22 |  |  | 1.29 | <img src="readme/frames/Shenzhen.jpg" width="240" alt="Shenzhen"> |
+| 🇸🇬 Singapore | Singapore |  | 10 | 25 | 1.41 |  | 1.26 | <img src="readme/frames/Singapore.jpg" width="240" alt="Singapore"> |
+| 🇧🇬 Sofia | Bulgaria |  | 10 | 14 | 1.46 |  | 1.11 | <img src="readme/frames/Sofia.jpg" width="240" alt="Sofia"> |
 | 🇸🇪 Stockholm | Sweden |  | 10 | 27 | 1.38 |  | 1.33 | <img src="readme/frames/Stockholm.jpg" width="240" alt="Stockholm"> |
 | 🇦🇺 Sydney, NSW | Australia | 10 | 10 | 19 | 1.40 | 1.40 | 1.39 | <img src="readme/frames/Sydney.jpg" width="240" alt="Sydney"> |
 | 🇧🇩 Sylhet | Bangladesh |  | 10 | 10 | 1.16 |  | 1.15 | <img src="readme/frames/Sylhet.jpg" width="240" alt="Sylhet"> |
-| 🇪🇪 Tallinn | Estonia |  |  |  | 1.43 |  |  |  |
-| 🇮🇷 Tehran | Iran |  |  |  | 1.34 |  |  |  |
+| 🇪🇪 Tallinn | Estonia |  | 10 | 9 | 1.43 |  | 1.26 | <img src="readme/frames/Tallinn.jpg" width="240" alt="Tallinn"> |
 | 🇯🇵 Tokyo | Japan |  | 10 | 25 | 1.30 |  | 1.38 | <img src="readme/frames/Tokyo.jpg" width="240" alt="Tokyo"> |
-| 🇨🇦 Toronto, ON | Canada | 1 | 10 | 16 | 1.37 |  | 1.20 | <img src="readme/frames/Toronto.jpg" width="240" alt="Toronto"> |
-| 🇦🇺 Townsville, QLD | Australia | 1 | 14 | 8 | 1.38 |  | 1.39 | <img src="readme/frames/Townsville.jpg" width="240" alt="Townsville"> |
+| 🇨🇦 Toronto, ON | Canada | 10 | 10 | 16 | 1.37 | 1.22 | 1.20 | <img src="readme/frames/Toronto.jpg" width="240" alt="Toronto"> |
+| 🇦🇺 Townsville, QLD | Australia | 1 | 10 | 3 | 1.38 |  | 1.39 | <img src="readme/frames/Townsville.jpg" width="240" alt="Townsville"> |
 | 🇷🇺 Tyumen | Russia |  | 10 | 11 | 1.31 |  | 1.18 | <img src="readme/frames/Tyumen.jpg" width="240" alt="Tyumen"> |
 | 🇲🇳 Ulaanbaatar | Mongolia |  | 10 | 16 | 1.42 |  | 1.25 | <img src="readme/frames/Ulaanbaatar.jpg" width="240" alt="Ulaanbaatar"> |
 | 🇨🇦 Vancouver, BC | Canada |  | 10 | 17 | 1.31 |  | 1.36 | <img src="readme/frames/Vancouver.jpg" width="240" alt="Vancouver"> |
 | 🇦🇹 Vienna | Austria |  | 10 | 32 | 1.37 |  | 1.20 | <img src="readme/frames/Vienna.jpg" width="240" alt="Vienna"> |
-| 🇵🇱 Warsaw | Poland | 1 | 10 | 35 | 1.34 | 1.13 | 1.24 | <img src="readme/frames/Warsaw.jpg" width="240" alt="Warsaw"> |
+| 🇵🇱 Warsaw | Poland | 10 | 10 | 35 | 1.34 | 1.12 | 1.24 | <img src="readme/frames/Warsaw.jpg" width="240" alt="Warsaw"> |
 | 🇺🇸 Washington, DC | United States |  | 10 | 19 | 1.23 |  | 1.30 | <img src="readme/frames/Washington.jpg" width="240" alt="Washington"> |
-| 🇨🇦 Winnipeg, MB | Canada |  |  |  | 1.31 |  |  |  |
-| 🇲🇲 Yangon | Myanmar | 1 | 11 | 8 | 1.38 |  | 1.30 | <img src="readme/frames/Yangon.jpg" width="240" alt="Yangon"> |
-| 🇮🇩 Yogyakarta | Indonesia |  | 12 | 8 | 1.29 |  | 1.17 | <img src="readme/frames/Yogyakarta.jpg" width="240" alt="Yogyakarta"> |
+| 🇲🇲 Yangon | Myanmar | 1 | 10 | 8 | 1.38 |  | 1.30 | <img src="readme/frames/Yangon.jpg" width="240" alt="Yangon"> |
+| 🇮🇩 Yogyakarta | Indonesia |  | 10 | 8 | 1.29 |  | 1.17 | <img src="readme/frames/Yogyakarta.jpg" width="240" alt="Yogyakarta"> |
 <!-- /city table -->
 
 </details>

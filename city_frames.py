@@ -1,10 +1,10 @@
 """One frame of a generated clip for each of the 100 cities, as a labelled grid for the paper.
 
-For every city of CROWD's per-city table (plus the generated cities it lacks, such as Seattle), takes the MiniMax H3
-crossing with the tallest pedestrian (from analysis.py's crossings and main.py's tracks), and crops the frame halfway
+For every city with MiniMax H3 clips (the final 100 since 2026-11-05), takes the MiniMax H3 crossing with the tallest
+pedestrian (from analysis.py's crossings and main.py's tracks), and crops the frame halfway
 through that crossing around the pedestrian, outlined, so that the crossing is visible at thumbnail size. Cities whose
 clips have no counted crossing get the middle frame of their first clip; cities without a generated clip yet get a
-grey tile, so the grid keeps its 100 places while generation continues. The crossing chosen per city is kept in
+grey tile. The crossing chosen per city is kept in
 results/minimax_h3/city_frames.csv and used when the tracks are not there; the frames themselves need the videos.
 Tiles are in alphabetical order with the city name under each.
 
@@ -26,7 +26,6 @@ from PIL import Image, ImageDraw, ImageFont
 
 import common
 import places
-from generated_speeds import folder_cities
 
 MODEL = "minimax_h3"
 COLUMNS = 10
@@ -177,7 +176,7 @@ def main() -> None:
                     for r in pl.read_csv(chosen_path, schema_overrides={"video": pl.Utf8}).iter_rows(named=True)}
     else:
         crossing = {}
-    cities = sorted(set(pl.read_csv(args.crowd)["locality"]) | set(folder_cities(args.generated).values()))
+    cities = sorted(set(clips["city"]))
 
     rows = -(-len(cities) // COLUMNS)
     grid = Image.new("RGB", (COLUMNS * TILE[0], rows * (TILE[1] + LABEL)), "white")

@@ -59,6 +59,8 @@ def main() -> None:
     missing = videos.join(speeds[0], on="city", how="anti")["city"].unique().sort().to_list()
     if missing:
         common.logger.warning(f"Generated videos of cities without CROWD speed: {', '.join(missing)}")
+    # Only the cities with generated clips: CROWD cities that none was generated for add nothing to the comparison.
+    speeds = [t.filter(pl.col("city").is_in(videos["city"].unique().implode())) for t in speeds]
     labels = places.city_labels()
     fig = Crossings().speed_sources_per_city(pl.concat(speeds), videos, SOURCES, "speed_generated_vs_crowd", labels)
     if args.pdf:  # the paper's version: a dot plot of the 100 cities in three panels, the text width wide

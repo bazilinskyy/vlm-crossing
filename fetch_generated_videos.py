@@ -21,8 +21,9 @@ pass the zip(s), which are unpacked into the mirror before the missing files are
     uvx --with gdown python fetch_generated_videos.py --zip minimax_h3_zi=~/Downloads/videos-*.zip
 
 Folders (from the #pr-vlm-crossing Discord channel):
-    veo3_tanvir    Veo 3 videos by Tanvir: 10 cities with 10-11 videos (08-28-2026), 20 cities with one
-                   (09-26-2026), and the first prompt tests (08-08-26, Videos/).
+    veo3_tanvir    Veo 3 videos by Tanvir: 10 cities with 5-11 videos (08-28-2026), 20 cities with one
+                   (09-26-2026), of which Detroit, Philadelphia, Toronto and Warsaw got ten each (11-10-2026, the
+                   first being the one of 09-26), and the first prompt tests (08-08-26, Videos/).
     minimax_h3_zi  MiniMax H3 videos by Zi (turbo 6 steps, 864x480, 8 s), one folder per city;
                    _unused/ holds clips Zi left out.
     minimax_ltx_benchmark_zi  Zi's comparison of MiniMax H3 and LTX 2.3 settings on the same 10 frames (F01-F10).
@@ -56,6 +57,9 @@ FOLDERS = {
     "minimax_h3_zi": "1fTPnYr1DDFre84l-3Yv8ewj6XDM0dYWt",
     "minimax_ltx_benchmark_zi": "1JE4O8XMAjAvmG9d_oM5X8w93au1iTIu0",
 }
+# Veo batches with <city>/Videos and <city>/Images; the 2026-11-10 batch holds the four one-video cities' first
+# video (as <city>-01) and nine more each.
+VEO_BATCHES = {"08-28-2026": "2026-08-28 top 10", "11-10-2026": "2026-11-10 four cities"}
 # Folder names of the generated videos as CROWD's mapping.csv spells the city.
 CITY_NAMES = {
     "BuenosAires": "Buenos Aires",
@@ -107,8 +111,8 @@ def describe(folder: str, path: str) -> dict:
            "reference_image": ""}
     if folder == "veo3_tanvir":
         row["model"] = "veo3"
-        if parts[0] == "08-28-2026" and parts[2] == "Videos":
-            row.update(city=city_of(parts[1]), status="used", batch="2026-08-28 top 10",
+        if parts[0] in VEO_BATCHES and parts[2] == "Videos":
+            row.update(city=city_of(parts[1]), status="used", batch=VEO_BATCHES[parts[0]],
                        reference_image="/".join(parts[:2] + ["Images", os.path.splitext(parts[3])[0] + ".png"]))
         elif parts[0] == "09-26-2026":
             row.update(city=city_of(parts[1]), status="used", batch="2026-09-26 one per city",
@@ -155,12 +159,15 @@ def link(source: str, target: str) -> None:
 
 
 def unzip(folder: str, pattern: str) -> None:
-    """Unpack a browser download of a Drive folder (one or more zip parts) into its mirror, keeping files there."""
+    """Unpack a browser download of a Drive folder (one or more zip parts) into its mirror. The browser puts everything
+    under the folder's own name (e.g. videos/), which is dropped; files of the same size already there are kept."""
     for archive in sorted(glob.glob(os.path.expanduser(pattern))):
         with zipfile.ZipFile(archive) as z:
             for member in z.infolist():
-                target = os.path.join(MIRROR, folder, member.filename)
-                if member.is_dir() or os.path.exists(target):
+                inside = member.filename.split("/", 1)[1] if "/" in member.filename else ""
+                target = os.path.join(MIRROR, folder, inside)
+                if member.is_dir() or not inside or (os.path.exists(target)
+                                                     and os.path.getsize(target) == member.file_size):
                     continue
                 os.makedirs(os.path.dirname(target), exist_ok=True)
                 with z.open(member) as source, open(target, "wb") as out:
@@ -208,6 +215,12 @@ def main() -> None:
             link(local, target)
             row["file"] = os.path.relpath(target, ROOT)
             rows.append(row)
+    # Links of videos no longer in their place on Drive (moved to _unused, or left out) would still be analysed.
+    linked = {os.path.join(ROOT, r["file"]) for r in rows}
+    for path in glob.glob(os.path.join(VIDEOS, "**", "*.mp4"), recursive=True):
+        if path not in linked and os.stat(path).st_nlink > 1:  # a link: the mirror keeps the file
+            os.remove(path)
+            print(f"Removed the link {os.path.relpath(path, ROOT)}: no longer there on Drive", flush=True)
     rows.sort(key=lambda r: (r["status"] != "used", r["model"], r["city"], r["batch"], r["drive_path"]))
     with open(MAPPING, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=COLUMNS)
