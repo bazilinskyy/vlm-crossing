@@ -103,8 +103,8 @@ Everything the comparison needs, apart from the video files, is in the repositor
 ```
 videos/
 ├── generated_videos.csv          every video: model, city, status, batch, place in Drive, CROWD source frame, size, fps
-├── veo3/<city>/*.mp4             Veo 3.1 Fast clips analysed (109)              ┐ not in git: on 4TU.ResearchData,
-├── minimax_h3/<city>/*.mp4       MiniMax H3 clips analysed (797)                │ or fetched from Drive with
+├── veo3/<city>/*.mp4             Veo 3.1 Fast clips analysed (145)              ┐ not in git: on 4TU.ResearchData,
+├── minimax_h3/<city>/*.mp4       MiniMax H3 clips analysed (1,000)              │ or fetched from Drive with
 └── not_analysed/                 left-out clips, Veo prompt tests, LTX benchmark ┘ fetch_generated_videos.py
 crowd/
 ├── crowd_crossing_speed_by_city.csv   CROWD's per-city values from crowd-city (refreshed nightly, see below)
@@ -124,7 +124,7 @@ The videos come from the project's Google Drive folders (Veo 3 by Tanvir, MiniMa
 uvx --with gdown python fetch_generated_videos.py
 ```
 
-**Tracking** (GPU): `run_sets.sh` writes `config` for each set (`videos/veo3`, `videos/minimax_h3`; `data/real_minimax`, the real 8 seconds after each MiniMax H3 reference frame, which `paired_real_clips.py --videos '<CROWD video folders>'` cuts from the CROWD videos, as YouTube footage is not redistributed here), runs `main.py` and `analysis.py` into `_output/<set>/`, and keeps the results in `results/<set>/` (`export_results.py`). The run of 3 November 2026 was on lin4080 (RTX 4080).
+**Tracking** (GPU): `run_sets.sh` writes `config` for each set (`videos/veo3`, `videos/minimax_h3`; `data/real_minimax`, the real 8 seconds after each MiniMax H3 reference frame, which `paired_real_clips.py --videos '<CROWD video folders>'` cuts from the CROWD videos, as YouTube footage is not redistributed here), runs `main.py` and `analysis.py` into `_output/<set>/`, and keeps the results in `results/<set>/` (`export_results.py`). The runs of 3 and 15 November 2026 were on lin4080 (RTX 4080).
 
 ```bash
 SETS="veo3 minimax_h3" ./run_sets.sh
@@ -227,12 +227,12 @@ The figures in `readme/` are refreshed from the latest results with `uv run pyth
 
 ## Generated videos and CROWD
 
-The paper asks whether video generators reproduce the crossing behaviour of a city or only its look. Frames of real crossings from CROWD were continued as 8-second clips by two image-to-video models with one prompt that does not name the place, and the same pipeline measures crossing speed in the generated clips and in CROWD. Numbers below are as of 3 November 2026; generation with MiniMax H3 continues towards 100 cities.
+The paper asks whether video generators reproduce the crossing behaviour of a city or only its look. Frames of real crossings from CROWD were continued as 8-second clips by two image-to-video models with one prompt that does not name the place, and the same pipeline measures crossing speed in the generated clips and in CROWD. Numbers below are as of 15 November 2026, with all generated videos (MiniMax H3 finished on 5 November); CROWD's values are still those of 8 October 2026, which lack 12 of the 100 MiniMax cities.
 
 | Model | Videos | Cities | Resolution | Frame rate | Not used |
 |---|---|---|---|---|---|
-| Veo 3.1 Fast (Tanvir) | 109 | 30 (10 with 5-11 videos, 20 with one) | 1920×1080 | 24 fps | 16 prompt tests |
-| MiniMax H3 (Zi, 6 steps on an RTX 4090) | 797 | 77 in 42 countries (9-15 each) | 864×480 | 24 fps | 56 clips Zi left out; 100 settings benchmark clips (MiniMax H3 and LTX 2.3) |
+| Veo 3.1 Fast (Tanvir) | 145 | 30 (14 with 5-11 videos, 16 with one) | 1920×1080 | 24 fps | 16 prompt tests |
+| MiniMax H3 (Zi, 6 steps on an RTX 4090) | 1,000 | 100 in 55 countries (10 each) | 864×480 | 24 fps | 56 clips Zi left out; 100 settings benchmark clips (MiniMax H3 and LTX 2.3) |
 
 All 30 Veo cities also have MiniMax videos. CROWD's reference values come from crowd-city's run over the 100 cities with the most footage (cars only, footage in a fixed random order until 100 crossings or 100 hours per city); Seattle has no crossing in it.
 
@@ -356,34 +356,34 @@ All 30 Veo cities also have MiniMax videos. CROWD's reference values come from c
 
 ### Crossing speed in the generated clips
 
-Each set was tracked with YOLO11x and BoT-SORT and run through the same crossing rule as CROWD (`analysis.py`), with crowd-city's Waymo-calibrated speed model, so a crossing's speed is in m/s only where the model qualifies the track, exactly as in crowd-city's table of CROWD. "Real continuation" is the real 8 seconds that follow each MiniMax H3 reference frame in its CROWD video (`paired_real_clips.py`), tracked the same way: the same scenes as MiniMax H3, but real (793 pairs; the CROWD video of 4 Oldenburg frames is not on lin4080). Numbers are as of 3 November 2026; `speed_statistics.py` writes the tests (`_output/generated_statistics.csv`) and the reliability of the city medians (`generated_reliability.csv`). Tests run on clip or city medians, with 95% intervals from bootstraps over clips, clip pairs or cities.
+Each set was tracked with YOLO11x and BoT-SORT and run through the same crossing rule as CROWD (`analysis.py`), with crowd-city's Waymo-calibrated speed model, so a crossing's speed is in m/s only where the model qualifies the track, exactly as in crowd-city's table of CROWD. "Real continuation" is the real 8 seconds that follow each MiniMax H3 reference frame in its CROWD video (`paired_real_clips.py`), tracked the same way: the same scenes as MiniMax H3, but real (1,000 pairs). Numbers are as of 15 November 2026; `speed_statistics.py` writes the tests (`_output/generated_statistics.csv`) and the reliability of the city medians (`generated_reliability.csv`). Tests run on clip or city medians, with 95% intervals from bootstraps over clips, clip pairs or cities.
 
 | Set | Clips | Clips with a counted crossing (95% CI) | Crossings | Crossings with an m/s speed | Median speed (95% CI) | Initiation times |
 |---|---|---|---|---|---|---|
-| Veo 3.1 Fast | 109 | 72% (62-79%) | 192 | 142 | 1.23 m/s (1.18-1.28) | 2 |
-| MiniMax H3 | 797 | 58% (55-62%) | 1,167 | 830 | 1.27 m/s (1.25-1.29) | 29 |
-| Real continuation | 793 | 69% (66-72%) | 1,514 | 956 | 1.39 m/s (1.37-1.40) | 13 |
+| Veo 3.1 Fast | 145 | 68% (60-75%) | 227 | 174 | 1.23 m/s (1.18-1.27) | 5 |
+| MiniMax H3 | 1,000 | 58% (55-61%) | 1,473 | 1,049 | 1.27 m/s (1.25-1.29) | 38 |
+| Real continuation | 1,000 | 70% (67-73%) | 1,953 | 1,235 | 1.39 m/s (1.37-1.40) | 20 |
 
 City medians (cities with at least 3 m/s speeds) against CROWD and against the real continuations:
 
 | Set | Reference | Cities | Spearman ρ (95% CI) | Median difference | Spread of city medians / reference's (IQR ratio) |
 |---|---|---|---|---|---|
-| Veo 3.1 Fast | CROWD | 11 | 0.52 (−0.16 to 0.89) | −0.09 m/s (p = .002) | 1.7 |
-| MiniMax H3 | CROWD | 72 | 0.08 (−0.18 to 0.34) | −0.07 m/s (p < .001) | 1.8 (1.3-2.5) |
-| Real continuation | CROWD | 71 | −0.13 (−0.37 to 0.12) | +0.04 m/s (p = .001) | 1.4 (1.1-2.1) |
-| MiniMax H3 | Real continuation | 68 | −0.13 (−0.39 to 0.14) | −0.12 m/s (p < .001) | 1.4 (0.9-1.8) |
+| Veo 3.1 Fast | CROWD | 15 | 0.45 (−0.17 to 0.82) | −0.09 m/s (p < .001) | 2.1 (0.6-9.9) |
+| MiniMax H3 | CROWD | 81 | 0.00 (−0.23 to 0.25) | −0.07 m/s (p < .001) | 1.7 (1.1-2.3) |
+| Real continuation | CROWD | 81 | −0.26 (−0.47 to −0.03) | +0.04 m/s (p = .016) | 1.6 (1.0-2.0) |
+| MiniMax H3 | Real continuation | 88 | 0.02 (−0.22 to 0.26) | −0.11 m/s (p < .001) | 1.4 (0.8-1.7) |
 
 Crossings are counted with the crowd-city code of CROWD's current run (commit 9a35c28: track joining, corrected segmentation clock), and speeds are computed by the same function as CROWD's per-city table. CROWD's values are still those of 8 October 2026, from an earlier version of the code; the nightly job replaces them when the current run ends.
 
-- **Generated pedestrians cross about 0.1 m/s slower than real ones.** On the 289 clip pairs with an m/s speed in both, MiniMax H3 is 0.11 m/s (0.08-0.14) slower than the real continuation of the same scene (Wilcoxon signed-rank, p < .001); per pair the speeds agree only weakly (Spearman 0.26). **Not a matter of resolution:** the real continuations scaled to MiniMax's 864×480 give the same speeds as at 1280×720 (median difference 0.000 m/s, −0.003 to 0.004, Spearman 0.93, 382 clips; `results/real_minimax_480`), and MiniMax H3 is 0.11 m/s slower than those too.
-- **MiniMax H3 loses crossings and adds waits.** Of the 549 real continuations with a crossing, 150 (27%) have none in the generated clip, against 64 generated clips with a crossing the real one lacks (exact McNemar, p < .001). MiniMax shows a pedestrian waiting before stepping onto the road in 26 clips against 13 real continuations (p = .035; median wait 1.33 s in both). On the 30 shared cities, Veo 3.1 Fast keeps a crossing more often than MiniMax H3 (72% against 61%, Fisher p = .049).
-- **Eight-second clips cannot rank cities, even real ones.** In the real continuations the city explains none of the variance in clip speed (Kruskal-Wallis η²_H = −0.02, 69 cities, p = .67), and the split-half reliability of a city median from about six clips with a speed is −0.24 (−0.67 to 0.12): no reference could correlate with such city medians. So the weak correlations of the models with CROWD say little about the models; the per-clip pairing is the fair test. MiniMax H3 is similar (η²_H = 0.03, p = .21; reliability 0.26, −0.07 to 0.51). Veo's clips of one city are more alike (η²_H = 0.19, p = .03 in nine cities), perhaps because their hand-picked frames resemble each other.
+- **Generated pedestrians cross about 0.1 m/s slower than real ones.** On the 352 clip pairs with an m/s speed in both, MiniMax H3 is 0.10 m/s (0.07-0.12) slower than the real continuation of the same scene (Wilcoxon signed-rank, p < .001); per pair the speeds agree only weakly (Spearman 0.24). **Not a matter of resolution:** the real continuations scaled to MiniMax's 864×480 give the same speeds as at 1280×720 (median difference 0.000 m/s, −0.002 to 0.004, Spearman 0.92, 482 clips; `results/real_minimax_480`), and MiniMax H3 is 0.09 m/s slower than those too.
+- **MiniMax H3 loses crossings and adds waits.** Of the 703 real continuations with a crossing, 210 (30%) have none in the generated clip, against 83 generated clips with a crossing the real one lacks (exact McNemar, p < .001). MiniMax shows a pedestrian waiting before stepping onto the road in 33 clips against 19 real continuations (p = .038; median wait 1.50 s against 1.33 s). On the 30 shared cities, Veo 3.1 Fast keeps a crossing slightly more often than MiniMax H3 (68% against 60%, Fisher p = .12).
+- **Eight-second clips cannot rank cities, even real ones.** In the real continuations the city explains none of the variance in clip speed (Kruskal-Wallis η²_H = −0.01, 88 cities, p = .67), and the split-half reliability of a city median from about six clips with a speed is −0.17 (−0.54 to 0.15): no reference could correlate with such city medians. So the weak correlations of the models with CROWD say little about the models; the per-clip pairing is the fair test. MiniMax H3 is similar (η²_H = 0.04, p = .12; reliability 0.20, −0.10 to 0.45). Veo's clips of one city are more alike (η²_H = 0.21, p = .01 in 13 cities), perhaps because their hand-picked frames resemble each other.
 
 **Speed of every crossing per set** (left; the dashed line is the median of CROWD's city medians) and **MiniMax H3 minus its real continuation, per clip** (right):
 
 [![Speed of every crossing per set](readme/ecdf_speed_sets.png)](https://htmlpreview.github.io/?https://github.com/bazilinskyy/vlm-crossing/blob/main/readme/ecdf_speed_sets.html) [![MiniMax H3 minus its real continuation](readme/hist_speed_paired_difference.png)](https://htmlpreview.github.io/?https://github.com/bazilinskyy/vlm-crossing/blob/main/readme/hist_speed_paired_difference.html)
 
-**Crossing speed per city**: CROWD (crowd-city's run of 8 October 2026, made before the repair of the tracking files: to be replaced by its current values), Veo 3.1 Fast and MiniMax H3. The numbers after each city are the clips per model (Veo 3.1 / MiniMax H3); cities with one Veo clip have a bar from at most a few crossings. `--pdf` writes the paper's version, a dot plot of the same values in two panels that fills one page.
+**Crossing speed per city**: CROWD (crowd-city's run of 8 October 2026, made before the repair of the tracking files: to be replaced by its current values), Veo 3.1 Fast and MiniMax H3. The numbers after each city are the clips per model (Veo 3.1 / MiniMax H3); cities with one Veo clip have a bar from at most a few crossings. `--pdf` writes the paper's version, a dot plot of the same values in three panels.
 
 [![Crossing speed per city](readme/speed_generated_vs_crowd.png)](https://htmlpreview.github.io/?https://github.com/bazilinskyy/vlm-crossing/blob/main/readme/speed_generated_vs_crowd.html)
 
@@ -397,24 +397,24 @@ Crossings are counted with the crowd-city code of CROWD's current run (commit 9a
 
 ### Do the generated videos keep the look of their city?
 
-Each clip was sampled every second, and every frame was scored with CLIP (ViT-B/32, LAION-2B) against prompts naming each of the 100 cities ("a photo taken from a car driving through a street in {city}, {country}") and each of their 50 countries. The first frame is the CROWD reference frame as the model rendered it, so it shows how recognisable the real scene is; the later frames show whether the model keeps that look while it invents the rest of the clip.
+Each clip was sampled every second, and every frame was scored with CLIP (ViT-B/32, LAION-2B) against prompts naming each of the 100 cities ("a photo taken from a car driving through a street in {city}, {country}") and each of their 55 countries. The first frame is the CROWD reference frame as the model rendered it, so it shows how recognisable the real scene is; the later frames show whether the model keeps that look while it invents the rest of the clip.
 
 | Model | Videos | City in CLIP's top 5 of 100: first frame | last frame | Country ranked first: first frame | last frame | Similarity of last to first frame |
 |---|---|---|---|---|---|---|
-| Veo 3.1 Fast | 109 | 76% | 72% | 56% | 50% | 0.86 |
-| MiniMax H3 | 797 | 71% | 71% | 49% | 46% | 0.84 |
-| MiniMax H3, the 30 Veo cities | 312 | 74% | 68% | 52% | 47% | 0.85 |
+| Veo 3.1 Fast | 145 | 67% | 69% | 54% | 49% | 0.86 |
+| MiniMax H3 | 1,000 | 67% | 67% | 43% | 41% | 0.84 |
+| MiniMax H3, the 30 Veo cities | 300 | 72% | 66% | 49% | 44% | 0.85 |
 
 - **The look of the city survives the 8 seconds.** CLIP finds the city about as often in the last frame as in the reference frame, for both models. Whatever the models change, the street stays recognisably that city's.
-- **The models are close.** On the same 30 cities, Veo 3.1 Fast and MiniMax H3 lose 5 to 6 points of city recognition over the clip; the difference between them is within the 95% intervals (bands in the figure).
-- **MiniMax H3 drifts a little more** from its reference frame (CLIP similarity 0.84 against 0.86 at the end), and 5.6% of its clips end below 0.7, against 0.9% of Veo's. These clips (in `_output/appearance_frames.csv`) are the first to check for artefacts such as pedestrians changing into other road users.
-- **No clip is frozen**: every second differs from the one before (mean absolute pixel change 25-34 of 255). Veo 3.1 Fast changes more per second (29-34) than MiniMax H3 (25-26).
+- **The models are close.** On the same 30 cities, Veo 3.1 Fast keeps its city recognition and MiniMax H3 loses 6 points over the clip; the difference between them is within the 95% intervals (bands in the figure).
+- **MiniMax H3 drifts a little more** from its reference frame (CLIP similarity 0.84 against 0.86 at the end), and 5.5% of its clips end below 0.7, against 1.4% of Veo's. These clips (in `_output/appearance_frames.csv`) are the first to check for artefacts such as pedestrians changing into other road users.
+- **No clip is frozen**: every second differs from the one before (mean absolute pixel change 25-33 of 255). Veo 3.1 Fast changes more per second (29-33) than MiniMax H3 (25-26).
 
 [![City recognition over the clip](readme/line_city_recognition.png)](https://htmlpreview.github.io/?https://github.com/bazilinskyy/vlm-crossing/blob/main/readme/line_city_recognition.html)
 
 [![Drift from the reference frame](readme/line_appearance_drift.png)](https://htmlpreview.github.io/?https://github.com/bazilinskyy/vlm-crossing/blob/main/readme/line_appearance_drift.html)
 
-Per-city values are in `_output/appearance_cities.csv`. With one Veo video, a city's value is that single clip, so only the ten Veo cities with 5-11 videos say something per city.
+Per-city values are in `_output/appearance_cities.csv`. With one Veo video, a city's value is that single clip, so only the 14 Veo cities with 5-11 videos say something per city.
 
 ### Analyses still to run
 
