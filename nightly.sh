@@ -28,11 +28,11 @@ rm -f "$copy"
 scaled=()
 [ -f results/real_minimax_480/crossings.csv ] && scaled=(--scaled results/real_minimax_480)
 run() { nice -n 10 "$PY" "$@" > /dev/null 2>&1 || { echo "failed: $*"; exit 1; }; }
+run appearance_analysis.py --readme  # first: speed_statistics.py reads its results/appearance/frames.csv
 run generated_speeds.py --readme
 run speed_statistics.py --readme "${scaled[@]}"
 run speed_generated_vs_crowd.py --readme
 run city_frames.py --readme
-run appearance_analysis.py --readme
 git add crowd results readme README.md assets
 if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
 git commit -q -m "Nightly: comparison with CROWD's per-city values of $(date +%F)" && git push -q && echo "pushed"

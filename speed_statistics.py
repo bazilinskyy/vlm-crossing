@@ -359,7 +359,9 @@ def ecdf_figure(clips: pl.DataFrame, crowd: pl.DataFrame) -> go.Figure:
         fig.add_trace(go.Scatter(x=speeds, y=np.arange(1, len(speeds) + 1) / len(speeds), mode="lines",
                                  name=f"{legend} ({len(speeds):,} crossings)", line=dict(color=colour, width=2),
                                  hovertemplate=f"{legend}<br>%{{x:.2f}} m/s: %{{y:.0%}}<extra></extra>"))
-    reference = crowd.filter(pl.col("n") >= MIN_TRACKS)["median"].median()
+    # CROWD's table holds more cities than were generated: the line is the median over the generated cities only.
+    generated = clips["city"].unique().implode()
+    reference = crowd.filter((pl.col("n") >= MIN_TRACKS) & pl.col("locality").is_in(generated))["median"].median()
     fig.add_vline(x=reference, line=dict(color=CROWD[1], width=2, dash="dash"))
     fig.add_annotation(x=reference, y=0.02, text=f"CROWD: median of city medians ({reference:.2f})", showarrow=False,
                        xanchor="left", xshift=4, font=dict(color=CROWD[1]))

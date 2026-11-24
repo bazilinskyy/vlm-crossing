@@ -5,7 +5,7 @@ frame is embedded with CLIP ViT-B/32 (LAION-2B). The first frame is the CROWD re
 model, so it stands for the real scene, and the later frames show how the model continued it. For each frame:
 
 - similarity to the first frame (cosine of the CLIP embeddings): how far the scene drifts from the reference;
-- rank of the true city among the cities of CROWD's speed table, for zero-shot prompts naming each city
+- rank of the true city among the cities with generated videos (the 100), for zero-shot prompts naming each city
   ("a photo taken from a car driving through a street in {city}, {country}"): whether the city is still recognisable;
 - rank of the true country among the countries of those cities;
 - mean absolute pixel difference to the previous sampled frame (0-255): motion, so that frozen clips stand out.
@@ -188,7 +188,7 @@ def line_figure(stats: pl.DataFrame, panels: list, name: str) -> go.Figure:
 
 
 def city_map(cities: pl.DataFrame, counts: pl.DataFrame, name: str) -> go.Figure:
-    """The CROWD cities used as reference, coloured by which generated videos they have."""
+    """The cities with generated videos, coloured by which models they have."""
     data = cities.join(counts, on="city", how="left").with_columns(pl.col("veo3", "minimax_h3").fill_null(0))
     groups = {
         "CROWD only": (data.filter((pl.col("veo3") == 0) & (pl.col("minimax_h3") == 0)), "#9b9a96"),
@@ -197,6 +197,8 @@ def city_map(cities: pl.DataFrame, counts: pl.DataFrame, name: str) -> go.Figure
     }
     fig = go.Figure()
     for legend, (group, colour) in groups.items():
+        if group.is_empty():
+            continue
         fig.add_trace(go.Scattergeo(
             lon=group["lon"].to_list(), lat=group["lat"].to_list(), name=f"{legend} ({group.height})",
             mode="markers", marker=dict(size=9, color=colour, line=dict(width=1, color="white")),
@@ -238,11 +240,11 @@ def main() -> None:
                .select("city", "country", pl.col("lat").cast(pl.Float64), pl.col("lon").cast(pl.Float64))
                .unique(["city", "country"], keep="first"))
     crowd = pl.read_csv(args.crowd, infer_schema_length=None).select(pl.col("locality").alias("city"), "country")
-    # Cities with generated videos but no CROWD speed (Seattle) are added from the mapping.
-    extra = (mapping.filter(pl.col("city").is_in(videos["city"].unique().to_list())
-                            & ~pl.col("city").is_in(crowd["city"].to_list()))
-             .unique("city", keep="first").select("city", "country"))
-    cities = pl.concat([crowd, extra]).join(mapping, on=["city", "country"], how="left")
+    # CLIP chooses among the cities with generated videos only (the 100), however many cities CROWD's table holds;
+    # the country comes from CROWD's table and, for a city it lacks, from the mapping.
+    known = pl.concat([crowd, mapping.select("city", "country")]).unique("city", keep="first", maintain_order=True)
+    cities = (videos.select("city").unique().sort("city").join(known, on="city", how="left")
+              .join(mapping, on=["city", "country"], how="left"))
     missing = cities.filter(pl.col("lat").is_null())["city"].to_list()
     if missing:
         common.logger.warning(f"No coordinates in the mapping for: {', '.join(missing)}")
