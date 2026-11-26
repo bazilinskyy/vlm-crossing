@@ -10,7 +10,8 @@ there), then each video is hard-linked into videos/ (the clips are not in git; t
     videos/not_analysed/settings_benchmark/           Zi's MiniMax H3 and LTX 2.3 settings comparison
 
 videos/generated_videos.csv lists every video with its model, city, status, batch, place in Drive and, for MiniMax H3,
-the CROWD video and second of its reference frame; this table is in git. Run again to pick up new videos:
+the CROWD video and second of its reference frame (for Veo 3.1 Fast from videos/veo3_sources.csv, which Tanvir
+recovered); this table is in git. Run again to pick up new videos:
 
     uvx --with gdown python fetch_generated_videos.py
 
@@ -104,6 +105,19 @@ def city_of(name: str) -> str:
     return name.replace("_", " ")
 
 
+def veo_sources(path: str = os.path.join(ROOT, "videos", "veo3_sources.csv")) -> dict:
+    """CROWD video and second of each Veo reference frame, recovered by Tanvir (2026-11-26) for 124 of the 129 clips
+    of the 14 cities with several Veo videos (not Sydney_06-10, whose videos are no longer on YouTube); keyed by the
+    lower-case clip name, as Drive has LOndon_06.mp4."""
+    if not os.path.isfile(path):
+        return {}
+    with open(path, newline="") as f:
+        return {r["clip"].lower(): r for r in csv.DictReader(f) if r["youtube_id"]}
+
+
+VEO_SOURCES = veo_sources()
+
+
 def describe(folder: str, path: str) -> dict:
     """Model, city, status and batch of one mirrored file from its place in the Drive folder."""
     parts = path.split("/")
@@ -114,6 +128,9 @@ def describe(folder: str, path: str) -> dict:
         if parts[0] in VEO_BATCHES and parts[2] == "Videos":
             row.update(city=city_of(parts[1]), status="used", batch=VEO_BATCHES[parts[0]],
                        reference_image="/".join(parts[:2] + ["Images", os.path.splitext(parts[3])[0] + ".png"]))
+            source = VEO_SOURCES.get(parts[3].lower())
+            if source:
+                row.update(youtube_id=source["youtube_id"], frame_time_s=source["frame_time_s"])
         elif parts[0] == "09-26-2026":
             row.update(city=city_of(parts[1]), status="used", batch="2026-09-26 one per city",
                        reference_image="/".join(parts[:2] + [os.path.splitext(parts[2])[0] + ".png"]))

@@ -1,11 +1,13 @@
-"""Cut the real 8 seconds that follow each MiniMax H3 reference frame from the CROWD video it was taken from.
+"""Cut the real 8 seconds that follow each generated clip's reference frame from the CROWD video it was taken from.
 
-Every MiniMax H3 clip in videos/generated_videos.csv starts from a frame of a CROWD video (youtube_id, frame_time_s).
-This cuts [frame_time_s, frame_time_s + 8 s] of that video to data/real_minimax/<city>/<same file name>, so the
-tracking and analysis can compare the generated continuation of a crossing scene with the real one. The cut is
+Every MiniMax H3 clip in videos/generated_videos.csv, and 124 of the Veo 3.1 Fast clips, start from a frame of a CROWD
+video (youtube_id, frame_time_s). This cuts [frame_time_s, frame_time_s + clip length] of that video to
+data/real_minimax/<city>/<same file name> (--model veo3: data/real_veo3/), so the tracking and analysis can compare
+the generated continuation of a crossing scene with the real one. The cut is
 re-encoded (a stream copy would start at the previous keyframe). Run it where the CROWD videos are, e.g. lin4080:
 
     uv run python paired_real_clips.py --videos '/media/salam/crowd-tue-*/pedestrians-in-youtube/videos'
+    uv run python paired_real_clips.py --model veo3 --videos '/media/salam/crowd-tue-*/pedestrians-in-youtube/videos'
 
 Clips that already exist are skipped; data/real_minimax/clips.csv lists every clip and why one is missing.
 """
@@ -20,8 +22,7 @@ import polars as pl
 
 import common
 
-MODEL = "minimax_h3"
-OUT = os.path.join(common.root_dir, "data", "real_minimax")
+OUTS = {"minimax_h3": "real_minimax", "veo3": "real_veo3"}  # model: folder of its real continuations in data/
 
 
 def cut(source: str, start: float, length: float, target: str) -> str:
@@ -46,7 +47,9 @@ def main() -> None:
                         help="folder (glob) of CROWD videos named <youtube_id>.mp4; repeatable")
     parser.add_argument("--generated", default=os.path.join(common.root_dir, "videos", "generated_videos.csv"))
     parser.add_argument("--workers", type=int, default=4)
+    parser.add_argument("--model", choices=sorted(OUTS), default="minimax_h3")
     args = parser.parse_args()
+    out = os.path.join(common.root_dir, "data", OUTS[args.model])
 
     sources = {}
     for pattern in args.videos:
@@ -54,12 +57,12 @@ def main() -> None:
             for path in glob.glob(os.path.join(folder, "*.mp4")):
                 sources.setdefault(os.path.splitext(os.path.basename(path))[0], path)
     clips = (pl.read_csv(args.generated, infer_schema_length=None)
-             .filter((pl.col("model") == MODEL) & (pl.col("status") == "used"))
+             .filter((pl.col("model") == args.model) & (pl.col("status") == "used") & pl.col("youtube_id").is_not_null())
              .select("city", "file", "youtube_id", pl.col("frame_time_s").cast(pl.Float64),
                      pl.col("duration_s").cast(pl.Float64)))
 
     def one(row: dict) -> dict:
-        target = os.path.join(OUT, os.path.basename(os.path.dirname(row["file"])), os.path.basename(row["file"]))
+        target = os.path.join(out, os.path.basename(os.path.dirname(row["file"])), os.path.basename(row["file"]))
         source = sources.get(row["youtube_id"])
         if os.path.exists(target):
             status = "ok"
@@ -74,9 +77,9 @@ def main() -> None:
     with ThreadPoolExecutor(args.workers) as pool:
         rows = list(pool.map(one, clips.to_dicts()))
     table = pl.DataFrame(rows)
-    os.makedirs(OUT, exist_ok=True)
-    table.write_csv(os.path.join(OUT, "clips.csv"))
-    common.logger.info(f"{(table['status'] == 'ok').sum()} of {table.height} real clips ready in {OUT}.")
+    os.makedirs(out, exist_ok=True)
+    table.write_csv(os.path.join(out, "clips.csv"))
+    common.logger.info(f"{(table['status'] == 'ok').sum()} of {table.height} real clips ready in {out}.")
     for status, n in table.filter(pl.col("status") != "ok").group_by("status").len().iter_rows():
         common.logger.warning(f"{n} clips: {status}")
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Track and analyse each set of clips into _output/<set>/ and keep its results in results/<set>/ (main.py needs a GPU).
-# veo3 and minimax_h3 come from videos/<set>/; real_minimax from data/real_minimax/ (paired_real_clips.py cuts it from
+# veo3 and minimax_h3 come from videos/<set>/; real_minimax and real_veo3 from data/<set>/ (paired_real_clips.py cuts them from
 # the CROWD videos), real_minimax_480 is the same scaled to 864x480. Speeds are m/s with crowd-city's Waymo model.
 #     SETS="minimax_h3 real_minimax" ./run_sets.sh
 cd "$(dirname "$0")" || exit 1
