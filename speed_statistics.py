@@ -11,12 +11,14 @@ reference frames) and CROWD's per-city table, and writes to <output>:
                             CROWD's speed, also against guessing one speed for every city; the shape of each set's
                             speed distribution (spread, share of fast crossings), how MiniMax H3's clip speed follows
                             that of its real continuation, and, with results/appearance/frames.csv, whether clips that
-                            kept the look of their city also kept the speed and the crossing
+                            kept the look of their city also kept the speed and the crossing; with --veo-real the
+                            Veo 3.1 Fast clips against the real continuations of their reference frames (crossings
+                            kept, paired speed), and their speed gap against MiniMax H3's
 - generated_reliability.csv per set: split-half reliability of the city medians, and the clips per city that a
                             reliability of 0.8 would need
 
-and the figures ecdf_speed_sets (speed of every crossing per set) and hist_speed_paired_difference (MiniMax H3 minus
-its real continuation, per clip); with --readme also to readme/, with --pdf-dir also as PDF.
+and the figures ecdf_speed_sets (speed of every crossing per set) and hist_speed_paired_difference (MiniMax H3 and,
+with --veo-real, Veo 3.1 Fast minus the real continuation, per clip); with --readme also to readme/, with --pdf-dir also as PDF.
 
 Crossings within a clip, and clips within a city, are not independent, so intervals come from bootstraps that resample
 whole clips (set medians), clip pairs (paired differences) or cities (city-level statistics), and tests are run on
@@ -225,6 +227,69 @@ def footage_tests(clips: pl.DataFrame, crowd: pl.DataFrame, footage: pl.DataFram
     return rows
 
 
+def wilson(k: int, n: int) -> tuple:
+    """95% Wilson interval of a proportion."""
+    z, p = 1.96, k / n
+    centre, half = (p + z * z / (2 * n)) / (1 + z * z / n), z * np.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / (1 + z * z / n)
+    return centre - half, centre + half
+
+
+def veo_pair_tests(clips: pl.DataFrame, real: pl.DataFrame) -> list:
+    """Veo 3.1 Fast against the real continuations of its reference frames (real_veo3; Tanvir recovered the source of
+    124 of its frames), as MiniMax H3 against real_minimax: crossings kept, paired speed, and whether Veo's speed gap
+    to its real scenes differs from MiniMax H3's to its own."""
+    rows = []
+    both = pl.concat([clips, real], how="diagonal_relaxed")
+    pairs = (both.filter(pl.col("set") == "veo3").select("video", "crossings")
+             .join(both.filter(pl.col("set") == "real_veo3").select("video", pl.col("crossings").alias("real")),
+                   on="video"))
+    with_crossing = int((pairs["real"] > 0).sum())
+    rows.append(row("clips with a crossing: real continuations of the Veo frames (Wilson)", "real_veo3", "",
+                    pairs.height, with_crossing / pairs.height, wilson(with_crossing, pairs.height)))
+    generated = int((pairs["crossings"] > 0).sum())
+    rows.append(row("clips with a crossing: Veo 3.1 Fast clips with a real continuation (Wilson)", "veo3", "",
+                    pairs.height, generated / pairs.height, wilson(generated, pairs.height)))
+    generated_only = pairs.filter((pl.col("crossings") > 0) & (pl.col("real") == 0)).height
+    real_only = pairs.filter((pl.col("crossings") == 0) & (pl.col("real") > 0)).height
+    rows.append(row(f"clips with a crossing: Veo 3.1 Fast minus real continuation (exact McNemar; real clips with a "
+                    f"crossing {with_crossing}, lost by Veo {real_only}, added {generated_only})", "veo3", "real_veo3",
+                    pairs.height, (generated_only - real_only) / pairs.height,
+                    statistic="discordant pairs generated-only/real-only", value=generated_only / max(real_only, 1),
+                    p=stats.binomtest(generated_only, generated_only + real_only).pvalue
+                    if generated_only + real_only else None))
+    with_speed = both.filter(pl.col("speeds").list.len() > 0)
+    groups = [np.array(v) for v in with_speed.filter(pl.col("set") == "real_veo3")["speeds"].to_list()]
+    if groups:
+        rows.append(row("median crossing speed (m/s), clip bootstrap", "real_veo3", "", sum(map(len, groups)),
+                        pooled_median(groups), bootstrap(groups, pooled_median)))
+    rows += paired_speed(with_speed, "veo3", "real_veo3", "Veo 3.1 Fast minus real continuation")
+    gaps = {}
+    for model, reference in (("veo3", "real_veo3"), ("minimax_h3", "real_minimax")):
+        pair = (with_speed.filter(pl.col("set") == model).select("video", "median_speed")
+                .join(with_speed.filter(pl.col("set") == reference).select("video", pl.col("median_speed")
+                                                                           .alias("real")), on="video"))
+        gaps[model] = (pair["median_speed"] - pair["real"]).to_numpy()
+    if len(gaps["veo3"]) >= 5:
+        test = stats.mannwhitneyu(gaps["veo3"], gaps["minimax_h3"])
+        rows.append(row(f"clip speed minus its real continuation: Veo 3.1 Fast ({len(gaps['veo3'])}, median "
+                        f"{np.median(gaps['veo3']):+.3f}) minus MiniMax H3 ({len(gaps['minimax_h3'])}, median "
+                        f"{np.median(gaps['minimax_h3']):+.3f}) (Mann-Whitney)", "veo3", "minimax_h3",
+                        len(gaps["veo3"]) + len(gaps["minimax_h3"]),
+                        float(np.median(gaps["veo3"]) - np.median(gaps["minimax_h3"])), statistic="U",
+                        value=test.statistic, p=test.pvalue))
+    # Hand-picked Veo scenes against MiniMax H3's automatically found ones, both real, on the Veo cities
+    veo_cities = with_speed.filter(pl.col("set") == "real_veo3")["city"].unique().implode()
+    a, b = (with_speed.filter((pl.col("set") == s) & pl.col("city").is_in(veo_cities))["median_speed"].to_numpy()
+            for s in ("real_veo3", "real_minimax"))
+    if len(a) >= 5 and len(b) >= 5:
+        test = stats.mannwhitneyu(a, b)
+        rows.append(row(f"clip median speed of the real continuations: Veo frames ({len(a)}, median {np.median(a):.3f}) "
+                        f"minus MiniMax H3 frames ({len(b)}, median {np.median(b):.3f}) on the Veo cities "
+                        f"(Mann-Whitney)", "real_veo3", "real_minimax", len(a) + len(b),
+                        float(np.median(a) - np.median(b)), statistic="U", value=test.statistic, p=test.pvalue))
+    return rows
+
+
 def initiation_tests(clips: pl.DataFrame) -> list:
     """Crossing initiation time: how often it can be measured, and its median, per set and per MiniMax/real pair."""
     rows = []
@@ -373,22 +438,30 @@ def ecdf_figure(clips: pl.DataFrame, crowd: pl.DataFrame) -> go.Figure:
     return fig
 
 
-def paired_figure(clips: pl.DataFrame) -> go.Figure:
-    with_speed = clips.filter(pl.col("speeds").list.len() > 0)
-    pairs = (with_speed.filter(pl.col("set") == "minimax_h3").select("video", "median_speed")
-             .join(with_speed.filter(pl.col("set") == "real_minimax")
-                   .select("video", pl.col("median_speed").alias("real")), on="video"))
-    difference = (pairs["median_speed"] - pairs["real"]).to_numpy()
-    fig = go.Figure(go.Histogram(x=difference, xbins=dict(start=-1.0, end=1.0, size=0.1),
-                                 marker=dict(color=SETS["minimax_h3"][1], line=dict(color="white", width=2)),
-                                 name="Clip pairs", hovertemplate="%{x} m/s: %{y} clips<extra></extra>"))
+def paired_figure(clips: pl.DataFrame, veo_real: pl.DataFrame = None) -> go.Figure:
+    """Clip median speed minus that of the real continuation of the same reference frame: MiniMax H3 and, with the
+    real continuations of the Veo frames, Veo 3.1 Fast (as shares of each model's pairs, as their numbers differ)."""
+    both = clips if veo_real is None else pl.concat([clips, veo_real], how="diagonal_relaxed")
+    with_speed = both.filter(pl.col("speeds").list.len() > 0)
+    models = [("minimax_h3", "real_minimax")] + ([("veo3", "real_veo3")] if veo_real is not None else [])
+    fig = go.Figure()
     fig.add_vline(x=0, line=dict(color="#9b9a96", width=1, dash="dot"))
-    fig.add_vline(x=float(np.median(difference)), line=dict(color="#0b0b0b", width=2, dash="dash"))
-    fig.add_annotation(x=float(np.median(difference)), yref="paper", y=1.0, showarrow=False, xanchor="right",
-                       xshift=-4, text=f"median {np.median(difference):+.2f} m/s ({len(difference)} clips)")
-    fig.update_layout(xaxis_title="Clip median speed, MiniMax H3 minus real (m/s)",
-                      yaxis_title="Clips", showlegend=False, bargap=0)
-    Crossings._layout(fig).update_layout(margin=dict(l=20, r=20, t=40, b=60))
+    for model, reference in models:
+        pairs = (with_speed.filter(pl.col("set") == model).select("video", "median_speed")
+                 .join(with_speed.filter(pl.col("set") == reference)
+                       .select("video", pl.col("median_speed").alias("real")), on="video"))
+        difference = (pairs["median_speed"] - pairs["real"]).to_numpy()
+        legend, colour = SETS[model]
+        median = float(np.median(difference))
+        fig.add_trace(go.Histogram(x=difference, xbins=dict(start=-1.0, end=1.0, size=0.1), histnorm="percent",
+                                   marker=dict(color=colour, line=dict(color="white", width=1)), opacity=0.75,
+                                   name=f"{legend}: {len(difference)} pairs, median {median:+.2f} m/s (dashed)",
+                                   hovertemplate=f"{legend}<br>%{{x}} m/s: %{{y:.0f}}% of pairs<extra></extra>"))
+        fig.add_vline(x=median, line=dict(color=colour, width=2, dash="dash"))
+    fig.update_layout(xaxis_title="Clip median speed, generated minus real (m/s)", yaxis_title="Share of clip pairs (%)",
+                      barmode="overlay", bargap=0, showlegend=True)
+    Crossings._layout(fig).update_layout(margin=dict(l=20, r=20, t=20, b=20),
+                                         legend=dict(orientation="v", x=0, y=-0.18, yanchor="top"))
     io.save_plotly_figure(fig, "hist_speed_paired_difference", width=700, height=500)
     return fig
 
@@ -405,6 +478,8 @@ def main() -> None:
                         help="CLIP scores per frame (appearance_analysis.py)")
     parser.add_argument("--scaled", help="output folder of the real continuations scaled to 864x480 (robustness check: "
                                          "is the speed difference a matter of resolution?)")
+    parser.add_argument("--veo-real", help="output folder of the real continuations of the Veo 3.1 Fast reference "
+                                           "frames (real_veo3)")
     parser.add_argument("--pdf-dir", help="also write the figures as PDF to this folder (e.g. the paper's figures)")
     parser.add_argument("--readme", action="store_true", help="also export the figures to readme/")
     args = parser.parse_args()
@@ -428,6 +503,9 @@ def main() -> None:
         both = pl.concat([clip_table(*scaled), clips], how="diagonal_relaxed").filter(pl.col("speeds").list.len() > 0)
         rows += paired_speed(both, "real_minimax_480", "real_minimax", "real continuation at 864x480 minus at 1280x720")
         rows += paired_speed(both, "minimax_h3", "real_minimax_480", "MiniMax H3 minus real continuation at 864x480")
+    veo_real = clip_table(*read_run("real_veo3", args.veo_real, cities)) if args.veo_real else None
+    if veo_real is not None:
+        rows += veo_pair_tests(clips, veo_real)
     tests = pl.DataFrame(rows, strict=False)
     tests.write_csv(os.path.join(output, "generated_statistics.csv"))
     split = reliability(clips)
@@ -436,7 +514,7 @@ def main() -> None:
         common.logger.info(f"Tests:\n{tests}")
         common.logger.info(f"Split-half reliability of the city medians:\n{split}")
 
-    figures = {"ecdf_speed_sets": ecdf_figure(clips, crowd), "hist_speed_paired_difference": paired_figure(clips)}
+    figures = {"ecdf_speed_sets": ecdf_figure(clips, crowd), "hist_speed_paired_difference": paired_figure(clips, veo_real)}
     for name, fig in figures.items():
         if args.pdf_dir:
             fig.write_image(os.path.join(args.pdf_dir, name + ".pdf"), width=700, height=500)

@@ -3,7 +3,8 @@
 main.py and analysis.py need a GPU and the videos; their results per set are small, so they are kept in results/ for
 the scripts that compare the sets (generated_speeds.py, speed_statistics.py, city_frames.py), which then run from a
 fresh checkout. Machine-specific columns (paths, file times) are left out. For the real continuations, the list of
-clips with their CROWD video and times (data/real_minimax/clips.csv from paired_real_clips.py) is kept too.
+clips with their CROWD video and times (data/real_minimax/ or data/real_veo3/clips.csv from paired_real_clips.py) is
+kept too.
 
     python export_results.py veo3
 """
@@ -24,8 +25,9 @@ def main() -> None:
     target = os.path.join(common.root_dir, "results", name)
     os.makedirs(target, exist_ok=True)
     files = {"crossings.csv": os.path.join(source, "crossings.csv"), "videos.csv": os.path.join(source, "videos.csv")}
-    if name.startswith("real_minimax"):
-        files["clips.csv"] = os.path.join(common.root_dir, "data", "real_minimax", "clips.csv")
+    if name.startswith("real_"):  # real_minimax(_480) and real_veo3: the cuts of paired_real_clips.py
+        pairs = "real_veo3" if name.startswith("real_veo3") else "real_minimax"
+        files["clips.csv"] = os.path.join(common.root_dir, "data", pairs, "clips.csv")
     for out, path in files.items():
         if not os.path.isfile(path):
             continue

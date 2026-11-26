@@ -1,0 +1,125 @@
+city,generated,real,youtube_id,start_s,length_s,status
+Chicago,videos/veo3/Chicago/CHI_01.mp4,data/real_veo3/Chicago/CHI_01.mp4,B0nkO6VSQ-E,3511.166667,8.0,ok
+Chicago,videos/veo3/Chicago/CHI_02.mp4,data/real_veo3/Chicago/CHI_02.mp4,B0nkO6VSQ-E,6142.316667,8.0,ok
+Chicago,videos/veo3/Chicago/CHI_03.mp4,data/real_veo3/Chicago/CHI_03.mp4,B0nkO6VSQ-E,8354.55,8.0,ok
+Chicago,videos/veo3/Chicago/CHI_04.mp4,data/real_veo3/Chicago/CHI_04.mp4,B0nkO6VSQ-E,9180.7,8.0,ok
+Chicago,videos/veo3/Chicago/CHI_05.mp4,data/real_veo3/Chicago/CHI_05.mp4,KpwzLSnv0A8,162.9,8.0,ok
+Chicago,videos/veo3/Chicago/CHI_06.mp4,data/real_veo3/Chicago/CHI_06.mp4,KpwzLSnv0A8,4553.633333,8.0,ok
+Chicago,videos/veo3/Chicago/CHI_07.mp4,data/real_veo3/Chicago/CHI_07.mp4,KpwzLSnv0A8,4731.116667,8.0,ok
+Chicago,videos/veo3/Chicago/CHI_08.mp4,data/real_veo3/Chicago/CHI_08.mp4,KpwzLSnv0A8,5923.966667,8.0,ok
+Chicago,videos/veo3/Chicago/CHI_09.mp4,data/real_veo3/Chicago/CHI_09.mp4,KpwzLSnv0A8,6075.633333,8.0,ok
+Chicago,videos/veo3/Chicago/CHI_10.mp4,data/real_veo3/Chicago/CHI_10.mp4,KpwzLSnv0A8,6347.316667,8.0,ok
+Chicago,videos/veo3/Chicago/CHI_11.mp4,data/real_veo3/Chicago/CHI_11.mp4,e1ZeF0Gz6rc,911.86095,8.0,ok
+Detroit,videos/veo3/Detroit/Detroit-01.mp4,data/real_veo3/Detroit/Detroit-01.mp4,sv8WNIh-_w8,168.785283,8.0,ok
+Detroit,videos/veo3/Detroit/Detroit-02.mp4,data/real_veo3/Detroit/Detroit-02.mp4,sv8WNIh-_w8,337.570567,7.85,ok
+Detroit,videos/veo3/Detroit/Detroit-03.mp4,data/real_veo3/Detroit/Detroit-03.mp4,sv8WNIh-_w8,441.007233,7.85,ok
+Detroit,videos/veo3/Detroit/Detroit-04.mp4,data/real_veo3/Detroit/Detroit-04.mp4,jhfGDbwL5MM,1495.44395,7.85,ok
+Detroit,videos/veo3/Detroit/Detroit-05.mp4,data/real_veo3/Detroit/Detroit-05.mp4,jhfGDbwL5MM,1589.421167,7.85,ok
+Detroit,videos/veo3/Detroit/Detroit-06.mp4,data/real_veo3/Detroit/Detroit-06.mp4,jhfGDbwL5MM,1828.193033,7.85,ok
+Detroit,videos/veo3/Detroit/Detroit-07.mp4,data/real_veo3/Detroit/Detroit-07.mp4,PXqxzSgdyzU,930.212617,7.85,ok
+Detroit,videos/veo3/Detroit/Detroit-08.mp4,data/real_veo3/Detroit/Detroit-08.mp4,PMv1KWDkXE4,379.846133,7.85,ok
+Detroit,videos/veo3/Detroit/Detroit-09.mp4,data/real_veo3/Detroit/Detroit-09.mp4,PMv1KWDkXE4,2200.34815,7.85,ok
+Detroit,videos/veo3/Detroit/Detroit-10.mp4,data/real_veo3/Detroit/Detroit-10.mp4,44Z4T_wRVmM,580.112867,7.85,ok
+Hanoi,videos/veo3/Hanoi/Hanoi_01.mp4,data/real_veo3/Hanoi/Hanoi_01.mp4,zdJ3z6DG58k,2061.242517,8.0,ok
+Hanoi,videos/veo3/Hanoi/Hanoi_02.mp4,data/real_veo3/Hanoi/Hanoi_02.mp4,UWx0hew9fy4,1491.156333,8.0,ok
+Hanoi,videos/veo3/Hanoi/Hanoi_03.mp4,data/real_veo3/Hanoi/Hanoi_03.mp4,f4cNePoIwbQ,3338.101433,8.0,ok
+Hanoi,videos/veo3/Hanoi/Hanoi_04.mp4,data/real_veo3/Hanoi/Hanoi_04.mp4,i-65fpZyrwg,5563.674783,8.0,ok
+Hanoi,videos/veo3/Hanoi/Hanoi_05.mp4,data/real_veo3/Hanoi/Hanoi_05.mp4,MAa2sRQ0gOQ,858.941417,8.0,ok
+Jakarta,videos/veo3/Jakarta/Jakarta_01.mp4,data/real_veo3/Jakarta/Jakarta_01.mp4,x6Dxv-rNbaw,187.3,8.0,ok
+Jakarta,videos/veo3/Jakarta/Jakarta_02.mp4,data/real_veo3/Jakarta/Jakarta_02.mp4,x6Dxv-rNbaw,185.8,8.0,ok
+Jakarta,videos/veo3/Jakarta/Jakarta_03.mp4,data/real_veo3/Jakarta/Jakarta_03.mp4,s2VJSAw_Cxc,388.733333,8.0,ok
+Jakarta,videos/veo3/Jakarta/Jakarta_04.mp4,data/real_veo3/Jakarta/Jakarta_04.mp4,TZCDNUspPOs,2131.390361,8.0,ok
+Jakarta,videos/veo3/Jakarta/Jakarta_05.mp4,data/real_veo3/Jakarta/Jakarta_05.mp4,TZCDNUspPOs,2188.594119,8.0,ok
+London,videos/veo3/London/LOndon_06.mp4,data/real_veo3/London/LOndon_06.mp4,H41mBDFrZL8,1481.313167,8.0,ok
+London,videos/veo3/London/London_01.mp4,data/real_veo3/London/London_01.mp4,QI4_dGvZ5yE,72.138733,8.0,ok
+London,videos/veo3/London/London_02.mp4,data/real_veo3/London/London_02.mp4,H41mBDFrZL8,212.045167,8.0,ok
+London,videos/veo3/London/London_03.mp4,data/real_veo3/London/London_03.mp4,H41mBDFrZL8,401.234167,8.0,ok
+London,videos/veo3/London/London_04.mp4,data/real_veo3/London/London_04.mp4,H41mBDFrZL8,932.164567,8.0,ok
+London,videos/veo3/London/London_05.mp4,data/real_veo3/London/London_05.mp4,H41mBDFrZL8,1288.920967,8.0,ok
+London,videos/veo3/London/London_07.mp4,data/real_veo3/London/London_07.mp4,H41mBDFrZL8,1827.192033,8.0,ok
+London,videos/veo3/London/London_08.mp4,data/real_veo3/London/London_08.mp4,9gmsUF3wpGM,161.833333,8.0,ok
+London,videos/veo3/London/London_09.mp4,data/real_veo3/London/London_09.mp4,9gmsUF3wpGM,235.45,8.0,ok
+London,videos/veo3/London/London_10.mp4,data/real_veo3/London/London_10.mp4,9gmsUF3wpGM,1032.483333,8.0,ok
+London,videos/veo3/London/London_11.mp4,data/real_veo3/London/London_11.mp4,9gmsUF3wpGM,1314.816667,8.0,ok
+Los Angeles,videos/veo3/Los_Angeles/LA_01.mp4,data/real_veo3/Los_Angeles/LA_01.mp4,4uhMg5na888,528.661467,8.0,ok
+Los Angeles,videos/veo3/Los_Angeles/LA_02.mp4,data/real_veo3/Los_Angeles/LA_02.mp4,hNN8TJtmfxs,594.033333,8.0,ok
+Los Angeles,videos/veo3/Los_Angeles/LA_03.mp4,data/real_veo3/Los_Angeles/LA_03.mp4,hNN8TJtmfxs,969.433333,8.0,ok
+Los Angeles,videos/veo3/Los_Angeles/LA_04.mp4,data/real_veo3/Los_Angeles/LA_04.mp4,VSk6E473L1I,782.333333,8.0,ok
+Los Angeles,videos/veo3/Los_Angeles/LA_05.mp4,data/real_veo3/Los_Angeles/LA_05.mp4,VSk6E473L1I,1108.566667,8.0,ok
+Los Angeles,videos/veo3/Los_Angeles/LA_06.mp4,data/real_veo3/Los_Angeles/LA_06.mp4,VSk6E473L1I,1360.95,8.0,ok
+Los Angeles,videos/veo3/Los_Angeles/LA_07.mp4,data/real_veo3/Los_Angeles/LA_07.mp4,gfdsMx5ETJI,161.966667,8.0,ok
+Los Angeles,videos/veo3/Los_Angeles/LA_08.mp4,data/real_veo3/Los_Angeles/LA_08.mp4,gfdsMx5ETJI,697.283333,8.0,ok
+Los Angeles,videos/veo3/Los_Angeles/LA_09.mp4,data/real_veo3/Los_Angeles/LA_09.mp4,lFjiQc8ngN4,24.407717,8.0,ok
+Los Angeles,videos/veo3/Los_Angeles/LA_10.mp4,data/real_veo3/Los_Angeles/LA_10.mp4,lFjiQc8ngN4,1284.099483,8.0,ok
+Los Angeles,videos/veo3/Los_Angeles/LA_11.mp4,data/real_veo3/Los_Angeles/LA_11.mp4,ZhelsVW9yZ8,604.086817,8.0,ok
+Manila,videos/veo3/Manila/Manila_01.mp4,data/real_veo3/Manila/Manila_01.mp4,2tfyoN70EHo,4668.630633,8.0,ok
+Manila,videos/veo3/Manila/Manila_02.mp4,data/real_veo3/Manila/Manila_02.mp4,JY-Xyiept88,370.4701,8.0,ok
+Manila,videos/veo3/Manila/Manila_03.mp4,data/real_veo3/Manila/Manila_03.mp4,JY-Xyiept88,376.008967,8.0,ok
+Manila,videos/veo3/Manila/Manila_04.mp4,data/real_veo3/Manila/Manila_04.mp4,JY-Xyiept88,2783.2805,8.0,ok
+Manila,videos/veo3/Manila/Manila_05.mp4,data/real_veo3/Manila/Manila_05.mp4,JY-Xyiept88,4433.796033,8.0,ok
+New York,videos/veo3/New_York/NY_01.mp4,data/real_veo3/New_York/NY_01.mp4,_Wyg213IZDI,1362.928233,8.0,ok
+New York,videos/veo3/New_York/NY_02.mp4,data/real_veo3/New_York/NY_02.mp4,_Wyg213IZDI,1700.432067,8.0,ok
+New York,videos/veo3/New_York/NY_03.mp4,data/real_veo3/New_York/NY_03.mp4,_Wyg213IZDI,2670.534533,8.0,ok
+New York,videos/veo3/New_York/NY_04.mp4,data/real_veo3/New_York/NY_04.mp4,_Wyg213IZDI,2750.230817,8.0,ok
+New York,videos/veo3/New_York/NY_05.mp4,data/real_veo3/New_York/NY_05.mp4,_Wyg213IZDI,2758.90615,8.0,ok
+New York,videos/veo3/New_York/NY_06.mp4,data/real_veo3/New_York/NY_06.mp4,LQLJu-EpkeE,153.219733,8.0,ok
+New York,videos/veo3/New_York/NY_07.mp4,data/real_veo3/New_York/NY_07.mp4,LQLJu-EpkeE,210.877333,8.0,ok
+New York,videos/veo3/New_York/NY_08.mp4,data/real_veo3/New_York/NY_08.mp4,LQLJu-EpkeE,528.494633,8.0,ok
+New York,videos/veo3/New_York/NY_09.mp4,data/real_veo3/New_York/NY_09.mp4,LQLJu-EpkeE,741.3406,8.0,ok
+New York,videos/veo3/New_York/NY_10.mp4,data/real_veo3/New_York/NY_10.mp4,LQLJu-EpkeE,931.931,8.0,ok
+New York,videos/veo3/New_York/NY_11.mp4,data/real_veo3/New_York/NY_11.mp4,LQLJu-EpkeE,1219.051167,8.0,ok
+Philadelphia,videos/veo3/Philadelphia/Philadelphia-01.mp4,data/real_veo3/Philadelphia/Philadelphia-01.mp4,wE5SyGMmA7I,843.909733,8.0,ok
+Philadelphia,videos/veo3/Philadelphia/Philadelphia-02.mp4,data/real_veo3/Philadelphia/Philadelphia-02.mp4,wE5SyGMmA7I,782.3816,7.85,ok
+Philadelphia,videos/veo3/Philadelphia/Philadelphia-03.mp4,data/real_veo3/Philadelphia/Philadelphia-03.mp4,wE5SyGMmA7I,813.379233,7.85,ok
+Philadelphia,videos/veo3/Philadelphia/Philadelphia-04.mp4,data/real_veo3/Philadelphia/Philadelphia-04.mp4,IUqTNY5YkE8,1961.783333,7.85,ok
+Philadelphia,videos/veo3/Philadelphia/Philadelphia-05.mp4,data/real_veo3/Philadelphia/Philadelphia-05.mp4,_L8xq9nnC3E,1862.861,7.85,ok
+Philadelphia,videos/veo3/Philadelphia/Philadelphia-06.mp4,data/real_veo3/Philadelphia/Philadelphia-06.mp4,_L8xq9nnC3E,2218.699817,7.85,ok
+Philadelphia,videos/veo3/Philadelphia/Philadelphia-07.mp4,data/real_veo3/Philadelphia/Philadelphia-07.mp4,_L8xq9nnC3E,3741.254183,7.85,ok
+Philadelphia,videos/veo3/Philadelphia/Philadelphia-08.mp4,data/real_veo3/Philadelphia/Philadelphia-08.mp4,RuxlvzNOSAY,120.616667,7.85,ok
+Philadelphia,videos/veo3/Philadelphia/Philadelphia-09.mp4,data/real_veo3/Philadelphia/Philadelphia-09.mp4,RuxlvzNOSAY,1049.366667,7.85,ok
+Philadelphia,videos/veo3/Philadelphia/Philadelphia-10.mp4,data/real_veo3/Philadelphia/Philadelphia-10.mp4,RuxlvzNOSAY,6350.683333,7.85,ok
+Saint Petersburg,videos/veo3/Saint_Petersburg/StPetersburg_01.mp4,data/real_veo3/Saint_Petersburg/StPetersburg_01.mp4,vKD8_m88tuk,1388.153433,8.0,ok
+Saint Petersburg,videos/veo3/Saint_Petersburg/StPetersburg_02.mp4,data/real_veo3/Saint_Petersburg/StPetersburg_02.mp4,vKD8_m88tuk,2480.261117,8.0,ok
+Saint Petersburg,videos/veo3/Saint_Petersburg/StPetersburg_03.mp4,data/real_veo3/Saint_Petersburg/StPetersburg_03.mp4,vKD8_m88tuk,2631.195233,8.0,ok
+Saint Petersburg,videos/veo3/Saint_Petersburg/StPetersburg_04.mp4,data/real_veo3/Saint_Petersburg/StPetersburg_04.mp4,vKD8_m88tuk,2708.0053,8.0,ok
+Saint Petersburg,videos/veo3/Saint_Petersburg/StPetersburg_05.mp4,data/real_veo3/Saint_Petersburg/StPetersburg_05.mp4,vKD8_m88tuk,2714.078033,8.0,ok
+Saint Petersburg,videos/veo3/Saint_Petersburg/StPetersburg_06.mp4,data/real_veo3/Saint_Petersburg/StPetersburg_06.mp4,vKD8_m88tuk,2966.91395,8.0,ok
+Saint Petersburg,videos/veo3/Saint_Petersburg/StPetersburg_07.mp4,data/real_veo3/Saint_Petersburg/StPetersburg_07.mp4,vKD8_m88tuk,3437.967867,8.0,ok
+Saint Petersburg,videos/veo3/Saint_Petersburg/StPetersburg_08.mp4,data/real_veo3/Saint_Petersburg/StPetersburg_08.mp4,vKD8_m88tuk,3563.593367,8.0,ok
+Saint Petersburg,videos/veo3/Saint_Petersburg/StPetersburg_09.mp4,data/real_veo3/Saint_Petersburg/StPetersburg_09.mp4,BmDjMCHublI,270.066667,8.0,ok
+Saint Petersburg,videos/veo3/Saint_Petersburg/StPetersburg_10.mp4,data/real_veo3/Saint_Petersburg/StPetersburg_10.mp4,BmDjMCHublI,1261.966667,8.0,ok
+Seoul,videos/veo3/Seoul/Seoul_01.mp4,data/real_veo3/Seoul/Seoul_01.mp4,WRKXnQWfn_A,2490.554733,8.0,ok
+Seoul,videos/veo3/Seoul/Seoul_02.mp4,data/real_veo3/Seoul/Seoul_02.mp4,qOx5CwCrN9k,1124.206417,8.0,ok
+Seoul,videos/veo3/Seoul/Seoul_03.mp4,data/real_veo3/Seoul/Seoul_03.mp4,eMv6SCniTPg,448.080967,8.0,ok
+Seoul,videos/veo3/Seoul/Seoul_04.mp4,data/real_veo3/Seoul/Seoul_04.mp4,eMv6SCniTPg,3340.870867,8.0,ok
+Seoul,videos/veo3/Seoul/Seoul_05.mp4,data/real_veo3/Seoul/Seoul_05.mp4,eMv6SCniTPg,3805.468333,8.0,ok
+Seoul,videos/veo3/Seoul/Seoul_06.mp4,data/real_veo3/Seoul/Seoul_06.mp4,WRKXnQWfn_A,2620.084133,8.0,ok
+Seoul,videos/veo3/Seoul/Seoul_07.mp4,data/real_veo3/Seoul/Seoul_07.mp4,DlLqFGoNFZ8,979.194883,8.0,ok
+Seoul,videos/veo3/Seoul/Seoul_08.mp4,data/real_veo3/Seoul/Seoul_08.mp4,DlLqFGoNFZ8,1247.5463,8.0,ok
+Seoul,videos/veo3/Seoul/Seoul_09.mp4,data/real_veo3/Seoul/Seoul_09.mp4,DlLqFGoNFZ8,2129.710917,8.0,ok
+Seoul,videos/veo3/Seoul/Seoul_10.mp4,data/real_veo3/Seoul/Seoul_10.mp4,DlLqFGoNFZ8,2232.28005,8.0,ok
+Sydney,videos/veo3/Sydney/Sydney_01.mp4,data/real_veo3/Sydney/Sydney_01.mp4,wMu6Va5PhGY,1922.086833,8.0,ok
+Sydney,videos/veo3/Sydney/Sydney_02.mp4,data/real_veo3/Sydney/Sydney_02.mp4,_fxg06j8SNY,1248.69745,8.0,ok
+Sydney,videos/veo3/Sydney/Sydney_03.mp4,data/real_veo3/Sydney/Sydney_03.mp4,jTyfIV2wres,1107.416667,8.0,ok
+Sydney,videos/veo3/Sydney/Sydney_04.mp4,data/real_veo3/Sydney/Sydney_04.mp4,jTyfIV2wres,1370.416667,8.0,ok
+Sydney,videos/veo3/Sydney/Sydney_05.mp4,data/real_veo3/Sydney/Sydney_05.mp4,wMu6Va5PhGY,2596.24365,8.0,ok
+Toronto,videos/veo3/Toronto/Toronto-01.mp4,data/real_veo3/Toronto/Toronto-01.mp4,3ai7SUaPoHM,669.585583,8.0,ok
+Toronto,videos/veo3/Toronto/Toronto-02.mp4,data/real_veo3/Toronto/Toronto-02.mp4,3ai7SUaPoHM,701.784417,7.85,ok
+Toronto,videos/veo3/Toronto/Toronto-03.mp4,data/real_veo3/Toronto/Toronto-03.mp4,3ai7SUaPoHM,1220.886333,7.85,ok
+Toronto,videos/veo3/Toronto/Toronto-04.mp4,data/real_veo3/Toronto/Toronto-04.mp4,3ai7SUaPoHM,1576.958717,7.85,ok
+Toronto,videos/veo3/Toronto/Toronto-05.mp4,data/real_veo3/Toronto/Toronto-05.mp4,3ai7SUaPoHM,2408.789717,7.85,ok
+Toronto,videos/veo3/Toronto/Toronto-06.mp4,data/real_veo3/Toronto/Toronto-06.mp4,3ai7SUaPoHM,3013.577233,7.85,ok
+Toronto,videos/veo3/Toronto/Toronto-07.mp4,data/real_veo3/Toronto/Toronto-07.mp4,lmLWoDdQgtQ,115.66555,7.85,ok
+Toronto,videos/veo3/Toronto/Toronto-08.mp4,data/real_veo3/Toronto/Toronto-08.mp4,lmLWoDdQgtQ,448.915133,7.85,ok
+Toronto,videos/veo3/Toronto/Toronto-09.mp4,data/real_veo3/Toronto/Toronto-09.mp4,lmLWoDdQgtQ,1959.340717,7.85,ok
+Toronto,videos/veo3/Toronto/Toronto-10.mp4,data/real_veo3/Toronto/Toronto-10.mp4,lmLWoDdQgtQ,2091.2892,7.85,ok
+Warsaw,videos/veo3/Warsaw/Warsaw-01.mp4,data/real_veo3/Warsaw/Warsaw-01.mp4,unU8hTgfHNc,921.303717,8.0,ok
+Warsaw,videos/veo3/Warsaw/Warsaw-02.mp4,data/real_veo3/Warsaw/Warsaw-02.mp4,unU8hTgfHNc,471.654517,7.85,ok
+Warsaw,videos/veo3/Warsaw/Warsaw-03.mp4,data/real_veo3/Warsaw/Warsaw-03.mp4,unU8hTgfHNc,896.54565,7.85,ok
+Warsaw,videos/veo3/Warsaw/Warsaw-04.mp4,data/real_veo3/Warsaw/Warsaw-04.mp4,unU8hTgfHNc,2238.953383,7.85,ok
+Warsaw,videos/veo3/Warsaw/Warsaw-05.mp4,data/real_veo3/Warsaw/Warsaw-05.mp4,9lQllvyxxbI,569.25,7.85,ok
+Warsaw,videos/veo3/Warsaw/Warsaw-06.mp4,data/real_veo3/Warsaw/Warsaw-06.mp4,9lQllvyxxbI,834.266667,7.85,ok
+Warsaw,videos/veo3/Warsaw/Warsaw-07.mp4,data/real_veo3/Warsaw/Warsaw-07.mp4,B7YczVdsjt0,1261.616667,7.85,ok
+Warsaw,videos/veo3/Warsaw/Warsaw-08.mp4,data/real_veo3/Warsaw/Warsaw-08.mp4,B7YczVdsjt0,1606.283333,7.85,ok
+Warsaw,videos/veo3/Warsaw/Warsaw-09.mp4,data/real_veo3/Warsaw/Warsaw-09.mp4,B7YczVdsjt0,1709.483333,7.85,ok
+Warsaw,videos/veo3/Warsaw/Warsaw-10.mp4,data/real_veo3/Warsaw/Warsaw-10.mp4,YQ2uf_qDsgc,5906.62,7.85,ok

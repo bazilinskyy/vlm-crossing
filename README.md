@@ -103,6 +103,7 @@ Everything the comparison needs, apart from the video files, is in the repositor
 ```
 videos/
 ├── generated_videos.csv          every video: model, city, status, batch, place in Drive, CROWD source frame, size, fps
+├── veo3_sources.csv              CROWD video and second of 124 Veo reference frames (recovered by Tanvir)
 ├── veo3/<city>/*.mp4             Veo 3.1 Fast clips analysed (145)              ┐ not in git: on 4TU.ResearchData,
 ├── minimax_h3/<city>/*.mp4       MiniMax H3 clips analysed (1,000)              │ or fetched from Drive with
 └── not_analysed/                 left-out clips, Veo prompt tests, LTX benchmark ┘ fetch_generated_videos.py
@@ -114,8 +115,8 @@ crowd/
 assets/flags/                     Twemoji flag images (CC-BY 4.0, github.com/jdecked/twemoji) for the city labels of
                                   the figures; places.py fetches a missing one
 models/waymo_calibration_v32/     crowd-city's frozen Waymo speed model (the default speed_model: speeds in m/s)
-results/<set>/                    crossings.csv and videos.csv of each tracked set; real_minimax/clips.csv lists the
-                                  real continuations with their CROWD video and times
+results/<set>/                    crossings.csv and videos.csv of each tracked set; real_minimax/ and real_veo3/clips.csv
+                                  list the real continuations with their CROWD video and times
 ```
 
 The videos come from the project's Google Drive folders (Veo 3 by Tanvir, MiniMax H3 by Zi). `fetch_generated_videos.py` mirrors the folders to `data/_drive/` (not committed), links every video into `videos/` and rewrites `videos/generated_videos.csv` (the clips themselves stay out of git and will be published on 4TU.ResearchData); rerun it for new videos. It needs `ffprobe` on the PATH. Drive refuses anonymous downloads after a few hundred files; then download the folder in a signed-in browser and pass the zip(s) with `--zip <folder>=<path pattern>` (see the script's docstring).
@@ -124,7 +125,7 @@ The videos come from the project's Google Drive folders (Veo 3 by Tanvir, MiniMa
 uvx --with gdown python fetch_generated_videos.py
 ```
 
-**Tracking** (GPU): `run_sets.sh` writes `config` for each set (`videos/veo3`, `videos/minimax_h3`; `data/real_minimax`, the real 8 seconds after each MiniMax H3 reference frame, which `paired_real_clips.py --videos '<CROWD video folders>'` cuts from the CROWD videos, as YouTube footage is not redistributed here), runs `main.py` and `analysis.py` into `_output/<set>/`, and keeps the results in `results/<set>/` (`export_results.py`). The runs of 3 and 15 November 2026 were on lin4080 (RTX 4080).
+**Tracking** (GPU): `run_sets.sh` writes `config` for each set (`videos/veo3`, `videos/minimax_h3`; `data/real_minimax`, the real 8 seconds after each MiniMax H3 reference frame, which `paired_real_clips.py --videos '<CROWD video folders>'` cuts from the CROWD videos, and `data/real_veo3`, the same for the Veo frames with a known source (`--model veo3`), as YouTube footage is not redistributed here), runs `main.py` and `analysis.py` into `_output/<set>/`, and keeps the results in `results/<set>/` (`export_results.py`). The runs of 3 and 15 November 2026 were on lin4080 (RTX 4080).
 
 ```bash
 SETS="veo3 minimax_h3" ./run_sets.sh
@@ -134,7 +135,8 @@ SETS="veo3 minimax_h3" ./run_sets.sh
 
 ```bash
 uv run python generated_speeds.py --readme          # per-city speeds, usability, correlations, paired clips
-uv run python speed_statistics.py --readme          # tests, bootstrap intervals, reliability of the city medians
+uv run python speed_statistics.py --readme --scaled results/real_minimax_480 --veo-real results/real_veo3
+                                                    # tests, bootstrap intervals, reliability of the city medians
 uv run python speed_generated_vs_crowd.py --readme  # speed per city: CROWD, Veo 3.1 Fast, MiniMax H3
 uv run python city_frames.py --readme               # one frame per city and the table of cities below
 uv run python appearance_analysis.py --readme       # CLIP: does a clip keep the look of its city? and the map
@@ -376,11 +378,12 @@ City medians (cities with at least 3 m/s speeds) against CROWD and against the r
 Crossings are counted with the crowd-city code of CROWD's current run (commit 9a35c28: track joining, corrected segmentation clock), and speeds are computed by the same function as CROWD's per-city table. CROWD's values are those of its interim run of 17 November 2026; the nightly job replaces them when the run's step 1 ends.
 
 - **Generated pedestrians cross about 0.1 m/s slower than real ones.** On the 352 clip pairs with an m/s speed in both, MiniMax H3 is 0.10 m/s (0.07-0.12) slower than the real continuation of the same scene (Wilcoxon signed-rank, p < .001); per pair the speeds agree only weakly (Spearman 0.24). **Not a matter of resolution:** the real continuations scaled to MiniMax's 864×480 give the same speeds as at 1280×720 (median difference 0.000 m/s, −0.002 to 0.004, Spearman 0.92, 482 clips; `results/real_minimax_480`), and MiniMax H3 is 0.09 m/s slower than those too.
+- **Veo 3.1 Fast is slower still against its own real scenes.** Tanvir recovered the CROWD video and second of 124 of the 129 Veo frames in the 14 cities with several Veo clips (`videos/veo3_sources.csv`; Sydney_06-10 are no longer on YouTube), and `paired_real_clips.py --model veo3` cut their real continuations (`results/real_veo3`). On the 54 pairs with an m/s speed in both, Veo is 0.19 m/s (0.11-0.25) slower than the real continuation (Wilcoxon p < .001; Spearman 0.21), a larger gap than MiniMax H3's 0.10 m/s (Mann-Whitney p = .024). Its hand-picked scenes are not slower in reality: the real continuations of the Veo frames and of the MiniMax frames in the same cities have the same speed (1.38 against 1.39 m/s, p = .33). Of the 104 real continuations with a crossing, 29 (28%) have none in the Veo clip, against 12 Veo clips with a crossing the real one lacks (exact McNemar p = .012); crossings are counted in 70% of these Veo clips and 84% of their real continuations.
 - **MiniMax H3 loses crossings and adds waits.** Of the 703 real continuations with a crossing, 210 (30%) have none in the generated clip, against 83 generated clips with a crossing the real one lacks (exact McNemar, p < .001). MiniMax shows a pedestrian waiting before stepping onto the road in 33 clips against 19 real continuations (p = .038; median wait 1.50 s against 1.33 s). On the 30 shared cities, Veo 3.1 Fast keeps a crossing slightly more often than MiniMax H3 (68% against 60%, Fisher p = .12).
 - **Cities that are likely better represented online are not generated more accurately.** The error of a MiniMax H3 city median is unrelated to the city's hours of YouTube footage (Spearman −0.04, p = .69, 92 cities), its population (−0.06, p = .54) and economic output (−0.21, p = .07, 74 cities), and English-speaking cities are not significantly closer (by 0.03 m/s, Mann-Whitney p = .06). One speed for every city comes closer to CROWD than MiniMax's own city medians (median error 0.071 against 0.093 m/s, p < .001). For Veo the eight English-speaking cities are closer than the seven others (p < .001), but its city medians are no closer than one speed for all (p = .30).
 - **Eight-second clips cannot rank cities, even real ones.** In the real continuations the city explains none of the variance in clip speed (Kruskal-Wallis η²_H = −0.01, 88 cities, p = .67), and the split-half reliability of a city median from about six clips with a speed is −0.17 (−0.54 to 0.15): no reference could correlate with such city medians. So the weak correlations of the models with CROWD say little about the models; the per-clip pairing is the fair test. MiniMax H3 is similar (η²_H = 0.04, p = .12; reliability 0.20, −0.10 to 0.45). Veo's clips of one city are more alike (η²_H = 0.21, p = .01 in 13 cities), perhaps because their hand-picked frames resemble each other.
 
-**Speed of every crossing per set** (left; the dashed line is the median of CROWD's city medians) and **MiniMax H3 minus its real continuation, per clip** (right):
+**Speed of every crossing per set** (left; the dashed line is the median of CROWD's city medians) and **each model minus the real continuation of the same frame, per clip** (right, as shares of each model's pairs):
 
 [![Speed of every crossing per set](readme/ecdf_speed_sets.png)](https://htmlpreview.github.io/?https://github.com/bazilinskyy/vlm-crossing/blob/main/readme/ecdf_speed_sets.html) [![MiniMax H3 minus its real continuation](readme/hist_speed_paired_difference.png)](https://htmlpreview.github.io/?https://github.com/bazilinskyy/vlm-crossing/blob/main/readme/hist_speed_paired_difference.html)
 
@@ -420,7 +423,7 @@ Per-city values are in `_output/appearance_cities.csv`. With one Veo video, a ci
 ### Analyses still to run
 
 1. **Final CROWD values**: when crowd-city's step 1 ends, the nightly job takes its per-city table instead of the interim run's; the numbers in this section's text are then updated by hand.
-2. **Real continuations for Veo 3.1 Fast**: its clips do not record the source video and second of their reference frame; with them, `paired_real_clips.py` could cut Veo's real continuations too.
+2. **Real continuations for the other Veo clips**: the 16 cities with one Veo clip and Sydney_06-10 have no recorded source frame yet; the Sydney videos are no longer on YouTube, but lin4080 may still hold them.
 3. **Track stability and artefacts (RQ1)**: how many pedestrians appear, disappear or change class during a clip, generated against real continuation, and a manual check of the clips.
 4. **Side of the road**: the side on which oncoming vehicles pass in left-hand traffic cities (London, Sydney, Melbourne, Tokyo, Hong Kong ...) against right-hand ones, as a check of whether the models keep a basic local rule.
 

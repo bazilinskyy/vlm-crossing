@@ -27,6 +27,7 @@ fi
 rm -f "$copy"
 scaled=()
 [ -f results/real_minimax_480/crossings.csv ] && scaled=(--scaled results/real_minimax_480)
+[ -f results/real_veo3/crossings.csv ] && scaled+=(--veo-real results/real_veo3)
 run() { nice -n 10 "$PY" "$@" > /dev/null 2>&1 || { echo "failed: $*"; exit 1; }; }
 run appearance_analysis.py --readme  # first: speed_statistics.py reads its results/appearance/frames.csv
 run generated_speeds.py --readme
